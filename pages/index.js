@@ -341,7 +341,7 @@ export default function Home() {
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2 2H7a2 2 0 01-2-2v-2a2 2 0 012-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2-2H7a2 2 0 01-2-2v-2a2 2 0 01-2-2z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12V9a3 3 0 00-6 0v3" />
         </svg>
       ),
@@ -352,7 +352,7 @@ export default function Home() {
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2-2H7a2 2 0 01-2-2v-2a2 2 0 012-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2-2H7a2 2 0 01-2-2v-2a2 2 0 01-2-2z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12V9a3 3 0 00-6 0v3" />
         </svg>
       ),
@@ -363,7 +363,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Nexgen Consulting – Digitalisierung, Webdesign, SEO und Prozessautomatisierung</title>
+        <title>Nexgen Consulting – Digitalisierung, Webdesign und Automatisierung</title>
         <meta
           name="description"
           content="Nexgen Consulting – Ihr Partner für Digitalisierung, Prozessautomatisierung, Webdesign und SEO-Optimierung für kleine und mittelständische Unternehmen."
@@ -389,6 +389,13 @@ export default function Home() {
             ]
           }) }}
         />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Nexgen Consulting – Digitalisierung, Webdesign und Automatisierung" />
+        <meta property="og:description" content="Nexgen Consulting – Ihr Partner für Digitalisierung, Prozessautomatisierung, Webdesign und SEO-Optimierung für kleine und mittelständische Unternehmen." />
+        <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
+        <meta property="og:url" content="https://nexgen-consulting.de" />
+        <meta property="og:site_name" content="Nexgen Consulting" />
       </Head>
 
       <NavBar />
