@@ -269,7 +269,7 @@ export default function Home() {
   const marketingServices = [
     {
       title: "Google Analytics",
-      description: "Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung.",
+      description: "Analysieren Sie das Verhalten Ihrer Kunden und optimieren Sie Ihre Marketingstrategien mit datenbasierten Einblicken.",
       link: "/services/online",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -279,7 +279,7 @@ export default function Home() {
     },
     {
       title: "SEO",
-      description: "Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung.",
+      description: "Verbessern Sie die Sichtbarkeit Ihrer Website in Suchmaschinen und erreichen Sie Ihre Zielgruppe effektiver.",
       link: "/services/online",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -289,7 +289,7 @@ export default function Home() {
     },
     {
       title: "Social Media",
-      description: "Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung.",
+      description: "Erstellen Sie ansprechende Inhalte und bauen Sie eine starke Präsenz auf Social-Media-Plattformen auf.",
       link: "/services/online",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,7 +299,7 @@ export default function Home() {
     },
     {
       title: "Logo & Firmenidentität",
-      description: "Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung.",
+      description: "Entwickeln Sie eine einzigartige Markenidentität und ein professionelles Logo, das Ihre Werte widerspiegelt.",
       link: "/services/online",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -352,7 +352,7 @@ export default function Home() {
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2 2H7a2 2 0 01-2-2v-2a2 2 0 012-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2-2H7a2 2 0 01-2-2v-2a2 2 0 012-2z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12V9a3 3 0 00-6 0v3" />
         </svg>
       ),
@@ -363,11 +363,17 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Nexgen Consulting </title>
+        <title>Nexgen Consulting – Digitalisierung, Webdesign, SEO und Prozessautomatisierung</title>
         <meta
           name="description"
-          content="Nexgen Consulting – Ihr Partner für digitale Transformation, Automatisierung und Online-Kommunikation."
+          content="Nexgen Consulting – Ihr Partner für Digitalisierung, Prozessautomatisierung, Webdesign und SEO-Optimierung für kleine und mittelständische Unternehmen."
         />
+        <meta
+          name="keywords"
+          content="Digitalisierung, Prozessautomatisierung, Webdesign, SEO, Softwareentwicklung, Appentwicklung, Microsoft 365, Social Media, Marketing"
+        />
+        <meta name="author" content="Nexgen Consulting" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -375,7 +381,12 @@ export default function Home() {
             "@type": "Organization",
             "name": "Nexgen Consulting Digitalisation",
             "url": "https://nexgen-consulting.de",
-            "logo": "https://nexgen-consulting.de/logo.png"
+            "logo": "https://nexgen-consulting.de/logo.png",
+            "description": "Ihr Partner für Digitalisierung, Prozessautomatisierung, Webdesign und SEO-Optimierung.",
+            "sameAs": [
+              "https://www.facebook.com/nexgenconsulting",
+              "https://www.linkedin.com/company/nexgenconsulting"
+            ]
           }) }}
         />
       </Head>
@@ -391,11 +402,11 @@ export default function Home() {
           <div className="md:w-1/2">
             <h2 className="text-4xl text-[#E64000] font-bold mb-6">Über Uns</h2>
             <p className="text-xl leading-relaxed">
-            Nexgen Consulting bietet umfassende Komplettlösungen im Bereich Digitalisierung speziell für kleine und mittelständische Unternehmen. Von der Prozessautomatisierung über Softwareentwicklung bis hin zu modernem Webdesign und effektiven Marketingstrategien. Gemeinsam gestalten wir Ihre digitale Zukunft.
+              Nexgen Consulting bietet umfassende Komplettlösungen <strong>für die Digitalisierung im Mittelstand</strong> – speziell für kleine und mittelständische Unternehmen in <strong>Coburg</strong>, <strong>Oberfranken</strong> und ganz Deutschland. Von der <strong>Prozessautomatisierung</strong> über <strong>Software- und App-Entwicklung</strong> bis hin zu modernem Webdesign und effektiven Marketingstrategien begleiten wir Sie als zuverlässiger Partner vor Ort. Gemeinsam gestalten wir Ihre digitale Zukunft.
             </p>
           </div>
           <div className="md:w-1/2" data-aos="fade-left" data-aos-duration="2000">
-            <img src="/images/team.jpg" alt="Unser Team" className="rounded-lg shadow-xl" />
+            <img src="/images/team.jpg" alt="Unser Team" className="rounded-lg shadow-lg" />
           </div>
         </div>
       </section>
@@ -415,7 +426,7 @@ export default function Home() {
       <section id="services" className="container mx-auto py-24 px-8 bg-blue text-white">
         <h2 className="text-4xl font-bold mb-12 text-[#E64000] text-center">Unsere Services</h2>
         <p className="text-lg leading-relaxed text-center mb-8">
-          Ihre Roadmap zum digitalen Erfolg.
+          Ihre Roadmap zum digitalen Erfolg
           Gemeinsam gestalten wir die Zukunft Ihres Unternehmens.
         </p>
       </section>
@@ -470,7 +481,7 @@ export default function Home() {
                 </svg>
               }
               title="Google Analytics"
-              description="Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung."
+              description="Analysieren Sie das Verhalten Ihrer Kunden und optimieren Sie Ihre Marketingstrategien mit datenbasierten Einblicken."
               onClick={() => handleServiceClick("Marketing", "Google Analytics")}
             />
             <ServiceCard
@@ -480,7 +491,7 @@ export default function Home() {
                 </svg>
               }
               title="SEO"
-              description="Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung."
+              description="Verbessern Sie die Sichtbarkeit Ihrer Website in Suchmaschinen und erreichen Sie Ihre Zielgruppe effektiver."
               onClick={() => handleServiceClick("Marketing", "SEO")}
             />
             <ServiceCard
@@ -490,7 +501,7 @@ export default function Home() {
                 </svg>
               }
               title="Social Media"
-              description="Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung."
+              description="Erstellen Sie ansprechende Inhalte und bauen Sie eine starke Präsenz auf Social-Media-Plattformen auf."
               onClick={() => handleServiceClick("Marketing", "Social Media")}
             />
             <ServiceCard
@@ -500,7 +511,7 @@ export default function Home() {
                 </svg>
               }
               title="Logo & Firmenidentität"
-              description="Gezielte Online-Strategien zur Steigerung Ihrer Sichtbarkeit und Kundengewinnung."
+              description="Entwickeln Sie eine einzigartige Markenidentität und ein professionelles Logo, das Ihre Werte widerspiegelt."
               onClick={() => handleServiceClick("Marketing", "Logo & Firmenidentität")}
             />
           </ServiceCategory>
@@ -519,14 +530,14 @@ export default function Home() {
         </div>
       
       {/* Kontakt-CTA */}
-      <section id="contact-cta" className="bg-blue py-24 px-8 text-white text-center" data-aos="fade-up">
-        <h2 className="text-4xl text-[#E64000] font-bold mb-6">Kontaktieren Sie uns</h2>
-        <p className="text-xl mb-8">
-          Das passende gefunden? Jeder Service ist auch einzeln verfügbar
-        </p>
+      <section id="contact" className="container mx-auto py-24 px-8 mt-16 bg-blue text-black rounded-lg">
+  <h2 className="text-4xl font-bold mb-6 text-center text-[#E64000]">Kontakt</h2>
+  <p className="text-xl text-white leading-relaxed mb-8 text-center">
+    <strong>Lokal in Coburg verwurzelt:</strong> Wir sind als Coburger Unternehmen direkt vor Ort für Sie da. Ob Digitalisierung, Webdesign oder **SEO in Coburg** – mit persönlicher Beratung begleiten wir Sie auf Ihrem Weg der digitalen Transformation. Treten Sie gern mit uns in Kontakt, um Ihr Projekt zu besprechen.
+  </p>
         <a
           href="/services/contact"
-          className="inline-block bg-[#0A1129] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="inline-block bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
         >
           Zum Kontaktformular
         </a>
