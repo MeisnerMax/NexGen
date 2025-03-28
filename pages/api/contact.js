@@ -12,17 +12,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Bitte alle Felder ausfüllen.' });
   }
 
-  // Konfiguriere den Nodemailer-Transporter mit direkten Werten
+  // Konfiguriere den Nodemailer-Transporter für Gmail
   const transporter = nodemailer.createTransport({
-    host: 'smtpout.secureserver.net', // SMTP-Host
+    host: 'smtp.gmail.com', // Gmail SMTP-Host
     port: 587, // Port für STARTTLS
     secure: false, // Verwende STARTTLS
     auth: {
-      user: 'admin@nexgen-consulting.de', // Deine E-Mail-Adresse
-      pass: 'JackyCola1!', // Dein E-Mail-Passwort
-    },
-    tls: {
-      rejectUnauthorized: false, // Akzeptiere selbstsignierte Zertifikate (falls nötig)
+      user: 'maxmeisner3@gmail.com', // Deine Gmail-Adresse
+      pass: 'zagu ffxr skgo ytyg', // Ersetze dies durch ein Gmail-App-Passwort
     },
   });
 
@@ -33,8 +30,8 @@ export default async function handler(req, res) {
 
     // Sende die E-Mail
     await transporter.sendMail({
-      from: 'admin@nexgen-consulting.de', // Absender (deine E-Mail-Adresse)
-      to: 'admin@nexgen-consulting.de', // Zieladresse
+      from: 'maxmeisner3@gmail.com', // Absender (deine Gmail-Adresse)
+      to: 'maxmeisner3@gmail.com', // Zieladresse (deine Gmail-Adresse)
       subject: `Neue Kontaktanfrage von ${name}`,
       text: `Name: ${name}\nE-Mail: ${email}\nNachricht: ${message}\nInteressierte Services: ${services?.join(', ') || 'Keine'}`,
     });
@@ -45,4 +42,3 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Fehler beim Senden der E-Mail.' });
   }
 }
-
