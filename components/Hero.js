@@ -9,7 +9,8 @@ export default function Hero() {
   const heroRef = useRef(null);
   const overlayRef = useRef(null);
   const textRef = useRef(null);
-  const [scrollY, setScrollY] = useState(0);
+  const videoRef = useRef(null); // Referenz für das Video
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     // Parallax-Effekt für den Text (Beispiel: leicht nach unten verschieben)
@@ -35,36 +36,66 @@ export default function Hero() {
         scrub: true,
       },
     });
+
+    // Lazy Loading für das Video
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVideoLoaded(true); // Video wird geladen, wenn es sichtbar ist
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
     <section ref={heroRef} className="relative w-full h-screen overflow-hidden">
       {/* Hintergrundvideo */}
-      <video 
-        autoPlay 
-        muted 
-        loop 
-        playsInline 
-        className="absolute top-0 left-0 w-full h-full object-cover"
-      >
-        <source src="/videos/hero.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-        {/* Fallback: statisches Bild */}
-        <img src="/images/hero-fallback.jpg" alt="Hero Fallback" />
-      </video>
+      {isVideoLoaded ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+          {/* Fallback: statisches Bild */}
+          <img src="/images/hero-fallback.jpg" alt="Hero Fallback" />
+        </video>
+      ) : (
+        <img
+          src="/images/hero-fallback.jpg"
+          alt="Hero Fallback"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        />
+      )}
 
       {/* Overlay für Fading */}
       <div ref={overlayRef} className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
 
       {/* Textinhalt mit Parallax */}
-      <div ref={textRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4" data-aos="fade-up">
-        <h1 className="text-5xl  font-bold mb-4">Wir verwandeln Visionen in digitale Realität</h1>
+      <div
+        ref={textRef}
+        className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4"
+        data-aos="fade-up"
+      >
+        <h1 className="text-5xl font-bold mb-4">Wir verwandeln Visionen in digitale Realität</h1>
         <p className="text-xl mb-8 max-w-2xl">
           Mit unserer Expertise in Digitalisierung, Automatisierung und Online-Kommunikation entwickeln wir maßgeschneiderte Lösungen, die Ihr Unternehmen nachhaltig voranbringen.
         </p>
-        <a 
-          href="/services/contact" 
-          className="bg-blue text-2xl  px-6 py-14 rounded-full font-semibold hover:bg-grey transition"
+        <a
+          href="/services/contact"
+          className="bg-blue text-2xl px-6 py-14 rounded-full font-semibold hover:bg-grey transition"
         >
           Jetzt kostenlose Erstberatung anfordern
         </a>
