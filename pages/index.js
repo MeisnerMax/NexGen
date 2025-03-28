@@ -176,9 +176,37 @@ export default function Home() {
         description: "Nahtlose Integration in bestehende Systeme.",
       },
     ],
+    Excel: [
+      {
+        title: "Einführung in Excel",
+        description: "Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler.",
+      },
+      {
+        title: "Excel Profi Kurs",
+        description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
+      },
+      {
+        title: "VBA und mehr",
+        description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
+      },
+    ],
+    "Teams & Planner": [
+      {
+        title: "Teams",
+        description: "Optimieren Sie die Zusammenarbeit in Ihrem Team mit Microsoft Teams.",
+      },
+      {
+        title: "Planner",
+        description: "Organisieren Sie Ihre Projekte effizient mit Microsoft Planner.",
+      },
+      {
+        title: "Outlook",
+        description: "Verwalten Sie Ihre E-Mails und Termine effektiv mit Microsoft Outlook.",
+      },
+    ],
   };
 
-  // Daten für "Online-Auftritt & Schulungen"
+  // Daten für "Online"
   const onlineServices = [
     {
       title: "Webdesign & Branding",
@@ -285,23 +313,21 @@ export default function Home() {
   const schulungenServices = [
     {
       title: "Teams & Planner",
-      description: "Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler.",
-      link: "/services/automation",
+      description: "Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler",
+      link: "/services/online",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0a1.724 1.724 0 001.248 1.188c.87.252 1.372 1.11 1.12 1.98a1.724 1.724 0 00.516 1.562c.922.3.922 1.607 0 1.907a1.724 1.724 0 00-.516 1.562c-.252.87-.25 1.728-1.12 1.98a1.724 1.724 0 00-1.248 1.188c-.3.921-1.603.921-1.902 0a1.724 1.724 0 00-1.248-1.188c-.87-.252-1.372-1.11-1.12-1.98a1.724 1.724 0 00-.516-1.562c-.922-.3-.922-1.607 0-1.907a1.724 1.724 0 00.516-1.562c-.252-.87.25-1.728 1.12-1.98a1.724 1.724 0 001.248-1.188z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
         </svg>
       ),
     },
     {
       title: "Excel",
       description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
-      link: "/services/automation",
+      link: "/services/online",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0a1.724 1.724 0 001.248 1.188c.87.252 1.372 1.11 1.12 1.98a1.724 1.724 0 00.516 1.562c.922.3.922 1.607 0 1.907a1.724 1.724 0 00-.516 1.562c-.252.87-.25 1.728-1.12 1.98a1.724 1.724 0 00-1.248 1.188c-.3.921-1.603.921-1.902 0a1.724 1.724 0 00-1.248-1.188c-.87-.252-1.372-1.11-1.12-1.98a1.724 1.724 0 00-.516-1.562c-.922-.3-.922-1.607 0-1.907a1.724 1.724 0 00.516-1.562c-.252-.87.25-1.728 1.12-1.98a1.724 1.724 0 001.248-1.188z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
         </svg>
       ),
     },
@@ -388,7 +414,11 @@ export default function Home() {
           {/* Services */}
       <section id="services" className="container mx-auto py-24 px-8 bg-blue text-white">
         <h2 className="text-4xl font-bold mb-12 text-[#E64000] text-center">Unsere Services</h2>
-        </section>
+        <p className="text-lg leading-relaxed text-center mb-8">
+          Ihre Roadmap zum digitalen Erfolg.
+          Gemeinsam gestalten wir die Zukunft Ihres Unternehmens.
+        </p>
+      </section>
 
         {/* Website & Shop */}
         <div className="p-6 bg-blue rounded-lg shadow-lg ">
@@ -432,7 +462,7 @@ export default function Home() {
         {/* Marketing */}
         <div className="p-6 bg-blue rounded-lg shadow-lg ">
           
-          <ServiceCategory title="Marketing" link="/services/online" direction="left">
+          <ServiceCategory title="Marketing" direction="left">
             <ServiceCard
               icon={
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -504,36 +534,47 @@ export default function Home() {
       
       {/* Schulungen */}
       <div className="p-6 bg-blue rounded-lg shadow-lg ">
-  <ServiceCategory title="Schulungen" link="/services/online" direction="right">
-    {schulungenServices.map((service, index) => (
-      <ServiceCard
-        key={index}
-        icon={service.icon}
-        title={service.title}
-        description={service.description}
-        link={service.link}
-        onClick={() => handleServiceClick("Schulungen", service.title)} // Toggle für Unterordner
-      />
-    ))}
-  </ServiceCategory>
+        <ServiceCategory title="Schulungen" direction="right">
+            <ServiceCard
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+              </svg>
+            }
+            title="Teams & Planner"
+            description="Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler"
+            onClick={() => handleServiceClick("Schulungen", "Teams & Planner")}
+          />
+          <ServiceCard
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+              </svg>
+            }
+            title="Excel"
+            description="Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren."
+            onClick={() => handleServiceClick("Schulungen", "Excel")}
+          />
+        </ServiceCategory>
 
-  {/* Additional Containers */}
-  {activeServices["Schulungen"] && additionalContainers[activeServices["Schulungen"]] && (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-      {additionalContainers[activeServices["Schulungen"]].map((container, index) => (
-        <div key={index} className="bg-[#E65100] text-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-2xl font-bold mb-4">{container.title}</h3>
-          <p>{container.description}</p>
-        </div>
-      ))}
-    </div>
-  )}
-</div>
+        {/* Additional Containers */}
+        {activeServices["Schulungen"] && additionalContainers[activeServices["Schulungen"]] && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            {additionalContainers[activeServices["Schulungen"]].map((container, index) => (
+              <div key={index} className="bg-[#E65100] text-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-2xl font-bold mb-4">{container.title}</h3>
+                <p>{container.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+      </div>
 
       {/* Software */}
       <div className="mb-12 p-6 bg-blue rounded-lg shadow-lg ">
           
-          <ServiceCategory title="Software" link="/services/automation" direction="left">
+          <ServiceCategory title="Software" direction="left">
             {softwareServices.map((service, index) => (
               <ServiceCard
                 key={index}
@@ -562,7 +603,7 @@ export default function Home() {
       {/* Porzessoptimierung */}
       <div className="mb-12 p-6 bg-blue rounded-lg shadow-lg ">
           
-          <ServiceCategory title="Prozessoptimierung" link="/services/automation" direction="right">
+          <ServiceCategory title="Prozessoptimierung"  direction="right">
             {automationServices.map((service, index) => (
               <ServiceCard
                 key={index}
