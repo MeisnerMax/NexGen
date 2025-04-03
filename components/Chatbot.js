@@ -43,7 +43,7 @@ const Chatbot = () => {
           onClick={() => setIsOpen(true)}
           className="bg-blue-900 text-white p-4 rounded-full shadow-lg hover:bg-blue-700"
         >
-          💬 KI Chat
+          💬 Nexgen Chat
         </button>
       )}
 

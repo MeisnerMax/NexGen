@@ -54,22 +54,27 @@ export default function NavBar() {
 
           {/* Zentrierte Tabs (Desktop) */}
           <div className="flex-1 hidden md:flex justify-center space-x-6">
-            {/*<Link href="/" className="hover:underline">
+            {<Link href="/" className="hover:underline">
               Home
+            </Link>}
+            {<Link href="/services/website" className="hover:underline">
+              Website
+            </Link>}
+            {<Link href="/services/marketing" className="hover:underline"> 
+              Marketing
+            </Link>}
+            {/* <Link href="/services/schulungen" className="hover:underline">
+              Schulungen
             </Link>
-            {/*<Link href="/services/online" className="hover:underline">
-              Online Auftritt
+            <Link href="/services/software" className="hover:underline">
+              Software
             </Link>
-            <Link href="/services/automation" className="hover:underline"> 
-              Digitalisierung
-            </Link>
-            {/* <Link href="/blog" className="hover:underline">
-              Blog
-            </Link>
-            <Link href="/services/contact" className="hover:underline">
+            <Link href="/services/prozess" className="hover:underline">
+              Optimierung
+            </Link> */}
+            {<Link href="/services/contact" className="hover:underline">
               Kontakt
-            </Link>*/}
-            
+            </Link>}
           </div>
 
           {/* Mobile Menü-Button */}

@@ -59,32 +59,31 @@ export default function Hero() {
     <section ref={heroRef} className="relative w-full h-screen overflow-hidden">
       {/* Video-Hintergrund (immer im DOM, Quelle bei Sichtbarkeit) */}
       <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
-      >
-        {isVideoLoaded ? (
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        ) : null}
-      </video>
+  ref={videoRef}
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="absolute top-0 left-0 w-full h-full object-cover rounded-b-[100px]" // Hier abgerundete untere Ecken
+>
+  {isVideoLoaded ? (
+    <source src="/videos/hero.mp4" type="video/mp4" />
+  ) : null}
+</video>
 
-      {/* Fallback-Image oben drüber, nur wenn Video noch nicht geladen */}
-      {!isVideoLoaded && (
-        <img
-          src="/images/hero-fallback.jpg"
-          alt="Hero Fallback"
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        />
-      )}
+{!isVideoLoaded && (
+  <img
+    src="/images/hero-fallback.jpg"
+    alt="Hero Fallback"
+    className="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-b-[100px]" // Auch hier!
+  />
+)}
 
-      {/* Overlay für Fading */}
-      <div
-        ref={overlayRef}
-        className="absolute top-0 left-0 w-full h-full bg-black opacity-50"
-      ></div>
+<div
+  ref={overlayRef}
+  className="absolute top-0 left-0 w-full h-full bg-black opacity-50 " // Und Overlay ebenfalls
+></div>
+
 
       {/* Textinhalt mit Parallax */}
       <div
@@ -92,9 +91,9 @@ export default function Hero() {
         className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4"
         data-aos="fade-up"
       >
-        <h1 className="text-5xl font-bold mb-4">Wir verwandeln Visionen in digitale Realität</h1>
+        <h1 className="text-5xl font-bold mb-4">Visionen digital umsetzen – klar, strukturiert, wirkungsvoll</h1>
         <p className="text-xl mb-8 max-w-2xl">
-          Mit unserer Expertise in Digitalisierung, Automatisierung und Online-Kommunikation entwickeln wir maßgeschneiderte Lösungen, die Ihr Unternehmen nachhaltig voranbringen.
+        Digitale Lösungen, die exakt zum Unternehmen passen: von der Prozessautomatisierung bis zum überzeugenden Online-Auftritt. Zukunftssicher, flexibel und auf messbaren Erfolg ausgerichtet.
         </p>
         <a
           href="/services/contact"

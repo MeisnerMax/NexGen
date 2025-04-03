@@ -1,6 +1,8 @@
 // pages/contact.js
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +12,19 @@ export default function Contact() {
     services: [], // Neu hinzugefügt
   });
   const [status, setStatus] = useState(null);
+
+  const router = useRouter();
+
+useEffect(() => {
+  const messageFromQuery = router.query.message;
+  if (messageFromQuery) {
+    setFormData((prev) => ({
+      ...prev,
+      message: decodeURIComponent(messageFromQuery),
+    }));
+  }
+}, [router.query]);
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

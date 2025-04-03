@@ -7,206 +7,16 @@ import Footer from '../components/Footer';
 import ServiceCategory from '../components/ServiceCategory';
 import Chatbot from "../components/Chatbot";
 import { useState } from 'react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Dynamisch importierte Slider, damit sie nur im Browser laufen
 const TestimonialsSlider = dynamic(() => import('../components/TestimonialsSlider'), { ssr: false });
 const BlogSlider = dynamic(() => import('../components/BlogSlider'), { ssr: false });
 
 export default function Home() {
-  const [activeServices, setActiveServices] = useState({}); // Dynamischer State für alle Bereiche
+  
 
-  const handleServiceClick = (category, service) => {
-    setActiveServices((prev) => ({
-      ...prev,
-      [category]: prev[category] === service ? null : service, // Toggle für jeden Bereich
-    }));
-  };
-
-  const additionalContainers = {
-    "Webdesign & Branding": [
-      {
-        title: "Responsive Design",
-        description: "Optimierte Darstellung auf allen Endgeräten für eine bessere Nutzererfahrung.",
-      },
-      {
-        title: "SEO-Optimierung",
-        description: "Verbesserung der Sichtbarkeit Ihrer Website in Suchmaschinen.",
-      },
-      {
-        title: "Content Management",
-        description: "Einfache Verwaltung und Aktualisierung Ihrer Inhalte.",
-      },
-    ],
-    Webshop: [
-      {
-        title: "Produktkatalog",
-        description: "Erstellen Sie einen umfassenden Katalog für Ihre Produkte.",
-      },
-      {
-        title: "Zahlungssysteme",
-        description: "Integration sicherer und flexibler Zahlungssysteme.",
-      },
-      {
-        title: "Versandoptionen",
-        description: "Anpassbare Versandoptionen für Ihre Kunden.",
-      },
-    ],
-    "Google Analytics": [
-      {
-        title: "Datenanalyse",
-        description: "Erhalten Sie wertvolle Einblicke in das Verhalten Ihrer Kunden.",
-      },
-      {
-        title: "Berichtserstellung",
-        description: "Automatisierte Berichte für fundierte Entscheidungen.",
-      },
-      {
-        title: "Conversion-Tracking",
-        description: "Verfolgen Sie die Effektivität Ihrer Marketingkampagnen.",
-      },
-    ],
-    SEO: [
-      {
-        title: "Keyword-Recherche",
-        description: "Finden Sie die besten Keywords für Ihre Zielgruppe.",
-      },
-      {
-        title: "On-Page-Optimierung",
-        description: "Optimieren Sie Ihre Inhalte für bessere Rankings.",
-      },
-      {
-        title: "Backlink-Strategie",
-        description: "Erhöhen Sie Ihre Autorität durch hochwertige Backlinks.",
-      },
-    ],
-    "Social Media": [
-      {
-        title: "Strategieentwicklung",
-        description: "Erstellen Sie eine effektive Social-Media-Strategie.",
-      },
-      {
-        title: "Content-Erstellung",
-        description: "Kreative Inhalte, die Ihre Zielgruppe ansprechen.",
-      },
-      {
-        title: "Community-Management",
-        description: "Interagieren Sie mit Ihrer Community und bauen Sie Beziehungen auf.",
-      },
-    ],
-    "Logo & Firmenidentität": [
-      {
-        title: "Logo-Design",
-        description: "Entwicklung eines einzigartigen Logos für Ihre Marke.",
-      },
-      {
-        title: "Markenrichtlinien",
-        description: "Definieren Sie klare Richtlinien für Ihre Markenidentität.",
-      },
-      {
-        title: "Visuelle Kommunikation",
-        description: "Konsistente visuelle Elemente für Ihre Marke.",
-      },
-    ],
-    "Microsoft 365": [
-      {
-        title: "Effiziente Zusammenarbeit",
-        description: "Nutzen Sie Microsoft 365 für eine nahtlose Teamarbeit.",
-      },
-      {
-        title: "Automatisierung",
-        description: "Automatisieren Sie wiederkehrende Aufgaben mit Power Automate.",
-      },
-      {
-        title: "Datensicherheit",
-        description: "Schützen Sie Ihre Daten mit den Sicherheitsfunktionen von Microsoft 365.",
-      },
-    ],
-    Branchenspezifisch: [
-      {
-        title: "Individuelle Lösungen",
-        description: "Maßgeschneiderte Software für Ihre Branche.",
-      },
-      {
-        title: "Prozessoptimierung",
-        description: "Optimieren Sie Ihre Arbeitsabläufe mit branchenspezifischen Tools.",
-      },
-      {
-        title: "Integration",
-        description: "Nahtlose Integration in bestehende Systeme.",
-      },
-    ],
-    Prozessautomatisierung: [
-      {
-        title: "Workflow-Optimierung",
-        description: "Automatisieren Sie Ihre Geschäftsprozesse für mehr Effizienz.",
-      },
-      {
-        title: "Zeitersparnis",
-        description: "Reduzieren Sie manuelle Aufgaben und sparen Sie Zeit.",
-      },
-      {
-        title: "Fehlerreduktion",
-        description: "Minimieren Sie Fehler durch automatisierte Prozesse.",
-      },
-    ],
-    Softwareentwicklung: [
-      {
-        title: "Individuelle Software",
-        description: "Entwicklung maßgeschneiderter Softwarelösungen.",
-      },
-      {
-        title: "Agile Entwicklung",
-        description: "Flexibler Entwicklungsprozess für schnelle Ergebnisse.",
-      },
-      {
-        title: "Support & Wartung",
-        description: "Langfristige Unterstützung und regelmäßige Updates.",
-      },
-    ],
-    Appentwicklung: [
-      {
-        title: "Mobile Apps",
-        description: "Entwicklung von Apps für iOS und Android.",
-      },
-      {
-        title: "Benutzerfreundlichkeit",
-        description: "Intuitive Designs für eine optimale Nutzererfahrung.",
-      },
-      {
-        title: "Integration",
-        description: "Nahtlose Integration in bestehende Systeme.",
-      },
-    ],
-    Excel: [
-      {
-        title: "Einführung in Excel",
-        description: "Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler.",
-      },
-      {
-        title: "Excel Profi Kurs",
-        description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
-      },
-      {
-        title: "VBA und mehr",
-        description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
-      },
-    ],
-    "Teams & Planner": [
-      {
-        title: "Teams",
-        description: "Optimieren Sie die Zusammenarbeit in Ihrem Team mit Microsoft Teams.",
-      },
-      {
-        title: "Planner",
-        description: "Organisieren Sie Ihre Projekte effizient mit Microsoft Planner.",
-      },
-      {
-        title: "Outlook",
-        description: "Verwalten Sie Ihre E-Mails und Termine effektiv mit Microsoft Outlook.",
-      },
-    ],
-  };
-
+ 
   // Daten für "Online"
   const onlineServices = [
     {
@@ -236,7 +46,7 @@ export default function Home() {
   const automationServices = [
     {
       title: "Prozessautomatisierung",
-      description: "Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler.",
+      description: "Reduzieren Sie manuelle Tätigkeiten und steigern Sie Ihre Effizienz durch intelligente Automatisierungslösungen – individuell auf Ihr Unternehmen abgestimmt.",
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -246,7 +56,7 @@ export default function Home() {
     },
     {
       title: "Softwareentwicklung",
-      description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
+      description: "Wir entwickeln passgenaue Softwarelösungen, die Ihre Unternehmensprozesse nachhaltig digitalisieren und vereinfachen.",
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -256,7 +66,7 @@ export default function Home() {
     },
     {
       title: "Appentwicklung",
-      description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
+      description: "Wir konzipieren und entwickeln maßgeschneiderte Business-Apps – plattformübergreifend, funktional und auf Ihre Ziele abgestimmt.",
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -338,7 +148,7 @@ export default function Home() {
   const softwareServices = [
     {
       title: "Microsoft 365",
-      description: "Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler.",
+      description: "Nutzen Sie das volle Potenzial von Microsoft 365 – wir unterstützen Sie bei Einrichtung, Automatisierung und effizienter Zusammenarbeit im Team.",
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -349,7 +159,7 @@ export default function Home() {
     },
     {
       title: "Branchenspezifisch",
-      description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
+      description: "Wir entwickeln Software, die exakt auf Ihre Branche und Prozesse abgestimmt ist – für maximale Effizienz und intuitive Bedienung.",
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -364,11 +174,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Nexgen Consulting – Digitalisierung, Webdesign und Automatisierung</title>
+      <title>Nexgen Consulting – Digitalisierung & Webdesign</title>
         <meta
           name="description"
-          content="Nexgen Consulting – Ihr Partner für Digitalisierung, Prozessautomatisierung, Webdesign und SEO-Optimierung für kleine und mittelständische Unternehmen."
-        />
+          content="Nexgen Consulting unterstützt kleine und mittelständische Unternehmen bei Digitalisierung, Prozessautomatisierung, Webdesign und SEO – alles aus einer Hand."
+          />
         <meta
           name="keywords"
           content="Digitalisierung, Prozessautomatisierung, Webdesign, SEO, Softwareentwicklung, Appentwicklung, Microsoft 365, Social Media, Marketing"
@@ -412,7 +222,7 @@ export default function Home() {
           <div className="md:w-1/2">
             <h2 className="text-4xl text-[#E64000] font-bold mb-6">Über Uns</h2>
             <p className="text-xl leading-relaxed">
-              Nexgen Consulting bietet umfassende Komplettlösungen <strong>für die Digitalisierung im Mittelstand</strong> – speziell für kleine und mittelständische Unternehmen in <strong>Coburg</strong>, <strong>Oberfranken</strong> und ganz Deutschland. Von der <strong>Prozessautomatisierung</strong> über <strong>Software- und App-Entwicklung</strong> bis hin zu modernem Webdesign und effektiven Marketingstrategien begleiten wir Sie als zuverlässiger Partner vor Ort. Gemeinsam gestalten wir Ihre digitale Zukunft.
+            Nexgen Consulting bietet maßgeschneiderte Lösungen für die Digitalisierung kleiner und mittelständischer Unternehmen – mit Fokus auf <strong>Coburg</strong>, <strong>Oberfranken</strong> und den gesamten deutschsprachigen Raum. Die Leistungen umfassen <strong>Prozessautomatisierung</strong>, <strong>Software- und App-Entwicklung</strong>, <strong>professionelles Webdesign</strong> sowie wirkungsvolle Online-Marketingstrategien. Jedes Projekt wird individuell und praxisnah umgesetzt – mit Fokus auf Qualität, Nutzerfreundlichkeit und nachhaltigem Mehrwert.
             </p>
           </div>
           <div className="md:w-1/2" data-aos="fade-left" data-aos-duration="2000">
@@ -424,25 +234,23 @@ export default function Home() {
       
 
         {/* Beschreibung unter "Unsere Services" */}
-        <section className="container mx-auto py-12 text-white px-8 text-center  text-blue rounded-lg shadow-lg">
+        <section className="container mx-auto py-12 text-white px-8 text-center  text-blue rounded-lg ">
           <h3 className="text-3xl font-bold text-[#E64000] mb-6">Alles aus einer Hand für Ihre Digitalisierung</h3>
           <p className="text-lg leading-relaxed">
-            Statt sich zwischen verschiedenen Anbietern für Website-Entwicklung, Software oder Prozessautomatisierung zu entscheiden, bieten wir Ihnen alle Schritte, die Ihr Unternehmen für die Digitalisierung benötigt, aus einer Hand. 
-            Mit unserem umfassenden Service decken wir alle Bereiche ab – von der Planung bis zur Umsetzung. 
-            Durch unseren ganzheitlichen Ansatz können wir Ihnen nicht nur maßgeschneiderte Lösungen bieten, sondern diese auch kostengünstiger als die Konkurrenz umsetzen - perfekt für Kleinunternehmen.
+          Ob Website-Erstellung, individuelle Softwarelösungen oder Prozessautomatisierung – bei Nexgen Consulting greifen alle Leistungen ineinander. Die ganzheitliche Herangehensweise ermöglicht eine kosteneffiziente, aufeinander abgestimmte Umsetzung digitaler Projekte – speziell ausgerichtet auf die Anforderungen kleiner und mittlerer Unternehmen. Durch individuelle Beratung und praxisorientierte Lösungen entsteht eine digitale Infrastruktur, die langfristig überzeugt.
           </p>
 
           {/* Services */}
-      <section id="services" className="container mx-auto py-24 px-8 bg-blue text-white">
+      <section id="services" className="container mx-auto py-10 px-8 bg-blue text-white">
         <h2 className="text-4xl font-bold mb-12 text-[#E64000] text-center">Unsere Services</h2>
         <p className="text-lg leading-relaxed text-center mb-8">
-          Ihre Roadmap zum digitalen Erfolg
-          Gemeinsam gestalten wir die Zukunft Ihres Unternehmens.
+        Die strukturierte Roadmap zur erfolgreichen Digitalisierung:
+        Von der Idee über die Planung bis zur Umsetzung – alles abgestimmt auf moderne Anforderungen und praxisnahe Ergebnisse.
         </p>
       </section>
 
         {/* Website & Shop */}
-        <div className="p-6 bg-blue rounded-lg shadow-lg ">
+        <div className="p-6 bg-blue rounded-lg  ">
           
           <ServiceCategory title="Website & Shop" direction="right">
             <ServiceCard
@@ -452,8 +260,7 @@ export default function Home() {
                 </svg>
               }
               title="Webdesign & Branding"
-              description="Entwicklung responsiver Websites und einer starken Markenidentität."
-              onClick={() => handleServiceClick("Website & Shop", "Webdesign & Branding")}
+              description="Modernes Webdesign aus Coburg: Wir entwickeln responsive Websites mit Wiedererkennungswert – individuell, benutzerfreundlich und markenstark."              href="/services/website"
             />
             <ServiceCard
               icon={
@@ -462,26 +269,13 @@ export default function Home() {
                 </svg>
               }
               title="Webshop"
-              description="Erstellen Sie einen modernen Webshop für Ihr Unternehmen."
-              onClick={() => handleServiceClick("Website & Shop", "Webshop")}
+              description="Starten Sie Ihren eigenen Online-Shop mit professioneller Umsetzung – von der Produktpräsentation bis zur Zahlungsschnittstelle alles aus einer Hand."              href="/services/website"
             />
-          </ServiceCategory>
-
-          {/* Additional Containers */}
-          {activeServices["Website & Shop"] && additionalContainers[activeServices["Website & Shop"]] && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {additionalContainers[activeServices["Website & Shop"]].map((container, index) => (
-                <div key={index} className="bg-[#E65100] text-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-2xl font-bold mb-4">{container.title}</h3>
-                  <p>{container.description}</p>
-                </div>
-              ))}
-            </div>
-          )}
+          </ServiceCategory>    
         </div>
 
         {/* Marketing */}
-        <div className="p-6 bg-blue rounded-lg shadow-lg ">
+        <div className="p-6 bg-blue rounded-lg ">
           
           <ServiceCategory title="Marketing" direction="left">
             <ServiceCard
@@ -491,8 +285,8 @@ export default function Home() {
                 </svg>
               }
               title="Google Analytics"
-              description="Analysieren Sie das Verhalten Ihrer Kunden und optimieren Sie Ihre Marketingstrategien mit datenbasierten Einblicken."
-              onClick={() => handleServiceClick("Marketing", "Google Analytics")}
+              description="Nutzen Sie datenbasierte Einblicke zur Optimierung Ihrer Website-Performance und Marketingstrategie mit Google Analytics."
+              href="/services/marketing"
             />
             <ServiceCard
               icon={
@@ -501,8 +295,8 @@ export default function Home() {
                 </svg>
               }
               title="SEO"
-              description="Verbessern Sie die Sichtbarkeit Ihrer Website in Suchmaschinen und erreichen Sie Ihre Zielgruppe effektiver."
-              onClick={() => handleServiceClick("Marketing", "SEO")}
+              description="Steigern Sie Ihre Sichtbarkeit bei Google mit gezielter Suchmaschinenoptimierung – lokal und überregional."
+              href="/services/marketing"
             />
             <ServiceCard
               icon={
@@ -511,8 +305,8 @@ export default function Home() {
                 </svg>
               }
               title="Social Media"
-              description="Erstellen Sie ansprechende Inhalte und bauen Sie eine starke Präsenz auf Social-Media-Plattformen auf."
-              onClick={() => handleServiceClick("Marketing", "Social Media")}
+              description="Reichweite aufbauen, Kundenbindung stärken: Wir entwickeln individuelle Content-Strategien für Instagram, Facebook & Co."
+              href="/services/marketing"
             />
             <ServiceCard
               icon={
@@ -521,30 +315,21 @@ export default function Home() {
                 </svg>
               }
               title="Logo & Firmenidentität"
-              description="Entwickeln Sie eine einzigartige Markenidentität und ein professionelles Logo, das Ihre Werte widerspiegelt."
-              onClick={() => handleServiceClick("Marketing", "Logo & Firmenidentität")}
+              description="Ihr Unternehmen verdient ein klares Profil: Wir gestalten Ihr Logo und Ihre visuelle Identität – authentisch und einprägsam."
+              href="/services/marketing"
+
             />
           </ServiceCategory>
 
-          {/* Additional Containers */}
-          {activeServices["Marketing"] && additionalContainers[activeServices["Marketing"]] && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {additionalContainers[activeServices["Marketing"]].map((container, index) => (
-                <div key={index} className="bg-[#E65100] text-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-2xl font-bold mb-4">{container.title}</h3>
-                  <p>{container.description}</p>
-                </div>
-              ))}
-            </div>
-          )}
+          
         </div>
       
       {/* Kontakt-CTA */}
-      <section id="contact" className="container mx-auto py-24 px-8 mt-16 bg-blue text-black rounded-lg">
-  <h2 className="text-4xl font-bold mb-6 text-center text-[#E64000]">Kontakt</h2>
-  <p className="text-xl text-white leading-relaxed mb-8 text-center">
-    <strong>Lokal in Coburg verwurzelt:</strong> Wir sind als Coburger Unternehmen direkt vor Ort für Sie da. Ob Digitalisierung, Webdesign oder **SEO in Coburg** – mit persönlicher Beratung begleiten wir Sie auf Ihrem Weg der digitalen Transformation. Treten Sie gern mit uns in Kontakt, um Ihr Projekt zu besprechen.
-  </p>
+      <section id="contact" className="container mx-auto py-8 px-8 mt-16 bg-blue text-black rounded-lg">
+        <h2 className="text-4xl font-bold mb-6 text-center text-[#E64000]">Kontakt</h2>
+        <p className="text-xl text-white leading-relaxed mb-8 text-center">
+        <strong>Digitalisierungspartner aus Coburg:</strong> Wir begleiten kleine und mittelständische Unternehmen bei Webdesign, SEO und digitalen Prozessen. Vereinbaren Sie jetzt ein persönliches Beratungsgespräch.
+        </p>
         <a
           href="/services/contact"
           className="inline-block bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -554,7 +339,7 @@ export default function Home() {
       </section>
       
       {/* Schulungen */}
-      <div className="p-6 bg-blue rounded-lg shadow-lg ">
+      <div className="p-24 bg-blue rounded-lg ">
         <ServiceCategory title="Schulungen" direction="right">
             <ServiceCard
             icon={
@@ -562,9 +347,10 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
               </svg>
             }
-            title="Teams & Planner"
-            description="Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler"
-            onClick={() => handleServiceClick("Schulungen", "Teams & Planner")}
+            title="Microsoft Teams & Planner"
+            description="Optimieren Sie Ihre Teamarbeit mit strukturierten Workflows – wir zeigen, wie Sie Microsoft-Tools effizient nutzen."
+            href="/services/contact"
+
           />
           <ServiceCard
             icon={
@@ -572,29 +358,15 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
               </svg>
             }
-            title="Excel"
-            description="Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren."
-            onClick={() => handleServiceClick("Schulungen", "Excel")}
+            title="Excel für Unternehmen"
+            description="Von Grundlagen bis Automatisierung: Unsere Excel-Schulungen zeigen, wie Sie Zeit sparen und Fehler vermeiden."
+            href="/services/contact"  
           />
         </ServiceCategory>
-
-        {/* Additional Containers */}
-        {activeServices["Schulungen"] && additionalContainers[activeServices["Schulungen"]] && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            {additionalContainers[activeServices["Schulungen"]].map((container, index) => (
-              <div key={index} className="bg-[#E65100] text-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-bold mb-4">{container.title}</h3>
-                <p>{container.description}</p>
-              </div>
-            ))}
-          </div>
-        )}
-
       </div>
 
       {/* Software */}
-      <div className="mb-12 p-6 bg-blue rounded-lg shadow-lg ">
-          
+      <div className="mb-12 p-6 bg-blue rounded-lg  ">
           <ServiceCategory title="Software" direction="left">
             {softwareServices.map((service, index) => (
               <ServiceCard
@@ -603,26 +375,13 @@ export default function Home() {
                 title={service.title}
                 description={service.description}
                 link={service.link}
-                onClick={() => handleServiceClick("Software", service.title)} // Toggle für Unterordner
-              />
+                href="/services/contact"/>
             ))}
           </ServiceCategory>
-
-          {/* Additional Containers */}
-          {activeServices["Software"] && additionalContainers[activeServices["Software"]] && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {additionalContainers[activeServices["Software"]].map((container, index) => (
-                <div key={index} className="bg-[#E65100] text-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-2xl font-bold mb-4">{container.title}</h3>
-                  <p>{container.description}</p>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
 
       {/* Porzessoptimierung */}
-      <div className="mb-12 p-6 bg-blue rounded-lg shadow-lg ">
+      <div className="mb-12 p-6 bg-blue rounded-lg  ">
           
           <ServiceCategory title="Prozessoptimierung"  direction="right">
             {automationServices.map((service, index) => (
@@ -632,22 +391,12 @@ export default function Home() {
                 title={service.title}
                 description={service.description}
                 link={service.link}
-                onClick={() => handleServiceClick("Prozessoptimierung", service.title)} // Toggle für Unterordner
+                href="/services/contact"
               />
             ))}
           </ServiceCategory>
 
-          {/* Additional Containers */}
-          {activeServices["Prozessoptimierung"] && additionalContainers[activeServices["Prozessoptimierung"]] && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {additionalContainers[activeServices["Prozessoptimierung"]].map((container, index) => (
-                <div key={index} className="bg-[#E65100] text-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-2xl font-bold mb-4">{container.title}</h3>
-                  <p>{container.description}</p>
-                </div>
-              ))}
-            </div>
-          )}
+         
         </div>
 
         </section>
@@ -679,7 +428,7 @@ export default function Home() {
       </section> */}
 
       {/* Footer */}
-      <Footer />
+      
     </>
   );
 }
