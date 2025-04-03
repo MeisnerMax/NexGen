@@ -15,7 +15,7 @@ export default function NavBar() {
         <meta property="og:url" content="https://nexgen-consulting.de" />
         <meta property="og:site_name" content="Nexgen Consulting" />
       </Head>
-      <nav className="absolute top-0 left-0 w-full z-50 bg-blue text-white">
+      <nav className="sticky top-0 left-0 w-full z-50 bg-blue-900 text-white">
         <div className="container mx-auto flex items-center p-4">
           {/* Linke Seite: Brand + Social Media Icons */}
           <div className="flex items-center space-x-4">
@@ -89,22 +89,26 @@ export default function NavBar() {
 
 function MobileMenu() {
   const [open, setOpen] = useState(false);
+
   return (
     <div className="relative">
       <button
-        className="text-2xl focus:outline-none transition duration-300"
+        className="text-3xl text-white focus:outline-none"
         onClick={() => setOpen(!open)}
+        aria-label="Menü öffnen"
       >
         &#9776;
       </button>
+
       {open && (
-        <div className="absolute right-0 mt-2 w-72 bg-blue rounded shadow-lg p-4 z-50 transition transform duration-300">
-          <Link href="/" className="block py-2 hover:underline">Home</Link>
-          <Link href="/services/online" className="block py-2 hover:underline">Online Auftritt</Link>
-          <Link href="/services/automation" className="block py-2 hover:underline">Software</Link>
-          <Link href="/blog" className="block py-2 hover:underline">Blog</Link>
-          <Link href="/services/contact" className="block py-2 hover:underline">Kontakt</Link>
-          
+        <div className="absolute right-0 mt-4 w-64 bg-blue-900 rounded-xl shadow-xl p-4 z-50 border border-white animate-slideDown">
+          <nav className="flex flex-col space-y-3 text-base">
+            <Link href="/" className="hover:underline text-white">Startseite</Link>
+            <Link href="/services/online" className="hover:underline text-white">Online-Auftritt</Link>
+            <Link href="/services/automation" className="hover:underline text-white">Software & Prozesse</Link>
+            <Link href="/blog" className="hover:underline text-white">Blog</Link>
+            <Link href="/services/contact" className="hover:underline text-white">Kontakt</Link>
+          </nav>
         </div>
       )}
     </div>

@@ -173,6 +173,7 @@ export default function Home() {
 
   return (
     <>
+      <Hero />
       <Head>
       <title>Nexgen Consulting – Digitalisierung & Webdesign</title>
         <meta
@@ -209,18 +210,18 @@ export default function Home() {
         <meta property="og:site_name" content="Nexgen Consulting" />
       </Head>
 
-      <NavBar />
+      
 
       {/* Hero-Bereich */}
-      <Hero />
+      
 
       <Chatbot /> {/* Chatbot-Komponente */}
 
-      {/* Über Uns */}
+      {/* Über */}
       <section id="about" className="container mx-auto py-24 px-8 mt-16 bg-blue text-white rounded-lg" data-aos="fade-up" data-aos-duration="2000">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2">
-            <h2 className="text-4xl text-[#E64000] font-bold mb-6">Über Uns</h2>
+            <h2 className="text-4xl text-[#E64000] font-bold mb-6">Über</h2>
             <p className="text-xl leading-relaxed">
             Nexgen Consulting bietet maßgeschneiderte Lösungen für die Digitalisierung kleiner und mittelständischer Unternehmen – mit Fokus auf <strong>Coburg</strong>, <strong>Oberfranken</strong> und den gesamten deutschsprachigen Raum. Die Leistungen umfassen <strong>Prozessautomatisierung</strong>, <strong>Software- und App-Entwicklung</strong>, <strong>professionelles Webdesign</strong> sowie wirkungsvolle Online-Marketingstrategien. Jedes Projekt wird individuell und praxisnah umgesetzt – mit Fokus auf Qualität, Nutzerfreundlichkeit und nachhaltigem Mehrwert.
             </p>
@@ -250,154 +251,154 @@ export default function Home() {
       </section>
 
         {/* Website & Shop */}
-        <div className="p-6 bg-blue rounded-lg  ">
-          
-          <ServiceCategory title="Website & Shop" direction="right">
-            <ServiceCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h18v12H3V3z" />
-                </svg>
-              }
-              title="Webdesign & Branding"
-              description="Modernes Webdesign aus Coburg: Wir entwickeln responsive Websites mit Wiedererkennungswert – individuell, benutzerfreundlich und markenstark."              href="/services/website"
-            />
-            <ServiceCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 5m12-5l2 5m-6-5v5" />
-                </svg>
-              }
-              title="Webshop"
-              description="Starten Sie Ihren eigenen Online-Shop mit professioneller Umsetzung – von der Produktpräsentation bis zur Zahlungsschnittstelle alles aus einer Hand."              href="/services/website"
-            />
-          </ServiceCategory>    
-        </div>
+        <div className="px-4 py-12 bg-blue rounded-lg">
+        <ServiceCategory title="Website & Shop" direction="right">
+          <ServiceCard
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h18v12H3V3z" />
+              </svg>
+            }
+            title="Webdesign & Branding"
+            description="Modernes Webdesign aus Coburg: Wir entwickeln responsive Websites mit Wiedererkennungswert – individuell, benutzerfreundlich und markenstark."
+            href="/services/website"
+          />
+          <ServiceCard
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 5m12-5l2 5m-6-5v5" />
+              </svg>
+            }
+            title="Webshop"
+            description="Starten Sie Ihren eigenen Online-Shop mit professioneller Umsetzung – von der Produktpräsentation bis zur Zahlungsschnittstelle alles aus einer Hand."
+            href="/services/website"
+          />
+        </ServiceCategory>
+      </div>
 
-        {/* Marketing */}
-        <div className="p-6 bg-blue rounded-lg ">
-          
-          <ServiceCategory title="Marketing" direction="left">
-            <ServiceCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-                </svg>
-              }
-              title="Google Analytics"
-              description="Nutzen Sie datenbasierte Einblicke zur Optimierung Ihrer Website-Performance und Marketingstrategie mit Google Analytics."
-              href="/services/marketing"
-            />
-            <ServiceCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-                </svg>
-              }
-              title="SEO"
-              description="Steigern Sie Ihre Sichtbarkeit bei Google mit gezielter Suchmaschinenoptimierung – lokal und überregional."
-              href="/services/marketing"
-            />
-            <ServiceCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-                </svg>
-              }
-              title="Social Media"
-              description="Reichweite aufbauen, Kundenbindung stärken: Wir entwickeln individuelle Content-Strategien für Instagram, Facebook & Co."
-              href="/services/marketing"
-            />
-            <ServiceCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-                </svg>
-              }
-              title="Logo & Firmenidentität"
-              description="Ihr Unternehmen verdient ein klares Profil: Wir gestalten Ihr Logo und Ihre visuelle Identität – authentisch und einprägsam."
-              href="/services/marketing"
 
-            />
-          </ServiceCategory>
+      {/* Marketing */}
+      <div className="px-4 py-12 bg-blue rounded-lg">
+      <ServiceCategory title="Marketing" direction="left">
+        <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="Google Analytics"
+          description="Nutzen Sie datenbasierte Einblicke zur Optimierung Ihrer Website-Performance und Marketingstrategie mit Google Analytics."
+          href="/services/marketing"
+        />
+        <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="SEO"
+          description="Steigern Sie Ihre Sichtbarkeit bei Google mit gezielter Suchmaschinenoptimierung – lokal und überregional."
+          href="/services/marketing"
+        />
+        <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="Social Media"
+          description="Reichweite aufbauen, Kundenbindung stärken: Wir entwickeln individuelle Content-Strategien für Instagram, Facebook & Co."
+          href="/services/marketing"
+        />
+        <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="Logo & Firmenidentität"
+          description="Ihr Unternehmen verdient ein klares Profil: Wir gestalten Ihr Logo und Ihre visuelle Identität – authentisch und einprägsam."
+          href="/services/marketing"
+        />
+      </ServiceCategory>
+    </div>
 
-          
-        </div>
-      
-      {/* Kontakt-CTA */}
-      <section id="contact" className="container mx-auto py-8 px-8 mt-16 bg-blue text-black rounded-lg">
-        <h2 className="text-4xl font-bold mb-6 text-center text-[#E64000]">Kontakt</h2>
-        <p className="text-xl text-white leading-relaxed mb-8 text-center">
+
+    {/* Kontakt-CTA */}
+    <section id="contact" className="container mx-auto py-12 px-4 mt-16 bg-blue text-black rounded-lg">
+      <h2 className="text-4xl font-bold mb-6 text-center text-[#E64000]">Kontakt</h2>
+      <p className="text-xl text-white leading-relaxed mb-8 text-center">
         <strong>Digitalisierungspartner aus Coburg:</strong> Wir begleiten kleine und mittelständische Unternehmen bei Webdesign, SEO und digitalen Prozessen. Vereinbaren Sie jetzt ein persönliches Beratungsgespräch.
-        </p>
+      </p>
+      <div className="text-center">
         <a
           href="/services/contact"
           className="inline-block bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
         >
           Zum Kontaktformular
         </a>
-      </section>
-      
-      {/* Schulungen */}
-      <div className="p-24 bg-blue rounded-lg ">
-        <ServiceCategory title="Schulungen" direction="right">
-            <ServiceCard
-            icon={
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-              </svg>
-            }
-            title="Microsoft Teams & Planner"
-            description="Optimieren Sie Ihre Teamarbeit mit strukturierten Workflows – wir zeigen, wie Sie Microsoft-Tools effizient nutzen."
-            href="/services/contact"
-
-          />
-          <ServiceCard
-            icon={
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-              </svg>
-            }
-            title="Excel für Unternehmen"
-            description="Von Grundlagen bis Automatisierung: Unsere Excel-Schulungen zeigen, wie Sie Zeit sparen und Fehler vermeiden."
-            href="/services/contact"  
-          />
-        </ServiceCategory>
       </div>
+    </section>
 
-      {/* Software */}
-      <div className="mb-12 p-24 bg-blue rounded-lg  ">
-          <ServiceCategory title="Software" direction="left">
-            {softwareServices.map((service, index) => (
-              <ServiceCard
-                key={index}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                link={service.link}
-                href="/services/contact"/>
-            ))}
-          </ServiceCategory>
-        </div>
+    {/* Schulungen */}
+    <div className="px-4 py-12 bg-blue rounded-lg">
+      <ServiceCategory title="Schulungen" direction="right">
+        <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="Microsoft Teams & Planner"
+          description="Optimieren Sie Ihre Teamarbeit mit strukturierten Workflows – wir zeigen, wie Sie Microsoft-Tools effizient nutzen."
+          href="/services/contact"
+        />
+        <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="Excel für Unternehmen"
+          description="Von Grundlagen bis Automatisierung: Unsere Excel-Schulungen zeigen, wie Sie Zeit sparen und Fehler vermeiden."
+          href="/services/contact"
+        />
+      </ServiceCategory>
+    </div>
 
-      {/* Porzessoptimierung */}
-      <div className="mb-12 p-24 bg-blue rounded-lg  ">
-          
-          <ServiceCategory title="Prozessoptimierung"  direction="right">
-            {automationServices.map((service, index) => (
-              <ServiceCard
-                key={index}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                link={service.link}
-                href="/services/contact"
-              />
-            ))}
-          </ServiceCategory>
 
-         
-        </div>
+    {/* Software */}
+    <div className="px-4 py-12 mb-12 bg-blue rounded-lg">
+      <ServiceCategory title="Software" direction="left">
+        {softwareServices.map((service, index) => (
+          <ServiceCard
+            key={index}
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+            href={service.link}
+          />
+        ))}
+      </ServiceCategory>
+    </div>
+
+
+    {/* Prozessoptimierung */}
+    <div className="px-4 py-12 mb-12 bg-blue rounded-lg">
+      <ServiceCategory title="Prozessoptimierung" direction="right">
+        {automationServices.map((service, index) => (
+          <ServiceCard
+            key={index}
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+            href={service.link}
+          />
+        ))}
+      </ServiceCategory>
+    </div>
+
+
 
         </section>
 
