@@ -366,7 +366,7 @@ export default function Home() {
       </div>
 
       {/* Software */}
-      <div className="mb-12 p-6 bg-blue rounded-lg  ">
+      <div className="mb-12 p-24 bg-blue rounded-lg  ">
           <ServiceCategory title="Software" direction="left">
             {softwareServices.map((service, index) => (
               <ServiceCard
@@ -381,7 +381,7 @@ export default function Home() {
         </div>
 
       {/* Porzessoptimierung */}
-      <div className="mb-12 p-6 bg-blue rounded-lg  ">
+      <div className="mb-12 p-24 bg-blue rounded-lg  ">
           
           <ServiceCategory title="Prozessoptimierung"  direction="right">
             {automationServices.map((service, index) => (
