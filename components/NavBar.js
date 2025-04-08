@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image'; // Importiere das Image-Element
-import logo from '../public/images/logo.png'; // Passe den Pfad an
+import logo from '../public/images/logo2.png';
 
 export default function NavBar() {
   return (
