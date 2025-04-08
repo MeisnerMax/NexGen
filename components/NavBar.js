@@ -33,13 +33,14 @@ export default function NavBar() {
             <Link href="/" className="text-2xl  font-bold hover:underline">
               Consulting
             </Link>
-            {/* Social Media Icons */}
+             {/* Social Media Icons */}
+             <div className="flex items-center space-x-4">
             <a
               href="https://www.linkedin.com/company/106936390"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="hover:text-blue-300"
+              className="hover:text-blue-300 text-white"
             >
               <svg
                 className="h-6 w-6"
@@ -59,11 +60,11 @@ export default function NavBar() {
             </a>
             {/* Instagram Icon */}
             <a
-              href="https://www.instagram.com/nexgenconsultingcoburg/"  // Ersetze dies durch deinen Instagram-Link
+              href="https://www.instagram.com/nexgenconsultingcoburg/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="hover:text-blue-300"
+              className="hover:text-blue-300 text-white"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.205.012-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.335.014 5.071.18C1.808.346.347 1.807.18 5.071.014 8.335 0 8.741 0 12c0 3.259.014 3.665.18 6.929.166 3.263 1.627 4.724 4.891 4.891 3.264.166 3.669.18 6.928.18 3.259 0 3.665-.014 6.929-.18 3.264-.167 4.724-1.628 4.891-4.891.166-3.263.18-3.668.18-6.928 0-3.259-.014-3.665-.18-6.929-.167-3.263-1.628-4.724-4.891-4.891-3.263-.166-3.668-.18-6.928-.18z"/>
@@ -71,6 +72,7 @@ export default function NavBar() {
                 <path d="M20.324 6.117c-.401 0-.727-.326-.727-.727 0-.401.326-.727.727-.727.401 0 .727.326.727.727 0 .401-.326.727-.727.727z"/>
               </svg>
             </a>
+          </div>
           </div>
 
           {/* Zentrierte Tabs (Desktop) */}
@@ -140,20 +142,22 @@ function MobileMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-4 w-64 bg-blue-900/70 rounded-xl shadow-xl p-4 z-50 border border-white animate-slideDown">
+        <div className="absolute right-0  w-35 bg-white   shadow-xl p-4 z-50 border border-black animate-slideDown">
           <nav className="flex flex-col space-y-3 text-base">
-            <Link href="/" className="hover:underline text-white" onClick={closeMenu}>
+            <Link href="/" className="hover:underline text-black" onClick={closeMenu}>
               Home
             </Link>
-            <Link href="/services/website" className="hover:underline text-white" onClick={closeMenu}>
+            <Link href="/services/website" className="hover:underline text-black" onClick={closeMenu}>
               Website
             </Link>
-            <Link href="/services/marketing" className="hover:underline text-white" onClick={closeMenu}>
+            <Link href="/services/marketing" className="hover:underline text-black" onClick={closeMenu}>
               Marketing
             </Link>
-            <Link href="/services/contact" className="hover:underline text-white" onClick={closeMenu}>
+            <Link href="/services/contact" className="hover:underline text-black" onClick={closeMenu}>
               Kontakt
             </Link>
+             {/* Social Media Icons */}
+             
           </nav>
         </div>
       )}
