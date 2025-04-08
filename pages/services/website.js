@@ -34,7 +34,7 @@ export default function WebsiteService() {
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
       </Head>
 
-      <NavBar />
+     
       <Chatbot />
 
       <section className="container mx-auto py-20 px-8 mt-16 bg-blue text-white rounded-lg">

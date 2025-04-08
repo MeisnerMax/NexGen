@@ -64,7 +64,7 @@ export default function Hero() {
   muted
   loop
   playsInline
-  className="absolute top-0 left-0 w-full h-full object-cover rounded-b-[100px]" // Hier abgerundete untere Ecken
+  className="absolute top-0 left-0 w-full h-full object-cover" // Hier abgerundete untere Ecken
 >
   {isVideoLoaded ? (
     <source src="/videos/hero.mp4" type="video/mp4" />
@@ -75,7 +75,7 @@ export default function Hero() {
   <img
     src="/images/hero-fallback.jpg"
     alt="Hero Fallback"
-    className="absolute top-0 left-0 w-full h-full object-cover z-0 rounded-b-[100px]" // Auch hier!
+    className="absolute top-0 left-0 w-full h-full object-cover z-0 " // Auch hier!
   />
 )}
 

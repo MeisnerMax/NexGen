@@ -26,7 +26,7 @@ export default function MarketingService() {
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
       </Head>
 
-      <NavBar />
+      
       <Chatbot />
 
       <section className="container mx-auto py-24 px-8 mt-16 bg-blue text-white rounded-lg">
@@ -71,7 +71,7 @@ export default function MarketingService() {
           Erreichen Sie Ihre Zielgruppe dort, wo sie täglich aktiv ist: Wir entwickeln effektive Social-Media-Strategien, erstellen kreative Inhalte und steigern Ihre Markenbindung.
           </p>
           <img
-            src="/images/instagram.png"
+            src="/images/Instagram.png"
             alt="Beispiel einer Basis-Website"
             className="w-full h-auto rounded mt-4"
           />

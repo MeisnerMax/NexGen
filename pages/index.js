@@ -159,7 +159,7 @@ export default function Home() {
     },
     {
       title: "Branchenspezifisch",
-      description: "Wir entwickeln Software, die exakt auf Ihre Branche und Prozesse abgestimmt ist – für maximale Effizienz und intuitive Bedienung.",
+      description: "Wir beraten Sie zu Software, die exakt auf Ihre Branche und Prozesse abgestimmt ist – für maximale Effizienz und intuitive Bedienung.",
       link: "/services/automation",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -173,7 +173,6 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
       <Head>
       <title>Nexgen Consulting – Digitalisierung & Webdesign</title>
         <meta
@@ -213,7 +212,7 @@ export default function Home() {
       
 
       {/* Hero-Bereich */}
-      
+      <Hero />
 
       <Chatbot /> {/* Chatbot-Komponente */}
 

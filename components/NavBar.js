@@ -1,7 +1,8 @@
-// components/NavBar.js
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
+import Image from 'next/image'; // Importiere das Image-Element
+import logo from '../public/images/logo.png'; // Passe den Pfad an
 
 export default function NavBar() {
   return (
@@ -15,10 +16,17 @@ export default function NavBar() {
         <meta property="og:url" content="https://nexgen-consulting.de" />
         <meta property="og:site_name" content="Nexgen Consulting" />
       </Head>
-      <nav className="sticky top-0 left-0 w-full z-50 bg-blue-900 text-white">
+      <nav className="sticky top-0 left-0 w-full z-50 bg-blue/90 text-white">
         <div className="container mx-auto flex items-center p-4">
           {/* Linke Seite: Brand + Social Media Icons */}
           <div className="flex items-center space-x-4">
+            <Image
+              src={logo} // Verwende das importierte Logo
+              alt="Nexgen Consulting Logo"
+              width={50}  // Passe die Breite an
+              height={50} // Passe die Höhe an
+              className="mr-2" // Füge etwas Abstand hinzu
+            />
             <Link href="/" className="text-2xl text-[#E64000] font-bold hover:underline">
               Nexgen
             </Link>
@@ -39,17 +47,30 @@ export default function NavBar() {
                 viewBox="0 0 24 24"
                 aria-hidden="true"
               >
-                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 
+                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11
                 19h-2v-9h2v9zm-1-10.268c-.69 0-1.248-.558-1.248-1.246
-                0-.689.558-1.246 1.248-1.246.687 0 1.246.557 
-                1.246 1.246 0 .688-.559 1.246-1.246 
+                0-.689.558-1.246 1.248-1.246.687 0 1.246.557
+                1.246 1.246 0 .688-.559 1.246-1.246
                 1.246zm12 10.268h-2v-4.5c0-1.07-.021-2.444-1.49-2.444
                 -1.492 0-1.72 1.162-1.72 2.364v4.58h-2v-9h1.922v1.234h.
-                028c.268-.505.92-1.038 1.893-1.038 2.025 0 2.396 
+                028c.268-.505.92-1.038 1.893-1.038 2.025 0 2.396
                 1.333 2.396 3.069v5.735z"/>
               </svg>
             </a>
-        
+            {/* Instagram Icon */}
+            <a
+              href="https://www.instagram.com/nexgenconsultingcoburg/"  // Ersetze dies durch deinen Instagram-Link
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-blue-300"
+            >
+              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.205.012-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.335.014 5.071.18C1.808.346.347 1.807.18 5.071.014 8.335 0 8.741 0 12c0 3.259.014 3.665.18 6.929.166 3.263 1.627 4.724 4.891 4.891 3.264.166 3.669.18 6.928.18 3.259 0 3.665-.014 6.929-.18 3.264-.167 4.724-1.628 4.891-4.891.166-3.263.18-3.668.18-6.928 0-3.259-.014-3.665-.18-6.929-.167-3.263-1.628-4.724-4.891-4.891-3.263-.166-3.668-.18-6.928-.18z"/>
+                <path d="M12 5.838c-3.407 0-6.162 2.755-6.162 6.162 0 3.407 2.755 6.162 6.162 6.162 3.407 0 6.162-2.755 6.162-6.162 0-3.407-2.755-6.162-6.162-6.162zm0 7.621c-.824 0-1.494-.67-1.494-1.494 0-.824.67-1.494 1.494-1.494.824 0 1.494.67 1.494 1.494 0 .824-.67 1.494-1.494 1.494z"/>
+                <path d="M20.324 6.117c-.401 0-.727-.326-.727-.727 0-.401.326-.727.727-.727.401 0 .727.326.727.727 0 .401-.326.727-.727.727z"/>
+              </svg>
+            </a>
           </div>
 
           {/* Zentrierte Tabs (Desktop) */}
@@ -60,7 +81,7 @@ export default function NavBar() {
             {<Link href="/services/website" className="hover:underline">
               Website
             </Link>}
-            {<Link href="/services/marketing" className="hover:underline"> 
+            {<Link href="/services/marketing" className="hover:underline">
               Marketing
             </Link>}
             {/* <Link href="/services/schulungen" className="hover:underline">
@@ -89,9 +110,27 @@ export default function NavBar() {
 
 function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
       <button
         className="text-3xl text-white focus:outline-none"
         onClick={() => setOpen(!open)}
@@ -101,13 +140,20 @@ function MobileMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-4 w-64 bg-blue-900 rounded-xl shadow-xl p-4 z-50 border border-white animate-slideDown">
+        <div className="absolute right-0 mt-4 w-64 bg-blue-900/70 rounded-xl shadow-xl p-4 z-50 border border-white animate-slideDown">
           <nav className="flex flex-col space-y-3 text-base">
-            <Link href="/" className="hover:underline text-white">Startseite</Link>
-            <Link href="/services/online" className="hover:underline text-white">Online-Auftritt</Link>
-            <Link href="/services/automation" className="hover:underline text-white">Software & Prozesse</Link>
-            <Link href="/blog" className="hover:underline text-white">Blog</Link>
-            <Link href="/services/contact" className="hover:underline text-white">Kontakt</Link>
+            <Link href="/" className="hover:underline text-white" onClick={closeMenu}>
+              Home
+            </Link>
+            <Link href="/services/website" className="hover:underline text-white" onClick={closeMenu}>
+              Website
+            </Link>
+            <Link href="/services/marketing" className="hover:underline text-white" onClick={closeMenu}>
+              Marketing
+            </Link>
+            <Link href="/services/contact" className="hover:underline text-white" onClick={closeMenu}>
+              Kontakt
+            </Link>
           </nav>
         </div>
       )}
