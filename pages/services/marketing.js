@@ -38,60 +38,119 @@ export default function MarketingService() {
         </div>
       </section>
 
-      <section className="container mx-auto px-8 py-16 grid md:grid-cols-4 gap-8 text-white">
-        <div className="bg-blue-900 p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold mb-2">Google Analytics</h3>
-          <p>
-          Verwandeln Sie Daten in echte Wettbewerbsvorteile: Mit Google Analytics analysieren wir das Verhalten Ihrer Nutzer und zeigen Optimierungspotenziale für Ihre Website auf.
-          </p>
-          <img
-            src="/images/analytics.png"
-            alt="Beispiel einer Basis-Website"
-            className="w-full h-auto rounded mt-4"
-          />
-        </div>
-       
+      <section className="container mx-auto px-8 py-16 space-y-8 text-white">
 
-        <div className="bg-blue-900 p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold mb-2">SEO-Optimierung</h3>
-          <p>
-          Mehr Sichtbarkeit, mehr Reichweite, mehr Kunden: Wir verbessern Ihr Google-Ranking durch strukturierte Onpage- und Offpage-Optimierung sowie gezielten Content.
-          </p>
-          <img
-            src="/images/SEO.png"
-            alt="Beispiel einer Basis-Website"
-            className="w-full h-auto rounded mt-4"
-          />
-        </div>
-     
-
-        <div className="bg-blue-900 p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold mb-2">Social Media</h3>
-          <p>
-          Erreichen Sie Ihre Zielgruppe dort, wo sie täglich aktiv ist: Wir entwickeln effektive Social-Media-Strategien, erstellen kreative Inhalte und steigern Ihre Markenbindung.
-          </p>
-          <img
-            src="/images/Instagram.png"
-            alt="Beispiel einer Basis-Website"
-            className="w-full h-auto rounded mt-4"
-          />
+      <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+          {/* Bild rechts */}
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src="/images/firmenidentität.png"
+              alt="Beispiel einer Basis-Website"
+              className="w-3/4 h-auto rounded"
+            />
+          </div>
+          {/* Text links */}
+          <div className="md:w-3/4 mb-4 md:mb-0">
+            <h3 className="text-2xl font-semibold mb-2">Firmenidentität</h3>
+            <p>
+              Ihr visuelles Erscheinungsbild mit Wiedererkennungswert: Wir gestalten Ihr komplettes Corporate Design – individuell, professionell und zielgruppenorientiert.
+            </p>
+            <p>
+              Ob Logo, Farbwelt, Typografie, Geschäftsausstattung oder digitale Medien – wir entwickeln ein einheitliches, starkes Designkonzept für Ihr Unternehmen. Unsere Designs sind zeitlos, einzigartig und genau auf Ihre Marke und Zielgruppe abgestimmt.
+            </p>
+            <p>Unsere Leistungen im Bereich Corporate Design:</p>
+            <ul className="list-disc list-inside">
+              <li>Logoentwicklung mit Charakter und Wiedererkennungswert</li>
+              <li>Farb- und Schriftkonzepte passend zu Ihrer Markenidentität</li>
+              <li>Gestaltung von Visitenkarten, Briefpapier & Geschäftsdokumenten</li>
+              <li>Social-Media-Vorlagen und digitale Designvorlagen</li>
+              <li>Styleguides für einen konsistenten Markenauftritt</li>
+              <li>Redesign bestehender Markenauftritte mit moderner Ausrichtung</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="bg-blue-900 p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold mb-2">Firmenidentität</h3>
-          <p>
-          Wir gestalten Logos mit Charakter: Zeitlos, einzigartig und exakt auf Ihre Zielgruppe abgestimmt. Entwickeln Sie mit uns eine starke visuelle Identität für Ihr Unternehmen.
-          </p>
-          <img
-            src="/images/firmenidentität.png"
-            alt="Beispiel einer Basis-Website"
-            className="w-full h-auto rounded mt-4"
-          />
+        <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+          {/* Text links */}
+          <div className="md:w-3/4 mb-4 md:mb-0">
+            <h3 className="text-2xl font-semibold mb-2">Social Media</h3>
+            <p>
+              Social Media Marketing mit Strategie, Kreativität und messbarem Erfolg.
+            </p>
+            <p>
+              Erreichen Sie Ihre Zielgruppe dort, wo sie täglich aktiv ist – auf Instagram, Facebook, LinkedIn & Co. Wir entwickeln individuelle Social-Media-Strategien, die Ihre Marke sichtbar machen, Reichweite gezielt ausbauen und Ihre Community nachhaltig stärken.
+            </p>
+            <p>
+              Wir kümmern uns um alles – von der Idee bis zur Umsetzung: Ob organisches Wachstum oder gezielte Werbekampagnen: Mit kreativen Inhalten, professionellem Community-Management und datenbasierten Maßnahmen bringen wir Ihre Social-Media-Präsenz auf das nächste Level.
+            </p>
+          </div>
+          {/* Bild rechts */}
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src="/images/Instagram.png"
+              alt="Beispiel einer Basis-Website"
+              className="w-3/4 h-auto rounded"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+          {/* Bild rechts */}
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src="/images/analytics.png"
+              alt="Beispiel einer Basis-Website"
+              className="w-3/4 h-auto rounded"
+            />
+          </div>
+          {/* Text links */}
+          <div className="md:w-3/4 mb-4 md:mb-0">
+            <h3 className="text-2xl font-semibold mb-2">Google Analytics</h3>
+            <p>
+              Datenbasiert zum Erfolg: Wir machen Ihre Website messbar – mit Google Analytics & Co.
+            </p>
+            <p>
+              Verwandeln Sie Besucherzahlen in Erkenntnisse und Entscheidungen. Durch gezielte Webanalyse mit Google Analytics (GA4) und ergänzenden Tools zeigen wir Ihnen, wie Nutzer Ihre Website wirklich verwenden – und wo ungenutzte Potenziale liegen.
+            </p>
+            <p>
+              Unser Ziel: Mehr Conversions, bessere Nutzererfahrung, langfristiger Erfolg. Wir analysieren das Verhalten Ihrer Zielgruppe, identifizieren Schwachstellen im Nutzerfluss und entwickeln datenbasierte Optimierungsvorschläge für Struktur, Inhalte und Marketingmaßnahmen Ihrer Website.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+          {/* Text links */}
+          <div className="md:w-3/4 mb-4 md:mb-0">
+            <h3 className="text-2xl font-semibold mb-2">SEO-Optimierung</h3>
+            <p>
+              Wir bringen Ihre Website bei Google nach vorne – durch eine ganzheitliche Kombination aus technischer Onpage-Optimierung, hochwertigem Content und strategischem Linkaufbau (Offpage-SEO). So werden Sie genau dort gefunden, wo Ihre Zielgruppe nach Ihren Leistungen sucht.
+            </p>
+            <p>
+              Unsere SEO-Strategie: Nachhaltig, transparent und exakt auf Ihr Unternehmen zugeschnitten. Ob lokale SEO für Dienstleister, SEO für Online-Shops oder branchenspezifische Inhalte – wir analysieren, optimieren und begleiten Sie dauerhaft zu besseren Rankings und mehr qualifizierten Besuchern.
+            </p>
+            <p>
+              Unsere Leistungen im Bereich SEO:
+            </p>
+            <ul className="list-disc list-inside">
+              <li>SEO-Audit & Onpage-Optimierung (Pagespeed, Meta-Daten, Struktur, Mobile-Optimierung)</li>
+              <li>Keyword-Recherche & Content-Strategie</li>
+              <li>Erstellung suchmaschinenoptimierter Texte und Landingpages</li>
+              <li>Interne Verlinkung & Usability-Optimierung</li>
+              <li>Lokale SEO-Maßnahmen (z. B. Google My Business)</li>
+              <li>Offpage-Optimierung & Backlinkaufbau</li>
+              <li>Monitoring, Ranking-Tracking & regelmäßige Reportings</li>
+            </ul>
+          </div>
+          {/* Bild rechts */}
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src="/images/SEO.png"
+              alt="Beispiel einer Basis-Website"
+              className="w-3/4 h-auto rounded"
+            />
+          </div>
         </div>
       </section>
-
-    
-
 
       <section className="container mx-auto px-8 pb-24 text-center">
         <h2 className="text-3xl font-bold text-[#E64000] mb-6">Ihre Marke verdient Sichtbarkeit</h2>

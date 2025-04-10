@@ -28,7 +28,7 @@ export default function ServiceCategory({ title, link, direction, children }) {
   }, [direction]);
 
   return (
-    <div className="mb-16 rounded-lg p-4">
+    <div className="mb-16 rounded-lg p-2">
       <h3 className="text-3xl font-semibold mb-6">
         <a href={link} className="hover:underline">
           {title}

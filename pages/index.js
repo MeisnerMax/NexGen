@@ -45,19 +45,9 @@ export default function Home() {
   // Daten für "Automatisierung"
   const automationServices = [
     {
-      title: "Prozessautomatisierung",
-      description: "Reduzieren Sie manuelle Tätigkeiten und steigern Sie Ihre Effizienz durch intelligente Automatisierungslösungen – individuell auf Ihr Unternehmen abgestimmt.",
-      link: "/services/automation",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-        </svg>
-      ),
-    },
-    {
       title: "Softwareentwicklung",
       description: "Wir entwickeln passgenaue Softwarelösungen, die Ihre Unternehmensprozesse nachhaltig digitalisieren und vereinfachen.",
-      link: "/services/automation",
+      link: "/services/contact",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
@@ -67,7 +57,7 @@ export default function Home() {
     {
       title: "Appentwicklung",
       description: "Wir konzipieren und entwickeln maßgeschneiderte Business-Apps – plattformübergreifend, funktional und auf Ihre Ziele abgestimmt.",
-      link: "/services/automation",
+      link: "/services/app",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
@@ -279,6 +269,26 @@ export default function Home() {
       {/* Marketing */}
       <div className="px-4 py-12 bg-blue rounded-lg">
       <ServiceCategory title="Marketing" direction="left">
+      <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="Social Media"
+          description="Reichweite aufbauen, Kundenbindung stärken: Wir entwickeln individuelle Content-Strategien für Instagram, Facebook & Co."
+          href="/services/marketing"
+        />
+        <ServiceCard
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
+            </svg>
+          }
+          title="Logo & Firmenidentität"
+          description="Ihr Unternehmen verdient ein klares Profil: Wir gestalten Ihr Logo und Ihre visuelle Identität – authentisch und einprägsam."
+          href="/services/marketing"
+        />
         <ServiceCard
           icon={
             <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,26 +309,7 @@ export default function Home() {
           description="Steigern Sie Ihre Sichtbarkeit bei Google mit gezielter Suchmaschinenoptimierung – lokal und überregional."
           href="/services/marketing"
         />
-        <ServiceCard
-          icon={
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-            </svg>
-          }
-          title="Social Media"
-          description="Reichweite aufbauen, Kundenbindung stärken: Wir entwickeln individuelle Content-Strategien für Instagram, Facebook & Co."
-          href="/services/marketing"
-        />
-        <ServiceCard
-          icon={
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-            </svg>
-          }
-          title="Logo & Firmenidentität"
-          description="Ihr Unternehmen verdient ein klares Profil: Wir gestalten Ihr Logo und Ihre visuelle Identität – authentisch und einprägsam."
-          href="/services/marketing"
-        />
+        
       </ServiceCategory>
     </div>
 
@@ -384,7 +375,7 @@ export default function Home() {
 
     {/* Prozessoptimierung */}
     <div className="px-4 py-12 mb-12 bg-blue rounded-lg">
-      <ServiceCategory title="Prozessoptimierung" direction="right">
+      <ServiceCategory title="Eigene Software & APP" direction="right">
         {automationServices.map((service, index) => (
           <ServiceCard
             key={index}
