@@ -37,14 +37,7 @@ export default function WebsiteService() {
      
       <Chatbot />
 
-      <section className="container mx-auto py-20 px-8 mt-16 bg-blue text-white rounded-lg">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">Webdesign & Branding</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-          Wir entwickeln Websites, die Eindruck hinterlassen – technisch einwandfrei, suchmaschinenoptimiert und perfekt abgestimmt auf Ihre Zielgruppe. Ideal für kleine und mittelständische Unternehmen.
-          </p>
-        </div>
-      </section>
+      <section className="container mx-auto py-20 px-8 mt-16 bg-blue text-white rounded-lg"> <div className="text-center"> <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">Webdesign & Branding</h1> <p className="text-xl max-w-3xl mx-auto"> Wir entwickeln Websites, die Eindruck hinterlassen – technisch einwandfrei, suchmaschinenoptimiert und perfekt abgestimmt auf Ihre Zielgruppe. Ideal für kleine und mittelständische Unternehmen. </p> </div> </section>
 
       <section className="container rounded-lg bg-blue mx-auto px-20 py-8 grid md:grid-cols-3  text-white">
         <div className="bg-blue p-6 rounded-lg ">
@@ -79,7 +72,7 @@ export default function WebsiteService() {
       <section className="container mx-auto px-8 py-16 grid md:grid-cols-3 gap-8 text-white">
         <div
           onClick={() => redirectToContact('Basis-Website')}
-          className="bg-blue-900 text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
+          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
           <h3 className="text-2xl font-semibold mb-2">Basis-Website</h3>
           <p>Ihre digitale Visitenkarte: Startseite, Kontaktformular, Impressum & Datenschutz – ideal für Freiberufler und kleine Unternehmen.</p>
           <h4 className="text-2xl font-semibold mb-2">599 €</h4>
@@ -92,7 +85,7 @@ export default function WebsiteService() {
 
         <div
             onClick={() => redirectToContact('Standard-Website')} 
-            className="bg-blue-900 text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
+            className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
           <h3 className="text-2xl font-semibold mb-2">Standard-Website</h3>
           <p>3–5 Unterseiten, suchmaschinenoptimiert, mit CMS, Bildern und Basis-SEO – perfekt für wachsende Unternehmen mit professionellem Anspruch.</p>
           <h4 className="text-2xl font-semibold mb-2">999 €</h4>
@@ -105,7 +98,7 @@ export default function WebsiteService() {
 
         <div 
             onClick={() => redirectToContact('Premium-Website')}
-        className="bg-blue-900 text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
+        className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
           <h3 className="text-2xl font-semibold mb-2">Premium-Website</h3>
           
           <p>Ideal für Unternehmen mit erweiterten Anforderungen: Online-Terminbuchung, Webshop, Wartungsvertrag – individuell erweiterbar.</p>

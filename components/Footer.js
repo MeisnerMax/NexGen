@@ -10,7 +10,7 @@ export default function Footer() {
         </div>
         <div className="mb-4">
           <a href="https://www.linkedin.com/company/106936390" className="mx-2 hover:text-blue-400">LinkedIn</a>
-          <a href="https://www.instagram.com/nexgenconsulting" className="mx-2 hover:text-blue-400">Instagram</a>
+          <a href="https://www.instagram.com/nexgenconsultingcoburg" className="mx-2 hover:text-blue-400">Instagram</a>
         </div>
         <div className="mb-2">
           <a href="/impressum" className="hover:underline">Impressum</a>

@@ -207,37 +207,47 @@ export default function Home() {
       <Chatbot /> {/* Chatbot-Komponente */}
 
       {/* Über */}
-      <section id="about" className="container mx-auto py-24 px-8 mt-16 bg-blue text-white rounded-lg" data-aos="fade-up" data-aos-duration="2000">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <h2 className="text-4xl text-[#E64000] font-bold mb-6">Über</h2>
+<section id="about" className="container mx-auto py-24 px-8 mt-16 bg-blue text-white rounded-lg" data-aos="fade-up" data-aos-duration="2000">
+<div className="flex flex-col md:flex-row items-center gap-12">
+<div className="md:w-1/2">
+<h2 className="text-4xl text-[#E64000] font-bold mb-6">Über</h2>
+<p className="text-xl leading-relaxed">
+Nexgen Consulting bietet maßgeschneiderte Lösungen für die Digitalisierung kleiner und mittelständischer Unternehmen – mit Fokus auf <strong>Coburg</strong>, <strong>Oberfranken</strong> und den gesamten deutschsprachigen Raum. Die Leistungen umfassen <strong>Prozessautomatisierung</strong>, <strong>Software- und App-Entwicklung</strong>, <strong>professionelles Webdesign</strong> sowie wirkungsvolle Online-Marketingstrategien. Jedes Projekt wird individuell und praxisnah umgesetzt – mit Fokus auf Qualität, Nutzerfreundlichkeit und nachhaltigem Mehrwert.
+</p>
+</div>
+<div className="md:w-1/2" data-aos="fade-left" data-aos-duration="2000">
+<img src="/images/team.jpg" alt="Unser Team" className="rounded-lg shadow-lg" />
+</div>
+</div>
+</section>
+
+      {/* Services */}
+      <section id="services" className="relative bg-blue text-white mt-24">
+        {/* Textbereich */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="bg-black text-white py-8 px-8 rounded-lg shadow-lg z-10 max-w-full text-center">
+            <h2 className="text-4xl text-[#E64000] font-bold mb-6">Unsere Services</h2>
             <p className="text-xl leading-relaxed">
-            Nexgen Consulting bietet maßgeschneiderte Lösungen für die Digitalisierung kleiner und mittelständischer Unternehmen – mit Fokus auf <strong>Coburg</strong>, <strong>Oberfranken</strong> und den gesamten deutschsprachigen Raum. Die Leistungen umfassen <strong>Prozessautomatisierung</strong>, <strong>Software- und App-Entwicklung</strong>, <strong>professionelles Webdesign</strong> sowie wirkungsvolle Online-Marketingstrategien. Jedes Projekt wird individuell und praxisnah umgesetzt – mit Fokus auf Qualität, Nutzerfreundlichkeit und nachhaltigem Mehrwert.
+              Die strukturierte Roadmap zur erfolgreichen Digitalisierung:
+              Von der Idee über die Planung bis zur Umsetzung – alles abgestimmt auf moderne Anforderungen und praxisnahe Ergebnisse.
             </p>
           </div>
-          <div className="md:w-1/2" data-aos="fade-left" data-aos-duration="2000">
-            <img src="/images/team.jpg" alt="Unser Team" className="rounded-lg shadow-lg" />
-          </div>
+        </div>
+
+        {/* Bildbereich */}
+        <div className="w-full h-80">
+          <img src="/images/webdesign.jpg" alt="Unser Team" className="w-full h-full object-cover" />
         </div>
       </section>
 
-      
-
         {/* Beschreibung unter "Unsere Services" */}
-        <section className="container mx-auto py-12 text-white px-8 text-center  text-blue rounded-lg ">
-          <h3 className="text-3xl font-bold text-[#E64000] mb-6">Alles aus einer Hand für Ihre Digitalisierung</h3>
+        <section className="container mx-auto py-12 text-white px-8 text-center mt-8 text-blue rounded-lg ">
+          {/*<h3 className="text-3xl font-bold text-[#E64000] mb-6">Alles aus einer Hand für Ihre Digitalisierung</h3>
           <p className="text-lg leading-relaxed">
           Ob Website-Erstellung, individuelle Softwarelösungen oder Prozessautomatisierung – bei Nexgen Consulting greifen alle Leistungen ineinander. Die ganzheitliche Herangehensweise ermöglicht eine kosteneffiziente, aufeinander abgestimmte Umsetzung digitaler Projekte – speziell ausgerichtet auf die Anforderungen kleiner und mittlerer Unternehmen. Durch individuelle Beratung und praxisorientierte Lösungen entsteht eine digitale Infrastruktur, die langfristig überzeugt.
-          </p>
+          </p>*/}
 
-          {/* Services */}
-      <section id="services" className="container mx-auto py-10 px-8 bg-blue text-white">
-        <h2 className="text-4xl font-bold mb-12 text-[#E64000] text-center">Unsere Services</h2>
-        <p className="text-lg leading-relaxed text-center mb-8">
-        Die strukturierte Roadmap zur erfolgreichen Digitalisierung:
-        Von der Idee über die Planung bis zur Umsetzung – alles abgestimmt auf moderne Anforderungen und praxisnahe Ergebnisse.
-        </p>
-      </section>
+          
 
         {/* Website & Shop */}
         <div className="px-4 py-12 bg-blue rounded-lg">
@@ -286,7 +296,7 @@ export default function Home() {
             </svg>
           }
           title="Logo & Firmenidentität"
-          description="Ihr Unternehmen verdient ein klares Profil: Wir gestalten Ihr Logo und Ihre visuelle Identität – authentisch und einprägsam."
+          description="Ihr Unternehmen verdient ein klares Profil: Wir gestalten Ihr Logo und Ihre Identität – authentisch und einprägsam."
           href="/services/marketing"
         />
         <ServiceCard
@@ -296,7 +306,7 @@ export default function Home() {
             </svg>
           }
           title="Google Analytics"
-          description="Nutzen Sie datenbasierte Einblicke zur Optimierung Ihrer Website-Performance und Marketingstrategie mit Google Analytics."
+          description="Nutzen Sie datenbasierte Einblicke zur Optimierung Ihrer Website-Performance und Marketingstrategie."
           href="/services/marketing"
         />
         <ServiceCard
@@ -350,7 +360,7 @@ export default function Home() {
             </svg>
           }
           title="Excel für Unternehmen"
-          description="Von Grundlagen bis Automatisierung: Unsere Excel-Schulungen zeigen, wie Sie Zeit sparen und Fehler vermeiden."
+          description="Von Grundlagen bis Automatisierung: Unsere Schulungen zeigen, wie Sie Zeit sparen und Fehler vermeiden."
           href="/services/contact"
         />
       </ServiceCategory>

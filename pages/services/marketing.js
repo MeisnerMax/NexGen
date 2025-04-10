@@ -29,18 +29,11 @@ export default function MarketingService() {
       
       <Chatbot />
 
-      <section className="container mx-auto py-24 px-8 mt-16 bg-blue text-white rounded-lg">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">Marketing & Sichtbarkeit</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-          Ob SEO, Google Analytics oder Social Media: Mit datengetriebenen Strategien steigern wir Ihre Online-Sichtbarkeit, erhöhen Ihre Reichweite und stärken Ihre Kundenbindung – für messbaren Erfolg im digitalen Raum.
-          </p>
-        </div>
-      </section>
+      <section className="container mx-auto py-24 px-8 mt-16 bg-blue text-white rounded-lg"> <div className="text-center"> <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">Marketing & Sichtbarkeit</h1> <p className="text-xl max-w-3xl mx-auto"> Ob SEO, Google Analytics oder Social Media: Mit datengetriebenen Strategien steigern wir Ihre Online-Sichtbarkeit, erhöhen Ihre Reichweite und stärken Ihre Kundenbindung – für messbaren Erfolg im digitalen Raum. </p> </div> </section>
 
       <section className="container mx-auto px-8 py-16 space-y-8 text-white">
 
-      <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+      <div className="flex flex-col md:flex-row items-center bg-gray-900 p-6 rounded-lg shadow-md">
           {/* Bild rechts */}
           <div className="md:w-1/2 flex justify-center">
             <img
@@ -52,9 +45,7 @@ export default function MarketingService() {
           {/* Text links */}
           <div className="md:w-3/4 mb-4 md:mb-0">
             <h3 className="text-2xl font-semibold mb-2">Firmenidentität</h3>
-            <p>
-              Ihr visuelles Erscheinungsbild mit Wiedererkennungswert: Wir gestalten Ihr komplettes Corporate Design – individuell, professionell und zielgruppenorientiert.
-            </p>
+            
             <p>
               Ob Logo, Farbwelt, Typografie, Geschäftsausstattung oder digitale Medien – wir entwickeln ein einheitliches, starkes Designkonzept für Ihr Unternehmen. Unsere Designs sind zeitlos, einzigartig und genau auf Ihre Marke und Zielgruppe abgestimmt.
             </p>
@@ -70,7 +61,7 @@ export default function MarketingService() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+        <div className="flex flex-col md:flex-row items-center bg-gray-800 p-6 rounded-lg shadow-md">
           {/* Text links */}
           <div className="md:w-3/4 mb-4 md:mb-0">
             <h3 className="text-2xl font-semibold mb-2">Social Media</h3>
@@ -94,7 +85,7 @@ export default function MarketingService() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+        <div className="flex flex-col md:flex-row items-center bg-gray-900 p-6 rounded-lg shadow-md">
           {/* Bild rechts */}
           <div className="md:w-1/2 flex justify-center">
             <img
@@ -106,9 +97,7 @@ export default function MarketingService() {
           {/* Text links */}
           <div className="md:w-3/4 mb-4 md:mb-0">
             <h3 className="text-2xl font-semibold mb-2">Google Analytics</h3>
-            <p>
-              Datenbasiert zum Erfolg: Wir machen Ihre Website messbar – mit Google Analytics & Co.
-            </p>
+            
             <p>
               Verwandeln Sie Besucherzahlen in Erkenntnisse und Entscheidungen. Durch gezielte Webanalyse mit Google Analytics (GA4) und ergänzenden Tools zeigen wir Ihnen, wie Nutzer Ihre Website wirklich verwenden – und wo ungenutzte Potenziale liegen.
             </p>
@@ -118,16 +107,14 @@ export default function MarketingService() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center bg-blue-900 p-6 rounded-lg shadow-md">
+        <div className="flex flex-col md:flex-row items-center bg-gray-800 p-6 rounded-lg shadow-md">
           {/* Text links */}
           <div className="md:w-3/4 mb-4 md:mb-0">
             <h3 className="text-2xl font-semibold mb-2">SEO-Optimierung</h3>
             <p>
               Wir bringen Ihre Website bei Google nach vorne – durch eine ganzheitliche Kombination aus technischer Onpage-Optimierung, hochwertigem Content und strategischem Linkaufbau (Offpage-SEO). So werden Sie genau dort gefunden, wo Ihre Zielgruppe nach Ihren Leistungen sucht.
             </p>
-            <p>
-              Unsere SEO-Strategie: Nachhaltig, transparent und exakt auf Ihr Unternehmen zugeschnitten. Ob lokale SEO für Dienstleister, SEO für Online-Shops oder branchenspezifische Inhalte – wir analysieren, optimieren und begleiten Sie dauerhaft zu besseren Rankings und mehr qualifizierten Besuchern.
-            </p>
+          
             <p>
               Unsere Leistungen im Bereich SEO:
             </p>

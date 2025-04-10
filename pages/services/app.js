@@ -75,7 +75,7 @@ export default function AppService() {
       <section className="container mx-auto px-8 py-16 grid md:grid-cols-3 gap-8 text-white">
         <div
           onClick={() => redirectToContact('Basis-App')}
-          className="bg-blue-900 text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
+          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
         >
           <h3 className="text-2xl font-semibold mb-2">Basis-App</h3>
           <p>Eine einfache App mit grundlegenden Funktionen – ideal für kleine Projekte.</p>
@@ -89,7 +89,7 @@ export default function AppService() {
 
         <div
           onClick={() => redirectToContact('Standard-App')}
-          className="bg-blue-900 text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
+          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
         >
           <h3 className="text-2xl font-semibold mb-2">Standard-App</h3>
           <p>Erweiterte Funktionen wie Login, Datenbankanbindung und dynamische Inhalte.</p>
@@ -103,7 +103,7 @@ export default function AppService() {
 
         <div
           onClick={() => redirectToContact('Premium-App')}
-          className="bg-blue-900 text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
+          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
         >
           <h3 className="text-2xl font-semibold mb-2">Premium-App</h3>
           <p>Komplexe Apps mit API-Integration, Zahlungsfunktionen, GPS und mehr.</p>
