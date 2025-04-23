@@ -8,6 +8,7 @@ import ServiceCategory from '../components/ServiceCategory';
 import Chatbot from "../components/Chatbot";
 import { useState } from 'react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/react';
 
 // Dynamisch importierte Slider, damit sie nur im Browser laufen
 const TestimonialsSlider = dynamic(() => import('../components/TestimonialsSlider'), { ssr: false });
@@ -429,7 +430,7 @@ Nexgen Consulting bietet maßgeschneiderte Lösungen für die Digitalisierung kl
       </section> */}
 
       {/* Footer */}
-      
+      <Analytics />
     </>
   );
 }

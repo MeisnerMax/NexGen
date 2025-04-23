@@ -6,6 +6,7 @@ import AOS from 'aos';
 import Layout from '../components/Layout';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
+import { Analytics } from '@vercel/analytics/react'; // Importiere die Analytics-Komponente
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <Analytics /> {/* Analytics-Komponente hinzugefügt */}
     </>
   );
 }
