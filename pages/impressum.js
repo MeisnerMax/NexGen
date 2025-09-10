@@ -27,7 +27,7 @@ export default function Impressum() {
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Kontakt:</h2>
           <p>
-            Telefon: +4915227433448 <br />
+            Telefon: +4915259089486 <br />
             E-Mail: maxmeisner3@gmail.com <br />
             Website: Nexgen-Consulting.de
           </p>
