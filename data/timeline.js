@@ -1,86 +1,102 @@
 export const rawTimelineSteps = [
   {
     href: "/beratung",
-    title: "Beratung (Digitalisierung, Services & Förderungen)",
-    subtitle: "Kostenloses Erstgespräch, Potenzialanalyse und Fördermittel-Check.",
+    title: "Beratung (Digitalisierung & Förderungen)",
+    highlights: [
+      "Kostenloses Erstgespräch und Potenzialanalyse",
+      "Fördermittel-Check & Roadmap mit KPIs"
+    ],
     status: "done",
     ctaHref: "/beratung",
     ctaLabel: "Mehr über Beratung",
   },
   {
-    href: "/services/online",
-    title: "Webdesign & Branding",
-    subtitle: "Responsive Websites und starke Markenidentität.",
+    href: "/services/website",
+    title: "Webdesign & Webshop",
+    highlights: [
+      "Responsive Websites, Landingpages & CMS",
+      "E-Commerce-Implementierung inkl. Payment & Logistik"
+    ],
     status: "done",
   },
   {
-    href: "/services/online",
-    title: "Webshop",
-    subtitle: "E-Commerce-Lösungen inkl. Payment & Logistik.",
-    status: "done",
-  },
-  {
-    href: "/services/online",
-    title: "Google Analytics",
-    subtitle: "Monitoring, Dashboards und Marketing-Optimierung.",
+    href: "/services/marketing",
+    title: "Marketing & Analytics",
+    highlights: [
+      "Social Media Kampagnen & Community-Management",
+      "SEO, Content und Conversion-Optimierung",
+      "GA4 Dashboards & Performance Reviews"
+    ],
     status: "current",
   },
   {
-    href: "/services/online",
-    title: "SEO",
-    subtitle: "Technik, Content und Backlinks für Sichtbarkeit.",
+    href: "/services/firmenidentitaet",
+    title: "Firmenidentität",
+    highlights: [
+      "Logo, Styleguides & Templates",
+      "Brand Enablement für Ihr Team"
+    ],
     status: "current",
-  },
-  {
-    href: "/services/online",
-    title: "Social Media",
-    subtitle: "Community-Aufbau und Performance-Kampagnen.",
-    status: "current",
-  },
-  {
-    href: "/services/online",
-    title: "Logo & Corporate Design",
-    subtitle: "Styleguides, Templates und konsistente Brand Assets.",
-    status: "current",
+    ctaHref: "/services/firmenidentitaet",
+    ctaLabel: "Branding entdecken",
   },
   {
     href: "/services/schulungen",
-    title: "Microsoft Teams & Planner",
-    subtitle: "Digitale Zusammenarbeit effizient gestalten.",
-    status: "upcoming",
-  },
-  {
-    href: "/services/schulungen",
-    title: "Excel für Unternehmen",
-    subtitle: "Produktive Datenarbeit ohne Leerlauf.",
+    title: "Schulungen",
+    highlights: [
+      "Microsoft Teams & Planner",
+      "Excel-Trainings & Automatisierungen"
+    ],
     status: "upcoming",
   },
   {
     href: "/loesungen#m365",
     title: "Microsoft 365",
-    subtitle: "Einführung, Automatisierung und Governance.",
+    highlights: [
+      "Governance, Automatisierungen und Power Platform",
+      "Schulungen & Adoption-Programme"
+    ],
     status: "upcoming",
     ctaHref: "/loesungen#m365",
     ctaLabel: "Zu Microsoft 365",
   },
   {
     href: "/loesungen#branchen",
-    title: "Branchenspezifisch",
-    subtitle: "Tools exakt auf Prozesse & Teams abgestimmt.",
+    title: "Branchenspezifische Lösungen",
+    highlights: [
+      "Tool-Evaluierung & Prototyping",
+      "Integration in bestehende Prozesse"
+    ],
     status: "upcoming",
     ctaHref: "/loesungen#branchen",
     ctaLabel: "Mehr zu Branchenlösungen",
   },
   {
-    href: "/services/contact",
+    href: "/services/softwareentwicklung",
     title: "Softwareentwicklung",
-    subtitle: "Individuelle Anwendungen für Ihre Prozesse.",
+    highlights: [
+      "Individuelle Anwendungen & Automatisierungen",
+      "Anbindung an bestehende Systeme"
+    ],
     status: "upcoming",
+    ctaHref: "/services/softwareentwicklung",
+    ctaLabel: "Projekt starten",
   },
   {
     href: "/services/app",
     title: "Appentwicklung",
-    subtitle: "Native & hybride Apps mit Fokus auf UX.",
+    highlights: [
+      "Native & hybride Apps für iOS und Android",
+      "UX/UI Design & kontinuierlicher Betrieb"
+    ],
     status: "upcoming",
+    ctaHref: "/services/app",
+    ctaLabel: "Mehr zur Appentwicklung",
   },
 ];
+
+export const statusPriority = {
+  done: 2,
+  current: 1,
+  upcoming: 0,
+};
