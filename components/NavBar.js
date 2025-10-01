@@ -95,6 +95,21 @@ function MobileMenu() {
               <span>Home</span>
             </Link>
             <Link
+              href="/services/beratung"
+              className="flex items-center space-x-2 text-white hover:text-blue-300 transition"
+              onClick={closeMenu}
+            >
+             <svg
+                className="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+              <span>Beratung</span>
+            </Link>
+            <Link
               href="/services/website"
               className="flex items-center space-x-2 text-white hover:text-blue-300 transition"
               onClick={closeMenu}

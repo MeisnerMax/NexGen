@@ -56,13 +56,11 @@ const SCHULUNG_ENTRIES = [
 
 const SOFTWARE_ENTRIES = [
   {
-    href: "/beratung",
-    title: "Microsoft 365",
+    href: "/loesungen#m365",\n    title: "Microsoft 365",
     description: "Einführung, Automatisierung und Governance – wir holen das Maximum aus der M365-Landschaft.",
   },
   {
-    href: "/beratung",
-    title: "Branchenspezifisch",
+    href: "/loesungen#branchen",\n    title: "Branchenspezifisch",
     description: "Auswahl und Integration passender Tools – exakt auf Ihre Abläufe und Teams abgestimmt.",
   },
 ];
@@ -318,4 +316,5 @@ export default function Home() {
     </>
   );
 }
+
 
