@@ -17,25 +17,23 @@ export default function useReveal(selector = "[data-reveal]") {
       elements.forEach((element) => {
         element.classList.remove("opacity-0", "translate-y-6");
         element.classList.add("opacity-100", "translate-y-0");
+        element.style.transitionDelay = "0ms";
       });
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, idx) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0", "translate-y-6");
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("opacity-0", "translate-y-6");
+          entry.target.classList.add("opacity-100", "translate-y-0");
+          entry.target.style.transitionDelay = "0ms";
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
 
     elements.forEach((element, index) => {
-      element.style.transitionDelay = `${index * 60}ms`;
       element.classList.add(
         "opacity-0",
         "translate-y-6",
@@ -43,6 +41,7 @@ export default function useReveal(selector = "[data-reveal]") {
         "duration-500",
         "ease-out"
       );
+      element.style.transitionDelay = `${index * 80}ms`;
       observer.observe(element);
     });
 

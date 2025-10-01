@@ -6,12 +6,12 @@ export function Timeline({ children, className }) {
     <ol
       role="list"
       className={clsx(
-        "relative flex flex-col gap-10 md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-12",
+        "relative flex flex-col gap-12 md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-12",
         className
       )}
     >
       <div className="absolute left-4 top-8 bottom-8 w-px bg-brand-primary/20 md:hidden" aria-hidden="true" />
-      <div className="hidden md:block absolute top-12 left-0 right-0 mx-8 h-px bg-brand-primary/15" aria-hidden="true" />
+      <div className="hidden md:block absolute top-14 left-0 right-0 mx-8 h-px bg-brand-primary/15" aria-hidden="true" />
       {children}
     </ol>
   );
@@ -32,10 +32,10 @@ export function TimelineStep({
   const isCurrent = status === "current";
   const isDone = status === "done";
 
-  const ContentInner = (
+  const content = (
     <div
       className={clsx(
-        "rounded-brand-2xl bg-white/85 backdrop-blur shadow-card ring-1 ring-brand-primary/10 transition-all duration-300 ease-brand hover:-translate-y-1 hover:shadow-overlay",
+        "rounded-brand-2xl bg-white/85 backdrop-blur shadow-card ring-1 ring-brand-primary/10 transition-transform duration-300 ease-brand hover:-translate-y-1 hover:shadow-overlay",
         isCurrent && "bg-brand-accent/10"
       )}
     >
@@ -66,35 +66,33 @@ export function TimelineStep({
     </div>
   );
 
-  const outerClass = "relative pl-12 md:pl-0";
-
   return (
     <li
-      className="relative"
+      className="relative pl-12 md:pl-0"
       aria-current={isCurrent ? "step" : undefined}
       data-reveal
     >
-      <div className={outerClass}>
-        <StepBadge index={index} status={status} icon={icon} />
-        <div className="mt-4 md:mt-0" role="group" aria-label={`${index + 1}/${total}: ${title}`}>
-          {href ? (
-            <Link
-              href={href}
-              className="group block focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
-            >
-              {ContentInner}
-            </Link>
-          ) : (
-            <div>{ContentInner}</div>
-          )}
-        </div>
+      <div className="absolute left-3 top-9 bottom-0 w-px bg-brand-primary/10 md:hidden" aria-hidden="true" />
+      <StepBadge index={index} status={status} icon={icon} />
+      <div className="mt-4 md:mt-0" role="group" aria-label={`${index + 1}/${total}: ${title}`}>
+        {href ? (
+          <Link
+            href={href}
+            className="group block focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+          >
+            {content}
+          </Link>
+        ) : (
+          <div>{content}</div>
+        )}
       </div>
     </li>
   );
 }
 
 function StepBadge({ index, status, icon }) {
-  const base = "absolute left-3 top-0 flex h-8 w-8 items-center justify-center rounded-full md:static md:mx-auto md:mb-4 transition-transform duration-300 ease-brand";
+  const base = "absolute left-3 top-0 flex h-12 w-12 items-center justify-center rounded-full md:static md:mx-auto md:mb-4 transition-transform duration-300 ease-brand";
+
   if (status === "done") {
     return (
       <span
@@ -108,7 +106,10 @@ function StepBadge({ index, status, icon }) {
   if (status === "current") {
     return (
       <span
-        className={clsx(base, "bg-brand-accent/10 ring-2 ring-brand-accent text-brand-accent animate-[pulse_2s_ease-in-out_infinite]")}
+        className={clsx(
+          base,
+          "bg-brand-accent/10 ring-2 ring-brand-accent text-brand-accent animate-[pulse_2s_ease-in-out_infinite] motion-reduce:animate-none"
+        )}
         aria-label={`Aktueller Schritt ${index + 1}`}
       >
         {icon ?? index + 1}
