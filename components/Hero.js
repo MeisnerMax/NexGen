@@ -81,7 +81,7 @@ export default function Hero() {
 
 <div
   ref={overlayRef}
-  className="absolute top-0 left-0 w-full h-full bg-black opacity-50 " // Und Overlay ebenfalls
+  className="absolute top-0 left-0 w-full h-full bg-brand-primary opacity-50 " // Und Overlay ebenfalls
 ></div>
 
 
@@ -97,7 +97,7 @@ export default function Hero() {
         </p>
         <a
           href="/services/contact"
-          className="bg-blue text-2xl px-6 py-14 rounded-full font-semibold hover:bg-grey transition"
+          className="btn-primary text-sm px-4 py-2 sm:text-base sm:px-5 sm:py-3 md:text-lg md:px-6 md:py-3.5 rounded-brand-2xl"
         >
           Jetzt kostenlose Erstberatung anfordern
         </a>
@@ -105,3 +105,5 @@ export default function Hero() {
     </section>
   );
 }
+
+
