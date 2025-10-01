@@ -23,7 +23,7 @@ export default function useReveal(selector = "[data-reveal]") {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach((entry, idx) => {
           if (entry.isIntersecting) {
             entry.target.classList.remove("opacity-0", "translate-y-6");
             entry.target.classList.add("opacity-100", "translate-y-0");
@@ -34,13 +34,14 @@ export default function useReveal(selector = "[data-reveal]") {
       { threshold: 0.2 }
     );
 
-    elements.forEach((element) => {
+    elements.forEach((element, index) => {
+      element.style.transitionDelay = `${index * 60}ms`;
       element.classList.add(
         "opacity-0",
         "translate-y-6",
         "transition",
-        "duration-700",
-        "ease-brand"
+        "duration-500",
+        "ease-out"
       );
       observer.observe(element);
     });
