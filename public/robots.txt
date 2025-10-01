@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
+# Host
+Host: https://nexgen-consulting.de
+
+# Sitemaps
 Sitemap: https://nexgen-consulting.de/sitemap.xml

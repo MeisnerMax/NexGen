@@ -62,22 +62,21 @@ export default function Firmenidentitaet() {
           </div>
         </section>
 
-        <section className="py-16 sm:py-20 md:py-24 bg-surface-light">
+        <section className="py-16 sm:py-20 md:py-24 bg-brand-primary">
           <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 lg:items-start">
             <div className="space-y-6" data-reveal>
-              <h2 className="text-3xl font-heading font-semibold text-brand-primary">Vom Marken-Workshop bis zum Launch</h2>
-              <p className="text-brand-primary/80 leading-relaxed">
+              <h2 className="text-3xl font-heading font-semibold text-white">Vom Marken-Workshop bis zum Launch</h2>
+              <p className="text-white/80 leading-relaxed">
                 Gemeinsam definieren wir Markenwerte, Tonalität und visuelle Leitplanken. Daraus entstehen Moodboards, Design-Routen und ein finaler Brand Guide, der Print- wie Digitalformate abdeckt.
               </p>
-              <p className="text-brand-primary/80 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 Unser Enablement-Ansatz stellt sicher, dass Ihre Teams Assets eigenständig verwenden können – inklusive Schulung, Tool-Vorlagen und Feedback-Loops.
               </p>
             </div>
-            <div className="space-y-6" data-reveal>
-              <img src="/images/firmenidentitaet.png" alt="Branding Moodboard" className="w-full rounded-brand-2xl shadow-card ring-1 ring-brand-primary/10" />
-              <div className="rounded-brand-xl bg-white shadow-card ring-1 ring-brand-primary/10 p-6">
-                <h3 className="text-lg font-heading font-semibold text-brand-primary mb-2">Deliverable-Pakete</h3>
-                <p className="text-sm text-brand-primary/75 leading-relaxed">
+            <div className="" data-reveal>
+                <div className="rounded-brand-xl text-brand-primary shadow-card ring-1 ring-brand-primary/10 p-6">
+                <h3 className="text-3xl font-heading font-semibold text-white mb-2">Deliverable-Pakete</h3>
+                <p className=" text-white leading-relaxed">
                   Logo-Sets, Typo-Systeme, Icon Libraries, Social-Media-Templates, Präsentations-Decks, Print-Assets, Design-Systeme für Web & App.
                 </p>
               </div>

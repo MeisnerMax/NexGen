@@ -10,17 +10,5 @@
     "files": [
       "static/chunks/_pages-dir-browser_node_modules_next_dist_pages__error_js.js"
     ]
-  },
-  "pages\\index.js -> ../components/BlogSlider": {
-    "id": "pages\\index.js -> ../components/BlogSlider",
-    "files": [
-      "static/chunks/_pages-dir-browser_components_BlogSlider_js.js"
-    ]
-  },
-  "pages\\index.js -> ../components/TestimonialsSlider": {
-    "id": "pages\\index.js -> ../components/TestimonialsSlider",
-    "files": [
-      "static/chunks/_pages-dir-browser_components_TestimonialsSlider_js.js"
-    ]
   }
 }

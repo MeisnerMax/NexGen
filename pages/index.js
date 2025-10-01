@@ -266,17 +266,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact-cta" className="py-16 sm:py-20 md:py-24 bg-brand-primary">
-          <div className="container max-w-screen-lg px-6 lg:px-8 text-center" data-reveal>
-            <h2 className="text-3xl font-heading font-semibold text-surface-light mb-4">Bereit für den nächsten Schritt?</h2>
-            <p className="text-surface-light/80 leading-relaxed mb-8">
-              Buchen Sie eine kostenlose Erstberatung und erhalten Sie innerhalb weniger Tage eine klare Einschätzung zu Zeitplan, Budget und Machbarkeit.
-            </p>
-            <Link href="/kontakt" className="btn-primary inline-flex text-surface-light text-base sm:text-lg">
-              Jetzt kostenlose Erstberatung anfordern
-            </Link>
-          </div>
-        </section>
+        
 
         {/* Optional: Testimonials & Blog weiterhin verfügbar */}
         {/*

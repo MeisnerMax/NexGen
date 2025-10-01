@@ -56,20 +56,20 @@ export default function Beratung() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 md:py-24 bg-surface-light">
+      <section className="py-16 sm:py-20 md:py-24 bg-brand-primary/80">
         <div className="container max-w-screen-xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-heading font-semibold text-brand-primary mb-6">
+              <h2 className="text-3xl font-heading font-semibold text-white mb-6">
                 Unsere Beratungsleistungen im Überblick
               </h2>
-              <p className="text-brand-primary/80 leading-relaxed mb-8">
+              <p className="text-white leading-relaxed mb-8">
                 Jede Zusammenarbeit startet mit einem klaren Blick auf Prozesse, Menschen und Ziele. Daraus entwickeln wir individuelle Handlungsempfehlungen, die schnell Wirkung zeigen und Zukunftssicherheit schaffen.
               </p>
             </div>
-            <ul className="bg-white/80 backdrop-blur rounded-brand-2xl shadow-card ring-1 ring-brand-primary/5 p-8 space-y-4">
+            <ul className="bg-brand-primary backdrop-blur rounded-brand-2xl shadow-card ring-1 ring-brand-primary/5 p-8 space-y-4">
               {offerings.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-brand-primary">
+                <li key={item} className="flex items-start gap-3 text-white">
                   <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-accent/10 text-brand-accent font-semibold">
                     •
                   </span>
@@ -101,15 +101,15 @@ export default function Beratung() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 md:py-24 bg-surface-light">
+      <section className="py-16 sm:py-20 md:py-24 bg-brand-primary/80">
         <div className="container max-w-screen-xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-heading font-semibold text-brand-primary mb-4">
+          <h2 className="text-3xl font-heading font-semibold text-white mb-4">
             Bereit für den nächsten Schritt?
           </h2>
-          <p className="text-brand-primary/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-white leading-relaxed mb-8 max-w-2xl mx-auto">
             Lassen Sie uns in einem unverbindlichen Erstgespräch Potenziale identifizieren und priorisieren. Gemeinsam schaffen wir die Grundlage für eine digitale Roadmap, die Ihr Team mitnimmt.
           </p>
-          <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
+          <Link href="/kontakt" className="btn-primary inline-flex text-white sm:text-lg">
             Jetzt kostenlose Erstberatung anfordern
           </Link>
         </div>

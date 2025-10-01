@@ -51,22 +51,22 @@ export default function Loesungen() {
           </div>
         </section>
 
-        <section id="m365" className="py-16 sm:py-20 md:py-24 bg-surface-light">
+        <section id="m365" className="py-16 sm:py-20 md:py-24 bg-brand-primary/80">
           <div className="container max-w-screen-lg px-6 lg:px-8 grid gap-10 lg:grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:items-center">
             <div data-reveal>
-              <h2 className="text-3xl font-heading font-semibold text-brand-primary mb-4">Microsoft 365 Lösungen</h2>
-              <p className="text-brand-primary/80 leading-relaxed mb-6">
+              <h2 className="text-3xl font-heading font-semibold text-white mb-4">Microsoft 365 Lösungen</h2>
+              <p className="text-white leading-relaxed mb-6">
                 Wir helfen Ihnen, Microsoft 365 als Produktivitätsplattform zu etablieren – mit klaren Governance-Regeln, Automatisierung und engem Enablement der Teams.
               </p>
               <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
                 Jetzt Erstberatung sichern
               </Link>
             </div>
-            <div data-reveal className="rounded-brand-2xl bg-white shadow-card ring-1 ring-brand-primary/10 p-8 space-y-4">
-              <h3 className="text-xl font-heading font-semibold text-brand-primary">
+            <div data-reveal className="rounded-brand-2xl bg-brand-primary shadow-card ring-1 ring-brand-primary/10 p-8 space-y-4">
+              <h3 className="text-xl font-heading font-semibold text-white">
                 Unsere Schwerpunkte
               </h3>
-              <ul className="space-y-3 text-brand-primary/80 leading-relaxed">
+              <ul className="space-y-3 text-white leading-relaxed">
                 {m365Points.map((point) => (
                   <li key={point} className="flex items-start gap-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-brand-accent" aria-hidden="true" />
@@ -80,7 +80,7 @@ export default function Loesungen() {
 
         <section id="branchen" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-lg px-6 lg:px-8 grid gap-10 lg:grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:items-center">
-            <div data-reveal className="rounded-brand-2xl bg-brand-primary/70 ring-1 ring-white/10 p-8 space-y-4 order-last lg:order-first">
+            <div data-reveal className="rounded-brand-2xl bg-brand-primary/70  p-8 space-y-4 order-last lg:order-first">
               <h3 className="text-xl font-heading font-semibold">Branchenspezifische Lösungen</h3>
               <ul className="space-y-3 text-surface-light/90 leading-relaxed">
                 {branchenPoints.map((point) => (

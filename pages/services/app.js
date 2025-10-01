@@ -34,7 +34,7 @@ export default function AppService() {
 
       <section className="container mx-auto py-20 px-8 mt-16 bg-blue text-white rounded-lg">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">App-Entwicklung</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">App-Entwicklung</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Wir entwickeln mobile Apps für iOS und Android – individuell, benutzerfreundlich und perfekt auf Ihre Anforderungen abgestimmt.
           </p>
@@ -66,7 +66,7 @@ export default function AppService() {
 
       <section className="container mx-auto py-4 px-8 mt-16 bg-blue text-white rounded-lg">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             App-Pakete für Ihre Anforderungen
           </h1>
         </div>
@@ -117,7 +117,7 @@ export default function AppService() {
       </section>
 
       <section className="container mx-auto px-8 py-16 pb-24 text-center">
-        <h2 className="text-3xl font-bold text-[#E64000] mb-6">Starten Sie jetzt Ihr App-Projekt</h2>
+        <h2 className="text-3xl font-bold text-white mb-6">Starten Sie jetzt Ihr App-Projekt</h2>
         <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
           Lassen Sie uns gemeinsam Ihre App-Idee verwirklichen – individuell, modern und mit Fokus auf Ihre Zielgruppe.
         </p>

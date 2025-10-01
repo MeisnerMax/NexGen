@@ -16,7 +16,7 @@ export default function NavBar() {
         <meta property="og:url" content="https://nexgen-consulting.de" />
         <meta property="og:site_name" content="Nexgen Consulting" />
       </Head>
-      <nav className="sticky top-0 left-0 w-full z-50 bg-blue/90 text-white">
+      <nav className="sticky top-0 left-0 w-full z-50 bg-brand-primary text-white">
         <div className="container mx-auto flex items-center p-4">
           {/* Linke Seite: Brand */}
           <div className="flex items-center space-x-4">

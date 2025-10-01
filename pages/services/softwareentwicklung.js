@@ -70,29 +70,19 @@ export default function Softwareentwicklung() {
           </div>
         </section>
 
-        <section className="py-16 sm:py-20 md:py-24 bg-surface-light">
+        <section className="py-16 sm:py-20 md:py-24 text-brand-primary/80">
           <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 lg:items-start">
             <div className="space-y-6" data-reveal>
-              <h2 className="text-3xl font-heading font-semibold text-brand-primary">Entwicklung mit klarem Fahrplan</h2>
-              <p className="text-brand-primary/80 leading-relaxed">
+              <h2 className="text-3xl font-heading font-semibold text-white">Entwicklung mit klarem Fahrplan</h2>
+              <p className="text-white/80 leading-relaxed">
                 Wir starten mit einer gemeinsamen Prozess- und Systemanalyse, validieren Lösungsansätze mit Prototypen und entwickeln anschließend in kurzen Iterationen. Transparente Roadmaps, Reviews und offene Kommunikation sind für uns selbstverständlich.
               </p>
-              <p className="text-brand-primary/80 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 Unsere Teams übernehmen auf Wunsch den Betrieb inklusive Monitoring, Security und kontinuierlicher Weiterentwicklung – modular und skalierbar.
               </p>
             </div>
             <div className="space-y-6" data-reveal>
-              <div className="rounded-brand-xl bg-white shadow-card ring-1 ring-brand-primary/10 p-6">
-                <h3 className="text-lg font-heading font-semibold text-brand-primary mb-3">Technologie-Stack & Expertise</h3>
-                <ul className="space-y-2 text-brand-primary/75 leading-relaxed">
-                  {stacks.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" aria-hidden="true" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              
               <div className="rounded-brand-xl bg-brand-primary text-white shadow-card ring-1 ring-white/10 p-6">
                 <h3 className="text-lg font-heading font-semibold mb-3">So arbeiten wir</h3>
                 <p className="text-white/80 leading-relaxed">
