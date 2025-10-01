@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import useReveal from "../hooks/useReveal";
+
+
 
 const m365Points = [
   "Rollout-Planung, Governance und Sicherheitskonzepte",
@@ -19,7 +20,6 @@ const branchenPoints = [
 ];
 
 export default function Loesungen() {
-  useReveal();
 
   return (
     <>
