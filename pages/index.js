@@ -38,7 +38,7 @@ const SCHULUNG_ENTRIES = [
 
 const SOFTWARE_ENTRIES = [
   {
-    href: "/loesungen",    title: "Microsoft 365 & Branchensoftware",
+    href: "/services/loesungen",    title: "Microsoft 365 & Branchensoftware",
     description: "Einführung, Automatisierung & Integration passender Tools",
   },
   
@@ -63,7 +63,7 @@ export default function Home() {
   const timelineSteps = useMemo(() => {
     const rawSteps = [
       {
-        href: "/beratung",
+        href: "/services/beratung",
         title: "Beratung (Digitalisierung & Förderungen)",
         description: "Kostenloses Erstgespräch, Potenzialanalyse und Fördermittel-Check.",
         ctaHref: "/beratung",

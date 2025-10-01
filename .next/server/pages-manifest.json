@@ -1,7 +1,21 @@
 {
   "/_app": "pages/_app.js",
+  "/_documents": "pages/_documents.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
+  "/api/contact": "pages/api/contact.js",
+  "/api/chat": "pages/api/chat.js",
+  "/datenschutz": "pages/datenschutz.js",
+  "/impressum": "pages/impressum.js",
   "/": "pages/index.js",
-  "/services/softwareentwicklung": "pages/services/softwareentwicklung.js"
+  "/kontakt": "pages/kontakt.js",
+  "/services/app": "pages/services/app.js",
+  "/services/beratung": "pages/services/beratung.js",
+  "/services/contact": "pages/services/contact.js",
+  "/services/firmenidentitaet": "pages/services/firmenidentitaet.js",
+  "/services/loesungen": "pages/services/loesungen.js",
+  "/services/marketing": "pages/services/marketing.js",
+  "/services/schulungen": "pages/services/schulungen.js",
+  "/services/softwareentwicklung": "pages/services/softwareentwicklung.js",
+  "/services/website": "pages/services/website.js",
+  "/_document": "pages/_document.js"
 }
