@@ -30,3 +30,4 @@ Thumbs.db
 # Deployment-Umgebungen
 .vercel/
 .next/
+.next/
