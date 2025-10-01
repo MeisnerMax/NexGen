@@ -1,23 +1,19 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function ServiceCard({ icon, title, description, href }) {
   return (
-    <Link href={href} passHref>
-      <div className="w-full max-w-lg mx-auto transform transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
-        <div className="bg-blue text-white rounded-2xl overflow-hidden shadow-md p-8 text-center hover:bg-[#E65100] transition-colors duration-300 border-4 border-white h-full flex flex-col justify-between">
-          
-          {/* Icon-Bereich */}
-          <div className="w-20 h-20 mx-auto mb-6 bg-[#E65100] text-white rounded-full flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transform transition-transform">
+    <Link href={href} passHref legacyBehavior>
+      <a className="group block focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent">
+        <div className="rounded-brand-2xl ring-1 ring-white/10 bg-brand-primary/90 shadow-card transition duration-300 ease-brand group-hover:-translate-y-1 group-hover:shadow-overlay h-full flex flex-col justify-between p-8">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-brand-accent/15 text-brand-accent flex items-center justify-center text-3xl transition-transform duration-300 group-hover:scale-110">
             {icon}
           </div>
-
-          {/* Text-Bereich */}
-          <div>
-            <h4 className="text-2xl font-bold mb-4">{title}</h4>
-            <p className="text-gray-300 text-base leading-relaxed">{description}</p>
+          <div className="space-y-3 text-center">
+            <h4 className="text-2xl font-semibold text-white">{title}</h4>
+            <p className="text-surface-light/80 text-base leading-relaxed">{description}</p>
           </div>
         </div>
-      </div>
+      </a>
     </Link>
   );
 }
