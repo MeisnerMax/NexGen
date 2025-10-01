@@ -66,7 +66,7 @@ export default function Home() {
         href: "/services/beratung",
         title: "Beratung (Digitalisierung & Förderungen)",
         description: "Kostenloses Erstgespräch, Potenzialanalyse und Fördermittel-Check.",
-        ctaHref: "/beratung",
+        ctaHref: "/services/beratung",
         ctaLabel: "Mehr über Beratung",
         order: 0,
       },

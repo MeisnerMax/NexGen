@@ -77,7 +77,7 @@ function MobileMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 w-64 bg-black shadow-lg rounded-lg p-4 z-50 border border-[#E64000]">
+        <div className="absolute right-0 w-64 bg-brand-primary shadow-lg rounded-lg p-4 z-50 border border-[#E64000]">
           <nav className="flex flex-col space-y-4">
             <Link
               href="/"
