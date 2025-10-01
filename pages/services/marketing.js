@@ -1,158 +1,179 @@
-// pages/services/marketing.js
-import Head from 'next/head';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
+import Head from "next/head";
+import Link from "next/link";
 import Chatbot from "../../components/Chatbot";
+import useReveal from "../../hooks/useReveal";
+
+const valuePillars = [
+  {
+    title: "Social Media",
+    description:
+      "Strategie, Content-Produktion und Community-Management für Instagram, LinkedIn & Co – datenbasiert, kreativ und zielgruppengenau.",
+    bullets: [
+      "Redaktionspläne & Storyboards",
+      "Kampagnen-Setups inkl. Ads",
+      "Community- & Reputation-Management",
+    ],
+    image: "/images/Instagram.png",
+  },
+  {
+    title: "Analytics & Performance",
+    description:
+      "GA4, Looker Studio und Attribution: Wir übersetzen Daten in klare Maßnahmen und automatisieren Reporting-Strecken.",
+    bullets: [
+      "Event-Tracking & Dashboards",
+      "Funnels & Conversion-Optimierung",
+      "Performance-Reviews & Roadmaps",
+    ],
+    image: "/images/analytics.png",
+  },
+  {
+    title: "SEO & Content",
+    description:
+      "Technische Audits, Keyword-Strategie und skalierbare Content-Produktionen – lokal wie international.",
+    bullets: [
+      "Onpage & Technical SEO",
+      "Content Hubs & Landingpages",
+      "Linkbuilding & Digital PR",
+    ],
+    image: "/images/SEO.png",
+  },
+];
+
+const packages = [
+  {
+    title: "Audit & Roadmap",
+    description: "Status-Quo-Analyse, Ziele, KPIs, Budget – wir definieren einen klaren Plan in 2–3 Workshops.",
+  },
+  {
+    title: "Campaign Enablement",
+    description: "Set-up oder Optimierung Ihrer Performance-Kanäle inkl. Tracking und Dashboards.",
+  },
+  {
+    title: "Marketing as a Service",
+    description: "Wir übernehmen kontinuierliche Kampagnen, Content und Reporting als verlängerte Inhouse-Einheit.",
+  },
+];
 
 export default function MarketingService() {
+  useReveal();
+
   return (
     <>
       <Head>
-        <title>Marketing & SEO – Nexgen Consulting</title>
+        <title>Marketing & SEO – NexGen Consulting</title>
         <meta
           name="description"
-          content="Erfolgreiches Online-Marketing, SEO und Social Media Strategien von Nexgen Consulting – für mehr Reichweite und nachhaltige Sichtbarkeit."
+          content="Digitale Marketing-Strategien von NexGen Consulting: Social Media, Analytics und SEO – für mehr Sichtbarkeit und messbare Ergebnisse."
         />
+        <meta property="og:title" content="Marketing & SEO – NexGen Consulting" />
         <meta
-          name="keywords"
-          content="Marketing, SEO, Social Media, Google Analytics, Sichtbarkeit, Content Marketing"
+          property="og:description"
+          content="Social Media, Analytics und SEO aus einer Hand: NexGen Consulting entwickelt datengetriebene Maßnahmen mit klaren KPIs."
         />
-        <meta name="author" content="Nexgen Consulting" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Marketing & SEO – Nexgen Consulting" />
-        <meta property="og:description" content="Maßgeschneiderte Marketingstrategien für mehr digitale Sichtbarkeit und Kundenbindung." />
         <meta property="og:url" content="https://nexgen-consulting.de/services/marketing" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
       </Head>
 
-      
       <Chatbot />
 
-      <section className="container mx-auto py-24 px-8 mt-16 bg-blue text-white rounded-lg"> <div className="text-center"> <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">Marketing & Sichtbarkeit</h1> <p className="text-xl max-w-3xl mx-auto"> Ob SEO, Google Analytics oder Social Media: Mit datengetriebenen Strategien steigern wir Ihre Online-Sichtbarkeit, erhöhen Ihre Reichweite und stärken Ihre Kundenbindung – für messbaren Erfolg im digitalen Raum. </p> </div> </section>
+      <main>
+        <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
+          <div className="container max-w-screen-xl px-6 lg:px-8 space-y-6" data-reveal>
+            <p className="uppercase tracking-widest text-brand-accent font-semibold">Marketing & Sichtbarkeit</p>
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold">
+              Performance-orientiertes Marketing, das Marken sichtbar macht
+            </h1>
+            <p className="text-lg text-surface-light/90 max-w-3xl">
+              Ob SEO, Social Media oder Analytics – wir kombinieren Strategie, Content und Daten zu einem durchgängigen Marketing-Erlebnis. Unser Anspruch: messbare Wirkung, klare Prozesse und enge Zusammenarbeit mit Ihrem Team.
+            </p>
+            <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
+              Kostenlose Marketinganalyse anfragen
+            </Link>
+          </div>
+        </section>
 
-      <section className="container mx-auto px-8 py-16 space-y-8 text-white">
+        <section className="py-16 sm:py-20 md:py-24 bg-surface-light">
+          <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div data-reveal>
+              <h2 className="text-3xl font-heading font-semibold text-brand-primary mb-6">
+                Strategie + Umsetzung + Enablement
+              </h2>
+              <p className="text-brand-primary/80 leading-relaxed mb-6">
+                Wir starten mit einem digitalen Marketing-Audit, definieren Ziele samt KPI-Framework und orchestrieren anschließend Content, Kampagnen und Reporting. Transparente Dashboards und regelmäßige Reviews sorgen für Fokus.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {packages.map((pkg) => (
+                  <div key={pkg.title} className="rounded-brand-xl bg-white shadow-card ring-1 ring-brand-primary/10 p-6" data-reveal>
+                    <h3 className="text-lg font-heading font-semibold text-brand-primary mb-2">{pkg.title}</h3>
+                    <p className="text-sm text-brand-primary/75 leading-relaxed">{pkg.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div data-reveal className="rounded-brand-2xl bg-brand-primary text-white shadow-card ring-1 ring-white/10 p-8 space-y-4">
+              <h3 className="text-xl font-heading font-semibold">Ihre Vorteile</h3>
+              <ul className="space-y-3 text-white/85 leading-relaxed">
+                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Maßgeschneiderte Maßnahmenpläne mit klaren Kosten und KPIs</li>
+                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Interdisziplinäres Team aus Strategie, Kreation und Data</li>
+                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Enablement-Ansatz: Wir befähigen Ihr Team dauerhaft</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-      <div className="flex flex-col md:flex-row items-center bg-gray-900 p-6 rounded-lg shadow-md">
-          {/* Bild rechts */}
-          <div className="md:w-1/2 flex justify-center">
-            <img
-              src="/images/firmenidentität.png"
-              alt="Beispiel einer Basis-Website"
-              className="w-3/4 h-auto rounded"
-            />
-          </div>
-          {/* Text links */}
-          <div className="md:w-3/4 mb-4 md:mb-0">
-            <h3 className="text-2xl font-semibold mb-2">Firmenidentität</h3>
-            
-            <p>
-              Ob Logo, Farbwelt, Typografie, Geschäftsausstattung oder digitale Medien – wir entwickeln ein einheitliches, starkes Designkonzept für Ihr Unternehmen. Unsere Designs sind zeitlos, einzigartig und genau auf Ihre Marke und Zielgruppe abgestimmt.
-            </p>
-            <p>Unsere Leistungen im Bereich Corporate Design:</p>
-            <ul className="list-disc list-inside">
-              <li>Logoentwicklung mit Charakter und Wiedererkennungswert</li>
-              <li>Farb- und Schriftkonzepte passend zu Ihrer Markenidentität</li>
-              <li>Gestaltung von Visitenkarten, Briefpapier & Geschäftsdokumenten</li>
-              <li>Social-Media-Vorlagen und digitale Designvorlagen</li>
-              <li>Styleguides für einen konsistenten Markenauftritt</li>
-              <li>Redesign bestehender Markenauftritte mit moderner Ausrichtung</li>
-            </ul>
-          </div>
-        </div>
+        <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
+          <div className="container max-w-screen-xl px-6 lg:px-8 space-y-10">
+            <div className="text-center" data-reveal>
+              <h2 className="text-3xl font-heading font-semibold mb-4">Unsere Marketing-Schwerpunkte</h2>
+              <p className="text-surface-light/85 leading-relaxed max-w-3xl mx-auto">
+                Drei Pfeiler, ein Ziel: Ihre Marke zur richtigen Zeit vor die richtigen Menschen zu bringen – datenbasiert, kreativ und performant.
+              </p>
+            </div>
 
-        <div className="flex flex-col md:flex-row items-center bg-gray-800 p-6 rounded-lg shadow-md">
-          {/* Text links */}
-          <div className="md:w-3/4 mb-4 md:mb-0">
-            <h3 className="text-2xl font-semibold mb-2">Social Media</h3>
-            <p>
-              Social Media Marketing mit Strategie, Kreativität und messbarem Erfolg.
-            </p>
-            <p>
-              Erreichen Sie Ihre Zielgruppe dort, wo sie täglich aktiv ist – auf Instagram, Facebook, LinkedIn & Co. Wir entwickeln individuelle Social-Media-Strategien, die Ihre Marke sichtbar machen, Reichweite gezielt ausbauen und Ihre Community nachhaltig stärken.
-            </p>
-            <p>
-              Wir kümmern uns um alles – von der Idee bis zur Umsetzung: Ob organisches Wachstum oder gezielte Werbekampagnen: Mit kreativen Inhalten, professionellem Community-Management und datenbasierten Maßnahmen bringen wir Ihre Social-Media-Präsenz auf das nächste Level.
-            </p>
+            <div className="grid gap-8 lg:grid-cols-3">
+              {valuePillars.map((pillar) => (
+                <article
+                  key={pillar.title}
+                  className="rounded-brand-2xl bg-brand-primary/70 ring-1 ring-white/10 shadow-card overflow-hidden flex flex-col transition-transform duration-300 ease-brand hover:-translate-y-1"
+                  data-reveal
+                >
+                  <div className="h-48 overflow-hidden">
+                    <img src={pillar.image} alt={pillar.title} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="p-6 flex flex-col gap-4">
+                    <div>
+                      <h3 className="text-xl font-heading font-semibold">{pillar.title}</h3>
+                      <p className="text-white/80 leading-relaxed text-sm mt-2">{pillar.description}</p>
+                    </div>
+                    <ul className="space-y-2 text-white/70 text-sm leading-relaxed">
+                      {pillar.bullets.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" aria-hidden="true" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href="/kontakt" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-accent hover:text-brand-accent/80">
+                      Gespräch vereinbaren
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-          {/* Bild rechts */}
-          <div className="md:w-1/2 flex justify-center">
-            <img
-              src="/images/Instagram.png"
-              alt="Beispiel einer Basis-Website"
-              className="w-3/4 h-auto rounded"
-            />
-          </div>
-        </div>
+        </section>
 
-        <div className="flex flex-col md:flex-row items-center bg-gray-900 p-6 rounded-lg shadow-md">
-          {/* Bild rechts */}
-          <div className="md:w-1/2 flex justify-center">
-            <img
-              src="/images/analytics.png"
-              alt="Beispiel einer Basis-Website"
-              className="w-3/4 h-auto rounded"
-            />
-          </div>
-          {/* Text links */}
-          <div className="md:w-3/4 mb-4 md:mb-0">
-            <h3 className="text-2xl font-semibold mb-2">Google Analytics</h3>
-            
-            <p>
-              Verwandeln Sie Besucherzahlen in Erkenntnisse und Entscheidungen. Durch gezielte Webanalyse mit Google Analytics (GA4) und ergänzenden Tools zeigen wir Ihnen, wie Nutzer Ihre Website wirklich verwenden – und wo ungenutzte Potenziale liegen.
+        <section className="py-16 sm:py-20 md:py-24 bg-surface-light">
+          <div className="container max-w-screen-lg px-6 lg:px-8 text-center" data-reveal>
+            <h2 className="text-3xl font-heading font-semibold text-brand-primary mb-4">Ihre Marke verdient Sichtbarkeit</h2>
+            <p className="text-brand-primary/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+              Wir verbinden Strategie, Kampagnen und Enablement zu einem Marketing, das wirkt. Lassen Sie uns gemeinsam herausfinden, welche Schritte den größten Hebel für Ihr Unternehmen haben.
             </p>
-            <p>
-              Unser Ziel: Mehr Conversions, bessere Nutzererfahrung, langfristiger Erfolg. Wir analysieren das Verhalten Ihrer Zielgruppe, identifizieren Schwachstellen im Nutzerfluss und entwickeln datenbasierte Optimierungsvorschläge für Struktur, Inhalte und Marketingmaßnahmen Ihrer Website.
-            </p>
+            <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
+              Jetzt Termin sichern
+            </Link>
           </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row items-center bg-gray-800 p-6 rounded-lg shadow-md">
-          {/* Text links */}
-          <div className="md:w-3/4 mb-4 md:mb-0">
-            <h3 className="text-2xl font-semibold mb-2">SEO-Optimierung</h3>
-            <p>
-              Wir bringen Ihre Website bei Google nach vorne – durch eine ganzheitliche Kombination aus technischer Onpage-Optimierung, hochwertigem Content und strategischem Linkaufbau (Offpage-SEO). So werden Sie genau dort gefunden, wo Ihre Zielgruppe nach Ihren Leistungen sucht.
-            </p>
-          
-            <p>
-              Unsere Leistungen im Bereich SEO:
-            </p>
-            <ul className="list-disc list-inside">
-              <li>SEO-Audit & Onpage-Optimierung (Pagespeed, Meta-Daten, Struktur, Mobile-Optimierung)</li>
-              <li>Keyword-Recherche & Content-Strategie</li>
-              <li>Erstellung suchmaschinenoptimierter Texte und Landingpages</li>
-              <li>Interne Verlinkung & Usability-Optimierung</li>
-              <li>Lokale SEO-Maßnahmen (z. B. Google My Business)</li>
-              <li>Offpage-Optimierung & Backlinkaufbau</li>
-              <li>Monitoring, Ranking-Tracking & regelmäßige Reportings</li>
-            </ul>
-          </div>
-          {/* Bild rechts */}
-          <div className="md:w-1/2 flex justify-center">
-            <img
-              src="/images/SEO.png"
-              alt="Beispiel einer Basis-Website"
-              className="w-3/4 h-auto rounded"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-8 pb-24 text-center">
-        <h2 className="text-3xl font-bold text-[#E64000] mb-6">Ihre Marke verdient Sichtbarkeit</h2>
-        <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
-          Buchen Sie eine unverbindliche Marketinganalyse und lassen Sie sich beraten, wie wir gemeinsam Ihre Onlinepräsenz ausbauen.
-        </p>
-        <a
-          href="/services/contact"
-          className="bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-[#E64000] transition"
-        >
-          Jetzt Termin sichern
-        </a>
-      </section>
-
-      
+        </section>
+      </main>
     </>
   );
 }
