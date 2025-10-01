@@ -1,184 +1,136 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";\nimport Link from "next/link";
-import { useEffect } from "react";
+import Link from "next/link";
+import { useMemo } from "react";
 import Hero from "../components/Hero";
-import ServiceCard from "../components/ServiceCard";
-import ServiceCategory from "../components/ServiceCategory";
 import Chatbot from "../components/Chatbot";
+import useReveal from "../hooks/useReveal";
 
-const TestimonialsSlider = dynamic(() => import("../components/TestimonialsSlider"), { ssr: false });
-const BlogSlider = dynamic(() => import("../components/BlogSlider"), { ssr: false });
+const ONLINE_ENTRIES = [
+  {
+    href: "/services/online",
+    title: "Webdesign & Branding",
+    description: "Responsive Websites, klare Markenidentität und überzeugende UX für Ihren Auftritt.",
+  },
+  {
+    href: "/services/online",
+    title: "Webshop",
+    description: "Vom Produktkatalog bis zum Checkout – skalierbare E-Commerce-Lösungen aus einem Guss.",
+  },
+];
+
+const MARKETING_ENTRIES = [
+  {
+    href: "/services/online",
+    title: "Google Analytics",
+    description: "Datenbasierte Insights, um Performance, Kampagnen und Conversions messbar zu optimieren.",
+  },
+  {
+    href: "/services/online",
+    title: "SEO",
+    description: "Technik, Content und Backlinks – damit Ihre Marke langfristig gefunden wird.",
+  },
+  {
+    href: "/services/online",
+    title: "Social Media",
+    description: "Community-Aufbau, Content-Planung und Ads für LinkedIn, Instagram & Co.",
+  },
+  {
+    href: "/services/online",
+    title: "Logo & Corporate Design",
+    description: "Zeitlose Gestaltung, Styleguides und Templates für einen konsistenten Markenauftritt.",
+  },
+];
+
+const SCHULUNG_ENTRIES = [
+  {
+    href: "/services/schulungen",
+    title: "Microsoft Teams & Planner",
+    description: "Digitale Zusammenarbeit strukturieren und Prozesse transparent steuern.",
+  },
+  {
+    href: "/services/schulungen",
+    title: "Excel für Unternehmen",
+    description: "Von Grundlagen bis Automatisierung – produktive Datenarbeit ohne Leerlauf.",
+  },
+];
+
+const SOFTWARE_ENTRIES = [
+  {
+    href: "/beratung",
+    title: "Microsoft 365",
+    description: "Einführung, Automatisierung und Governance – wir holen das Maximum aus der M365-Landschaft.",
+  },
+  {
+    href: "/beratung",
+    title: "Branchenspezifisch",
+    description: "Auswahl und Integration passender Tools – exakt auf Ihre Abläufe und Teams abgestimmt.",
+  },
+];
+
+const AUTOMATION_ENTRIES = [
+  {
+    href: "/services/contact",
+    title: "Softwareentwicklung",
+    description: "Individuelle Anwendungen, die wiederkehrende Aufgaben digitalisieren und beschleunigen.",
+  },
+  {
+    href: "/services/app",
+    title: "Appentwicklung",
+    description: "Native und hybride Apps mit Fokus auf Usability, Performance und Skalierbarkeit.",
+  },
+];
 
 export default function Home() {
-  const onlineServices = [
-    {
-      title: "Webdesign & Branding",
-      description: "Entwicklung responsiver Websites und einer starken Markenidentität für Ihren Online-Auftritt.",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h18v12H3V3z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Webshop",
-      description: "Entwicklung responsiver Websites und einer starken Markenidentität für Ihren Online-Auftritt.",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 5m12-5l2 5m-6-5v5" />
-        </svg>
-      ),
-    },
-  ];
+  useReveal();
 
-  const automationServices = [
-    {
-      title: "Softwareentwicklung",
-      description: "Wir entwickeln passgenaue Softwarelösungen, die Ihre Unternehmensprozesse nachhaltig digitalisieren und vereinfachen.",
-      href: "/services/contact",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-        </svg>
-      ),
-    },
-    {
-      title: "Appentwicklung",
-      description: "Wir konzipieren und entwickeln maßgeschneiderte Business-Apps – plattformübergreifend, funktional und auf Ihre Ziele abgestimmt.",
-      href: "/services/app",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-        </svg>
-      ),
-    },
-  ];
-
-  const marketingServices = [
-    {
-      title: "Google Analytics",
-      description: "Analysieren Sie das Verhalten Ihrer Kunden und optimieren Sie Ihre Marketingstrategien mit datenbasierten Einblicken.",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-        </svg>
-      ),
-    },
-    {
-      title: "SEO",
-      description: "Verbessern Sie die Sichtbarkeit Ihrer Website in Suchmaschinen und erreichen Sie Ihre Zielgruppe effektiver.",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-        </svg>
-      ),
-    },
-    {
-      title: "Social Media",
-      description: "Erstellen Sie ansprechende Inhalte und bauen Sie eine starke Präsenz auf Social-Media-Plattformen auf.",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-        </svg>
-      ),
-    },
-    {
-      title: "Logo & Firmenidentität",
-      description: "Entwickeln Sie eine einzigartige Markenidentität und ein professionelles Logo, das Ihre Werte widerspiegelt.",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-        </svg>
-      ),
-    },
-  ];
-
-  const schulungenServices = [
-    {
-      title: "Teams & Planner",
-      description: "Effizienzsteigerung durch automatisierte Geschäftsprozesse und Reduzierung manueller Fehler",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-        </svg>
-      ),
-    },
-    {
-      title: "Excel",
-      description: "Maßgeschneiderte Softwarelösungen, die Ihre Prozesse digital optimieren.",
-      href: "/services/online",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19V6m-4 13V10m8 9v-4" />
-        </svg>
-      ),
-    },
-  ];
-
-  const softwareServices = [
-    {
-      title: "Microsoft 365",
-      description: "Nutzen Sie das volle Potenzial von Microsoft 365 – wir unterstützen Sie bei Einrichtung, Automatisierung und effizienter Zusammenarbeit im Team.",
-      href: "/beratung",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="CurrentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2-2H7a2 2 0 01-2-2v-2a2 2 0 01-2-2z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12V9a3 3 0 00-6 0v3" />
-        </svg>
-      ),
-    },
-    {
-      title: "Branchenspezifisch",
-      description: "Wir beraten Sie zu Software, die exakt auf Ihre Branche und Prozesse abgestimmt ist – für maximale Effizienz und intuitive Bedienung.",
-      href: "/beratung",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white mx-auto" fill="none" viewBox="0 0 24 24" stroke="CurrentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m2 0a2 2 0 012 2v2a2 2 0 01-2-2H7a2 2 0 01-2-2v-2a2 2 0 01-2-2z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12V9a3 3 0 00-6 0v3" />
-        </svg>
-      ),
-    },
-  ];
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const elements = Array.from(document.querySelectorAll('[data-reveal]'));
-
-    if (mediaQuery.matches) {
-      elements.forEach((element) => {
-        element.classList.add("opacity-100", "translate-y-0");
-      });
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            entry.target.classList.remove("opacity-0", "translate-y-6");
-            observer.unobserve(entry.target);
-          }
-        });
+  const timelineSteps = useMemo(() => {
+    const rawSteps = [
+      {
+        href: "/beratung",
+        title: "Beratung (Digitalisierung, Services & Förderungen)",
+        description: "Kostenloses Erstgespräch, Potenzialanalyse und Fördermittel-Check für Ihren digitalen Fahrplan.",
+        ctaHref: "/beratung",
+        ctaLabel: "Mehr über Beratung",
+        order: 0,
       },
-      { threshold: 0.2 }
-    );
+      ...ONLINE_ENTRIES,
+      ...MARKETING_ENTRIES,
+      ...SCHULUNG_ENTRIES,
+      ...SOFTWARE_ENTRIES,
+      ...AUTOMATION_ENTRIES,
+    ];
 
-    elements.forEach((element) => {
-      element.classList.add("opacity-0", "translate-y-6", "transition", "duration-700", "ease-brand");
-      observer.observe(element);
-    });
+    const grouped = rawSteps.reduce((acc, entry, index) => {
+      const key = entry.href ?? entry.title;
+      if (!acc.has(key)) {
+        acc.set(key, {
+          href: entry.href,
+          titles: new Set([entry.title]),
+          highlights: entry.description ? new Set([entry.description]) : new Set(),
+          ctaHref: entry.ctaHref ?? entry.href,
+          ctaLabel: entry.ctaLabel ?? (entry.href ? "Mehr erfahren" : undefined),
+          order: entry.order ?? index + 1,
+        });
+      } else {
+        const existing = acc.get(key);
+        existing.titles.add(entry.title);
+        if (entry.description) {
+          existing.highlights.add(entry.description);
+        }
+        acc.set(key, existing);
+      }
+      return acc;
+    }, new Map());
 
-    return () => observer.disconnect();
+    return Array.from(grouped.values())
+      .sort((a, b) => a.order - b.order)
+      .map((item) => ({
+        href: item.href,
+        title: Array.from(item.titles).join(" • "),
+        highlights: Array.from(item.highlights),
+        ctaHref: item.ctaHref,
+        ctaLabel: item.ctaLabel,
+      }));
   }, []);
 
   return (
@@ -187,7 +139,7 @@ export default function Home() {
         <title>Nexgen Consulting - Digitalisierung & Webdesign</title>
         <meta
           name="description"
-          content="Nexgen Consulting unterstützt kleine und mittelständische Unternehmen bei Digitalisierung, Prozessautomatisierung, Webdesign und SEO - alles aus einer Hand."
+          content="Nexgen Consulting unterstützt kleine und mittelständische Unternehmen bei Digitalisierung, Prozessautomatisierung, Webdesign und SEO – alles aus einer Hand."
         />
         <meta
           name="keywords"
@@ -233,7 +185,7 @@ export default function Home() {
                   Visionen digital umsetzen – klar, strukturiert, wirkungsvoll
                 </h2>
                 <p className="text-lg leading-relaxed text-surface-light/90">
-                  Nexgen Consulting bietet maßgeschneiderte Lösungen für kleine und mittelständische Unternehmen – von Prozessautomatisierung über individuelle Software und Apps bis hin zu überzeugenden Web- und Markenauftritten. Wir begleiten Sie von der Idee bis zum skalierbaren Betrieb.
+                  Nexgen Consulting begleitet Sie von der Idee bis zum skalierbaren Betrieb: Prozessautomatisierung, individuelle Software & Apps, überzeugende Webauftritte und wirkungsvolles Marketing – alles miteinander verzahnt.
                 </p>
               </div>
               <div data-reveal className="order-first md:order-none">
@@ -243,44 +195,65 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="py-16 sm:py-20 md:py-24 bg-surface-light">
+        <section id="timeline" className="py-16 sm:py-20 md:py-24 bg-surface-light">
           <div className="container max-w-screen-xl px-6 lg:px-8 space-y-12">
-            <div className="grid gap-8 lg:grid-cols-[1.3fr,1fr] lg:items-center" data-reveal>
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-brand-primary mb-6">Alles aus einer Hand für Ihre Digitalisierung</h2>
-                <p className="text-brand-primary/80 leading-relaxed">
-                  Von der Strategie über Design und Marketing bis zur technischen Umsetzung greifen alle Leistungen ineinander. Wir orchestrieren Teams, Tools und Prozesse so, dass Ihr Unternehmen schneller und sicherer Ergebnisse erzielt.
-                </p>
-              </div>
-              <div className="overflow-hidden rounded-brand-2xl ring-1 ring-brand-primary/10 shadow-card" data-reveal>
-                <img src="/images/webdesign.jpg" alt="Digitale Services" className="w-full h-full object-cover" />
-              </div>
+            <div className="text-center" data-reveal>
+              <p className="uppercase tracking-widest text-brand-accent font-semibold mb-3">Der Nexgen-Prozess</p>
+              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-brand-primary mb-4">
+                Von der Beratung bis zur Umsetzung – ein fließender Digitalisierungsfahrplan
+              </h2>
+              <p className="text-brand-primary/80 leading-relaxed max-w-3xl mx-auto">
+                Jeder Schritt baut auf dem vorherigen auf. So entsteht ein konsistentes Erlebnis für Ihr Team und Ihre Kundschaft – ohne Medienbrüche, dafür mit klaren KPIs.
+              </p>
             </div>
 
-            <div className="space-y-14 text-white">
-              <ServiceCategory title="Website & Shop" link="/services/website">
-                {onlineServices.map((service, index) => (
-                  <ServiceCard key={index} {...service} href={service.href} />
+            <div className="relative">
+              <div className="absolute left-4 top-8 bottom-8 w-px bg-brand-primary/20 md:hidden" aria-hidden="true" />
+              <div className="hidden md:block absolute top-12 left-0 right-0 mx-8 h-px bg-brand-primary/15" aria-hidden="true" />
+              <ol className="relative flex flex-col gap-10 md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-12">
+                {timelineSteps.map((step, index) => (
+                  <li
+                    key={`${step.href ?? "static"}-${index}`}
+                    data-reveal
+                    className="relative pl-12 md:pl-0"
+                  >
+                    <span
+                      className="absolute left-3 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-accent text-white font-semibold shadow-card md:static md:mx-auto md:mb-4"
+                    >
+                      {index + 1}
+                    </span>
+                    <div className="rounded-brand-2xl bg-white shadow-card ring-1 ring-brand-primary/10 transition-all duration-300 ease-brand hover:-translate-y-1 focus-within:ring-brand-accent/60">
+                      <div className="p-6 flex flex-col gap-4">
+                        <h3 className="text-xl font-heading font-semibold text-brand-primary text-left md:text-center">
+                          {step.title}
+                        </h3>
+                        {step.highlights.length > 1 ? (
+                          <ul className="space-y-2 text-brand-primary/80 text-sm leading-relaxed">
+                            {step.highlights.map((highlight) => (
+                              <li key={highlight} className="flex items-start gap-2">
+                                <span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" aria-hidden="true" />
+                                <span>{highlight}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-brand-primary/80 text-sm leading-relaxed">
+                            {step.highlights[0]}
+                          </p>
+                        )}
+                        {step.ctaHref && (
+                          <Link
+                            href={step.ctaHref}
+                            className="inline-flex items-center justify-center gap-2 rounded-brand-xl border border-brand-accent/40 px-3 py-2 text-sm font-semibold text-brand-accent transition-all duration-300 ease-brand hover:bg-brand-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+                          >
+                            {step.ctaLabel ?? "Mehr erfahren"}
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </li>
                 ))}
-              </ServiceCategory>
-
-              <ServiceCategory title="Marketing" link="/services/marketing">
-                {marketingServices.map((service, index) => (
-                  <ServiceCard key={index} {...service} href={service.href} />
-                ))}
-              </ServiceCategory>
-
-              <ServiceCategory title="Schulungen" link="/services/schulungen">
-                {schulungenServices.map((service, index) => (
-                  <ServiceCard key={index} {...service} href={service.href} />
-                ))}
-              </ServiceCategory>
-
-              <ServiceCategory title="Software & Automatisierung" link="/services/software">
-                {softwareServices.concat(automationServices).map((service, index) => (
-                  <ServiceCard key={index} {...service} href={service.href} />
-                ))}
-              </ServiceCategory>
+              </ol>
             </div>
           </div>
         </section>
@@ -325,7 +298,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Kundenreferenzen und Blog bleiben optional verfügbar */}
+        {/* Optional: Testimonials & Blog weiterhin verfügbar */}
         {/*
         <section id="testimonials" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white" data-reveal>
           <div className="container max-w-screen-xl px-6 lg:px-8 text-center space-y-8">
@@ -345,5 +318,4 @@ export default function Home() {
     </>
   );
 }
-
 
