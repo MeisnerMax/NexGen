@@ -80,6 +80,7 @@ export default function AppService() {
           <h3 className="text-2xl font-semibold mb-2">Basis-App</h3>
           <p>Eine einfache App mit grundlegenden Funktionen – ideal für kleine Projekte.</p>
           <h4 className="text-2xl font-semibold mb-2">799 €</h4>
+          <p className="text-sm text-white/80 mt-1">oder ab 32 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/basis-app.png"
             alt="Beispiel einer Basis-App"
@@ -94,6 +95,7 @@ export default function AppService() {
           <h3 className="text-2xl font-semibold mb-2">Standard-App</h3>
           <p>Erweiterte Funktionen wie Login, Datenbankanbindung und dynamische Inhalte.</p>
           <h4 className="text-2xl font-semibold mb-2">2.999 €</h4>
+          <p className="text-sm text-white/80 mt-1">oder ab 120 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/standard-app.png"
             alt="Beispiel einer Standard-App"
@@ -106,8 +108,9 @@ export default function AppService() {
           className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
         >
           <h3 className="text-2xl font-semibold mb-2">Premium-App</h3>
-          <p>Komplexe Apps mit API-Integration, Zahlungsfunktionen, GPS und mehr.</p>
-          <h4 className="text-2xl font-semibold mb-2">8.000 €+</h4>
+          <p>Komplexe Apps mit API-Integration, Zahlungsfunktionen GPS und mehr.</p>
+          <h4 className="text-2xl font-semibold mb-2">Individuell</h4>
+          <p className="text-sm text-white/80 mt-1">(Finanzierung möglich)</p>
           <img
             src="/images/premium-app.png"
             alt="Beispiel einer Premium-App"

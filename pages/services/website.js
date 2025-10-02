@@ -7,14 +7,14 @@ import { useRouter } from 'next/router';
 
 
 export default function WebsiteService() {
-    const router = useRouter(); // hinzufügen
+  const router = useRouter(); // hinzufügen
 
-    const redirectToContact = (message) => {
-        router.push(`/services/contact?message=${encodeURIComponent(message)}`);
-      };
+  const redirectToContact = (message) => {
+    router.push(`/services/contact?message=${encodeURIComponent(message)}`);
+  };
 
   return (
-    <>
+    <div className="min-h-screen bg-brand-primary text-white">
       <Head>
         <title>Webdesign & Branding – Nexgen Consulting</title>
         <meta
@@ -34,10 +34,16 @@ export default function WebsiteService() {
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
       </Head>
 
-     
       <Chatbot />
 
-      <section className="container mx-auto py-20 px-8 mt-16 bg-brand-primary text-white rounded-lg"> <div className="text-center"> <h1 className="text-4xl md:text-5xl font-bold text-[#E64000] mb-6">Webdesign & Branding</h1> <p className="text-xl max-w-3xl mx-auto"> Wir entwickeln Websites, die Eindruck hinterlassen – technisch einwandfrei, suchmaschinenoptimiert und perfekt abgestimmt auf Ihre Zielgruppe. Ideal für kleine und mittelständische Unternehmen. </p> </div> </section>
+      <section className="container mx-auto py-20 px-8 mt-16 bg-brand-primary text-white rounded-lg">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Webdesign & Branding</h1>
+          <p className="text-xl max-w-3xl mx-auto">
+            Wir entwickeln Websites, die Eindruck hinterlassen – technisch einwandfrei, suchmaschinenoptimiert und perfekt abgestimmt auf Ihre Zielgruppe. Ideal für kleine und mittelständische Unternehmen.
+          </p>
+        </div>
+      </section>
 
       <section className="container rounded-lg bg-brand-primary mx-auto px-20 py-8 grid md:grid-cols-3  text-white">
         <div className="bg-brand-primary/80 p-6 rounded-lg ">
@@ -76,6 +82,7 @@ export default function WebsiteService() {
           <h3 className="text-2xl font-semibold mb-2">Starter - Website</h3>
           <p>Ihre digitale Visitenkarte: Startseite, Kontaktformular, Impressum & Datenschutz – ideal für Freiberufler und kleine Unternehmen.</p>
           <h4 className="text-2xl font-semibold mb-2">599 €</h4>
+          <p className="text-sm text-white/80 mt-1">oder ab 24 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/basis-website.png"
             alt="Beispiel einer Basis-Website"
@@ -89,20 +96,21 @@ export default function WebsiteService() {
           <h3 className="text-2xl font-semibold mb-2">Standard-Website</h3>
           <p>3–5 Unterseiten, suchmaschinenoptimiert, mit CMS, Bildern und Basis-SEO – perfekt für wachsende Unternehmen mit professionellem Anspruch.</p>
           <h4 className="text-2xl font-semibold mb-2">999 €</h4>
+          <p className="text-sm text-white/80 mt-1">oder ab 39 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/standard-website.png" // Pfad anpassen!
             alt="Beispiel einer Basis-Website"
             className="w-full h-auto rounded mt-4"
-        />
+          />
         </div>
 
         <div 
             onClick={() => redirectToContact('Premium-Website')}
         className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
           <h3 className="text-2xl font-semibold mb-2">Premium-Website</h3>
-          
           <p>Ideal für Unternehmen mit erweiterten Anforderungen: Online-Terminbuchung, Webshop, Wartungsvertrag – individuell erweiterbar.</p>
           <h4 className="text-2xl font-semibold mb-2">1.299 €</h4>
+          <p className="text-sm text-white/80 mt-1">oder ab 54 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/premium-website.png" // Pfad anpassen!
             alt="Beispiel einer Basis-Website"
@@ -125,6 +133,6 @@ export default function WebsiteService() {
       </section>
        
       
-    </>
+    </div>
   );
 }

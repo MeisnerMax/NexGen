@@ -48,12 +48,12 @@ const Chatbot = () => {
       )}
 
       {isOpen && (
-        <div className="w-80 bg-white rounded-lg shadow-lg flex flex-col">
+        <div className="w-80 bg-brand-primary rounded-lg shadow-lg flex flex-col">
           <div className="bg-blue-900 text-white p-4 flex justify-between items-center rounded-t-lg">
             <h3 className="text-lg font-semibold">Chatbot</h3>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-gray-300"
+              className="text-black hover:text-gray-300"
             >
               ✖
             </button>
@@ -102,7 +102,7 @@ const Chatbot = () => {
                 }
               }}
               placeholder="Frage etwas..."
-              className="flex-grow border border-gray-300 rounded-l-lg p-2"
+              className="flex-grow border border-gray-300 rounded-l-lg p-2 text-black placeholder-gray-500"
               disabled={isLoading}
             />
             <button

@@ -68,17 +68,17 @@ export default async function handler(req, res) {
       • Einführung: Einrichtung + Schulung – 399 €
 
       💶 Fördermittel-Beratung
-      • Förder-Check: Analyse & Potenzialbewertung – 75 €
-      • Begleitung: Antragstellung & Projektumsetzung – 249 €
+      • Förder-Check: Analyse & Potenzialbewertung – kostenlos
+      • Begleitung: Antragstellung & Projektumsetzung – Individuell
 
       🖥️ Individuelle Softwarelösungen
-      • Web-Software: z. B. Verwaltungstools – ab 3.500 €
+      • Web-Software: z. B. Verwaltungstools – individuell
       • Wartung: Funktionsprüfung & Updates – 75 €/Monat
 
       📲 App-Entwicklung (iOS & Android)
       • App Basis: z. B. persönliche App – ab 799 €
       • App Standard: Login, Datenbank, dynamisch – 2.999 €
-      • App Premium: API, Zahlung, Offline-Modus, GPS – 8.000 €+
+      • App Premium: API, Zahlung, Offline-Modus, GPS – individuell
     `;
 
     // Inhalte aus Dokument 2 (falls vorhanden)

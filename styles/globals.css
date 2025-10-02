@@ -7,12 +7,14 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body, #__next {
+  @apply bg-brand-primary text-white min-h-screen;
+  margin: 0;
+}
+
 body {
   font-family: 'Inter', sans-serif;
-  color: #ffffff;
-  /* set site background to Tailwind brand color */
-  @apply bg-brand-primary text-white;
-  /* entferne die alte Animation, falls nicht mehr benötigt */
+  /* color: #ffffff;  <-- ersetzt durch Tailwind @apply oben */
   animation: none;
 }
 
