@@ -1,16 +1,18 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import BlogIndex from '../../../components/blog/BlogIndex';
+import SidebarWidgets from '../../../components/blog/SidebarWidgets';
+import { getCategoryCounts, getTopTags, getLatestPosts } from '../../../lib/posts';
 import { getPostsByTagSlug } from '../../../lib/posts';
 
 const PAGE_SIZE = 9;
 
 function formatTagLabel(slug, label) {
   if (label) return label;
-  return slug.replace(/-/g, ' ').replace(/\w/g, (char) => char.toUpperCase());
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-export default function BlogTagPage({ tag, posts, pagination }) {
+export default function BlogTagPage({ tag, posts, pagination, sidebar }) {
   const siteUrl = 'https://www.nexgen-consulting.de';
   const pageUrl = pagination.currentPage > 1
     ? `${siteUrl}/blog/tag/${tag.slug}?page=${pagination.currentPage}`
@@ -41,12 +43,12 @@ export default function BlogTagPage({ tag, posts, pagination }) {
         <title>{`Blog Tag ${tag.label} | Nexgen-Consulting`}</title>
         <meta
           name="description"
-          content={`Beitraege mit dem Tag ${tag.label} fuer Digitalisierung, Webdesign und Automatisierung in Coburg und Oberfranken.`}
+          content={`Beiträge mit dem Tag ${tag.label} für Digitalisierung, Webdesign und Automatisierung in Coburg und Oberfranken.`}
         />
         <meta property="og:title" content={`Tag ${tag.label} - Nexgen-Consulting Blog`} />
         <meta
           property="og:description"
-          content={`Strategien, Praxiswissen und Beispiele zu ${tag.label} fuer KMU in Coburg und Bayern.`}
+          content={`Strategien, Praxiswissen und Beispiele zu ${tag.label} für KMU in Coburg und Bayern.`}
         />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content={`${siteUrl}/images/logo.png`} />
@@ -82,17 +84,22 @@ export default function BlogTagPage({ tag, posts, pagination }) {
                 </ol>
               </nav>
               <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
-                Tag · {tag.label}
+                Tag - {tag.label}
               </span>
               <h1 className="text-3xl sm:text-4xl font-heading font-semibold">
                 Themen rund um {tag.label}
               </h1>
               <p className="text-sm sm:text-base text-white/80">
-                Alle Beitraege, die sich mit {tag.label} in Coburg, Bamberg und dem Mittelstand in Bayern beschaeftigen.
+                Alle Beiträge, die sich mit {tag.label} in Coburg, Bamberg und dem Mittelstand in Bayern beschäftigen.
               </p>
             </header>
 
-            <BlogIndex posts={posts} pagination={pagination} basePath={`/blog/tag/${tag.slug}`} />
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px]">
+              <div>
+                <BlogIndex posts={posts} pagination={pagination} basePath={`/blog/tag/${tag.slug}`} />
+              </div>
+              <SidebarWidgets categories={sidebar.categories} tags={sidebar.tags} latest={sidebar.latest} />
+            </div>
           </div>
         </section>
       </main>
@@ -123,9 +130,13 @@ export async function getServerSideProps({ params, query }) {
       },
       posts: items,
       pagination,
+      sidebar: {
+        categories: getCategoryCounts(),
+        tags: getTopTags(20),
+        latest: getLatestPosts(5),
+      },
     },
   };
 }
-
 
 

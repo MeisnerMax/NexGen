@@ -6,13 +6,12 @@ import { getCategoryColor } from './constants';
 
 function formatDate(value) {
   if (!value) return '';
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString('de-DE', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  });
+  const d = new Date(String(value).trim().replace(/\s+/g, ' '));
+  if (Number.isNaN(d.getTime())) return String(value);
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  const month = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const year = d.getUTCFullYear();
+  return `${day}.${month}.${year}`;
 }
 
 export default function BlogCard({ post, priority = false }) {
@@ -50,7 +49,7 @@ export default function BlogCard({ post, priority = false }) {
           {meta.excerpt ? (
             <p
               className="text-sm leading-relaxed text-brand-primary/80"
-              style={{ display: '-webkit-box', WebkitLineClamp: 5, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+              style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
             >
               {meta.excerpt}
             </p>

@@ -26,7 +26,7 @@ export default function BlogIndex({ posts = [], pagination, basePath = '/blog', 
             href={pagination.hasPrevious ? `${basePath}?page=${pagination.currentPage - 1}` : undefined}
             disabled={!pagination.hasPrevious}
           >
-            Zurueck
+            Zurück
           </PaginationLink>
           <span className="text-sm text-white/70">
             Seite {pagination.currentPage} von {pagination.totalPages}

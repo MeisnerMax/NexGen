@@ -13,7 +13,7 @@ export async function getServerSideProps({ res }) {
     title: 'Nexgen-Consulting Blog',
     home_page_url: `${siteUrl}/blog`,
     feed_url: `${siteUrl}/blog/feed.json`,
-    description: 'Digitalisierung, Webdesign und Automatisierung fuer KMU in Coburg.',
+    description: 'Digitalisierung, Webdesign und Automatisierung für KMU in Coburg.',
     language: 'de-DE',
     items: posts.map((post) => ({
       id: `${siteUrl}/blog/${post.slug}`,

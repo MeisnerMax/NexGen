@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import BlogIndex from '../../../components/blog/BlogIndex';
+import SidebarWidgets from '../../../components/blog/SidebarWidgets';
+import { getCategoryCounts, getTopTags, getLatestPosts } from '../../../lib/posts';
 import { getPostsByCategorySlug } from '../../../lib/posts';
 
 const PAGE_SIZE = 9;
@@ -10,7 +12,7 @@ function formatLabel(label) {
   return label;
 }
 
-export default function BlogCategoryPage({ category, posts, pagination }) {
+export default function BlogCategoryPage({ category, posts, pagination, sidebar }) {
   const siteUrl = 'https://www.nexgen-consulting.de';
   const pageUrl = pagination.currentPage > 1
     ? `${siteUrl}/blog/kategorie/${category.slug}?page=${pagination.currentPage}`
@@ -41,12 +43,12 @@ export default function BlogCategoryPage({ category, posts, pagination }) {
         <title>{`Blog Kategorie ${category.label} | Nexgen-Consulting`}</title>
         <meta
           name="description"
-          content={`Beitraege ueber ${category.label} aus Coburg: Digitalisierung, Webdesign und Prozessautomatisierung fuer KMU.`}
+          content={`Beiträge über ${category.label} aus Coburg: Digitalisierung, Webdesign und Prozessautomatisierung für KMU.`}
         />
         <meta property="og:title" content={`Kategorie ${category.label} - Nexgen-Consulting Blog`} />
         <meta
           property="og:description"
-          content={`Insights und Praxiswissen rund um ${category.label} fuer Unternehmen in Coburg und Oberfranken.`}
+          content={`Insights und Praxiswissen rund um ${category.label} für Unternehmen in Coburg und Oberfranken.`}
         />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content={`${siteUrl}/images/logo.png`} />
@@ -82,17 +84,22 @@ export default function BlogCategoryPage({ category, posts, pagination }) {
                 </ol>
               </nav>
               <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
-                Kategorie · {category.label}
+                Kategorie - {category.label}
               </span>
               <h1 className="text-3xl sm:text-4xl font-heading font-semibold">
                 {category.label} in Coburg und Oberfranken
               </h1>
               <p className="text-sm sm:text-base text-white/80">
-                Artikel zu {category.label} fuer Unternehmen in Coburg, Bamberg und dem Mittelstand in Bayern: Best Practices, Foerderprogramme und Umsetzungstipps.
+                Artikel zu {category.label} für Unternehmen in Coburg, Bamberg und dem Mittelstand in Bayern: Best Practices, Förderprogramme und Umsetzungstipps.
               </p>
             </header>
 
-            <BlogIndex posts={posts} pagination={pagination} basePath={`/blog/kategorie/${category.slug}`} />
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px]">
+              <div>
+                <BlogIndex posts={posts} pagination={pagination} basePath={`/blog/kategorie/${category.slug}`} />
+              </div>
+              <SidebarWidgets categories={sidebar.categories} tags={sidebar.tags} latest={sidebar.latest} />
+            </div>
           </div>
         </section>
       </main>
@@ -123,8 +130,11 @@ export async function getServerSideProps({ params, query }) {
       },
       posts: items,
       pagination,
+      sidebar: {
+        categories: getCategoryCounts(),
+        tags: getTopTags(20),
+        latest: getLatestPosts(5),
+      },
     },
   };
 }
-
-

@@ -39,7 +39,7 @@ const SCHULUNG_ENTRIES = [
 
 const SOFTWARE_ENTRIES = [
   {
-    href: "/services/loesungen",    title: "Microsoft 365 & Branchensoftware",
+    href: "/services/lösungen",    title: "Microsoft 365 & Branchensoftware",
     description: "Einführung, Automatisierung & Integration passender Tools",
   },
   
@@ -78,7 +78,7 @@ const GALLERY_SLIDES = [
     
   },
   {
-    href: "/services/loesungen",
+    href: "/services/lösungen",
     imageSrc: "/images/Figma_Tech.png",
     imageAlt: "M365 & Lösungen",
     
@@ -391,8 +391,7 @@ export default function Home() {
                   Als Digitalagentur in Coburg begleiten wir Unternehmen in Coburg, Bamberg und der gesamten Region Oberfranken auf ihrem Weg in die digitale Zukunft. Unsere Projekte verbinden Digitalisierung in Coburg mit Webdesign, Prozessautomatisierung und App Entwicklung Coburg, damit regionale KMU sofort spürbare Fortschritte erleben.
                 </p>
                 <p className="text-lg leading-relaxed text-surface-light/90 mt-6">
-                  Ob Webdesign Agentur Coburg, Prozessautomatisierung für Unternehmen in Oberfranken oder IT-Beratung für den Mittelstand in Bayern – Nexgen-Consulting vereint Digitalisierungsberatung, individuelle Softwareentwicklung, Workflow Optimierung und Microsoft 365 Einführung in einem abgestimmten Fahrplan.
-                </p>
+                                  </p>
               </div>
               <div data-reveal className="order-first md:order-none">
                 <img src="/images/team.jpg" alt="Unser Team" className="w-full rounded-brand-2xl shadow-overlay ring-1 ring-white/10" />
@@ -535,27 +534,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        
-
-        
-
-        {/* Optional: Testimonials & Blog weiterhin verfügbar */}
-        {/*
-        <section id="testimonials" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white" data-reveal>
-          <div className="container max-w-screen-xl px-6 lg:px-8 text-center space-y-8">
-            <h2 className="text-3xl font-heading font-semibold">Kundenreferenzen</h2>
-            <TestimonialsSlider />
-          </div>
-        </section>
-
-        <section id="blog" className="py-16 sm:py-20 md:py-24 bg-surface-light" data-reveal>
-          <div className="container max-w-screen-xl px-6 lg:px-8 text-center space-y-8">
-            <h2 className="text-3xl font-heading font-semibold text-brand-primary">Neueste Blogbeiträge</h2>
-            <BlogSlider />
-          </div>
-        </section>
-        */}
       </main>
     </>
   );

@@ -52,6 +52,11 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   outDir: 'public',
+  robotsTxtOptions: {
+    additionalSitemaps: [
+      `${siteUrl}/sitemap-blog.xml`,
+    ],
+  },
   additionalPaths: async (config) => {
     const paths = [];
 

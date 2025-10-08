@@ -9,7 +9,7 @@ const FAQ_ITEMS = [
   {
     question: "Wie lange dauert die Fertigstellung einer Website?",
     answer:
-      "Für eine Standardwebsite planen wir in Coburg ueblicherweise etwa vier bis sechs Wochen ein - vom Konzept ueber das Design bis zur Liveschaltung. Komplexere Projekte mit individueller Software- oder Schnittstellenentwicklung benoetigen entsprechend mehr Zeit.",
+      "Für eine Standardwebsite planen wir in Coburg ueblicherweise etwa vier bis sechs Wochen ein - vom Konzept über das Design bis zur Liveschaltung. Komplexere Projekte mit individueller Software- oder Schnittstellenentwicklung benoetigen entsprechend mehr Zeit.",
   },
   {
     question: "Bietet ihr auch Digitalisierung & Automatisierung an?",
@@ -19,12 +19,12 @@ const FAQ_ITEMS = [
   {
     question: "Welche Technologien verwendet ihr?",
     answer:
-      "Wir setzen auf moderne Web-Stacks mit HTML5, CSS3, JavaScript und Frameworks wie React oder Vue. Für Apps nutzen wir unter anderem Flutter, und im Backend arbeiten wir mit Cloud-Loesungen, REST-APIs, Datenbanken und sicheren Architekturmustern.",
+      "Wir setzen auf moderne Web-Stacks mit HTML5, CSS3, JavaScript und Frameworks wie React oder Vue. Für Apps nutzen wir unter anderem Flutter, und im Backend arbeiten wir mit Cloud-Lösungen, REST-APIs, Datenbanken und sicheren Architekturmustern.",
   },
   {
     question: "Gibt es Förderprogramme für Digitalisierung in Bayern?",
     answer:
-      "Ja, beispielsweise der Digitalbonus Bayern oder weitere Foerdermittelprogramme. Wir bieten einen Foerdermittel-Check an und unterstuetzen beim Antrag, damit Digitalisierungsprojekte in Coburg und ganz Bayern gefoerdert werden koennen.",
+      "Ja, beispielsweise der Digitalbonus Bayern oder weitere Fördermittelprogramme. Wir bieten einen Fördermittel-Check an und unterstuetzen beim Antrag, damit Digitalisierungsprojekte in Coburg und ganz Bayern gefördert werden koennen.",
   },
 ];
 
@@ -73,7 +73,7 @@ function FAQCard({ item, index, isOpen, onToggle }) {
         <div className="flex flex-col gap-2">
           <h3 className="text-lg font-semibold text-white">{item.question}</h3>
           <p className={`text-sm text-white/70 transition-opacity duration-200 ${isOpen ? "opacity-100" : "opacity-80"}`}>
-            {isOpen ? "" : "Zum Oeffnen tippen"}
+            {isOpen ? "" : "Zum Öffnen tippen"}
           </p>
         </div>
         <span
@@ -113,7 +113,7 @@ export default function FAQSection() {
             Fragen zur Digitalisierung und Prozessautomatisierung in Coburg
           </h2>
           <p className="text-sm sm:text-base text-white/70">
-            Antworten für Unternehmen in Coburg, Bamberg und ganz Oberfranken zu Kosten, Technologie-Stacks und Foerdermitteln rund um Webentwicklung und Automatisierung.
+            Antworten für Unternehmen in Coburg, Bamberg und ganz Oberfranken zu Kosten, Technologie-Stacks und Fördermitteln rund um Webentwicklung und Automatisierung.
           </p>
         </div>
 

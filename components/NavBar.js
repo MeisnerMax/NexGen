@@ -95,6 +95,10 @@ function MobileMenu() {
               <span>Marketing</span>
             </Link>
 
+            <Link href="/blog" className="flex items-center space-x-2 text-white hover:text-blue-300 transition" onClick={closeMenu}>
+              <span>Blog</span>
+            </Link>
+
             <Link href="/services/firmenidentitaet" className="flex items-center space-x-2 text-white hover:text-blue-300 transition" onClick={closeMenu}>
               <span>Firmenidentität</span>
             </Link>
@@ -103,7 +107,7 @@ function MobileMenu() {
               <span>Schulungen</span>
             </Link>
 
-            <Link href="/services/loesungen" className="flex items-center space-x-2 text-white hover:text-blue-300 transition" onClick={closeMenu}>
+            <Link href="/services/lösungen" className="flex items-center space-x-2 text-white hover:text-blue-300 transition" onClick={closeMenu}>
               <span>Softwareberatung</span>
             </Link>
 

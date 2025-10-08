@@ -19,15 +19,14 @@ export async function getServerSideProps({ res }) {
       <pubDate>${post.meta.date ? new Date(post.meta.date).toUTCString() : ''}</pubDate>
     </item>`;
     })
-    .join('
-');
+    .join('\n');
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
     <title>Nexgen-Consulting Blog</title>
     <link>${siteUrl}/blog</link>
-    <description>Digitalisierung, Webdesign und Automatisierung fuer KMU in Coburg.</description>
+    <description>Digitalisierung, Webdesign und Automatisierung für KMU in Coburg.</description>
     <language>de-de</language>
 ${items}
   </channel>

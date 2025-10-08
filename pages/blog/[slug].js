@@ -4,11 +4,27 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+let rehypeHighlight = null;
+try {
+  // Optional dependency; avoid static resolution to prevent build warnings
+  // eslint-disable-next-line no-eval
+  const req = eval('require');
+  const mod = req('rehype-highlight');
+  // Support both ESM and CJS: unified expects a plugin function.
+  rehypeHighlight = mod && (mod.default || mod);
+  if (typeof rehypeHighlight !== 'function') {
+    rehypeHighlight = null;
+  }
+} catch (e) {
+  rehypeHighlight = null;
+}
 import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from '../../lib/posts';
 import ShareButtons from '../../components/blog/ShareButtons';
 import CategoryPill from '../../components/blog/CategoryPill';
 import TagPill from '../../components/blog/TagPill';
 import ArticleTOC from '../../components/blog/ArticleTOC';
+import SidebarWidgets from '../../components/blog/SidebarWidgets';
+import { getCategoryCounts, getTopTags, getLatestPosts } from '../../lib/posts';
 import CTABox from '../../components/blog/CTABox';
 import RelatedPosts from '../../components/blog/RelatedPosts';
 
@@ -16,13 +32,12 @@ const FALLBACK_IMAGE = '/images/blog/default-cover.svg';
 
 function formatDate(value) {
   if (!value) return '';
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString('de-DE', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  });
+  const d = new Date(String(value).trim().replace(/\s+/g, ' '));
+  if (Number.isNaN(d.getTime())) return String(value);
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  const month = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const year = d.getUTCFullYear();
+  return `${day}.${month}.${year}`;
 }
 
 function slugify(text) {
@@ -35,8 +50,7 @@ function slugify(text) {
 }
 
 function buildToc(markdown) {
-  const lines = markdown.split(/
-/);
+  const lines = String(markdown || '').split('\n');
   const toc = [];
   lines.forEach((line) => {
     const headingMatch = /^(#{2,3})\s+(.*)/.exec(line.trim());
@@ -102,7 +116,7 @@ function MarkdownComponents() {
   return components;
 }
 
-export default function BlogPost({ post, seo, toc, related }) {
+export default function BlogPost({ post, seo, toc, related, sidebar }) {
   const siteUrl = 'https://www.nexgen-consulting.de';
   const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
   const shareUrl = canonicalUrl;
@@ -254,7 +268,7 @@ export default function BlogPost({ post, seo, toc, related }) {
                   <div className="prose prose-sm sm:prose-base prose-invert max-w-none flex-1" data-reveal>
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
-                      rehypePlugins={[rehypeRaw]}
+                      rehypePlugins={[rehypeRaw].concat(rehypeHighlight ? [rehypeHighlight] : [])}
                       components={MarkdownComponents()}
                     >
                       {post.content}
@@ -275,7 +289,7 @@ export default function BlogPost({ post, seo, toc, related }) {
                 <RelatedPosts posts={related} />
               </div>
 
-              <ArticleTOC items={toc} variant="sidebar" />
+              <SidebarWidgets toc={toc} categories={sidebar.categories} tags={sidebar.tags} latest={sidebar.latest} />
             </div>
           </div>
         </article>
@@ -308,6 +322,12 @@ export async function getStaticProps({ params }) {
         title: `${post.meta.title} | Nexgen-Consulting Blog`,
         description: seoDescription,
       },
+      sidebar: {
+        categories: getCategoryCounts(),
+        tags: getTopTags(20),
+        latest: getLatestPosts(5),
+      },
     },
   };
 }
+

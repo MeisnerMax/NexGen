@@ -37,13 +37,12 @@ export default function ShareButtons({ url, title }) {
           {network.label}
         </a>
       ))}
-      <Link
+      <a
         href={url}
-        scroll={false}
         className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white/70 transition hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary"
       >
         Permalink
-      </Link>
+      </a>
     </div>
   );
 }

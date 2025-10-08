@@ -8,14 +8,14 @@ export default function NewsletterTeaser() {
       </span>
       <h3 className="mt-4 text-2xl font-heading font-semibold">Insights direkt ins Postfach</h3>
       <p className="mt-3 text-sm leading-relaxed text-white/80">
-        Einmal im Monat verschicken wir kompakte Updates zu Foerderprogrammen, Webdesign-Trends und Automatisierungsideen fuer KMU in Coburg und Oberfranken.
+        Einmal im Monat verschicken wir kompakte Updates zu Förderprogrammen, Webdesign‑Trends und Automatisierungsideen für KMU in Coburg und Oberfranken.
       </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <Link
           href="/services/contact"
           className="inline-flex items-center gap-2 rounded-full bg-brand-accent px-4 py-2 text-sm font-semibold text-brand-primary transition hover:bg-brand-accent/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary"
         >
-          Kostenloses Erstgespraech
+          Kostenloses Erstgespräch
         </Link>
         <Link
           href="mailto:info@nexgen-consulting.de?subject=Newsletter-Opt-in"
@@ -27,3 +27,4 @@ export default function NewsletterTeaser() {
     </aside>
   );
 }
+

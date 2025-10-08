@@ -2,11 +2,13 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { getPaginatedPosts } from '../../lib/posts';
 import BlogIndex from '../../components/blog/BlogIndex';
+import SidebarWidgets from '../../components/blog/SidebarWidgets';
+import { getCategoryCounts, getTopTags, getLatestPosts } from '../../lib/posts';
 import NewsletterTeaser from '../../components/blog/NewsletterTeaser';
 
 const PAGE_SIZE = 9;
 
-export default function BlogOverview({ posts, pagination }) {
+export default function BlogOverview({ posts, pagination, sidebar }) {
   const siteUrl = 'https://www.nexgen-consulting.de';
   const pageUrl = pagination.currentPage > 1 ? `${siteUrl}/blog?page=${pagination.currentPage}` : `${siteUrl}/blog`;
   const prevUrl = pagination.hasPrevious ? `${siteUrl}/blog?page=${pagination.currentPage - 1}` : null;
@@ -18,7 +20,7 @@ export default function BlogOverview({ posts, pagination }) {
     '@id': `${siteUrl}/blog#blog`,
     name: 'Nexgen Consulting Blog',
     url: pageUrl,
-    description: 'Digitale Strategien, Webdesign und Prozessautomatisierung fuer Unternehmen in Coburg und Oberfranken.',
+    description: 'Digitale Strategien, Webdesign und Prozessautomatisierung für Unternehmen in Coburg und Oberfranken.',
     inLanguage: 'de-DE',
     publisher: {
       '@type': 'Organization',
@@ -43,12 +45,12 @@ export default function BlogOverview({ posts, pagination }) {
         <title>Blog - Digitalisierung, Webdesign und Automatisierung in Coburg | Nexgen-Consulting</title>
         <meta
           name="description"
-          content="Aktuelle Insights zu Digitalisierung Coburg, Webdesign fuer KMU, Prozessautomatisierung sowie Foerderprogramme und Praxisleitfaeden fuer Unternehmen in Oberfranken."
+          content="Aktuelle Insights zu Digitalisierung Coburg, Webdesign für KMU, Prozessautomatisierung sowie Förderprogramme und Praxisleitfäden für Unternehmen in Oberfranken."
         />
         <meta property="og:title" content="Nexgen-Consulting Blog" />
         <meta
           property="og:description"
-          content="Strategien und Praxiswissen fuer Digitalisierung, Webentwicklung und Automatisierung in Coburg und dem Mittelstand in Bayern."
+          content="Strategien und Praxiswissen für Digitalisierung, Webentwicklung und Automatisierung in Coburg und dem Mittelstand in Bayern."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={pageUrl} />
@@ -65,7 +67,7 @@ export default function BlogOverview({ posts, pagination }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       </Head>
 
-      <main className="bg-brand-primary text-white">
+      <main className="bg-brand-primary text-white" role="main">
         <section className="py-16 sm:py-20 md:py-24">
           <div className="container max-w-screen-xl px-6 lg:px-8 space-y-10">
             <div className="max-w-3xl space-y-4" data-reveal>
@@ -87,11 +89,16 @@ export default function BlogOverview({ posts, pagination }) {
                 Fachwissen zu Digitalisierung, Webdesign und Prozessautomatisierung in Coburg
               </h1>
               <p className="text-sm sm:text-base text-white/80">
-                Wir teilen Erfahrungen aus Projekten in Coburg, Bamberg und der gesamten Region Oberfranken: von der Website-Erstellung ueber Prozessautomatisierung bis zu Foerderprogrammen fuer KMU in Bayern.
+                Wir teilen Erfahrungen aus Projekten in Coburg, Bamberg und der gesamten Region Oberfranken: von der Website-Erstellung über Prozessautomatisierung bis zu Förderprogrammen für KMU in Bayern.
               </p>
             </div>
 
-            <BlogIndex posts={posts} pagination={pagination} basePath="/blog" newsletterSlot={<NewsletterTeaser />} />
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px]">
+              <div>
+                <BlogIndex posts={posts} pagination={pagination} basePath="/blog" newsletterSlot={<NewsletterTeaser />} />
+              </div>
+              <SidebarWidgets categories={sidebar.categories} tags={sidebar.tags} latest={sidebar.latest} />
+            </div>
           </div>
         </section>
       </main>
@@ -118,6 +125,11 @@ export async function getServerSideProps({ query }) {
     props: {
       posts: items,
       pagination,
+      sidebar: {
+        categories: getCategoryCounts(),
+        tags: getTopTags(20),
+        latest: getLatestPosts(5),
+      },
     },
   };
 }

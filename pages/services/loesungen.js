@@ -19,7 +19,7 @@ const branchenPoints = [
   "Success-Monitoring mit KPIs und Reporting"
 ];
 
-export default function Loesungen() {
+export default function Lösungen() {
 
   return (
     <>
@@ -34,7 +34,7 @@ export default function Loesungen() {
           property="og:description"
           content="Digitale Lösungen für Microsoft 365 und branchenspezifische Anforderungen. NexGen Consulting begleitet von der Strategie bis zum Roll-out."
         />
-        <meta property="og:url" content="https://nexgen-consulting.de/loesungen" />
+        <meta property="og:url" content="https://nexgen-consulting.de/lösungen" />
         <meta property="og:type" content="website" />
       </Head>
 
