@@ -82,7 +82,7 @@ export default function WebsiteService() {
           <h3 className="text-2xl font-semibold mb-2">Starter - Website</h3>
           <p>Ihre digitale Visitenkarte: Startseite, Kontaktformular, Impressum & Datenschutz – ideal für Freiberufler und kleine Unternehmen.</p>
           <h4 className="text-2xl font-semibold mb-2">599 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 24 €/Monat (Finanzierung möglich)</p>
+          <p className="text-sm text-white/80 mt-1">oder ab 50 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/basis-website.png"
             alt="Beispiel einer Basis-Website"
@@ -96,7 +96,7 @@ export default function WebsiteService() {
           <h3 className="text-2xl font-semibold mb-2">Standard-Website</h3>
           <p>3–5 Unterseiten, suchmaschinenoptimiert, mit CMS, Bildern und Basis-SEO – perfekt für wachsende Unternehmen mit professionellem Anspruch.</p>
           <h4 className="text-2xl font-semibold mb-2">999 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 39 €/Monat (Finanzierung möglich)</p>
+          <p className="text-sm text-white/80 mt-1">oder ab 85 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/standard-website.png" // Pfad anpassen!
             alt="Beispiel einer Basis-Website"
@@ -110,7 +110,7 @@ export default function WebsiteService() {
           <h3 className="text-2xl font-semibold mb-2">Premium-Website</h3>
           <p>Ideal für Unternehmen mit erweiterten Anforderungen: Online-Terminbuchung, Webshop, Wartungsvertrag – individuell erweiterbar.</p>
           <h4 className="text-2xl font-semibold mb-2">1.299 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 54 €/Monat (Finanzierung möglich)</p>
+          <p className="text-sm text-white/80 mt-1">oder ab 99 €/Monat (Finanzierung möglich)</p>
           <img
             src="/images/premium-website.png" // Pfad anpassen!
             alt="Beispiel einer Basis-Website"

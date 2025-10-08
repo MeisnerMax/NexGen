@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useMemo, useRef, useEffect } from "react";
 import Hero from "../components/Hero";
 import Chatbot from "../components/Chatbot";
+import FAQSection from "../components/FAQSection";
 import useReveal from "../hooks/useReveal";
 
 const ONLINE_ENTRIES = [
@@ -62,25 +63,25 @@ const GALLERY_SLIDES = [
     href: "/services/website",
     imageSrc: "/images/Figma_Firseur.png",
     imageAlt: "Websites",
-    caption: "Hairstylist",
+    
   },
   {
     href: "/services/marketing",
     imageSrc: "/images/Figma_Hund.png",
     imageAlt: "Marketing",
-    caption: "Für den besten Freund",
+    
   },
   {
     href: "/services/app",
     imageSrc: "/images/Figma_Immo.png",
     imageAlt: "Apps",
-    caption: "Immobilien",
+    
   },
   {
     href: "/services/loesungen",
     imageSrc: "/images/Figma_Tech.png",
     imageAlt: "M365 & Lösungen",
-    caption: "Technik",
+    
   },
 ];
 
@@ -471,7 +472,7 @@ export default function Home() {
           <div className="container max-w-screen-xl px-6 lg:px-8 relative">
             <div className="mx-auto max-w-2xl text-center space-y-4" data-reveal>
               <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/80">Galerie</span>
-              <h3 className="text-3xl sm:text-4xl font-heading font-semibold">Branchen, die wir digital voranbringen</h3>
+              <h3 className="text-3xl sm:text-4xl font-heading font-semibold">Online-Präsenz zeigen</h3>
               <p className="text-sm sm:text-base text-white/70">Digitalisierung in Coburg sichtbar gemacht – vom Webdesign für lokale Marken bis zur App Entwicklung für mittelständische Unternehmen in Oberfranken.</p>
             </div>
 
@@ -505,6 +506,8 @@ export default function Home() {
           </div>
         </section>
 
+        <FAQSection />
+
         <section id="contact" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 lg:items-center">
             <div data-reveal>
@@ -533,17 +536,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-labelledby="seo-positioning" className="py-12 bg-brand-primary text-white border-t border-white/10">
-          <div className="container max-w-screen-xl px-6 lg:px-8" data-reveal>
-            <h3 id="seo-positioning" className="sr-only">Nexgen-Consulting Standort und Leistungen</h3>
-            <p className="text-sm sm:text-base leading-relaxed">
-              Nexgen-Consulting ist eine Digitalagentur aus Coburg, spezialisiert auf Digitalisierung in Coburg, Webdesign Agentur Coburg sowie Prozessautomatisierung für Unternehmen in Oberfranken. Wir begleiten Unternehmen in Coburg, Bamberg und der gesamten Region Oberfranken auf ihrem Weg in die digitale Zukunft.
-            </p>
-            <p className="text-sm sm:text-base leading-relaxed mt-4">
-              Mit Digitalisierungsberatung, Workflow Optimierung, individueller Softwareentwicklung und Cloud Lösungen – inklusive Microsoft 365 Einführung – digitalisieren wir KMU in Bayern Schritt für Schritt. App Entwicklung Coburg, Automatisierung von Geschäftsprozessen und IT-Beratung für den Mittelstand in Bayern gehören zu unserem Alltag.
-            </p>
-          </div>
-        </section>
+        
 
         
 

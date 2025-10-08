@@ -163,3 +163,32 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Blog typography */
+.prose :where(p):not(:where([class~="not-prose"] *)) {
+  @apply text-base leading-relaxed text-white/85;
+}
+.prose :where(h2, h3):not(:where([class~="not-prose"] *)) {
+  @apply font-heading font-semibold text-white;
+}
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+  @apply text-brand-accent underline decoration-brand-accent/60 underline-offset-4 transition;
+}
+.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+  @apply border-l-4 border-brand-accent/40 bg-white/5 py-3 pl-4 text-white/80 italic rounded-r-xl;
+}
+.prose pre {
+  @apply rounded-xl bg-brand-primary/90 p-4 text-white text-sm overflow-x-auto;
+}
+.prose code {
+  @apply rounded bg-brand-primary/80 px-1.5 py-0.5 text-sm;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
