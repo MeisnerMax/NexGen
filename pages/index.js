@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import Hero from "../components/Hero";
 import Chatbot from "../components/Chatbot";
 import useReveal from "../hooks/useReveal";
@@ -57,8 +57,185 @@ const AUTOMATION_ENTRIES = [
   },
 ];
 
+const GALLERY_SLIDES = [
+  {
+    href: "/services/website",
+    imageSrc: "/images/Figma_Firseur.png",
+    imageAlt: "Websites",
+    caption: "Hairstylist",
+  },
+  {
+    href: "/services/marketing",
+    imageSrc: "/images/Figma_Hund.png",
+    imageAlt: "Marketing",
+    caption: "Für den besten Freund",
+  },
+  {
+    href: "/services/app",
+    imageSrc: "/images/Figma_Immo.png",
+    imageAlt: "Apps",
+    caption: "Immobilien",
+  },
+  {
+    href: "/services/loesungen",
+    imageSrc: "/images/Figma_Tech.png",
+    imageAlt: "M365 & Lösungen",
+    caption: "Technik",
+  },
+];
+
 export default function Home() {
   useReveal();
+
+  const galleryRingRef = useRef(null);
+
+  useEffect(() => {
+    const ringElement = galleryRingRef.current;
+    if (!ringElement) return;
+
+    const slides = Array.from(ringElement.querySelectorAll("[data-gallery-item]"));
+    if (!slides.length) return;
+
+    const totalSlides = slides.length;
+    const angleStep = 360 / totalSlides;
+    const rotationSpeed = 12; // degrees per second
+
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let prefersReducedMotion = motionQuery.matches;
+    let paused = prefersReducedMotion;
+    let animationFrameId = null;
+    let lastTimestamp = null;
+    let currentAngle = 0;
+
+    let horizontalRadius = 0;
+    let verticalRadius = 0;
+
+    const computeRadii = () => {
+      const bounds = ringElement.getBoundingClientRect();
+      horizontalRadius = bounds.width * 0.42;
+      verticalRadius = bounds.height * 0.18;
+    };
+
+    const applyTransforms = () => {
+      slides.forEach((slide, index) => {
+        const angleDeg = currentAngle + index * angleStep;
+        const angleRad = (angleDeg - 90) * (Math.PI / 180);
+
+        const x = Math.cos(angleRad);
+        const y = Math.sin(angleRad);
+
+        const translateX = x * horizontalRadius;
+        const translateY = y * verticalRadius;
+        const depth = (1 - y) / 2;
+
+        const scale = 0.82 + depth * 0.22;
+        const opacity = 0.55 + depth * 0.45;
+        const tilt = x * 12;
+        const translateZ = depth * 120;
+
+        const isInteracting = slide.matches(":hover") || slide.matches(":focus-visible");
+
+        slide.style.transform = `translate(-50%, -50%) translate3d(${translateX.toFixed(2)}px, ${translateY.toFixed(2)}px, ${translateZ.toFixed(2)}px) rotateY(${tilt.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+        slide.style.zIndex = String(100 + Math.round(depth * 100));
+        slide.style.opacity = isInteracting ? "1" : opacity.toFixed(3);
+        slide.style.filter = isInteracting
+          ? "brightness(1) saturate(1)"
+          : `brightness(${(0.85 + depth * 0.2).toFixed(3)}) saturate(${(0.8 + depth * 0.3).toFixed(3)})`;
+      });
+    };
+
+    computeRadii();
+    applyTransforms();
+
+    const step = (timestamp) => {
+      if (lastTimestamp === null) {
+        lastTimestamp = timestamp;
+      }
+      const delta = timestamp - lastTimestamp;
+      lastTimestamp = timestamp;
+
+      if (!paused && !prefersReducedMotion) {
+        currentAngle = (currentAngle + (delta / 1000) * rotationSpeed) % 360;
+      }
+
+      applyTransforms();
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    const pause = () => {
+      paused = true;
+    };
+
+    const resume = () => {
+      if (!prefersReducedMotion) {
+        paused = false;
+      }
+    };
+
+    const handleFocusOut = (event) => {
+      if (!ringElement.contains(event.relatedTarget)) {
+        resume();
+      }
+    };
+
+    const handleMotionChange = (event) => {
+      prefersReducedMotion = event.matches;
+      if (prefersReducedMotion) {
+        pause();
+        currentAngle = 0;
+        applyTransforms();
+      } else {
+        resume();
+      }
+    };
+
+    const handleResize = () => {
+      computeRadii();
+      applyTransforms();
+    };
+
+    ringElement.addEventListener("pointerenter", pause);
+    ringElement.addEventListener("pointerleave", resume);
+    ringElement.addEventListener("pointerdown", pause);
+    ringElement.addEventListener("pointerup", resume);
+    ringElement.addEventListener("focusin", pause);
+    ringElement.addEventListener("focusout", handleFocusOut);
+    window.addEventListener("resize", handleResize);
+
+    if (typeof motionQuery.addEventListener === "function") {
+      motionQuery.addEventListener("change", handleMotionChange);
+    } else {
+      motionQuery.addListener(handleMotionChange);
+    }
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      ringElement.removeEventListener("pointerenter", pause);
+      ringElement.removeEventListener("pointerleave", resume);
+      ringElement.removeEventListener("pointerdown", pause);
+      ringElement.removeEventListener("pointerup", resume);
+      ringElement.removeEventListener("focusin", pause);
+      ringElement.removeEventListener("focusout", handleFocusOut);
+      window.removeEventListener("resize", handleResize);
+
+      if (typeof motionQuery.removeEventListener === "function") {
+        motionQuery.removeEventListener("change", handleMotionChange);
+      } else {
+        motionQuery.removeListener(handleMotionChange);
+      }
+
+      slides.forEach((slide) => {
+        slide.style.removeProperty("transform");
+        slide.style.removeProperty("z-index");
+        slide.style.removeProperty("opacity");
+        slide.style.removeProperty("filter");
+      });
+    };
+  }, []);
 
   const timelineSteps = useMemo(() => {
     const rawSteps = [
@@ -116,11 +293,11 @@ export default function Home() {
         <title>Nexgen Consulting - Digitalisierung & Webdesign</title>
         <meta
           name="description"
-          content="Nexgen Consulting unterstützt kleine und mittelständische Unternehmen bei Digitalisierung, Prozessautomatisierung, Webdesign und SEO – alles aus einer Hand."
+          content="Digitalagentur in Coburg - Nexgen-Consulting bietet Digitalisierung, Prozessautomatisierung, Webdesign und App-Entwicklung für KMU."
         />
         <meta
           name="keywords"
-          content="Digitalisierung, Prozessautomatisierung, Webdesign, SEO, Softwareentwicklung, Appentwicklung, Microsoft 365, Social Media, Marketing"
+          content="Digitalisierung Coburg, Webdesign Coburg, Prozessautomatisierung Oberfranken, App Entwicklung Coburg, IT-Beratung Mittelstand Bayern, Digitalisierungsberatung, Workflow Optimierung, individuelle Softwareentwicklung, Automatisierung von Geschäftsprozessen, Cloud Lösungen, Microsoft 365 Einführung"
         />
         <meta name="author" content="Nexgen Consulting" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -129,24 +306,72 @@ export default function Home() {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Nexgen Consulting Digitalisation",
-              "url": "https://nexgen-consulting.de",
+              "@type": "LocalBusiness",
+              "@id": "https://www.nexgen-consulting.de/#localbusiness",
+              "name": "Nexgen-Consulting",
+              "alternateName": "Nexgen Consulting Digitalisation",
+              "image": "https://nexgen-consulting.de/assets/logo.png",
               "logo": "https://nexgen-consulting.de/logo.png",
-              "description": "Ihr Partner für Digitalisierung, Prozessautomatisierung, Webdesign und SEO-Optimierung.",
+              "url": "https://www.nexgen-consulting.de",
+              "telephone": "+49 1522 7433448",
+              "email": "meisner@nexgen-consulting.de",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Webergasse 30",
+                "postalCode": "96450",
+                "addressLocality": "Coburg",
+                "addressRegion": "Bayern",
+                "addressCountry": "DE"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "50.2593",
+                "longitude": "10.9647"
+              },
+              "priceRange": "€€",
+              "description": "Nexgen-Consulting ist eine Digitalagentur aus Coburg, spezialisiert auf Digitalisierung, Prozessautomatisierung, Webdesign, App- und Softwareentwicklung für kleine und mittelständische Unternehmen.",
+              "areaServed": "Germany",
+              "keywords": "Digitalisierung Coburg, Webdesign Coburg, Prozessautomatisierung Oberfranken, App Entwicklung Coburg, IT-Beratung Mittelstand Bayern, Digitalisierungsberatung, Workflow Optimierung, individuelle Softwareentwicklung, Automatisierung von Geschäftsprozessen, Cloud Lösungen, Microsoft 365 Einführung",
+              "knowsAbout": [
+                "Digitalisierung",
+                "Prozessautomatisierung",
+                "Webdesign",
+                "Softwareentwicklung",
+                "App-Entwicklung",
+                "RPA-Automatisierung"
+              ],
               "sameAs": [
-                "https://www.facebook.com/nexgenconsulting",
-                "https://www.linkedin.com/company/nexgenconsulting"
+                "https://www.linkedin.com/company/nexgen-consulting-de/",
+                "https://www.instagram.com/nexgen.consulting/",
+                "https://www.facebook.com/nexgen.consulting/",
+                "https://g.co/kgs/xxxxx"
+              ],
+              "founder": {
+                "@type": "Person",
+                "name": "Max Meisner"
+              },
+              "foundingDate": "2024",
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "availableLanguage": ["de", "en"],
+                  "url": "https://www.nexgen-consulting.de/services/contact"
+                }
               ]
             })
           }}
         />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Nexgen Consulting - Digitalisierung, Webdesign und Automatisierung" />
-        <meta property="og:description" content="Nexgen Consulting - Ihr Partner für Digitalisierung, Prozessautomatisierung, Webdesign und SEO-Optimierung für kleine und mittelständische Unternehmen." />
+        <meta property="og:description" content="Digitalagentur in Coburg - Nexgen-Consulting bietet Digitalisierung, Prozessautomatisierung, Webdesign und App-Entwicklung für KMU." />
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
         <meta property="og:url" content="https://nexgen-consulting.de" />
         <meta property="og:site_name" content="Nexgen Consulting" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Digitalagentur in Coburg - Nexgen-Consulting" />
+        <meta name="twitter:description" content="Digitalagentur in Coburg - Nexgen-Consulting bietet Digitalisierung, Prozessautomatisierung, Webdesign und App-Entwicklung für KMU." />
+        <meta name="twitter:image" content="https://nexgen-consulting.de/logo.png" />
       </Head>
 
       <Hero />
@@ -162,7 +387,10 @@ export default function Home() {
                   Visionen digital umsetzen – klar, strukturiert, wirkungsvoll
                 </h2>
                 <p className="text-lg leading-relaxed text-surface-light/90">
-                  Nexgen Consulting begleitet Sie von der Idee bis zum skalierbaren Betrieb: Prozessautomatisierung, individuelle Software & Apps, überzeugende Webauftritte und wirkungsvolles Marketing – alles miteinander verzahnt.
+                  Als Digitalagentur in Coburg begleiten wir Unternehmen in Coburg, Bamberg und der gesamten Region Oberfranken auf ihrem Weg in die digitale Zukunft. Unsere Projekte verbinden Digitalisierung in Coburg mit Webdesign, Prozessautomatisierung und App Entwicklung Coburg, damit regionale KMU sofort spürbare Fortschritte erleben.
+                </p>
+                <p className="text-lg leading-relaxed text-surface-light/90 mt-6">
+                  Ob Webdesign Agentur Coburg, Prozessautomatisierung für Unternehmen in Oberfranken oder IT-Beratung für den Mittelstand in Bayern – Nexgen-Consulting vereint Digitalisierungsberatung, individuelle Softwareentwicklung, Workflow Optimierung und Microsoft 365 Einführung in einem abgestimmten Fahrplan.
                 </p>
               </div>
               <div data-reveal className="order-first md:order-none">
@@ -180,7 +408,7 @@ export default function Home() {
                 Von der Beratung bis zur Umsetzung – ein fließender Digitalisierungsfahrplan
               </h2>
               <p className="text-surface-light/90 leading-relaxed max-w-3xl mx-auto">
-                Jeder Schritt baut auf dem vorherigen auf. So entsteht ein konsistentes Erlebnis für Ihr Team und Ihre Kundschaft – ohne Medienbrüche, dafür mit klaren KPIs.
+                Jeder Schritt baut auf dem vorherigen auf und zeigt, wie Digitalisierung von KMU in Oberfranken, Workflow Optimierung und Automatisierung von Geschäftsprozessen zusammenspielen. So entsteht ein konsistentes Erlebnis für Ihr Team und Ihre Kundschaft – ohne Medienbrüche und mit klar messbaren Ergebnissen.
               </p>
             </div>
 
@@ -236,6 +464,45 @@ export default function Home() {
               </ol>
             </div>
           </div>
+        </section>  {/* Ende Timeline */ }
+
+        {/* Galerie: kreisförmiges Bild-Rondell */}
+        <section id="gallery" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
+          <div className="container max-w-screen-xl px-6 lg:px-8 relative">
+            <div className="mx-auto max-w-2xl text-center space-y-4" data-reveal>
+              <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/80">Galerie</span>
+              <h3 className="text-3xl sm:text-4xl font-heading font-semibold">Branchen, die wir digital voranbringen</h3>
+              <p className="text-sm sm:text-base text-white/70">Digitalisierung in Coburg sichtbar gemacht – vom Webdesign für lokale Marken bis zur App Entwicklung für mittelständische Unternehmen in Oberfranken.</p>
+            </div>
+
+            <div className="relative mt-14 flex justify-center">
+              <div
+                ref={galleryRingRef}
+                className="gallery-ring"
+                aria-label="Service Galerie, kreisförmig animiert"
+              >
+                <div className="gallery-ring-track">
+                  {GALLERY_SLIDES.map((slide) => (
+                    <a
+                      key={slide.href}
+                      href={slide.href}
+                      data-gallery-item
+                      className="gallery-ring-item group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary"
+                    >
+                      <div className="gallery-ring-card">
+                        <div className="gallery-ring-media">
+                          <img loading="lazy" src={slide.imageSrc} alt={slide.imageAlt} />
+                          <div className="gallery-ring-overlay">
+                            <span className="gallery-ring-caption">{slide.caption}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="contact" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
@@ -263,6 +530,18 @@ export default function Home() {
                 <p className="text-surface-light/80">Gemeinsam begleiten wir die Realisierung, etablieren KPIs und sorgen für kontinuierliche Optimierung.</p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="seo-positioning" className="py-12 bg-brand-primary text-white border-t border-white/10">
+          <div className="container max-w-screen-xl px-6 lg:px-8" data-reveal>
+            <h3 id="seo-positioning" className="sr-only">Nexgen-Consulting Standort und Leistungen</h3>
+            <p className="text-sm sm:text-base leading-relaxed">
+              Nexgen-Consulting ist eine Digitalagentur aus Coburg, spezialisiert auf Digitalisierung in Coburg, Webdesign Agentur Coburg sowie Prozessautomatisierung für Unternehmen in Oberfranken. Wir begleiten Unternehmen in Coburg, Bamberg und der gesamten Region Oberfranken auf ihrem Weg in die digitale Zukunft.
+            </p>
+            <p className="text-sm sm:text-base leading-relaxed mt-4">
+              Mit Digitalisierungsberatung, Workflow Optimierung, individueller Softwareentwicklung und Cloud Lösungen – inklusive Microsoft 365 Einführung – digitalisieren wir KMU in Bayern Schritt für Schritt. App Entwicklung Coburg, Automatisierung von Geschäftsprozessen und IT-Beratung für den Mittelstand in Bayern gehören zu unserem Alltag.
+            </p>
           </div>
         </section>
 

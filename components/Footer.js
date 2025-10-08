@@ -2,21 +2,22 @@
 export default function Footer() {
   return (
     <footer className="bg-brand-primary  text-white">
-      <div className="container mx-auto text-center ">
-        <div className="mb-4">
-          <p className="text-lg font-bold">Max Meisner - NexGen-Consulting</p>
-          <p></p>
-          <p></p>
+      <div className="container mx-auto text-center space-y-6">
+        <div className="space-y-2">
+          <p className="text-lg font-bold">Max Meisner – Nexgen-Consulting</p>
+          <p className="text-sm">Digitalagentur in Coburg für Digitalisierung, Webdesign, App Entwicklung und Prozessautomatisierung in Oberfranken.</p>
+          <p className="text-sm">Wir unterstützen den Mittelstand in Bayern mit Digitalisierungsberatung, Workflow Optimierung, Cloud Lösungen und Microsoft 365 Einführung.</p>
         </div>
-        <div className="mb-4">
-          <a href="https://www.linkedin.com/company/106936390" className="mx-2 hover:text-white">LinkedIn</a>
-          <a href="https://www.instagram.com/nexgenconsultingcoburg" className="mx-2 hover:text-white">Instagram</a>
+        <div className="flex justify-center gap-4 text-sm">
+          <a href="https://www.linkedin.com/company/nexgen-consulting-de/" className="hover:text-white">LinkedIn</a>
+          <a href="https://www.instagram.com/nexgen.consulting/" className="hover:text-white">Instagram</a>
+          <a href="https://www.facebook.com/nexgen.consulting/" className="hover:text-white">Facebook</a>
         </div>
-        <div className="mb-2">
+        <div className="mb-2 space-x-4 text-sm">
           <a href="/impressum" className="hover:underline">Impressum</a>
-          <a href="/datenschutz" className="hover:underline ml-4">Datenschutz</a>
+          <a href="/datenschutz" className="hover:underline">Datenschutz</a>
         </div>
-        <p className="text-sm">&copy; 2025 Max Meisner - Nexgen-Consulting . Alle Rechte vorbehalten.</p>
+        <p className="text-sm">&copy; 2025 Max Meisner – Nexgen-Consulting. Alle Rechte vorbehalten.</p>
       </div>
     </footer>
   );

@@ -64,7 +64,7 @@ useEffect(() => {
           </p>
           <ul className="text-white space-y-4">
             <li>
-              <strong>Telefon:</strong> <a href="tel:+4915227433448" className="text-white hover:underline">+4915227433448</a>
+              <strong>Telefon:</strong> <a href="tel:+4915227433448" className="text-white hover:underline">+49 1525 9089486</a>
             </li>
             <li>
               <strong>E-Mail:</strong> <a href="mailto:info@nexgen-consulting.de" className="text-white hover:underline">meisner@nexgen-consulting.de</a>
