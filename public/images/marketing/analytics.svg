@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Analytics & Performance">
+  <defs>
+    <linearGradient id="grad-ana" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="#0b0c10"/>
+  <g opacity="0.6">
+    <circle cx="1080" cy="120" r="200" fill="#4f46e5" fill-opacity="0.25"/>
+    <circle cx="160" cy="500" r="200" fill="#06b6d4" fill-opacity="0.2"/>
+  </g>
+
+  <!-- Dashboard frame -->
+  <g transform="translate(140,110)">
+    <rect width="920" height="380" rx="24" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="24" y="28" width="280" height="14" rx="7" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="24" y="54" width="360" height="12" rx="6" fill="#ffffff" fill-opacity="0.3"/>
+
+    <!-- Bars -->
+    <g transform="translate(40,120)">
+      <rect x="0" y="70" width="40" height="110" fill="url(#grad-ana)"/>
+      <rect x="60" y="30" width="40" height="150" fill="url(#grad-ana)"/>
+      <rect x="120" y="10" width="40" height="170" fill="url(#grad-ana)"/>
+      <rect x="180" y="90" width="40" height="90" fill="url(#grad-ana)"/>
+      <rect x="240" y="40" width="40" height="140" fill="url(#grad-ana)"/>
+    </g>
+
+    <!-- Line chart -->
+    <path d="M460,300 C520,240 580,260 640,210 C680,180 740,220 800,180" fill="none" stroke="#06b6d4" stroke-width="3" stroke-opacity="0.9"/>
+    <circle cx="460" cy="300" r="5" fill="#06b6d4"/>
+    <circle cx="640" cy="210" r="5" fill="#06b6d4"/>
+    <circle cx="800" cy="180" r="5" fill="#06b6d4"/>
+  </g>
+</svg>

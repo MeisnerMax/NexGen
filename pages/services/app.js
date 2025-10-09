@@ -1,155 +1,109 @@
 import Head from 'next/head';
-import Chatbot from "../../components/Chatbot";
+import Chatbot from '../../components/Chatbot';
 import { useRouter } from 'next/router';
 
 export default function AppService() {
   const router = useRouter();
-
-  const redirectToContact = (message) => {
-    router.push(`/kontakt?message=${encodeURIComponent(message)}`);
-  };
+  const redirectToContact = (message) => router.push(`/kontakt?message=${encodeURIComponent(message)}`);
 
   return (
     <>
       <Head>
         <title>App-Entwicklung - Nexgen Consulting</title>
-        <meta
-          name="description"
-          content="Professionelle App-Entwicklung für iOS und Android von Nexgen Consulting - maßgeschneidert für Ihre Anforderungen."
-        />
-        <meta
-          name="keywords"
-          content="App-Entwicklung, iOS, Android, Mobile Apps, UX Design, API Integration"
-        />
+        <meta name="description" content="Professionelle App‑Entwicklung für iOS und Android – modern, skalierbar und benutzerfreundlich." />
+        <meta name="keywords" content="App-Entwicklung, iOS, Android, Mobile Apps, UX Design, API Integration" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Nexgen Consulting" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:title" content="App-Entwicklung - Nexgen Consulting" />
-        <meta property="og:description" content="Individuelle App-Entwicklung für Ihre Anforderungen - modern, skalierbar und benutzerfreundlich." />
+        <meta property="og:description" content="Individuelle App‑Entwicklung für Ihre Anforderungen – modern, skalierbar und benutzerfreundlich." />
         <meta property="og:url" content="https://nexgen-consulting.de/appentwicklung-coburg" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
         <link rel="canonical" href="https://nexgen-consulting.de/appentwicklung-coburg" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "App-Entwicklung in Coburg",
-          serviceType: "App-Entwicklung",
-          areaServed: "Coburg, Germany",
-          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
-          url: "https://nexgen-consulting.de/appentwicklung-coburg"
-        }) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Nexgen Consulting",
-          url: "https://nexgen-consulting.de",
-          telephone: "+49 1525 9089486",
-          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
-        }) }} />
       </Head>
 
       <Chatbot />
 
-      <section className="container mx-auto py-20 px-8 mt-16 bg-blue text-white rounded-lg">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">App-Entwicklung</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Wir entwickeln mobile Apps für iOS und Android – individuell, benutzerfreundlich und perfekt auf Ihre Anforderungen abgestimmt.
-          </p>
+      {/* Hero */}
+      <header className="relative overflow-hidden bg-brand-primary text-white">
+        <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden>
+          <div className="absolute -top-24 -right-16 h-[38rem] w-[38rem] rounded-full bg-indigo-600/30 blur-3xl" />
+          <div className="absolute -bottom-24 -left-16 h-[34rem] w-[34rem] rounded-full bg-cyan-400/30 blur-3xl" />
+        </div>
+        <div className="container mx-auto px-6 lg:px-8 py-20 md:py-28">
+          <p className="text-sm font-semibold tracking-widest text-cyan-300 uppercase">Leistung</p>
+          <h1 className="mt-2 text-3xl md:text-5xl font-bold text-white">App‑Entwicklung</h1>
+          <p className="mt-3 max-w-2xl text-base md:text-lg text-white/80">Native und hybride Apps für iOS und Android – performant, benutzerfreundlich und sicher integriert.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">iOS</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Android</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">API</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">UX/UI</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Value Props */}
+      <section className="py-12 md:py-16 bg-brand-primary">
+        <div className="container mx-auto px-6 lg:px-8 grid gap-6 md:grid-cols-3">
+          {[
+            { title: 'iOS & Android', text: 'Plattformübergreifend umgesetzt – modern, skalierbar, effizient.' },
+            { title: 'API‑Integration', text: 'Nahtlose Anbindung an Systeme und Dienste – sicher und performant.' },
+            { title: 'UX/UI Design', text: 'Intuitive, zugängliche Interfaces mit klarem Fokus auf Nutzen.' },
+          ].map((f) => (
+            <div key={f.title} className="rounded-brand-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-md">
+              <h3 className="text-xl font-semibold mb-2 text-white">{f.title}</h3>
+              <p className="text-white/80">{f.text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="container rounded-lg bg-blue mx-auto px-20 py-8 grid md:grid-cols-3 text-white">
-        <div className="bg-blue p-6 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-2">iOS & Android</h3>
-          <p>
-            Plattformübergreifende Entwicklung für iOS und Android – modern, skalierbar und effizient.
-          </p>
+      {/* Packages */}
+      <section className="py-8 md:py-12 bg-brand-primary text-white">
+        <div className="container mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-2">App‑Pakete</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">Vom schnellen Start bis zur individuellen Lösung – transparent und erweiterbar.</p>
         </div>
-
-        <div className="bg-blue p-6 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-2">API-Integration</h3>
-          <p>
-            Wir integrieren Ihre App nahtlos mit bestehenden Systemen und APIs für maximale Funktionalität.
-          </p>
-        </div>
-
-        <div className="bg-blue p-6 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-2">UX/UI Design</h3>
-          <p>
-            Benutzerfreundliches Design, das Ihre Zielgruppe begeistert – intuitiv und ansprechend.
-          </p>
-        </div>
-      </section>
-
-      <section className="container mx-auto py-4 px-8 mt-16 bg-blue text-white rounded-lg">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            App-Pakete für Ihre Anforderungen
-          </h1>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-8 py-16 grid md:grid-cols-3 gap-8 text-white">
-        <div
-          onClick={() => redirectToContact('Basis-App')}
-          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
-        >
-          <h3 className="text-2xl font-semibold mb-2">Basis-App</h3>
-          <p>Eine einfache App mit grundlegenden Funktionen – ideal für kleine Projekte.</p>
-          <h4 className="text-2xl font-semibold mb-2">799 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 32 €/Monat (Finanzierung möglich)</p>
-          <img
-            src="/images/basis-app.png"
-            alt="Beispiel einer Basis-App"
-            className="w-full h-auto rounded mt-4"
-          />
-        </div>
-
-        <div
-          onClick={() => redirectToContact('Standard-App')}
-          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
-        >
-          <h3 className="text-2xl font-semibold mb-2">Standard-App</h3>
-          <p>Erweiterte Funktionen wie Login, Datenbankanbindung und dynamische Inhalte.</p>
-          <h4 className="text-2xl font-semibold mb-2">2.999 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 120 €/Monat (Finanzierung möglich)</p>
-          <img
-            src="/images/standard-app.png"
-            alt="Beispiel einer Standard-App"
-            className="w-full h-auto rounded mt-4"
-          />
-        </div>
-
-        <div
-          onClick={() => redirectToContact('Premium-App')}
-          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition"
-        >
-          <h3 className="text-2xl font-semibold mb-2">Premium-App</h3>
-          <p>Komplexe Apps mit API-Integration, Zahlungsfunktionen GPS und mehr.</p>
-          <h4 className="text-2xl font-semibold mb-2">Individuell</h4>
-          <p className="text-sm text-white/80 mt-1">(Finanzierung möglich)</p>
-          <img
-            src="/images/premium-app.png"
-            alt="Beispiel einer Premium-App"
-            className="w-full h-auto rounded mt-4"
-          />
+        <div className="container mx-auto px-6 lg:px-8 mt-8 grid gap-6 md:grid-cols-3">
+          {[
+            { name: 'Basis‑App', msg: 'Basis-App', perks: ['Landing‑Screen','Formulare & Listen','Basis‑Offline'] },
+            { name: 'Standard‑App', msg: 'Standard-App', perks: ['Login & Rollen','API‑Integration','Push & Medien'] },
+            { name: 'Premium‑App', msg: 'Premium-App', perks: ['Zahlung/Store','Erweiterter Offline','Analytics & A/B'] },
+          ].map((p) => (
+            <button key={p.name} onClick={() => redirectToContact(p.msg)} className="group text-left">
+              <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60">
+                <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 backdrop-blur-md p-6 flex flex-col">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xl font-semibold">{p.name}</h3>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Empfehlung</span>
+                  </div>
+                  <ul className="mt-2 space-y-2 text-sm text-white/80">
+                    {p.perks.map((perk) => (
+                      <li key={perk} className="flex items-start gap-2">
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden />
+                        <span>{perk}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-5 py-2.5 font-semibold text-white shadow-lg transition group-hover:brightness-110">Anfragen</span>
+                </div>
+              </div>
+            </button>
+          ))}
         </div>
       </section>
 
-      <section className="container mx-auto px-8 py-16 pb-24 text-center">
-        <h2 className="text-3xl font-bold text-white mb-6">Starten Sie jetzt Ihr App-Projekt</h2>
-        <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
-          Lassen Sie uns gemeinsam Ihre App-Idee verwirklichen – individuell, modern und mit Fokus auf Ihre Zielgruppe.
-        </p>
-        <a
-          href="/kontakt"
-          className="bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-[#E64000] transition"
-        >
-          Jetzt Erstgespräch vereinbaren
-        </a>
+      {/* CTA */}
+      <section className="py-12 md:py-16 bg-brand-primary text-white">
+        <div className="container mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-heading font-semibold mb-3">Bereit für Ihr App‑Projekt?</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">Kurzes Erstgespräch, klare Roadmap, schneller Store‑Launch.</p>
+          <a href="/kontakt" className="mt-6 inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">Jetzt Erstgespräch vereinbaren</a>
+        </div>
       </section>
     </>
   );
 }
+

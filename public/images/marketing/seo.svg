@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="SEO & Content">
+  <defs>
+    <linearGradient id="grad-seo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="#0b0c10"/>
+  <g opacity="0.6">
+    <circle cx="240" cy="120" r="200" fill="#06b6d4" fill-opacity="0.25"/>
+    <circle cx="1000" cy="520" r="220" fill="#4f46e5" fill-opacity="0.25"/>
+  </g>
+
+  <!-- Document card -->
+  <g transform="translate(200,120)">
+    <rect width="380" height="360" rx="22" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="28" y="40" width="240" height="16" rx="8" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="28" y="72" width="300" height="12" rx="6" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="28" y="96" width="280" height="12" rx="6" fill="#ffffff" fill-opacity="0.22"/>
+    <rect x="28" y="160" width="320" height="140" rx="10" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.1"/>
+  </g>
+
+  <!-- Search widget -->
+  <g transform="translate(640,200)">
+    <rect width="420" height="56" rx="24" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12"/>
+    <circle cx="28" cy="28" r="10" fill="#06b6d4"/>
+    <rect x="54" y="22" width="240" height="12" rx="6" fill="rgba(255,255,255,0.75)"/>
+  </g>
+
+  <!-- Score badge -->
+  <g transform="translate(640,300)">
+    <rect width="200" height="48" rx="14" fill="url(#grad-seo)"/>
+    <text x="100" y="31" text-anchor="middle" font-family="system-ui, Segoe UI, Arial" font-size="18" fill="#ffffff">SEO Score 92</text>
+  </g>
+</svg>

@@ -89,6 +89,8 @@ export default function Home() {
   useReveal();
 
   const galleryRingRef = useRef(null);
+  const timelineModernRef = useRef(null);
+  const timelineProgressRef = useRef(null);
 
   useEffect(() => {
     const ringElement = galleryRingRef.current;
@@ -235,6 +237,40 @@ export default function Home() {
         slide.style.removeProperty("opacity");
         slide.style.removeProperty("filter");
       });
+    };
+  }, []);
+
+  // Timeline progress indicator
+  useEffect(() => {
+    const section = timelineModernRef.current;
+    const bar = timelineProgressRef.current;
+    if (!section || !bar) return;
+
+    let rafId = null;
+    const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const start = Math.min(vh * 0.9, vh - 1); // start filling after entering viewport
+      const total = rect.height + start; // span we consider for progress
+      const progressed = clamp(start - rect.top, 0, total);
+      const ratio = clamp(progressed / total, 0, 1);
+      bar.style.width = `${(ratio * 100).toFixed(2)}%`;
+      rafId = null;
+    };
+
+    const onScroll = () => {
+      if (rafId == null) rafId = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
   }, []);
 
@@ -417,7 +453,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="timeline" className="py-16 sm:py-20 md:py-24 bg-[#091B33]">
+        <section id="timeline" className="hidden py-16 sm:py-20 md:py-24 bg-[#091B33]">
           <div className="container max-w-screen-xl px-6 lg:px-8 space-y-12">
             <div className="text-center" data-reveal>
               <p className="uppercase tracking-widest text-brand-accent font-semibold mb-3">Der Nexgen-Prozess</p>
@@ -547,6 +583,100 @@ export default function Home() {
             </div>
           </div>
         </section>  {/* Ende Timeline */ }
+
+        {/* Timeline – neues Kachel‑Konzept */}
+        <section id="timeline-modern" className="py-16 sm:py-20 md:py-24 bg-[#091B33]">
+          <div className="container max-w-screen-xl px-6 lg:px-8 space-y-10">
+            <div className="text-center" data-reveal>
+              <p className="uppercase tracking-widest text-brand-accent font-semibold mb-3">Der Nexgen‑Fahrplan</p>
+              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-surface-light/90 mb-3">Klar strukturiert. Schritt für Schritt.</h2>
+              <p className="text-surface-light/90 leading-relaxed max-w-3xl mx-auto">Von der ersten Beratung bis zur Umsetzung: Unsere Roadmap macht den Prozess transparent und erlebbar.</p>
+            </div>
+
+            <div className="relative" data-reveal>
+              {/* Progress bar (sticky within section) */}
+              
+              <div className="pointer-events-none absolute left-4 top-0 bottom-0 w-px bg-white/10 md:hidden" aria-hidden />
+              <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-8">
+                {timelineSteps.map((step, index) => {
+                  const stepHref = step.href || step.ctaHref;
+                  const path = (stepHref || '').toLowerCase();
+                  const t = (step.title || '').toLowerCase();
+                  let iconSvg;
+                  if (path.includes('/digitalberatung-coburg') || path.includes('/services/beratung') || t.includes('beratung') || t.includes('analyse')) {
+                    iconSvg = (
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M12 2a7 7 0 0 0-4 12.9V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.1A7 7 0 0 0 12 2zm-2 18a2 2 0 0 0 4 0h-4z" /></svg>
+                    );
+                  } else if (path.includes('/webdesign-coburg') || path.includes('/services/website') || t.includes('website') || t.includes('web')) {
+                    iconSvg = (
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3.2A15.8 15.8 0 0 0 13 4.3 8.04 8.04 0 0 1 18.9 8zM12 4.1c.9.7 2 2.2 2.6 3.9H9.4c.6-1.7 1.7-3.2 2.6-3.9z" /></svg>
+                    );
+                  } else if (path.includes('/online-marketing-coburg') || path.includes('/services/marketing') || t.includes('marketing')) {
+                    iconSvg = (
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M3 11a2 2 0 0 0 2 2h2l8 4V5l-8 4H5a2 2 0 0 0-2 2zm8 6v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2h6z" /></svg>
+                    );
+                  } else if (path.includes('/schulungen-coburg') || path.includes('/services/schulungen') || t.includes('schulung') || t.includes('training')) {
+                    iconSvg = (
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M4 6l8-4 8 4-8 4-8-4zm0 6l8 4 8-4M4 18l8 4 8-4" /></svg>
+                    );
+                  } else if (path.includes('/microsoft365-loesungen-coburg') || t.includes('branchensoftware') || t.includes('microsoft')) {
+                    iconSvg = (
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M3 3h8v8H3V3zm0 10h8v8H3v-8zm10-10h8v8h-8V3zm0 10h8v8h-8v-8z" /></svg>
+                    );
+                  } else if (path.includes('/softwareentwicklung-coburg') || path.includes('/appentwicklung-coburg') || t.includes('software') || t.includes('app')) {
+                    iconSvg = (
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M4 4h16v16H4V4zm4 3h8v2H8V7zm0 4h8v2H8v-2zm0 4h8v2H8v-2z" /></svg>
+                    );
+                  } else {
+                    iconSvg = (
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M12 2l4 7H8l4-7zm0 20l-4-7h8l-4 7z" /></svg>
+                    );
+                  }
+
+                  const Tile = (
+                    <div className="group relative w-full md:min-w-0 md:w-auto">
+                      <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60">
+                        <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 backdrop-blur-md">
+                          <div className="flex items-center justify-between px-4 pt-4">
+                            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/90 ring-1 ring-white/10 text-sm font-semibold">{index + 1}</span>
+                            <span className="inline-flex items-center justify-center rounded-xl bg-white/5 text-brand-accent ring-1 ring-white/10 h-9 w-9">{iconSvg}</span>
+                          </div>
+                          <div className="p-4 pb-5 h-[200px] overflow-hidden flex flex-col">
+                            <h3 className="text-white text-lg font-heading font-semibold">{step.title}</h3>
+                            {step.highlights.length > 1 ? (
+                              <ul className="mt-2 space-y-2 text-surface-light/80 text-sm leading-relaxed">
+                                {step.highlights.slice(0,3).map((highlight) => (
+                                  <li key={highlight} className="flex items-start gap-2">
+                                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden />
+                                    <span>{highlight}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="mt-2 text-surface-light/80 text-sm leading-relaxed line-clamp-4">{step.highlights[0]}</p>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+
+                  return (
+                    <li key={`${step.href ?? 'static'}-${index}`} className="md:contents">
+                      {stepHref ? (
+                        <Link href={stepHref} className="block focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">
+                          {Tile}
+                        </Link>
+                      ) : (
+                        Tile
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </section>
 
         {/* Galerie: kreisförmiges Bild-Rondell */}
         <section id="gallery" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">

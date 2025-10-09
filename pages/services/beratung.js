@@ -67,7 +67,7 @@ export default function Beratung() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 md:py-24 bg-brand-primary/80">
+      <section className="py-16 sm:py-20 md:py-24 bg-brand-primary">
         <div className="container max-w-screen-xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
@@ -78,7 +78,7 @@ export default function Beratung() {
                 Jede Zusammenarbeit startet mit einem klaren Blick auf Prozesse, Menschen und Ziele. Daraus entwickeln wir individuelle Handlungsempfehlungen, die schnell Wirkung zeigen und Zukunftssicherheit schaffen.
               </p>
             </div>
-            <ul className="bg-brand-primary backdrop-blur rounded-brand-2xl shadow-card ring-1 ring-brand-primary/5 p-8 space-y-4">
+            <ul className="rounded-brand-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-md space-y-4">
               {offerings.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-white">
                   <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-accent/10 text-brand-accent font-semibold">
@@ -112,7 +112,7 @@ export default function Beratung() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 md:py-24 bg-brand-primary/80">
+      <section className="py-16 sm:py-20 md:py-24 bg-brand-primary">
         <div className="container max-w-screen-xl px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-heading font-semibold text-white mb-4">
             Bereit für den nächsten Schritt?
@@ -120,7 +120,7 @@ export default function Beratung() {
           <p className="text-white leading-relaxed mb-8 max-w-2xl mx-auto">
             Lassen Sie uns in einem unverbindlichen Erstgespräch Potenziale identifizieren und priorisieren. Gemeinsam schaffen wir die Grundlage für eine digitale Roadmap, die Ihr Team mitnimmt.
           </p>
-          <Link href="/kontakt" className="btn-primary inline-flex text-white sm:text-lg">
+          <Link href="/kontakt" className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">
             Jetzt kostenlose Erstberatung anfordern
           </Link>
         </div>
@@ -128,3 +128,7 @@ export default function Beratung() {
     </>
   );
 }
+
+
+
+

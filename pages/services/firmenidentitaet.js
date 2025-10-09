@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Chatbot from "../../components/Chatbot";
 import useReveal from "../../hooks/useReveal";
+import { useRouter } from "next/router";
 
 const deliverables = [
   "Logo-Design mit klarer Markenbotschaft",
@@ -14,6 +15,10 @@ const deliverables = [
 
 export default function Firmenidentitaet() {
   useReveal();
+  const router = useRouter();
+  const redirectToContact = (message) => {
+    router.push(`/kontakt?message=${encodeURIComponent(message)}`);
+  };
 
   return (
     <>
@@ -53,31 +58,76 @@ export default function Firmenidentitaet() {
       <Chatbot />
 
       <main>
+        {/* Hero */}
+        <header className="relative overflow-hidden bg-brand-primary text-white">
+          <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden>
+            <div className="absolute -top-24 -right-16 h-[38rem] w-[38rem] rounded-full bg-indigo-600/30 blur-3xl" />
+            <div className="absolute -bottom-24 -left-16 h-[34rem] w-[34rem] rounded-full bg-cyan-400/30 blur-3xl" />
+          </div>
+          <div className="container max-w-screen-xl px-6 lg:px-8 py-20 md:py-28" data-reveal>
+            <p className="uppercase tracking-widest text-cyan-300 font-semibold mb-2">Branding & Corporate Design</p>
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold">Markenidentitäten mit Wiedererkennungswert</h1>
+            <p className="mt-3 text-base md:text-lg text-white/80 max-w-3xl">
+              Von Logo über Farbwelten bis zu digitalen Templates: Wir entwickeln ein klares, skalierbares System, das Ihr Team eigenständig nutzen kann.
+            </p>
+            <Link href="/kontakt" className="mt-6 inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">
+              Branding‑Gespräch vereinbaren
+            </Link>
+          </div>
+        </header>
+
+        {/* Deliverables */}
         <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
-          <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-10 lg:grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:items-center" data-reveal>
-            <div>
-              <p className="uppercase tracking-widest text-brand-accent font-semibold mb-4">Branding & Corporate Design</p>
-              <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6">
-                Markenidentitten mit Wiedererkennungswert
-              </h1>
-              <p className="text-lg text-surface-light/90 leading-relaxed mb-8">
-                Wir entwickeln Marken, die Haltung zeigen  visuell konsistent, strategisch fundiert und bereit fr alle Kanle. Von Logo ber Farbwelten bis zu digitalen Templates erhalten Sie ein System, das Ihr Team eigenstndig nutzen kann.
-              </p>
-              <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
-                Branding-Gesprch vereinbaren
-              </Link>
-            </div>
-            <div className="rounded-brand-2xl bg-brand-primary/70 ring-1 ring-white/10 shadow-card p-8 space-y-4" data-reveal>
+          <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-10 lg:grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:items-start">
+            <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-md" data-reveal>
               <h2 className="text-xl font-heading font-semibold">Brand Deliverables</h2>
-              <ul className="space-y-3 text-white/80 leading-relaxed">
+              <ul className="mt-4 space-y-3 text-white/80 leading-relaxed">
                 {deliverables.map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-brand-accent" aria-hidden="true" />
+                    <span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
+            <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-0 shadow-xl backdrop-blur-md overflow-hidden" data-reveal>
+              <img src="/images/marketing/branding.svg" alt="Branding Illustration" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        </section>
+
+        {/* Packages */}
+        <section className="py-8 md:py-12 bg-brand-primary text-white">
+          <div className="container mx-auto px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-2">Branding‑Pakete</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">Vom klaren Start bis zum umfassenden Brand‑System – transparent, skalierbar, erweiterbar.</p>
+          </div>
+          <div className="container mx-auto px-6 lg:px-8 mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              { name: 'Starter Branding', msg: 'Starter Branding', perks: ['Logo‑Set (RGB/CMYK)','Basaler Styleguide','Farb- & Typo‑Vorschläge'] },
+              { name: 'Standard Branding', msg: 'Standard Branding', perks: ['Logo‑Varianten & Nutzungsregeln','Styleguide (PDF)','Social‑ & Office‑Vorlagen'] },
+              { name: 'Premium Branding', msg: 'Premium Branding', perks: ['Erweitertes Design‑System','Icon‑Set & Komponenten','Brand‑Toolkit + Schulung'] },
+            ].map((p) => (
+              <button key={p.name} onClick={() => redirectToContact(p.msg)} className="group text-left">
+                <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60">
+                  <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 backdrop-blur-md p-6 flex flex-col">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-semibold">{p.name}</h3>
+                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Empfehlung</span>
+                    </div>
+                    <ul className="mt-2 space-y-2 text-sm text-white/80">
+                      {p.perks.map((perk) => (
+                        <li key={perk} className="flex items-start gap-2">
+                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden />
+                          <span>{perk}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <span className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-5 py-2.5 font-semibold text-white shadow-lg transition group-hover:brightness-110">Anfragen</span>
+                  </div>
+                </div>
+              </button>
+            ))}
           </div>
         </section>
 
@@ -93,11 +143,13 @@ export default function Firmenidentitaet() {
               </p>
             </div>
             <div className="" data-reveal>
-                <div className="rounded-brand-xl text-brand-primary shadow-card ring-1 ring-brand-primary/10 p-6">
-                <h3 className="text-3xl font-heading font-semibold text-white mb-2">Deliverable-Pakete</h3>
-                <p className=" text-white leading-relaxed">
-                  Logo-Sets, Typo-Systeme, Icon Libraries, Social-Media-Templates, Prsentations-Decks, Print-Assets, Design-Systeme fr Web & App.
-                </p>
+              <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40">
+                <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 p-6">
+                  <h3 className="text-3xl font-heading font-semibold text-white mb-2">Deliverable‑Pakete</h3>
+                  <p className="text-white/80 leading-relaxed">
+                    Logo‑Sets, Typo‑Systeme, Icon Libraries, Social‑Media‑Templates, Präsentations‑Decks, Print‑Assets, Design‑Systeme für Web & App.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -105,11 +157,11 @@ export default function Firmenidentitaet() {
 
         <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-lg px-6 lg:px-8 text-center space-y-6" data-reveal>
-            <h2 className="text-3xl font-heading font-semibold">Bereit fr einen klaren Markenauftritt?</h2>
+            <h2 className="text-3xl font-heading font-semibold">Bereit für einen klaren Markenauftritt?</h2>
             <p className="text-surface-light/85 leading-relaxed max-w-2xl mx-auto">
               Wir begleiten Ihr Rebranding oder den Start einer neuen Marke  vom Naming bis zum Launch-Toolkit. Lassen Sie uns gemeinsam die nchsten Schritte planen.
             </p>
-            <Link href="/kontakt" className="btn-secondary inline-flex text-base sm:text-lg">
+            <Link href="/kontakt" className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">
               Kostenlose Erstberatung buchen
             </Link>
           </div>
@@ -118,4 +170,3 @@ export default function Firmenidentitaet() {
     </>
   );
 }
-

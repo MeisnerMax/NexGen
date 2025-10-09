@@ -2,12 +2,11 @@
 import Head from 'next/head';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import Chatbot from "../../components/Chatbot";
+import Chatbot from '../../components/Chatbot';
 import { useRouter } from 'next/router';
 
-
 export default function WebsiteService() {
-  const router = useRouter(); // hinzufügen
+  const router = useRouter();
 
   const redirectToContact = (message) => {
     router.push(`/kontakt?message=${encodeURIComponent(message)}`);
@@ -17,14 +16,8 @@ export default function WebsiteService() {
     <div className="min-h-screen bg-brand-primary text-white">
       <Head>
         <title>Webdesign & Branding - Nexgen Consulting</title>
-        <meta
-          name="description"
-          content="Professionelles Webdesign und starke Markenidentität von Nexgen Consulting - maßgeschneidert für kleine und mittelständische Unternehmen."
-        />
-        <meta
-          name="keywords"
-          content="Webdesign, Branding, Responsive Design, SEO, CMS, Website, Logo, UX Design"
-        />
+        <meta name="description" content="Professionelles Webdesign und starke Markenidentität – schnell, modern, suchmaschinenoptimiert." />
+        <meta name="keywords" content="Webdesign, Branding, Responsive Design, SEO, CMS, Website, Logo, UX Design" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Nexgen Consulting" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,144 +27,140 @@ export default function WebsiteService() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
         <link rel="canonical" href="https://nexgen-consulting.de/webdesign-coburg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              name: "Webdesign in Coburg",
-              serviceType: "Webdesign",
-              areaServed: "Coburg, Germany",
-              provider: {
-                "@type": "LocalBusiness",
-                name: "Nexgen Consulting",
-                url: "https://nexgen-consulting.de",
-                telephone: "+49 1525 9089486",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Coburg",
-                  addressCountry: "DE"
-                }
-              },
-              url: "https://nexgen-consulting.de/webdesign-coburg"
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Nexgen Consulting",
-              url: "https://nexgen-consulting.de",
-              telephone: "+49 1525 9089486",
-              address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
-            })
-          }}
-        />
       </Head>
 
       <Chatbot />
 
-      <section className="container mx-auto py-20 px-8 mt-16 bg-brand-primary text-white rounded-lg">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Webdesign & Branding</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Wir entwickeln Websites, die Eindruck hinterlassen – technisch einwandfrei, suchmaschinenoptimiert und perfekt abgestimmt auf Ihre Zielgruppe. Ideal für kleine und mittelständische Unternehmen.
-          </p>
+      {/* Hero */}
+      <header className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden>
+          <div className="absolute -top-24 -right-16 h-[38rem] w-[38rem] rounded-full bg-indigo-600/30 blur-3xl" />
+          <div className="absolute -bottom-24 -left-16 h-[34rem] w-[34rem] rounded-full bg-cyan-400/30 blur-3xl" />
+        </div>
+        <div className="container mx-auto px-6 lg:px-8 py-20 md:py-28">
+          <p className="text-sm font-semibold tracking-widest text-cyan-300 uppercase">Leistung</p>
+          <h1 className="mt-2 text-3xl md:text-5xl font-bold text-white">Webdesign & Branding</h1>
+          <p className="mt-3 max-w-2xl text-base md:text-lg text-white/80">Websites, die Wirkung zeigen – schnell, sicher, SEO‑stark und auf Ihr Ziel ausgerichtet.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">SEO‑ready</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">PageSpeed</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">CMS</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">DSGVO</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Value Props */}
+      <section className="py-12 md:py-16 bg-brand-primary">
+        <div className="container mx-auto px-6 lg:px-8 grid gap-6 md:grid-cols-3">
+          <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-md">
+            <h3 className="text-xl font-semibold mb-2">Responsive Design</h3>
+            <p className="text-white/80">Mobil‑first umgesetzt – überzeugend auf Smartphone, Tablet und Desktop.</p>
+          </div>
+          <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-md">
+            <h3 className="text-xl font-semibold mb-2">SEO‑Optimierung</h3>
+            <p className="text-white/80">Sauberer Code, schnelle Ladezeiten, strukturierte Daten und sinnvolle Meta‑Daten.</p>
+          </div>
+          <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-md">
+            <h3 className="text-xl font-semibold mb-2">Einfache Pflege (CMS)</h3>
+            <p className="text-white/80">Texte und Bilder selbst im CMS verwalten – ohne Programmierkenntnisse.</p>
+          </div>
         </div>
       </section>
 
-      <section className="container rounded-lg bg-brand-primary mx-auto px-20 py-8 grid md:grid-cols-3  text-white">
-        <div className="bg-brand-primary/80 p-6 rounded-lg ">
-          <h3 className="text-2xl font-semibold mb-2">Responsive Design</h3>
-          <p>
-          Ihre Website sieht auf jedem Gerät professionell aus: Smartphone, Tablet oder Desktop. Wir setzen mobile-first Designprinzipien um – benutzerfreundlich und modern.
-          </p>
+      {/* Packages */}
+      <section className="py-8 md:py-12">
+        <div className="container mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-2">Website‑Pakete für jeden Bedarf</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">Schneller Einstieg oder individuelles Projekt – transparent, skalierbar, erweiterbar.</p>
         </div>
+        <div className="container mx-auto px-6 lg:px-8 mt-8 grid gap-6 md:grid-cols-3">
+          <button onClick={() => redirectToContact('Starter-Website')} className="group text-left">
+            <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60">
+              <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 backdrop-blur-md p-6 flex flex-col">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold">Starter – Website</h3>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Einsteiger</span>
+                </div>
+                <p className="text-2xl font-bold">ab 599 €</p>
+                <ul className="mt-4 space-y-2 text-sm text-white/80">
+                  {['Landingpage','Kontaktformular','Impressum & Datenschutz','Basis‑SEO'].map(perk => (
+                    <li key={perk} className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden /><span>{perk}</span></li>
+                  ))}
+                </ul>
+                <span className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-5 py-2.5 font-semibold text-white shadow-lg transition group-hover:brightness-110">Anfragen</span>
+              </div>
+            </div>
+          </button>
 
-        <div className="bg-brand-primary p-6 rounded-lg ">
-          <h3 className="text-2xl font-semibold mb-2">SEO-Optimierung</h3>
-          <p>
-          Mit strukturiertem Quellcode, optimierten Ladezeiten und gezielten Meta-Daten sorgen wir dafür, dass Ihre Website bei Google gefunden wird.
-          </p>
-        </div>
+          <button onClick={() => redirectToContact('Standard-Website')} className="group text-left">
+            <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60">
+              <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 backdrop-blur-md p-6 flex flex-col">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold">Standard – Website</h3>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Beliebt</span>
+                </div>
+                <p className="text-2xl font-bold">ab 1.299 €</p>
+                <ul className="mt-4 space-y-2 text-sm text-white/80">
+                  {['3–5 Seiten','CMS integriert','On‑Page SEO','Stock‑Bilder'].map(perk => (
+                    <li key={perk} className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden /><span>{perk}</span></li>
+                  ))}
+                </ul>
+                <span className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-5 py-2.5 font-semibold text-white shadow-lg transition group-hover:brightness-110">Anfragen</span>
+              </div>
+            </div>
+          </button>
 
-        <div className="bg-brand-primary p-6 rounded-lg ">
-          <h3 className="text-2xl font-semibold mb-2">Content Management</h3>
-          <p>
-          Ändern Sie Texte, Bilder oder Seiten selbst – ganz ohne Programmierkenntnisse. Wir integrieren ein nutzerfreundliches Content-Management-System (CMS).
-          </p>
+          <button onClick={() => redirectToContact('Premium-Website')} className="group text-left">
+            <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60">
+              <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 backdrop-blur-md p-6 flex flex-col">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold">Premium – Website</h3>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Individuell</span>
+                </div>
+                <p className="text-2xl font-bold">individuell</p>
+                <ul className="mt-4 space-y-2 text-sm text-white/80">
+                  {['Individuelles Design','Terminbuchung/Webshop','Wartung','Erweiterbar'].map(perk => (
+                    <li key={perk} className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden /><span>{perk}</span></li>
+                  ))}
+                </ul>
+                <span className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-5 py-2.5 font-semibold text-white shadow-lg transition group-hover:brightness-110">Anfragen</span>
+              </div>
+            </div>
+          </button>
         </div>
       </section>
 
-      <section className="container mx-auto py-4 px-8 mt-16 bg-brand-primary text-white rounded-lg">
-        <div className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Website-Pakete für jeden Bedarf</h1>
-        </div>
-      </section>      
-      
-      <section className="container bg-brand-primary mx-auto px-8 py-16 grid md:grid-cols-3 gap-8 text-white">
-        <div
-          onClick={() => redirectToContact('Basis -Website')}
-          className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
-          <h3 className="text-2xl font-semibold mb-2">Starter - Website</h3>
-          <p>Ihre digitale Visitenkarte: Startseite, Kontaktformular, Impressum & Datenschutz – ideal für Freiberufler und kleine Unternehmen.</p>
-          <h4 className="text-2xl font-semibold mb-2">599 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 50 €/Monat (Finanzierung möglich)</p>
-          <img
-            src="/images/basis-website.png"
-            alt="Beispiel einer Basis-Website"
-            className="w-full h-auto rounded mt-4"
-          />
-        </div>
-
-        <div
-            onClick={() => redirectToContact('Standard-Website')} 
-            className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
-          <h3 className="text-2xl font-semibold mb-2">Standard-Website</h3>
-          <p>3–5 Unterseiten, suchmaschinenoptimiert, mit CMS, Bildern und Basis-SEO – perfekt für wachsende Unternehmen mit professionellem Anspruch.</p>
-          <h4 className="text-2xl font-semibold mb-2">999 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 85 €/Monat (Finanzierung möglich)</p>
-          <img
-            src="/images/standard-website.png" // Pfad anpassen!
-            alt="Beispiel einer Basis-Website"
-            className="w-full h-auto rounded mt-4"
-          />
-        </div>
-
-        <div 
-            onClick={() => redirectToContact('Premium-Website')}
-        className="bg-[#E64000] text-white p-6 rounded-lg cursor-pointer hover:shadow-xl transition">
-          <h3 className="text-2xl font-semibold mb-2">Premium-Website</h3>
-          <p>Ideal für Unternehmen mit erweiterten Anforderungen: Online-Terminbuchung, Webshop, Wartungsvertrag – individuell erweiterbar.</p>
-          <h4 className="text-2xl font-semibold mb-2">1.299 €</h4>
-          <p className="text-sm text-white/80 mt-1">oder ab 99 €/Monat (Finanzierung möglich)</p>
-          <img
-            src="/images/premium-website.png" // Pfad anpassen!
-            alt="Beispiel einer Basis-Website"
-            className="w-full h-auto rounded mt-4"
-        />
+      {/* Process highlight */}
+      <section className="py-8 md:py-12">
+        <div className="container mx-auto px-6 lg:px-8 grid gap-8 md:grid-cols-2 md:items-center">
+          <div className="space-y-3">
+            <h3 className="text-2xl font-heading font-semibold">Klarer Prozess, messbare Ergebnisse</h3>
+            <p className="text-white/80">Vom Kick‑off bis zum Go‑Live: Transparenz in jedem Schritt. Optional binden wir Analytik und A/B‑Tests ein, um die Ziele der Seite zu belegen.</p>
+          </div>
+          <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-6">
+            <div className="grid grid-cols-2 gap-4 text-sm">
+              <div><span className="text-white/60">Time‑to‑First‑Byte</span><div className="text-white font-semibold">&lt; 200 ms</div></div>
+              <div><span className="text-white/60">PageSpeed</span><div className="text-white font-semibold">90+ mobil</div></div>
+              <div><span className="text-white/60">SEO‑Ready</span><div className="text-white font-semibold">Meta/Schema</div></div>
+              <div><span className="text-white/60">Launch</span><div className="text-white font-semibold">2–4 Wochen</div></div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="container bg-brand-primary mx-auto px-8 py-16 pb-24 text-center">
-        <h2 className="text-3xl font-bold text-white mb-6">Starten Sie jetzt Ihr Webprojekt</h2>
-        <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
-        Sie möchten eine Website, die Ergebnisse bringt? Lassen Sie sich kostenfrei beraten – wir entwickeln Ihr Webprojekt individuell, modern und mit Fokus auf Ihre Zielgruppe.
-        </p>
-        <a
-          href="/kontakt"
-          className="bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-[#E64000] transition"
-        >
-          Jetzt Erstgespräch vereinbaren
-        </a>
+      {/* CTA */}
+      <section className="py-12 md:py-16 bg-brand-primary">
+        <div className="container mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-heading font-semibold mb-3">Bereit, Ihre Website zu starten?</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">Kurzes Erstgespräch, klare Roadmap, schneller Go‑Live.</p>
+          <a href="/kontakt" className="mt-6 inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">Jetzt Erstgespräch vereinbaren</a>
+        </div>
       </section>
-       
-      
+
+      {/* Optional: Footer einbinden, falls gewünscht */}
+      {/* <Footer /> */}
     </div>
   );
 }
+

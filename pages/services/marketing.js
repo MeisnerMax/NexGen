@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Chatbot from "../../components/Chatbot";
 import useReveal from "../../hooks/useReveal";
+import { useRouter } from "next/router";
 
 const valuePillars = [
   {
@@ -13,7 +14,7 @@ const valuePillars = [
       "Styleguides & Asset Libraries",
       "Enablement & Trainings",
     ],
-    image: "/images/firmenidentitaet.png",
+    image: "/images/marketing/branding.svg",
     href: "/branding-coburg",
     ctaLabel: "Branding entdecken",
   },
@@ -26,7 +27,7 @@ const valuePillars = [
       "Kampagnen-Setups inkl. Ads",
       "Community- & Reputation-Management",
     ],
-    image: "/images/Instagram.png",
+    image: "/images/marketing/social.svg",
   },
   {
     title: "Analytics & Performance",
@@ -37,7 +38,7 @@ const valuePillars = [
       "Funnels & Conversion-Optimierung",
       "Performance-Reviews & Roadmaps",
     ],
-    image: "/images/analytics.png",
+    image: "/images/marketing/analytics.svg",
   },
   {
     title: "SEO & Content",
@@ -48,7 +49,7 @@ const valuePillars = [
       "Content Hubs & Landingpages",
       "Linkbuilding & Digital PR",
     ],
-    image: "/images/SEO.png",
+    image: "/images/marketing/seo.svg",
   },
 ];
 
@@ -69,6 +70,10 @@ const packages = [
 
 export default function MarketingService() {
   useReveal();
+  const router = useRouter();
+  const redirectToContact = (message) => {
+    router.push(`/kontakt?message=${encodeURIComponent(message)}`);
+  };
 
   return (
     <>
@@ -108,7 +113,27 @@ export default function MarketingService() {
       <Chatbot />
 
       <main>
-        <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
+        {/* Hero */}
+        <header className="relative overflow-hidden bg-brand-primary text-white">
+          <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden>
+            <div className="absolute -top-24 -right-16 h-[38rem] w-[38rem] rounded-full bg-indigo-600/30 blur-3xl" />
+            <div className="absolute -bottom-24 -left-16 h-[34rem] w-[34rem] rounded-full bg-cyan-400/30 blur-3xl" />
+          </div>
+          <div className="container max-w-screen-xl px-6 lg:px-8 py-20 md:py-28 space-y-3" data-reveal>
+            <p className="uppercase tracking-widest text-cyan-300 font-semibold">Leistung</p>
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold">Marketing & Sichtbarkeit</h1>
+            <p className="text-base md:text-lg text-white/80 max-w-3xl">
+              Ob SEO, Social Media oder Analytics – wir kombinieren Strategie, Content und Daten zu einem durchgängigen Marketing‑Erlebnis. Unser Anspruch: messbare Wirkung, klare Prozesse und enge Zusammenarbeit mit Ihrem Team.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">SEO</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Social</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Analytics</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Branding</span>
+            </div>
+          </div>
+        </header>
+        <section className="hidden py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-xl px-6 lg:px-8 space-y-6" data-reveal>
             <p className="uppercase tracking-widest text-brand-accent font-semibold">Marketing & Sichtbarkeit</p>
             <h1 className="text-4xl sm:text-5xl font-heading font-bold">
@@ -139,10 +164,20 @@ export default function MarketingService() {
               </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {packages.map((pkg) => (
-                  <div key={pkg.title} className="rounded-brand-xl bg-brand-primary shadow-card ring-1 ring-brand-primary/10 p-6" data-reveal>
-                    <h3 className="text-lg font-heading font-semibold text-white mb-2">{pkg.title}</h3>
-                    <p className="text-sm text-white leading-relaxed">{pkg.description}</p>
-                  </div>
+                  <button
+                    key={pkg.title}
+                    onClick={() => redirectToContact(pkg.title)}
+                    className="group text-left"
+                    data-reveal
+                  >
+                    <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60">
+                      <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 backdrop-blur-md p-5">
+                        <h3 className="text-lg font-heading font-semibold text-white mb-1">{pkg.title}</h3>
+                        <p className="text-sm text-white/80 leading-relaxed">{pkg.description}</p>
+                        <span className="mt-4 inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-4 py-1.5 text-sm font-semibold text-white shadow-md">Anfragen</span>
+                      </div>
+                    </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -160,8 +195,8 @@ export default function MarketingService() {
         <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-xl px-6 lg:px-8 space-y-10">
             <div className="text-center" data-reveal>
-              <h2 className="text-3xl font-heading font-semibold mb-4">Unsere Marketing-Schwerpunkte</h2>
-              <p className="text-surface-light/85 leading-relaxed max-w-3xl mx-auto">
+              <h2 className="text-3xl font-heading font-semibold mb-4">Unsere Marketing‑Schwerpunkte</h2>
+              <p className="text-white/80 leading-relaxed max-w-3xl mx-auto">
                 Vier Pfeiler, ein Ziel: Ihre Marke zur richtigen Zeit vor die richtigen Menschen zu bringen – datenbasiert, kreativ und performant.
               </p>
             </div>
@@ -170,7 +205,7 @@ export default function MarketingService() {
               {valuePillars.map((pillar) => (
                 <article
                   key={pillar.title}
-                  className="rounded-brand-2xl bg-brand-primary/70 ring-1 ring-white/10 shadow-card overflow-hidden flex flex-col transition-transform duration-300 ease-brand hover:-translate-y-1"
+                  className="rounded-brand-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md overflow-hidden flex flex-col transition-transform duration-300 ease-brand hover:-translate-y-1"
                   data-reveal
                 >
                   <div className="h-40 overflow-hidden">
@@ -208,7 +243,7 @@ export default function MarketingService() {
             <p className="text-white leading-relaxed mb-8 max-w-2xl mx-auto">
               Wir verbinden Strategie, Kampagnen und Enablement zu einem Marketing, das wirkt. Lassen Sie uns gemeinsam herausfinden, welche Schritte den größten Hebel für Ihr Unternehmen haben.
             </p>
-            <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
+            <Link href="/kontakt" className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">
               Jetzt Termin sichern
             </Link>
           </div>

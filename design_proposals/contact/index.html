@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kontakt – NexGen Consulting</title>
+    <meta name="description" content="Kontaktieren Sie NexGen Consulting – Wir freuen uns auf Ihre Anfrage." />
+    <link rel="stylesheet" href="./contact.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container hero__inner">
+        <div class="hero__kicker">Kontakt</div>
+        <h1 class="hero__title">Lassen Sie uns zusammen starten</h1>
+        <p class="hero__subtitle">Wir antworten in der Regel innerhalb eines Werktags.</p>
+      </div>
+      <div class="hero__bg" aria-hidden="true"></div>
+    </header>
+
+    <main class="container content">
+      <section class="contact">
+        <div class="contact__grid">
+          <aside class="card contact__info" aria-labelledby="contact-info-title">
+            <h2 id="contact-info-title" class="card__title">Kontaktinformationen</h2>
+            <ul class="contact-list">
+              <li class="contact-list__item">
+                <span class="icon" aria-hidden="true">📧</span>
+                <a href="mailto:hello@nexgen.consulting">hello@nexgen.consulting</a>
+              </li>
+              <li class="contact-list__item">
+                <span class="icon" aria-hidden="true">📞</span>
+                <a href="tel:+491234567890">+49 123 456 7890</a>
+              </li>
+              <li class="contact-list__item">
+                <span class="icon" aria-hidden="true">📍</span>
+                <address>Kurfürstendamm 1, 10719 Berlin</address>
+              </li>
+              <li class="contact-list__item">
+                <span class="icon" aria-hidden="true">⏱️</span>
+                <span>Mo–Fr, 9:00–18:00</span>
+              </li>
+            </ul>
+            <div class="contact__badges" aria-label="Zertifizierungen">
+              <span class="badge">ISO 27001</span>
+              <span class="badge">Cloud Partner</span>
+              <span class="badge">AI Ready</span>
+            </div>
+          </aside>
+
+          <div class="card contact__form" aria-labelledby="contact-form-title">
+            <h2 id="contact-form-title" class="card__title">Nachricht senden</h2>
+            <form id="contact-form" novalidate>
+              <div class="grid grid--2">
+                <div class="field">
+                  <label for="firstName">Vorname</label>
+                  <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+                  <p class="field__error" id="error-firstName"></p>
+                </div>
+                <div class="field">
+                  <label for="lastName">Nachname</label>
+                  <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+                  <p class="field__error" id="error-lastName"></p>
+                </div>
+              </div>
+
+              <div class="grid grid--2">
+                <div class="field">
+                  <label for="email">E‑Mail</label>
+                  <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
+                  <p class="field__error" id="error-email"></p>
+                </div>
+                <div class="field">
+                  <label for="phone">Telefon (optional)</label>
+                  <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" />
+                  <p class="field__error" id="error-phone"></p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="company">Unternehmen</label>
+                <input id="company" name="company" type="text" autocomplete="organization" />
+                <p class="field__error" id="error-company"></p>
+              </div>
+
+              <div class="field">
+                <label for="topic">Thema</label>
+                <select id="topic" name="topic" required>
+                  <option value="" disabled selected>Bitte wählen…</option>
+                  <option value="beratung">Beratung</option>
+                  <option value="entwicklung">Softwareentwicklung</option>
+                  <option value="ki">KI & Automatisierung</option>
+                  <option value="sonstiges">Sonstiges</option>
+                </select>
+                <p class="field__error" id="error-topic"></p>
+              </div>
+
+              <div class="field">
+                <label for="message">Nachricht</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+                <p class="field__error" id="error-message"></p>
+              </div>
+
+              <div class="field field--checkbox">
+                <input id="privacy" name="privacy" type="checkbox" required />
+                <label for="privacy">Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.</label>
+              </div>
+
+              <div class="actions">
+                <button type="submit" class="btn btn--primary">Anfrage senden</button>
+                <p class="form__hint">Oder schreiben Sie uns direkt an <a href="mailto:hello@nexgen.consulting">hello@nexgen.consulting</a></p>
+              </div>
+
+              <div class="form__result" id="form-result" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section__title">Häufige Fragen</h2>
+        <div class="accordion" id="faq">
+          <details>
+            <summary>Wie schnell erhalte ich eine Antwort?</summary>
+            <div class="accordion__content">In der Regel innerhalb eines Werktags.</div>
+          </details>
+          <details>
+            <summary>Welche Branchen betreuen Sie?</summary>
+            <div class="accordion__content">Wir arbeiten branchenübergreifend, u.a. mit Mittelstand und Tech-Startups.</div>
+          </details>
+          <details>
+            <summary>Bieten Sie individuelle Workshops an?</summary>
+            <div class="accordion__content">Ja, wir konzipieren maßgeschneiderte Trainings für Ihr Team.</div>
+          </details>
+        </div>
+      </section>
+
+      <section class="map" aria-labelledby="map-title">
+        <h2 id="map-title" class="section__title">Besuchen Sie uns</h2>
+        <div class="map__frame" role="img" aria-label="Karte unseres Standorts">
+          <!-- Replace with your embedded map or a static image -->
+          <div class="map__placeholder">Kartenplatzhalter</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./contact.js" defer></script>
+  </body>
+  </html>
+

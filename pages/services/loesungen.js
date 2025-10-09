@@ -1,14 +1,12 @@
 import Head from "next/head";
-import Link from "next/link";
-
-
+import { useRouter } from "next/router";
 
 const m365Points = [
   "Rollout-Planung, Governance und Sicherheitskonzepte",
   "Power Platform: Automatisierungen, Apps und Dashboards",
   "Schulungskonzepte für Teams, Planner, SharePoint & Co.",
   "Integration externer Systeme und Datenquellen",
-  "Managed Adoption & kontinuierliches Enablement"
+  "Managed Adoption & kontinuierliches Enablement",
 ];
 
 const branchenPoints = [
@@ -16,76 +14,50 @@ const branchenPoints = [
   "Prototyping & MVP-Umsetzung für Fachabteilungen",
   "Schnittstellen- und Datenmodell-Design",
   "Change Management und Team-Coaching",
-  "Success-Monitoring mit KPIs und Reporting"
+  "Success-Monitoring mit KPIs und Reporting",
 ];
 
-export default function Lösungen() {
+export default function Loesungen() {
+  const router = useRouter();
+  const redirectToContact = (message) => router.push(`/kontakt?message=${encodeURIComponent(message)}`);
 
   return (
     <>
       <Head>
         <title>Lösungen - NexGen Consulting</title>
-        <meta
-          name="description"
-          content="Microsoft 365 Einführung und branchenspezifische Softwarelösungen von NexGen Consulting. Strategische Beratung, Umsetzung und Enablement aus einer Hand."
-        />
+        <meta name="description" content="Microsoft 365 Einführung und branchenspezifische Softwarelösungen – Strategie, Umsetzung und Enablement aus einer Hand." />
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://nexgen-consulting.de/microsoft365-loesungen-coburg" />
         <link rel="canonical" href="https://nexgen-consulting.de/microsoft365-loesungen-coburg" />
         <meta property="og:title" content="Lösungen - NexGen Consulting" />
-        <meta
-          property="og:description"
-          content="Digitale Lösungen für Microsoft 365 und branchenspezifische Anforderungen. NexGen Consulting begleitet von der Strategie bis zum Roll-out."
-        />
-        <meta property="og:url" content="https://nexgen-consulting.de/lösungen" />
+        <meta property="og:description" content="Digitale Lösungen für Microsoft 365 und branchenspezifische Anforderungen. Von der Roadmap bis zum Roll‑out." />
         <meta property="og:type" content="website" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Microsoft 365 Lösungen in Coburg",
-          serviceType: "Microsoft 365 Lösungen",
-          areaServed: "Coburg, Germany",
-          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
-          url: "https://nexgen-consulting.de/microsoft365-loesungen-coburg"
-        }) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Nexgen Consulting",
-          url: "https://nexgen-consulting.de",
-          telephone: "+49 1525 9089486",
-          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
-        }) }} />
       </Head>
 
       <main>
-        <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
-          <div className="container max-w-screen-xl px-6 lg:px-8 space-y-6" data-reveal>
-            <p className="uppercase tracking-widest text-brand-accent font-semibold">Lösungen & Umsetzung</p>
-            <h1 className="text-4xl sm:text-5xl font-heading font-bold">
-              Digitale Lösungen, die Prozesse vereinfachen und Teams stärken
-            </h1>
-            <p className="text-lg text-surface-light/90 max-w-3xl">
-              Ob Microsoft 365 oder branchenspezifische Software – wir sorgen dafür, dass Technologie Ihre Strategie voranbringt. Vom ersten Workshop bis zur laufenden Optimierung begleiten wir Sie hands-on.
-            </p>
+        {/* Hero */}
+        <header className="relative overflow-hidden bg-brand-primary text-white">
+          <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden>
+            <div className="absolute -top-24 -right-16 h-[38rem] w-[38rem] rounded-full bg-indigo-600/30 blur-3xl" />
+            <div className="absolute -bottom-24 -left-16 h-[34rem] w-[34rem] rounded-full bg-cyan-400/30 blur-3xl" />
           </div>
-        </section>
+          <div className="container max-w-screen-xl px-6 lg:px-8 py-20 md:py-28 space-y-3">
+            <p className="uppercase tracking-widest text-cyan-300 font-semibold">Lösungen & Umsetzung</p>
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold">Digitale Lösungen, die Prozesse vereinfachen</h1>
+            <p className="text-base md:text-lg text-white/80 max-w-3xl">Microsoft 365, Power Platform und branchenspezifische Software – von der Roadmap bis zum Roll‑out, mit Enablement für Ihr Team.</p>
+          </div>
+        </header>
 
-        <section id="m365" className="py-16 sm:py-20 md:py-24 bg-brand-primary/80">
+        {/* Microsoft 365 */}
+        <section id="m365" className="py-16 sm:py-20 md:py-24 bg-brand-primary">
           <div className="container max-w-screen-lg px-6 lg:px-8 grid gap-10 lg:grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:items-center">
-            <div data-reveal>
+            <div>
               <h2 className="text-3xl font-heading font-semibold text-white mb-4">Microsoft 365 Lösungen</h2>
-              <p className="text-white leading-relaxed mb-6">
-                Wir helfen Ihnen, Microsoft 365 als Produktivitätsplattform zu etablieren – mit klaren Governance-Regeln, Automatisierung und engem Enablement der Teams.
-              </p>
-              <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
-                Jetzt Erstberatung sichern
-              </Link>
+              <p className="text-white leading-relaxed mb-6">Wir helfen Ihnen, Microsoft 365 als Produktivitätsplattform zu etablieren – mit klaren Governance‑Regeln, Automatisierung und engem Enablement der Teams.</p>
+              <button onClick={() => redirectToContact('Microsoft 365 Lösungen')} className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">Jetzt Erstberatung sichern</button>
             </div>
-            <div data-reveal className="rounded-brand-2xl bg-brand-primary shadow-card ring-1 ring-brand-primary/10 p-8 space-y-4">
-              <h3 className="text-xl font-heading font-semibold text-white">
-                Unsere Schwerpunkte
-              </h3>
+            <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-md space-y-4">
+              <h3 className="text-xl font-heading font-semibold text-white">Unsere Schwerpunkte</h3>
               <ul className="space-y-3 text-white leading-relaxed">
                 {m365Points.map((point) => (
                   <li key={point} className="flex items-start gap-3">
@@ -98,9 +70,10 @@ export default function Lösungen() {
           </div>
         </section>
 
+        {/* Branchenlösungen */}
         <section id="branchen" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-lg px-6 lg:px-8 grid gap-10 lg:grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:items-center">
-            <div data-reveal className="rounded-brand-2xl bg-brand-primary/70  p-8 space-y-4 order-last lg:order-first">
+            <div className="rounded-brand-2xl bg-brand-primary/70 p-8 space-y-4 order-last lg:order-first">
               <h3 className="text-xl font-heading font-semibold">Branchenspezifische Lösungen</h3>
               <ul className="space-y-3 text-surface-light/90 leading-relaxed">
                 {branchenPoints.map((point) => (
@@ -111,18 +84,24 @@ export default function Lösungen() {
                 ))}
               </ul>
             </div>
-            <div data-reveal>
+            <div>
               <h2 className="text-3xl font-heading font-semibold mb-4">Branchenspezifische Software</h2>
-              <p className="text-surface-light/80 leading-relaxed mb-6">
-                Gemeinsam mit Fachbereichen definieren wir Anforderungen, evaluieren Tools, bauen Prototypen und begleiten die Einführung – inklusive Change Management und Schulungsprogramm.
-              </p>
-              <Link href="/kontakt" className="btn-secondary inline-flex text-base sm:text-lg">
-                Projekt anfragen
-              </Link>
+              <p className="text-white/80 leading-relaxed mb-6">Gemeinsam mit Fachbereichen definieren wir Anforderungen, evaluieren Tools, bauen Prototypen und begleiten die Einführung – inklusive Change Management und Schulungsprogramm.</p>
+              <button onClick={() => redirectToContact('Branchenspezifische Software')} className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">Projekt anfragen</button>
             </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-12 md:py-16 bg-brand-primary text-white">
+          <div className="container mx-auto px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-heading font-semibold mb-3">Lösungen, die wirken – bereit?</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">Kurzes Erstgespräch, klare Roadmap, schneller Roll‑out.</p>
+            <a href="/kontakt" className="mt-6 inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">Jetzt Erstgespräch vereinbaren</a>
           </div>
         </section>
       </main>
     </>
   );
 }
+
