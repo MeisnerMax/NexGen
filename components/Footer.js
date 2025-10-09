@@ -5,9 +5,7 @@ export default function Footer() {
       <div className="container mx-auto text-center space-y-6">
         <div className="space-y-2">
           <p className="text-lg font-bold">Max Meisner – Nexgen-Consulting</p>
-          <p className="text-sm">Digitalagentur in Coburg für Digitalisierung, Webdesign, App Entwicklung und Prozessautomatisierung in Oberfranken.</p>
-          <p className="text-sm">Wir unterstützen den Mittelstand in Bayern mit Digitalisierungsberatung, Workflow Optimierung, Cloud Lösungen und Microsoft 365 Einführung.</p>
-        </div>
+                 </div>
         <div className="flex justify-center gap-4 text-sm">
           <a href="https://www.linkedin.com/company/nexgen-consulting-de/" className="hover:text-white">LinkedIn</a>
           <a href="https://www.instagram.com/nexgen.consulting/" className="hover:text-white">Instagram</a>

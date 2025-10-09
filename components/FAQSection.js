@@ -4,17 +4,17 @@ const FAQ_ITEMS = [
   {
     question: "Was kostet eine Firmenwebsite in Coburg?",
     answer:
-      "Die Kosten beginnen in der Regel bei etwa 599 EUR, koennen aber je nach Funktionsumfang, Design und gewaehlten Zusatzfeatures - beispielsweise Shop, Mehrsprachigkeit oder Backendfunktionen - bis zu mehreren Tausend Euro betragen.",
+      "Die Kosten beginnen in der Regel bei etwa 599 EUR, können aber je nach Funktionsumfang, Design und gewählten Zusatzfeatures - beispielsweise Shop, Mehrsprachigkeit oder Backendfunktionen - mehr betragen.",
   },
   {
     question: "Wie lange dauert die Fertigstellung einer Website?",
     answer:
-      "Für eine Standardwebsite planen wir in Coburg ueblicherweise etwa vier bis sechs Wochen ein - vom Konzept über das Design bis zur Liveschaltung. Komplexere Projekte mit individueller Software- oder Schnittstellenentwicklung benoetigen entsprechend mehr Zeit.",
+      "Für eine Standardwebsite planen wir in Coburg üblicherweise etwa vier bis sechs Wochen ein - vom Konzept über das Design bis zur Liveschaltung. Komplexere Projekte mit individueller Software- oder Schnittstellenentwicklung benötigen entsprechend mehr Zeit.",
   },
   {
     question: "Bietet ihr auch Digitalisierung & Automatisierung an?",
     answer:
-      "Ja, wir begleiten Unternehmen in Coburg und Oberfranken bei der Digitalisierung und Automatisierung von Geschaeftsprozessen - zum Beispiel mit Office-Automatisierung, RPA-Bots, API-Integrationen oder Workflow-Tools wie Power Automate.",
+      "Ja, wir begleiten Unternehmen in Coburg und Oberfranken bei der Digitalisierung und Automatisierung von Geschäftsprozessen - zum Beispiel mit Office-Automatisierung, RPA-Bots, API-Integrationen oder Workflow-Tools wie Power Automate.",
   },
   {
     question: "Welche Technologien verwendet ihr?",
@@ -24,7 +24,12 @@ const FAQ_ITEMS = [
   {
     question: "Gibt es Förderprogramme für Digitalisierung in Bayern?",
     answer:
-      "Ja, beispielsweise der Digitalbonus Bayern oder weitere Fördermittelprogramme. Wir bieten einen Fördermittel-Check an und unterstuetzen beim Antrag, damit Digitalisierungsprojekte in Coburg und ganz Bayern gefördert werden koennen.",
+      "Ja, beispielsweise der Digitalbonus Bayern oder weitere Fördermittelprogramme. Wir bieten einen Fördermittel-Check an und unterstützen beim Antrag, damit Digitalisierungsprojekte in Coburg und ganz Bayern gefördert werden können.",
+  },
+  {
+    question: "Kann ich mir erstmal ein Design-Konzept anschauen?",
+    answer:
+      "Ja, wir bieten eine graphische Darstellung Ihrer neuen Website im vorhinein kostenlos an. So können Sie sich ein Bild machen, bevor die eigentliche Entwicklung startet.",
   },
 ];
 
