@@ -6,28 +6,47 @@ export default function AppService() {
   const router = useRouter();
 
   const redirectToContact = (message) => {
-    router.push(`/services/contact?message=${encodeURIComponent(message)}`);
+    router.push(`/kontakt?message=${encodeURIComponent(message)}`);
   };
 
   return (
     <>
       <Head>
-        <title>App-Entwicklung – Nexgen Consulting</title>
+        <title>App-Entwicklung - Nexgen Consulting</title>
         <meta
           name="description"
-          content="Professionelle App-Entwicklung für iOS und Android von Nexgen Consulting – maßgeschneidert für Ihre Anforderungen."
+          content="Professionelle App-Entwicklung für iOS und Android von Nexgen Consulting - maßgeschneidert für Ihre Anforderungen."
         />
         <meta
           name="keywords"
           content="App-Entwicklung, iOS, Android, Mobile Apps, UX Design, API Integration"
         />
+        <meta name="robots" content="index, follow" />
         <meta name="author" content="Nexgen Consulting" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="App-Entwicklung – Nexgen Consulting" />
-        <meta property="og:description" content="Individuelle App-Entwicklung für Ihre Anforderungen – modern, skalierbar und benutzerfreundlich." />
-        <meta property="og:url" content="https://nexgen-consulting.de/services/app" />
+        <meta property="og:title" content="App-Entwicklung - Nexgen Consulting" />
+        <meta property="og:description" content="Individuelle App-Entwicklung für Ihre Anforderungen - modern, skalierbar und benutzerfreundlich." />
+        <meta property="og:url" content="https://nexgen-consulting.de/appentwicklung-coburg" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
+        <link rel="canonical" href="https://nexgen-consulting.de/appentwicklung-coburg" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "App-Entwicklung in Coburg",
+          serviceType: "App-Entwicklung",
+          areaServed: "Coburg, Germany",
+          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
+          url: "https://nexgen-consulting.de/appentwicklung-coburg"
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Nexgen Consulting",
+          url: "https://nexgen-consulting.de",
+          telephone: "+49 1525 9089486",
+          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
+        }) }} />
       </Head>
 
       <Chatbot />
@@ -125,7 +144,7 @@ export default function AppService() {
           Lassen Sie uns gemeinsam Ihre App-Idee verwirklichen – individuell, modern und mit Fokus auf Ihre Zielgruppe.
         </p>
         <a
-          href="/services/contact"
+          href="/kontakt"
           className="bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-[#E64000] transition"
         >
           Jetzt Erstgespräch vereinbaren

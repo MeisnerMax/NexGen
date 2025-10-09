@@ -8,7 +8,7 @@ import useReveal from "../hooks/useReveal";
 
 const ONLINE_ENTRIES = [
   {
-    href: "/services/website",
+    href: "/webdesign-coburg",
     title: "Webdesign & Webshop",
     description: "Responsive Websites und überzeugende UX für Ihren Auftritt.",
   },
@@ -17,12 +17,12 @@ const ONLINE_ENTRIES = [
 
 const MARKETING_ENTRIES = [
   {
-    href: "/services/marketing",
+    href: "/online-marketing-coburg",
     title: "Social Media",
     description: "Community-Aufbau, Content-Planung und Ads für LinkedIn, Instagram & Co.",
   },
   {
-    href: "/services/firmenidentitaet",
+    href: "/branding-coburg",
     title: "Logo & Corporate Design",
     description: "Zeitlose Gestaltung, Styleguides und Templates für einen konsistenten Markenauftritt.",
   },
@@ -30,7 +30,7 @@ const MARKETING_ENTRIES = [
 
 const SCHULUNG_ENTRIES = [
   {
-    href: "/services/schulungen",
+    href: "/schulungen-coburg",
     title: "Schulungen M365 & Excel",
     description: "Digitale Zusammenarbeit strukturieren und Prozesse transparent steuern.",
   },
@@ -39,7 +39,7 @@ const SCHULUNG_ENTRIES = [
 
 const SOFTWARE_ENTRIES = [
   {
-    href: "/services/lösungen",    title: "Microsoft 365 & Branchensoftware",
+    href: "/microsoft365-loesungen-coburg",    title: "Branchensoftware",
     description: "Einführung, Automatisierung & Integration passender Tools",
   },
   
@@ -47,12 +47,12 @@ const SOFTWARE_ENTRIES = [
 
 const AUTOMATION_ENTRIES = [
   {
-    href: "/services/softwareentwicklung",
-    title: "Softwareentwicklung",
+    href: "/softwareentwicklung-coburg",
+    title: "Software",
     description: "Individuelle Anwendungen, die wiederkehrende Aufgaben digitalisieren und beschleunigen.",
   },
   {
-    href: "/services/app",
+    href: "/appentwicklung-coburg",
     title: "Appentwicklung",
     description: "Native und hybride Apps mit Fokus auf Usability, Performance und Skalierbarkeit.",
   },
@@ -60,25 +60,25 @@ const AUTOMATION_ENTRIES = [
 
 const GALLERY_SLIDES = [
   {
-    href: "/services/website",
+    href: "/webdesign-coburg",
     imageSrc: "/images/Figma_Firseur.png",
     imageAlt: "Websites",
     
   },
   {
-    href: "/services/marketing",
+    href: "/online-marketing-coburg",
     imageSrc: "/images/Figma_Hund.png",
     imageAlt: "Marketing",
     
   },
   {
-    href: "/services/app",
+    href: "/appentwicklung-coburg",
     imageSrc: "/images/Figma_Immo.png",
     imageAlt: "Apps",
     
   },
   {
-    href: "/services/lösungen",
+    href: "/microsoft365-loesungen-coburg",
     imageSrc: "/images/Figma_Tech.png",
     imageAlt: "M365 & Lösungen",
     
@@ -241,10 +241,10 @@ export default function Home() {
   const timelineSteps = useMemo(() => {
     const rawSteps = [
       {
-        href: "/services/beratung",
+        href: "/digitalberatung-coburg",
         title: "Beratung (Digitalisierung & Förderungen)",
         description: "Kostenloses Erstgespräch, Potenzialanalyse und Fördermittel-Check.",
-        ctaHref: "/services/beratung",
+        ctaHref: "/digitalberatung-coburg",
         ctaLabel: "Mehr über Beratung",
         order: 0,
       },
@@ -357,7 +357,7 @@ export default function Home() {
                   "@type": "ContactPoint",
                   "contactType": "customer service",
                   "availableLanguage": ["de", "en"],
-                  "url": "https://www.nexgen-consulting.de/services/contact"
+                  "url": "https://www.nexgen-consulting.de/kontakt"
                 }
               ]
             })
@@ -393,14 +393,31 @@ export default function Home() {
                 <p className="text-lg leading-relaxed text-surface-light/90 mt-6">
                                   </p>
               </div>
-              <div data-reveal className="order-first md:order-none">
-                <img src="/images/team.jpg" alt="Unser Team" className="w-full rounded-brand-2xl shadow-overlay ring-1 ring-white/10" />
+              <div data-reveal className="order-last md:order-none">
+                <div className="relative mx-auto max-w-[14rem] sm:max-w-xs md:max-w-sm lg:max-w-md">
+                  <div
+                    className="hidden sm:block absolute sm:-inset-4 md:-inset-6 rounded-3xl bg-gradient-to-br from-brand-accent/15 via-white/5 to-transparent sm:blur-xl md:blur-2xl"
+                    aria-hidden="true"
+                  />
+                  <div className="relative rounded-brand-2xl p-1 sm:p-2 bg-transparent sm:bg-white/5 backdrop-blur-0 sm:backdrop-blur-sm ring-0 sm:ring-1 ring-white/10 shadow-none sm:shadow-card">
+                    <div className="rounded-brand-2xl overflow-hidden bg-white/5">
+                      <img
+                        src="/images/team.jpg"
+                        alt="Unser Team"
+                        className="w-full h-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="hidden sm:block pointer-events-none absolute inset-0 rounded-brand-2xl ring-1 ring-white/10" aria-hidden="true" />
+                  </div>
+                  
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="timeline" className="py-16 sm:py-20 md:py-24 bg-brand-primary">
+        <section id="timeline" className="py-16 sm:py-20 md:py-24 bg-[#091B33]">
           <div className="container max-w-screen-xl px-6 lg:px-8 space-y-12">
             <div className="text-center" data-reveal>
               <p className="uppercase tracking-widest text-brand-accent font-semibold mb-3">Der Nexgen-Prozess</p>
@@ -413,52 +430,117 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="absolute left-4 top-8 bottom-8 w-px bg-brand-primary/20 md:hidden" aria-hidden="true" />
-              <div className="hidden md:block absolute top-12 left-0 right-0 mx-8 h-px bg-brand-primary/15" aria-hidden="true" />
+              <div className="absolute left-4 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-brand-primary/25 to-transparent md:hidden" aria-hidden="true" />
+              <div className="hidden md:block absolute top-12 left-0 right-0 mx-8 h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent" aria-hidden="true" />
               <ol className="relative flex flex-col gap-10 md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-12 items-stretch">
                 {timelineSteps.map((step, index) => (
                   <li
                     key={`${step.href ?? "static"}-${index}`}
                     data-reveal
-                    className="relative pl-12 md:pl-0 flex" /* <-- make each cell a flex item so children can stretch */
+                    className="relative pl-12 md:pl-0 flex min-w-0" /* ensure children can stretch and not overflow */
                   >
                     <span
                       className="absolute left-3 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-accent text-white font-semibold shadow-card md:static md:mx-auto md:mb-4"
                     >
                       {index + 1}
                     </span>
-                    <div className="rounded-brand-2xl bg-brand-primary shadow-card ring-1 ring-brand-light transition-all duration-300 ease-brand hover:-translate-y-1 focus-within:ring-brand-accent/60 flex flex-col h-full w-full">
-                      <div className="p-6 flex flex-col gap-4 flex-1 justify-between">
-                        <h3 className="text-xl font-heading font-semibold text-surface-light text-left md:text-center">
-                          {step.title}
-                        </h3>
+                    {(() => {
+                      const stepHref = step.href || step.ctaHref;
+                      const path = (stepHref || '').toLowerCase();
+                      const t = (step.title || '').toLowerCase();
+                      let iconSvg;
+                      if (path.includes('/digitalberatung-coburg') || path.includes('/services/beratung') || t.includes('beratung') || t.includes('analyse')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M12 2a7 7 0 0 0-4 12.9V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.1A7 7 0 0 0 12 2zm-2 18a2 2 0 0 0 4 0h-4z" />
+                          </svg>
+                        );
+                      } else if (path.includes('/webdesign-coburg') || path.includes('/services/website') || t.includes('website') || t.includes('web')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3.2A15.8 15.8 0 0 0 13 4.3 8.04 8.04 0 0 1 18.9 8zM12 4.1c.9.7 2 2.2 2.6 3.9H9.4c.6-1.7 1.7-3.2 2.6-3.9z" />
+                          </svg>
+                        );
+                      } else if (path.includes('/online-marketing-coburg') || path.includes('/services/marketing') || t.includes('marketing')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M3 11a2 2 0 0 0 2 2h2l8 4V5l-8 4H5a2 2 0 0 0-2 2zm8 6v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2h6z" />
+                          </svg>
+                        );
+                      } else if (path.includes('/schulungen-coburg') || path.includes('/services/schulungen') || t.includes('schulung') || t.includes('training')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M4 6h16v12H4zM2 5h20v14H2z" />
+                          </svg>
+                        );
+                      } else if (path.includes('/softwareentwicklung-coburg') || path.includes('/services/softwareentwicklung') || t.includes('software') || t.includes('entwicklung')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M9 18 3 12l6-6 1.5 1.5L6 12l4.5 4.5L9 18zm6 0-1.5-1.5L18 12l-4.5-4.5L15 6l6 6-6 6z" />
+                          </svg>
+                        );
+                      } else if (path.includes('/appentwicklung-coburg') || path.includes('/services/app') || t.includes('app')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm3 18h4v-1h-4v1z" />
+                          </svg>
+                        );
+                      } else if (path.includes('/branding-coburg') || path.includes('/services/firmenidentitaet')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM8 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm6 1h6v2h-6zM14 13h6v2h-6z" />
+                          </svg>
+                        );
+                      } else if (path.includes('/microsoft365-loesungen-coburg') || path.includes('/services/loesungen') || t.includes('lösung') || t.includes('loesung')) {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M8 2a2 2 0 0 1 2 2v1h2a2 2 0 1 1 0 4h-2v2h2a2 2 0 1 1 0 4h-2v1a2 2 0 0 1-4 0v-1H5a2 2 0 1 1 0-4h1V9H5a2 2 0 1 1 0-4h1V4a2 2 0 0 1 2-2z" />
+                          </svg>
+                        );
+                      } else {
+                        iconSvg = (
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                            <path d="M4 4h16v2H4V4zm0 7h10v2H4v-2zm0 7h16v2H4v-2z" />
+                          </svg>
+                        );
+                      }
+                      const CardInner = (
+                        <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-r from-brand-accent/0 via-brand-accent/25 to-brand-accent/0 transition-all duration-500 group-hover:from-brand-accent/40 group-hover:via-brand-accent/80 group-hover:to-brand-accent/40 group-hover:shadow-overlay flex-1 w-full h-full">
+                          <div className="rounded-brand-2xl bg-brand-primary/85 supports-[backdrop-filter]:bg-brand-primary/70 backdrop-blur-md shadow-card ring-1 ring-white/10 transition-all duration-300 ease-brand group-hover:-translate-y-1 group-hover:ring-brand-accent/50 h-full w-full min-h-[280px]">
+                            <div className="p-6 flex flex-col gap-4 flex-1 justify-between text-surface-light/90">
+                              <div className="flex flex-col items-center gap-3 text-center">
+                                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-brand-accent ring-1 ring-white/10 flex-none">{iconSvg}</span>
+                                <h3 className="text-xl font-heading font-semibold text-white">
+                                  {step.title}
+                                </h3>
+                              </div>
 
-                        {step.highlights.length > 1 ? (
-                          <ul className="space-y-2 text-surface-light/80 text-sm leading-relaxed">
-                            {step.highlights.map((highlight) => (
-                              <li key={highlight} className="flex items-start gap-2">
-                                <span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" aria-hidden="true" />
-                                <span>{highlight}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <p className="text-surface-light/80 text-sm leading-relaxed">
-                            {step.highlights[0]}
-                          </p>
-                        )}
-                        {step.ctaHref && (
-                          <div className="mt-4">
-                            <Link
-                              href={step.ctaHref}
-                              className="inline-flex items-center justify-center gap-2 rounded-brand-xl border border-brand-accent/40 px-3 py-2 text-sm font-semibold text-brand-accent transition-all duration-300 ease-brand hover:bg-brand-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
-                            >
-                              {step.ctaLabel ?? "Mehr erfahren"}
-                            </Link>
+                              {step.highlights.length > 1 ? (
+                                <ul className="space-y-2 text-surface-light/80 text-sm leading-relaxed">
+                                  {step.highlights.map((highlight) => (
+                                    <li key={highlight} className="flex items-start gap-2">
+                                      <span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" aria-hidden="true" />
+                                      <span>{highlight}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <p className="text-surface-light/80 text-sm leading-relaxed">
+                                  {step.highlights[0]}
+                                </p>
+                              )}
+                            </div>
                           </div>
-                        )}
-                      </div>
-                    </div>
+                        </div>
+                      );
+                      return stepHref ? (
+                        <Link href={stepHref} className="group block focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent flex-1 w-full h-full">
+                          {CardInner}
+                        </Link>
+                      ) : (
+                        <div className="group block flex-1 w-full h-full">{CardInner}</div>
+                      );
+                    })()}
                   </li>
                 ))}
               </ol>
@@ -475,7 +557,7 @@ export default function Home() {
               <p className="text-sm sm:text-base text-white/70">Digitalisierung in Coburg sichtbar gemacht – vom Webdesign für lokale Marken bis zur App Entwicklung für mittelständische Unternehmen in Oberfranken.</p>
             </div>
 
-            <div className="relative mt-14 flex justify-center">
+            <div className="relative mt-24 md:mt-28 lg:mt-32 mb-12 md:mb-16 flex justify-center">
               <div
                 ref={galleryRingRef}
                 className="gallery-ring"
@@ -485,7 +567,7 @@ export default function Home() {
                   {GALLERY_SLIDES.map((slide) => (
                     <a
                       key={slide.href}
-                      href={slide.href}
+                      href="/webdesign-coburg"
                       data-gallery-item
                       className="gallery-ring-item group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary"
                     >
@@ -514,7 +596,7 @@ export default function Home() {
               <p className="text-surface-light/80 leading-relaxed mb-6">
                 Wir begleiten Unternehmen aus Coburg, Oberfranken und dem gesamten DACH-Raum bei der digitalen Transformation. Lassen Sie uns in einem Gespräch herausfinden, welche Schritte den größten Impact haben.
               </p>
-              <Link href="/services/contact" className="btn-primary inline-flex text-base sm:text-lg">
+              <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
                 Zum Kontaktformular
               </Link>
             </div>

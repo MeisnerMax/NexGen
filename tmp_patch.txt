@@ -1,0 +1,83 @@
+*** Begin Patch
+*** Update File: components/Timeline/Timeline.jsx
+@@
+ export function TimelineStep({
+   index,
+   total,
+   title,
+   subtitle,
+   highlights = [],
+   href,
+   status = "upcoming",
+   ctaLabel,
+   ctaHref,
+   icon,
+ }) {
+   const isCurrent = status === "current";
+   const isDone = status === "done";
++  const computedHref = href || ctaHref || null;
++
++  const FallbackIcon = () => {
++    const key = (title || '').toLowerCase();
++    const c = "h-5 w-5";
++    if (key.includes('analyse') || key.includes('audit')) {
++      return (
++        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={c}>
++          <path d="M10 3a7 7 0 1 0 4.9 12l4.8 4.8 1.4-1.4-4.8-4.8A7 7 0 0 0 10 3zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 10 5z"/>
++        </svg>
++      );
++    }
++    if (key.includes('strategie') || key.includes('plan')) {
++      return (
++        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={c}>
++          <path d="M4 4h16v2H4V4zm0 7h10v2H4v-2zm0 7h16v2H4v-2z"/>
++        </svg>
++      );
++    }
++    if (key.includes('design') || key.includes('ux')) {
++      return (
++        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={c}>
++          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
++        </svg>
++      );
++    }
++    if (key.includes('entwick') || key.includes('build') || key.includes('implement')) {
++      return (
++        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={c}>
++          <path d="M7 2h10v2H7V2zM4 6h16v2H4V6zm2 4h12v2H6v-2zm-2 4h16v2H4v-2zm3 4h10v2H7v-2z"/>
++        </svg>
++      );
++    }
++    if (key.includes('launch') || key.includes('go live') || key.includes('live')) {
++      return (
++        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={c}>
++          <path d="M2 21l9-3 6 6-3-9 9-9-9 3L8 2l6 6-12 13z"/>
++        </svg>
++      );
++    }
++    // fallback by index
++    return (
++      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={c}>
++        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
++      </svg>
++    );
++  };
+@@
+-          <div className=\"flex items-center gap-3\">\n-            {icon ? (\n-              <span className=\"flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary/5 text-brand-accent ring-1 ring-brand-primary/10\">\n-                {icon}\n-              </span>\n-            ) : null}\n+          <div className=\"flex items-center gap-3\">\n+            <span className=\"flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary/5 text-brand-accent ring-1 ring-brand-primary/10\">\n+              {icon ? icon : <FallbackIcon />}\n+            </span>\n             <h3 className=\"text-xl font-heading font-semibold text-brand-primary\">{title}</h3>\n           </div>
+@@
+-      <div className=\"mt-4 md:mt-0\" role=\"group\" aria-label={`${index + 1}/${total}: ${title}`}>
+-        {href ? (
++      <div className=\"mt-4 md:mt-0\" role=\"group\" aria-label={`${index + 1}/${total}: ${title}`}>
++        {computedHref ? (
+           <Link
+-            href={href}
++            href={computedHref}
+             className=\"group block focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent\"
+           >
+             {content}
+           </Link>
+         ) : (
+           <div className=\"group block\">{content}</div>
+         )}
+       </div>
+*** End Patch

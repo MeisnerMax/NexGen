@@ -14,7 +14,7 @@ const valuePillars = [
       "Enablement & Trainings",
     ],
     image: "/images/firmenidentitaet.png",
-    href: "/services/firmenidentitaet",
+    href: "/branding-coburg",
     ctaLabel: "Branding entdecken",
   },
   {
@@ -73,17 +73,36 @@ export default function MarketingService() {
   return (
     <>
       <Head>
-        <title>Marketing & SEO – NexGen Consulting</title>
+        <title>Marketing & SEO - NexGen Consulting</title>
         <meta
           name="description"
-          content="Digitale Marketing-Strategien von NexGen Consulting: Social Media, Analytics, Branding und SEO – für mehr Sichtbarkeit und messbare Ergebnisse."
+          content="Digitale Marketing-Strategien von NexGen Consulting: Social Media, Analytics, Branding und SEO - für mehr Sichtbarkeit und messbare Ergebnisse."
         />
-        <meta property="og:title" content="Marketing & SEO – NexGen Consulting" />
+        <meta property="og:title" content="Marketing & SEO - NexGen Consulting" />
         <meta
           property="og:description"
           content="Social Media, Analytics, Branding und SEO aus einer Hand: NexGen Consulting entwickelt datengetriebene Maßnahmen mit klaren KPIs."
         />
-        <meta property="og:url" content="https://nexgen-consulting.de/services/marketing" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:url" content="https://nexgen-consulting.de/online-marketing-coburg" />
+        <link rel="canonical" href="https://nexgen-consulting.de/online-marketing-coburg" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Online-Marketing in Coburg",
+          serviceType: "Online-Marketing",
+          areaServed: "Coburg, Germany",
+          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
+          url: "https://nexgen-consulting.de/online-marketing-coburg"
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Nexgen Consulting",
+          url: "https://nexgen-consulting.de",
+          telephone: "+49 1525 9089486",
+          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
+        }) }} />
       </Head>
 
       <Chatbot />
@@ -102,7 +121,7 @@ export default function MarketingService() {
               <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
                 Kostenlose Marketinganalyse anfragen
               </Link>
-              <Link href="/services/firmenidentitaet" className="btn-secondary inline-flex text-base sm:text-lg">
+              <Link href="/branding-coburg" className="btn-secondary inline-flex text-base sm:text-lg">
                 Branding entdecken
               </Link>
             </div>

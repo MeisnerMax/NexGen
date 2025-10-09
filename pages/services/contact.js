@@ -54,6 +54,7 @@ useEffect(() => {
     <>
       <Head>
         <title>Kontakt - Nexgen Consulting</title>
+        <link rel="canonical" href="https://nexgen-consulting.de/kontakt" />
       </Head>
       <div className="container mx-auto py-40 px-4 md:px-0 flex flex-col md:flex-row gap-12">
         {/* Linke Seite: Kontaktdaten */}

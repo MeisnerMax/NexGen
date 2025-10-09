@@ -24,18 +24,38 @@ export default function Lösungen() {
   return (
     <>
       <Head>
-        <title>Lösungen – NexGen Consulting</title>
+        <title>Lösungen - NexGen Consulting</title>
         <meta
           name="description"
           content="Microsoft 365 Einführung und branchenspezifische Softwarelösungen von NexGen Consulting. Strategische Beratung, Umsetzung und Enablement aus einer Hand."
         />
-        <meta property="og:title" content="Lösungen – NexGen Consulting" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:url" content="https://nexgen-consulting.de/microsoft365-loesungen-coburg" />
+        <link rel="canonical" href="https://nexgen-consulting.de/microsoft365-loesungen-coburg" />
+        <meta property="og:title" content="Lösungen - NexGen Consulting" />
         <meta
           property="og:description"
           content="Digitale Lösungen für Microsoft 365 und branchenspezifische Anforderungen. NexGen Consulting begleitet von der Strategie bis zum Roll-out."
         />
         <meta property="og:url" content="https://nexgen-consulting.de/lösungen" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Microsoft 365 Lösungen in Coburg",
+          serviceType: "Microsoft 365 Lösungen",
+          areaServed: "Coburg, Germany",
+          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
+          url: "https://nexgen-consulting.de/microsoft365-loesungen-coburg"
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Nexgen Consulting",
+          url: "https://nexgen-consulting.de",
+          telephone: "+49 1525 9089486",
+          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
+        }) }} />
       </Head>
 
       <main>

@@ -96,7 +96,7 @@ export default function Hero() {
         Digitale Lösungen, die exakt zum Unternehmen passen: von der Prozessautomatisierung bis zum überzeugenden Online-Auftritt. Zukunftssicher, flexibel und auf messbaren Erfolg ausgerichtet.
         </p>
         <a
-          href="/services/contact"
+          href="/kontakt"
           className="btn-primary text-sm px-4 py-2 sm:text-base sm:px-5 sm:py-3 md:text-lg md:px-6 md:py-3.5 rounded-brand-2xl transition-all"
         >
           Jetzt kostenlose Erstberatung anfordern

@@ -8,22 +8,41 @@ export default function SchulungenService() {
   return (
     <>
       <Head>
-        <title>Digitale Schulungen – Nexgen Consulting</title>
+        <title>Digitale Schulungen - Nexgen Consulting</title>
         <meta
           name="description"
-          content="Schulungen für Microsoft Teams, Planner und Excel – praxisnah, interaktiv und speziell auf kleine Unternehmen zugeschnitten."
+          content="Schulungen für Microsoft Teams, Planner und Excel - praxisnah, interaktiv und speziell auf kleine Unternehmen zugeschnitten."
         />
         <meta
           name="keywords"
           content="Microsoft Teams, Excel, Schulung, Workshops, digitale Weiterbildung, Planner, Outlook"
         />
+        <meta name="robots" content="index, follow" />
         <meta name="author" content="Nexgen Consulting" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Digitale Schulungen – Nexgen Consulting" />
-        <meta property="og:description" content="Interaktive Schulungen für Microsoft 365, Excel und mehr – effizient, praktisch und direkt umsetzbar." />
-        <meta property="og:url" content="https://nexgen-consulting.de/services/schulungen" />
+        <meta property="og:title" content="Digitale Schulungen - Nexgen Consulting" />
+        <meta property="og:description" content="Interaktive Schulungen für Microsoft 365, Excel und mehr - effizient, praktisch und direkt umsetzbar." />
+        <meta property="og:url" content="https://nexgen-consulting.de/schulungen-coburg" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
+        <link rel="canonical" href="https://nexgen-consulting.de/schulungen-coburg" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Schulungen in Coburg",
+          serviceType: "Schulungen",
+          areaServed: "Coburg, Germany",
+          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
+          url: "https://nexgen-consulting.de/schulungen-coburg"
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Nexgen Consulting",
+          url: "https://nexgen-consulting.de",
+          telephone: "+49 1525 9089486",
+          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
+        }) }} />
       </Head>
 
       
@@ -67,7 +86,7 @@ export default function SchulungenService() {
           Wir holen Ihre Mitarbeitenden genau da ab, wo sie stehen – ob online oder vor Ort in Coburg und Umgebung. Jetzt unverbindlich anfragen!
         </p>
         <a
-          href="/services/contact"
+          href="/kontakt"
           className="bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-[#E64000] transition"
         >
           Schulung anfragen

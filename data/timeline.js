@@ -11,7 +11,7 @@ export const rawTimelineSteps = [
     ctaLabel: "Mehr über Beratung",
   },
   {
-    href: "/services/website",
+    href: "/webdesign-coburg",
     title: "Webdesign & Webshop",
     highlights: [
       "Responsive Websites, Landingpages & CMS",
@@ -20,7 +20,7 @@ export const rawTimelineSteps = [
     status: "done",
   },
   {
-    href: "/services/marketing",
+    href: "/online-marketing-coburg",
     title: "Marketing & Analytics",
     highlights: [
       "Social Media Kampagnen & Community-Management",
@@ -30,18 +30,18 @@ export const rawTimelineSteps = [
     status: "current",
   },
   {
-    href: "/services/firmenidentitaet",
+    href: "/branding-coburg",
     title: "Firmenidentität",
     highlights: [
       "Logo, Styleguides & Templates",
       "Brand Enablement für Ihr Team"
     ],
     status: "current",
-    ctaHref: "/services/firmenidentitaet",
+    ctaHref: "/branding-coburg",
     ctaLabel: "Branding entdecken",
   },
   {
-    href: "/services/schulungen",
+    href: "/schulungen-coburg",
     title: "Schulungen",
     highlights: [
       "Microsoft Teams & Planner",
@@ -50,47 +50,47 @@ export const rawTimelineSteps = [
     status: "upcoming",
   },
   {
-    href: "/loesungen#m365",
+    href: "/microsoft365-loesungen-coburg#m365",
     title: "Microsoft 365",
     highlights: [
       "Governance, Automatisierungen und Power Platform",
       "Schulungen & Adoption-Programme"
     ],
     status: "upcoming",
-    ctaHref: "/loesungen#m365",
+    ctaHref: "/microsoft365-loesungen-coburg#m365",
     ctaLabel: "Zu Microsoft 365",
   },
   {
-    href: "/loesungen#branchen",
+    href: "/microsoft365-loesungen-coburg#branchen",
     title: "Branchenspezifische Lösungen",
     highlights: [
       "Tool-Evaluierung & Prototyping",
       "Integration in bestehende Prozesse"
     ],
     status: "upcoming",
-    ctaHref: "/loesungen#branchen",
+    ctaHref: "/microsoft365-loesungen-coburg#branchen",
     ctaLabel: "Mehr zu Branchenlösungen",
   },
   {
-    href: "/services/softwareentwicklung",
+    href: "/softwareentwicklung-coburg",
     title: "Softwareentwicklung",
     highlights: [
       "Individuelle Anwendungen & Automatisierungen",
       "Anbindung an bestehende Systeme"
     ],
     status: "upcoming",
-    ctaHref: "/services/softwareentwicklung",
+    ctaHref: "/softwareentwicklung-coburg",
     ctaLabel: "Projekt starten",
   },
   {
-    href: "/services/app",
+    href: "/appentwicklung-coburg",
     title: "Appentwicklung",
     highlights: [
       "Native & hybride Apps für iOS und Android",
       "UX/UI Design & kontinuierlicher Betrieb"
     ],
     status: "upcoming",
-    ctaHref: "/services/app",
+    ctaHref: "/appentwicklung-coburg",
     ctaLabel: "Mehr zur Appentwicklung",
   },
 ];

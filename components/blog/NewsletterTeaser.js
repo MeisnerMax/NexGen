@@ -12,7 +12,7 @@ export default function NewsletterTeaser() {
       </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <Link
-          href="/services/contact"
+          href="/kontakt"
           className="inline-flex items-center gap-2 rounded-full bg-brand-accent px-4 py-2 text-sm font-semibold text-brand-primary transition hover:bg-brand-accent/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary"
         >
           Kostenloses Erstgespräch

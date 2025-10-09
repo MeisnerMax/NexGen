@@ -29,11 +29,22 @@ export default function Beratung() {
   return (
     <>
       <Head>
-        <title>Beratung – NexGen Consulting</title>
+        <title>Beratung - NexGen Consulting</title>
         <meta
           name="description"
           content="Strategische Beratung für Digitalisierung, Automatisierung und Markenauftritt. NexGen Consulting begleitet mittelständische Unternehmen von der Idee bis zur Umsetzung."
         />
+        <meta name="robots" content="index, follow" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Digitalberatung in Coburg",
+          serviceType: "Digitalberatung",
+          areaServed: "Coburg, Germany",
+          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
+          url: "https://nexgen-consulting.de/digitalberatung-coburg"
+        }) }} />
+        <link rel="canonical" href="https://nexgen-consulting.de/digitalberatung-coburg" />
       </Head>
 
       <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">

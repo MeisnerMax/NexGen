@@ -10,28 +10,67 @@ export default function WebsiteService() {
   const router = useRouter(); // hinzufügen
 
   const redirectToContact = (message) => {
-    router.push(`/services/contact?message=${encodeURIComponent(message)}`);
+    router.push(`/kontakt?message=${encodeURIComponent(message)}`);
   };
 
   return (
     <div className="min-h-screen bg-brand-primary text-white">
       <Head>
-        <title>Webdesign & Branding – Nexgen Consulting</title>
+        <title>Webdesign & Branding - Nexgen Consulting</title>
         <meta
           name="description"
-          content="Professionelles Webdesign und starke Markenidentität von Nexgen Consulting – maßgeschneidert für kleine und mittelständische Unternehmen."
+          content="Professionelles Webdesign und starke Markenidentität von Nexgen Consulting - maßgeschneidert für kleine und mittelständische Unternehmen."
         />
         <meta
           name="keywords"
           content="Webdesign, Branding, Responsive Design, SEO, CMS, Website, Logo, UX Design"
         />
+        <meta name="robots" content="index, follow" />
         <meta name="author" content="Nexgen Consulting" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Webdesign & Branding – Nexgen Consulting" />
+        <meta property="og:title" content="Webdesign & Branding - Nexgen Consulting" />
         <meta property="og:description" content="Professionelles Webdesign und starke Markenidentität für Ihre digitale Sichtbarkeit." />
-        <meta property="og:url" content="https://nexgen-consulting.de/services/website" />
+        <meta property="og:url" content="https://nexgen-consulting.de/webdesign-coburg" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://nexgen-consulting.de/logo.png" />
+        <link rel="canonical" href="https://nexgen-consulting.de/webdesign-coburg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "Webdesign in Coburg",
+              serviceType: "Webdesign",
+              areaServed: "Coburg, Germany",
+              provider: {
+                "@type": "LocalBusiness",
+                name: "Nexgen Consulting",
+                url: "https://nexgen-consulting.de",
+                telephone: "+49 1525 9089486",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Coburg",
+                  addressCountry: "DE"
+                }
+              },
+              url: "https://nexgen-consulting.de/webdesign-coburg"
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Nexgen Consulting",
+              url: "https://nexgen-consulting.de",
+              telephone: "+49 1525 9089486",
+              address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
+            })
+          }}
+        />
       </Head>
 
       <Chatbot />
@@ -125,7 +164,7 @@ export default function WebsiteService() {
         Sie möchten eine Website, die Ergebnisse bringt? Lassen Sie sich kostenfrei beraten – wir entwickeln Ihr Webprojekt individuell, modern und mit Fokus auf Ihre Zielgruppe.
         </p>
         <a
-          href="/services/contact"
+          href="/kontakt"
           className="bg-[#E64000] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-[#E64000] transition"
         >
           Jetzt Erstgespräch vereinbaren

@@ -1,7 +1,7 @@
 /* styles/globals.css */
  @tailwind base;
  @tailwind components;
- @tailwind utilities;
+@tailwind utilities;
 
 html {
   scroll-behavior: smooth;
@@ -11,6 +11,20 @@ html, body, #__next {
   @apply bg-brand-primary text-white min-h-screen;
   margin: 0;
   overflow-x: hidden; /* prevent horizontal overflow on mobile */
+}
+
+/* Reveal-on-scroll utility classes for Timeline */
+.reveal {
+  @apply opacity-0 translate-y-4 transition duration-700 ease-brand will-change-transform;
+}
+.reveal-in {
+  @apply opacity-100 translate-y-0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    @apply opacity-100 translate-y-0;
+    transition-duration: 1ms !important;
+  }
 }
 
 body {

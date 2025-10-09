@@ -26,17 +26,36 @@ export default function Softwareentwicklung() {
   return (
     <>
       <Head>
-        <title>Softwareentwicklung – NexGen Consulting</title>
+        <title>Softwareentwicklung - NexGen Consulting</title>
         <meta
           name="description"
           content="Individuelle Softwareentwicklung von NexGen Consulting: Von der Prozessanalyse über Prototyping bis zum skalierbaren Roll-out."
         />
-        <meta property="og:title" content="Softwareentwicklung – NexGen Consulting" />
+        <meta property="og:title" content="Softwareentwicklung - NexGen Consulting" />
         <meta
           property="og:description"
           content="Digitale Lösungen für Ihren Prozess: NexGen Consulting entwickelt und betreibt individuelle Software und Automatisierungen."
         />
-        <meta property="og:url" content="https://nexgen-consulting.de/services/softwareentwicklung" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:url" content="https://nexgen-consulting.de/softwareentwicklung-coburg" />
+        <link rel="canonical" href="https://nexgen-consulting.de/softwareentwicklung-coburg" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Softwareentwicklung in Coburg",
+          serviceType: "Softwareentwicklung",
+          areaServed: "Coburg, Germany",
+          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
+          url: "https://nexgen-consulting.de/softwareentwicklung-coburg"
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Nexgen Consulting",
+          url: "https://nexgen-consulting.de",
+          telephone: "+49 1525 9089486",
+          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
+        }) }} />
       </Head>
 
       <Chatbot />

@@ -108,7 +108,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section id="faq" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
+    <section id="faq" className="py-16 sm:py-20 md:py-24 bg-[#091B33] text-white">
       <div className="container max-w-screen-xl px-6 lg:px-8 space-y-12">
         <div className="mx-auto max-w-3xl text-center space-y-4" data-reveal>
           <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/70">

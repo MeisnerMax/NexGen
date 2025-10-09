@@ -73,19 +73,19 @@ export default function NavBar() {
 
   const links = [
     { href: '/', label: 'Home', icon: 'home' },
-    { href: '/services/beratung', label: 'Beratung', icon: 'bulb' },
-    { href: '/services/website', label: 'Website', icon: 'globe' },
-    { href: '/services/marketing', label: 'Marketing', icon: 'megaphone' },
-    { href: '/services/firmenidentitaet', label: 'Firmenidentität', icon: 'id' },
-    { href: '/services/loesungen', label: 'Lösungen', icon: 'puzzle' },
-    { href: '/services/softwareentwicklung', label: 'Softwareentwicklung', icon: 'code' },
-    { href: '/services/app', label: 'App-Entwicklung', icon: 'phone' },
+    { href: '/digitalberatung-coburg', label: 'Beratung', icon: 'bulb' },
+    { href: '/webdesign-coburg', label: 'Webdesign', icon: 'globe' },
+    { href: '/online-marketing-coburg', label: 'Marketing', icon: 'megaphone' },
+    { href: '/branding-coburg', label: 'Firmenidentität', icon: 'id' },
+    { href: '/microsoft365-loesungen-coburg', label: 'Lösungen', icon: 'puzzle' },
+    { href: '/softwareentwicklung-coburg', label: 'Softwareentwicklung', icon: 'code' },
+    { href: '/appentwicklung-coburg', label: 'App-Entwicklung', icon: 'phone' },
     { href: '/blog', label: 'Blog', icon: 'newspaper' },
   ];
 
   // Kategorien ableiten
   const homeItem = links.find((l) => l.href === '/');
-  const serviceItems = links.filter((l) => l.href.startsWith('/services') && l.href !== '/services/contact');
+  const serviceItems = links.filter((l) => !['/', '/blog'].includes(l.href));
   const resourceItems = links.filter((l) => l.href === '/blog');
   const sections = [
     { title: null, items: [homeItem].filter(Boolean) },
@@ -251,7 +251,7 @@ export default function NavBar() {
 
           <div className="mt-auto pt-6 border-t border-white/10">
             <Link
-              href="/services/contact"
+              href="/kontakt"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-accent px-4 py-3 font-medium text-brand-primary shadow-card hover:opacity-95 active:opacity-90 transition"
             >
               Kontakt aufnehmen
