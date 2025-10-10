@@ -1,35 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Analytics & Performance">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Analytics &amp; Performance">
   <defs>
-    <linearGradient id="grad-ana" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.85"/>
+    <linearGradient id="grad-analytics" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="600" fill="#0b0c10"/>
   <g opacity="0.6">
-    <circle cx="1080" cy="120" r="200" fill="#4f46e5" fill-opacity="0.25"/>
-    <circle cx="160" cy="500" r="200" fill="#06b6d4" fill-opacity="0.2"/>
+    <circle cx="120" cy="80" r="160" fill="#06b6d4" fill-opacity="0.25"/>
+    <circle cx="1080" cy="520" r="220" fill="#4f46e5" fill-opacity="0.25"/>
   </g>
 
-  <!-- Dashboard frame -->
-  <g transform="translate(140,110)">
-    <rect width="920" height="380" rx="24" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="24" y="28" width="280" height="14" rx="7" fill="#ffffff" fill-opacity="0.85"/>
-    <rect x="24" y="54" width="360" height="12" rx="6" fill="#ffffff" fill-opacity="0.3"/>
+  <!-- Dashboard Card -->
+  <g transform="translate(160,120)">
+    <rect width="520" height="340" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <!-- Header bar -->
+    <rect x="20" y="22" width="200" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="20" y="44" width="140" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
 
-    <!-- Bars -->
-    <g transform="translate(40,120)">
-      <rect x="0" y="70" width="40" height="110" fill="url(#grad-ana)"/>
-      <rect x="60" y="30" width="40" height="150" fill="url(#grad-ana)"/>
-      <rect x="120" y="10" width="40" height="170" fill="url(#grad-ana)"/>
-      <rect x="180" y="90" width="40" height="90" fill="url(#grad-ana)"/>
-      <rect x="240" y="40" width="40" height="140" fill="url(#grad-ana)"/>
+    <!-- Bar chart -->
+    <g transform="translate(30,90)">
+      <rect x="0"   y="70" width="28" height="90" rx="6" fill="#ffffff" fill-opacity="0.16"/>
+      <rect x="44"  y="40" width="28" height="120" rx="6" fill="#ffffff" fill-opacity="0.22"/>
+      <rect x="88"  y="10" width="28" height="150" rx="6" fill="#ffffff" fill-opacity="0.3"/>
+      <rect x="132" y="58" width="28" height="102" rx="6" fill="#ffffff" fill-opacity="0.2"/>
+      <rect x="176" y="30" width="28" height="130" rx="6" fill="#ffffff" fill-opacity="0.26"/>
     </g>
 
-    <!-- Line chart -->
-    <path d="M460,300 C520,240 580,260 640,210 C680,180 740,220 800,180" fill="none" stroke="#06b6d4" stroke-width="3" stroke-opacity="0.9"/>
-    <circle cx="460" cy="300" r="5" fill="#06b6d4"/>
-    <circle cx="640" cy="210" r="5" fill="#06b6d4"/>
-    <circle cx="800" cy="180" r="5" fill="#06b6d4"/>
+    <!-- KPI badges -->
+    <rect x="300" y="100" width="180" height="36" rx="18" fill="url(#grad-analytics)"/>
+    <rect x="300" y="150" width="160" height="28" rx="14" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="300" y="188" width="140" height="28" rx="14" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+
+    <!-- Legend -->
+    <circle cx="310" cy="245" r="6" fill="#06b6d4"/>
+    <rect x="324" y="238" width="120" height="10" rx="5" fill="#ffffff" fill-opacity="0.4"/>
+    <circle cx="310" cy="272" r="6" fill="#4f46e5"/>
+    <rect x="324" y="265" width="140" height="10" rx="5" fill="#ffffff" fill-opacity="0.28"/>
   </g>
+
+  <!-- Line chart card -->
+  <g transform="translate(720,160)">
+    <rect width="320" height="260" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <clipPath id="clip-line">
+      <rect x="20" y="30" width="280" height="190" rx="10"/>
+    </clipPath>
+    <g clip-path="url(#clip-line)">
+      <!-- grid -->
+      <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+        <path d="M20 50 H300"/>
+        <path d="M20 90 H300"/>
+        <path d="M20 130 H300"/>
+        <path d="M20 170 H300"/>
+      </g>
+      <!-- line -->
+      <path d="M20,190 C60,160 100,210 140,180 C180,150 220,200 260,140 C280,120 300,130 320,110" fill="none" stroke="url(#grad-analytics)" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <!-- Axes labels -->
+    <rect x="20" y="224" width="80" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="110" y="224" width="60" height="10" rx="5" fill="#ffffff" fill-opacity="0.2"/>
+    <rect x="180" y="224" width="60" height="10" rx="5" fill="#ffffff" fill-opacity="0.2"/>
+  </g>
+
+  <!-- Decorative arc -->
+  <path d="M120,520 C300,430 460,660 660,540 C860,430 1020,600 1120,520" fill="none" stroke="url(#grad-analytics)" stroke-width="4" stroke-opacity="0.35"/>
 </svg>
+

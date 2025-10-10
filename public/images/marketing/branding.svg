@@ -1,36 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Branding & Corporate Design">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Branding &amp; Corporate Design">
   <defs>
     <linearGradient id="grad-brand" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4f46e5"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="600" fill="#0b0c10"/>
-  <g opacity="0.7">
-    <circle cx="1050" cy="70" r="220" fill="#4f46e5" fill-opacity="0.25"/>
-    <circle cx="150" cy="520" r="220" fill="#06b6d4" fill-opacity="0.2"/>
+  <g opacity="0.6">
+    <circle cx="120" cy="90" r="180" fill="#06b6d4" fill-opacity="0.25"/>
+    <circle cx="1080" cy="520" r="220" fill="#4f46e5" fill-opacity="0.25"/>
   </g>
 
+  <!-- Brand guideline board -->
   <g transform="translate(140,120)">
-    <rect width="360" height="220" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
-    <circle cx="70" cy="70" r="24" fill="#4f46e5"/>
-    <circle cx="120" cy="70" r="24" fill="#06b6d4"/>
-    <rect x="30" y="120" width="280" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
-    <rect x="30" y="144" width="220" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/>
+    <rect width="520" height="340" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <!-- Logo mark -->
+    <circle cx="100" cy="110" r="44" fill="url(#grad-brand)"/>
+    <rect x="170" y="85" width="220" height="14" rx="7" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="170" y="112" width="180" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+
+    <!-- Color swatches -->
+    <rect x="60" y="190" width="70" height="46" rx="8" fill="#06b6d4"/>
+    <rect x="140" y="190" width="70" height="46" rx="8" fill="#4f46e5"/>
+    <rect x="220" y="190" width="70" height="46" rx="8" fill="#22d3ee" fill-opacity="0.8"/>
+    <rect x="300" y="190" width="70" height="46" rx="8" fill="#818cf8" fill-opacity="0.8"/>
+
+    <!-- Typo lines -->
+    <rect x="60" y="260" width="360" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="60" y="286" width="300" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="60" y="308" width="260" height="10" rx="5" fill="#ffffff" fill-opacity="0.2"/>
   </g>
 
-  <g transform="translate(540,120)">
-    <rect width="460" height="260" rx="22" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="28" y="36" width="260" height="16" rx="8" fill="#ffffff" fill-opacity="0.85"/>
-    <rect x="28" y="64" width="360" height="12" rx="6" fill="#ffffff" fill-opacity="0.35"/>
-    <rect x="28" y="88" width="300" height="12" rx="6" fill="#ffffff" fill-opacity="0.25"/>
-    <rect x="28" y="132" width="150" height="42" rx="21" fill="url(#grad-brand)"/>
+  <!-- Devices mock: social/header template -->
+  <g transform="translate(720,140)">
+    <rect width="340" height="220" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="20" y="24" width="300" height="56" rx="12" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="36" y="40" width="220" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="36" y="62" width="160" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="20" y="100" width="180" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="20" y="124" width="220" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="20" y="146" width="200" height="10" rx="5" fill="#ffffff" fill-opacity="0.2"/>
+    <rect x="20" y="174" width="140" height="28" rx="14" fill="url(#grad-brand)"/>
   </g>
 
-  <g transform="translate(300,380)">
-    <rect width="520" height="140" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="28" y="34" width="300" height="12" rx="6" fill="#ffffff" fill-opacity="0.35"/>
-    <rect x="28" y="58" width="360" height="12" rx="6" fill="#ffffff" fill-opacity="0.25"/>
-    <rect x="28" y="92" width="180" height="34" rx="17" fill="url(#grad-brand)"/>
-  </g>
+  <!-- Decorative arc -->
+  <path d="M120,520 C300,430 460,660 660,540 C860,430 1020,600 1120,520" fill="none" stroke="url(#grad-brand)" stroke-width="4" stroke-opacity="0.35"/>
 </svg>
+

@@ -1,35 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="SEO & Content">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="SEO &amp; Content">
   <defs>
     <linearGradient id="grad-seo" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4f46e5"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
   </defs>
+
   <rect width="1200" height="600" fill="#0b0c10"/>
   <g opacity="0.6">
-    <circle cx="240" cy="120" r="200" fill="#06b6d4" fill-opacity="0.25"/>
-    <circle cx="1000" cy="520" r="220" fill="#4f46e5" fill-opacity="0.25"/>
+    <circle cx="120" cy="90" r="180" fill="#06b6d4" fill-opacity="0.25"/>
+    <circle cx="1080" cy="520" r="220" fill="#4f46e5" fill-opacity="0.25"/>
   </g>
 
-  <!-- Document card -->
-  <g transform="translate(200,120)">
-    <rect width="380" height="360" rx="22" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="28" y="40" width="240" height="16" rx="8" fill="#ffffff" fill-opacity="0.85"/>
-    <rect x="28" y="72" width="300" height="12" rx="6" fill="#ffffff" fill-opacity="0.3"/>
-    <rect x="28" y="96" width="280" height="12" rx="6" fill="#ffffff" fill-opacity="0.22"/>
-    <rect x="28" y="160" width="320" height="140" rx="10" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.1"/>
+  <!-- Search panel -->
+  <g transform="translate(160,140)">
+    <rect width="540" height="320" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="24" y="26" width="360" height="14" rx="7" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="24" y="52" width="280" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="24" y="92" width="420" height="42" rx="21" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <circle cx="52" cy="113" r="10" fill="none" stroke="url(#grad-seo)" stroke-width="3"/>
+    <line x1="60" y1="121" x2="70" y2="131" stroke="url(#grad-seo)" stroke-width="3" stroke-linecap="round"/>
+    <rect x="88" y="104" width="220" height="18" rx="9" fill="#ffffff" fill-opacity="0.5"/>
+    <rect x="24" y="160" width="320" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="24" y="182" width="380" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <rect x="24" y="204" width="300" height="10" rx="5" fill="#ffffff" fill-opacity="0.2"/>
+    <rect x="24" y="236" width="220" height="28" rx="14" fill="url(#grad-seo)"/>
   </g>
 
-  <!-- Search widget -->
-  <g transform="translate(640,200)">
-    <rect width="420" height="56" rx="24" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12"/>
-    <circle cx="28" cy="28" r="10" fill="#06b6d4"/>
-    <rect x="54" y="22" width="240" height="12" rx="6" fill="rgba(255,255,255,0.75)"/>
+  <!-- Growth/keywords card -->
+  <g transform="translate(760,160)">
+    <rect width="300" height="240" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="20" y="26" width="140" height="12" rx="6" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="20" y="48" width="100" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+    <path d="M36,188 L100,124 L142,146 L198,98 L240,122" fill="none" stroke="url(#grad-seo)" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="236,116 258,130 238,130" fill="url(#grad-seo)"/>
+    <rect x="20" y="170" width="70" height="22" rx="11" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="96" y="170" width="86" height="22" rx="11" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="186" y="170" width="74" height="22" rx="11" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12"/>
   </g>
 
-  <!-- Score badge -->
-  <g transform="translate(640,300)">
-    <rect width="200" height="48" rx="14" fill="url(#grad-seo)"/>
-    <text x="100" y="31" text-anchor="middle" font-family="system-ui, Segoe UI, Arial" font-size="18" fill="#ffffff">SEO Score 92</text>
-  </g>
+  <!-- Decorative arc -->
+  <path d="M120,520 C300,430 460,660 660,540 C860,430 1020,600 1120,520"
+        fill="none" stroke="url(#grad-seo)" stroke-width="4" stroke-opacity="0.35"/>
 </svg>

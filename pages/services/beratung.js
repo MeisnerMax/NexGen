@@ -2,27 +2,27 @@ import Head from "next/head";
 import Link from "next/link";
 
 const offerings = [
-  "Digitalstrategie & Roadmapping",
-  "Prozessanalyse und Automatisierungspotenziale",
+  "Digitale Strategie & Fahrplan",
+  "Abläufe prüfen und automatisieren",
   "Technologie- & Toolauswahl",
   "Fördermittel- & Budgetberatung",
-  "Change Management & Schulungskonzepte",
-  "Marketing- & Go-to-Market-Unterstützung"
+  "Change & Schulung für Teams",
+  "Marketing‑Unterstützung",
 ];
 
 const steps = [
   {
     title: "Kennenlernen",
-    description: "Kostenloses Erstgespräch, um Ziele, Status quo und Erwartungen zu verstehen."
+    description: "Kostenloses Erstgespräch – Ziele, aktueller Stand und Erwartungen klären.",
   },
   {
-    title: "Analyse & Konzept",
-    description: "Gemeinsam priorisieren wir Maßnahmen, definieren KPIs und erstellen eine praxisnahe Roadmap."
+    title: "Plan",
+    description: "Maßnahmen priorisieren, klare Ziele festlegen und eine einfache Roadmap erstellen.",
   },
   {
-    title: "Umsetzung & Begleitung",
-    description: "Wir koordinieren Umsetzungspartner, coachen Ihr Team und stellen nachhaltige Wirkung sicher."
-  }
+    title: "Umsetzung",
+    description: "Partner steuern, Team begleiten, Ergebnisse sichern – ohne Fachsprache.",
+  },
 ];
 
 export default function Beratung() {
@@ -32,7 +32,7 @@ export default function Beratung() {
         <title>Beratung - NexGen Consulting</title>
         <meta
           name="description"
-          content="Strategische Beratung für Digitalisierung, Automatisierung und Markenauftritt. NexGen Consulting begleitet mittelständische Unternehmen von der Idee bis zur Umsetzung."
+          content="Strategische Beratung für Digitalisierung, Automatisierung und Markenauftritt. Verständlich, pragmatisch, mit klaren Schritten."
         />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -52,10 +52,10 @@ export default function Beratung() {
           <div className="max-w-3xl">
             <p className="uppercase tracking-wide text-brand-accent font-semibold mb-4">Beratung & Strategie</p>
             <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6">
-              Digitalisierung mit klarer Richtung und messbarem Mehrwert
+              Digitalisierung – klar und machbar
             </h1>
             <p className="text-lg text-surface-light/90 leading-relaxed mb-10">
-              Wir übersetzen Unternehmensziele in digitale Strategien: strukturiert, transparent und nah am Alltag Ihres Teams. Von der ersten Idee bis zur erfolgreichen Einführung begleiten wir Sie als Sparringspartner und Projektmotor.
+              Wir übersetzen Ihre Ziele in einfache Schritte. Ohne Fachchinesisch, eng am Alltag Ihres Teams. Vom ersten Gespräch bis zur Einführung.
             </p>
             <Link
               href="/kontakt"
@@ -72,13 +72,13 @@ export default function Beratung() {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="text-3xl font-heading font-semibold text-white mb-6">
-                Unsere Beratungsleistungen im Überblick
+                Unsere Leistungen im Überblick
               </h2>
               <p className="text-white leading-relaxed mb-8">
-                Jede Zusammenarbeit startet mit einem klaren Blick auf Prozesse, Menschen und Ziele. Daraus entwickeln wir individuelle Handlungsempfehlungen, die schnell Wirkung zeigen und Zukunftssicherheit schaffen.
+                Jede Zusammenarbeit startet mit einem Blick auf Prozesse, Menschen und Ziele. Daraus entstehen konkrete Empfehlungen, die schnell Wirkung zeigen.
               </p>
             </div>
-            <ul className="rounded-brand-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-md space-y-4">
+            <ul className="rounded-brand-2xl border border-white/10 bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60 p-8 shadow-xl backdrop-blur-md space-y-4">
               {offerings.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-white">
                   <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-accent/10 text-brand-accent font-semibold">
@@ -99,7 +99,7 @@ export default function Beratung() {
             {steps.map((step, index) => (
               <div
                 key={step.title}
-                className="group rounded-brand-2xl bg-brand-primary/70 ring-1 ring-white/10 p-6 transition duration-300 ease-brand hover:-translate-y-1 hover:bg-brand-primary/60"
+                className="group rounded-brand-2xl bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60 ring-1 ring-white/10 p-6 transition duration-300 ease-brand hover:-translate-y-1 hover:bg-brand-primary/60"
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-accent text-white text-lg font-semibold mb-4">
                   {index + 1}
@@ -118,7 +118,7 @@ export default function Beratung() {
             Bereit für den nächsten Schritt?
           </h2>
           <p className="text-white leading-relaxed mb-8 max-w-2xl mx-auto">
-            Lassen Sie uns in einem unverbindlichen Erstgespräch Potenziale identifizieren und priorisieren. Gemeinsam schaffen wir die Grundlage für eine digitale Roadmap, die Ihr Team mitnimmt.
+            In einem kurzen Erstgespräch klären wir Potenziale und Prioritäten – und legen die nächsten Schritte fest.
           </p>
           <Link href="/kontakt" className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">
             Jetzt kostenlose Erstberatung anfordern
@@ -128,7 +128,4 @@ export default function Beratung() {
     </>
   );
 }
-
-
-
 

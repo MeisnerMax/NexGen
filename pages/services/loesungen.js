@@ -56,7 +56,7 @@ export default function Loesungen() {
               <p className="text-white leading-relaxed mb-6">Wir helfen Ihnen, Microsoft 365 als Produktivitätsplattform zu etablieren – mit klaren Governance‑Regeln, Automatisierung und engem Enablement der Teams.</p>
               <button onClick={() => redirectToContact('Microsoft 365 Lösungen')} className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">Jetzt Erstberatung sichern</button>
             </div>
-            <div className="rounded-brand-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-md space-y-4">
+            <div className="rounded-brand-2xl border border-white/10 bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60 p-8 shadow-xl backdrop-blur-md space-y-4">
               <h3 className="text-xl font-heading font-semibold text-white">Unsere Schwerpunkte</h3>
               <ul className="space-y-3 text-white leading-relaxed">
                 {m365Points.map((point) => (
@@ -73,7 +73,7 @@ export default function Loesungen() {
         {/* Branchenlösungen */}
         <section id="branchen" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-lg px-6 lg:px-8 grid gap-10 lg:grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:items-center">
-            <div className="rounded-brand-2xl bg-brand-primary/70 p-8 space-y-4 order-last lg:order-first">
+            <div className="rounded-brand-2xl bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60 p-8 space-y-4 order-last lg:order-first">
               <h3 className="text-xl font-heading font-semibold">Branchenspezifische Lösungen</h3>
               <ul className="space-y-3 text-surface-light/90 leading-relaxed">
                 {branchenPoints.map((point) => (

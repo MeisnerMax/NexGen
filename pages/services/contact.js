@@ -78,9 +78,9 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Kontakt – NexGen Consulting</title>
+        <title>Kontakt - NexGen Consulting</title>
         <link rel="canonical" href="https://nexgen-consulting.de/kontakt" />
-        <meta name="description" content="Kontaktieren Sie NexGen Consulting – Wir freuen uns auf Ihre Anfrage." />
+        <meta name="description" content="Kontaktieren Sie NexGen Consulting – wir melden uns in der Regel innerhalb eines Werktags." />
       </Head>
 
       {/* Hero */}
@@ -104,8 +104,8 @@ export default function Contact() {
             <h2 className="text-lg font-semibold text-white">Kontaktinformationen</h2>
             <ul className="mt-4 space-y-3 text-white/90">
               <li className="flex items-start gap-3">
-                <span aria-hidden className="mt-0.5">📧</span>
-                <a className="hover:text-cyan-300 underline-offset-4 hover:underline" href="mailto:maxmeisner3@gmail.com">meisner@nexgen-consulting.de</a>
+                <span aria-hidden className="mt-0.5">✉️</span>
+                <a className="hover:text-cyan-300 underline-offset-4 hover:underline" href="mailto:meisner@nexgen-consulting.de">meisner@nexgen-consulting.de</a>
               </li>
               <li className="flex items-start gap-3">
                 <span aria-hidden className="mt-0.5">📞</span>
@@ -211,12 +211,11 @@ export default function Contact() {
             </details>
             <details className="rounded-xl border border-white/10 bg-white/5 p-4 text-white/90">
               <summary className="cursor-pointer font-medium">Bieten Sie individuelle Workshops an?</summary>
-              <div className="mt-2 text-white/70">Ja, wir konzipieren maßgeschneiderte Trainings für Ihr Team.</div>
+              <div className="mt-2 text-white/70">Ja, wir konzipieren Trainings, die zu Ihrem Team passen.</div>
             </details>
           </div>
         </section>
 
-        
       </main>
     </>
   );

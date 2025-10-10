@@ -8,11 +8,11 @@ const valuePillars = [
   {
     title: "Branding & Corporate Design",
     description:
-      "Logo, Farbwelten, Templates und Guidelines für einen konsistenten Auftritt auf allen Kanälen.",
+      "Logo, Farben und Vorlagen für einen einheitlichen Auftritt – online und offline.",
     bullets: [
-      "Logo- und Marken-Systeme",
-      "Styleguides & Asset Libraries",
-      "Enablement & Trainings",
+      "Logo & Markensysteme",
+      "Styleguide & Vorlagen",
+      "Schulungen fürs Team",
     ],
     image: "/images/marketing/branding.svg",
     href: "/branding-coburg",
@@ -21,33 +21,33 @@ const valuePillars = [
   {
     title: "Social Media",
     description:
-      "Strategie, Content-Produktion und Community-Management für Instagram, LinkedIn & Co – datenbasiert, kreativ und zielgruppengenau.",
+      "Plan, Inhalte und Betreuung für Instagram, LinkedIn & Co – verständlich und messbar.",
     bullets: [
-      "Redaktionspläne & Storyboards",
-      "Kampagnen-Setups inkl. Ads",
-      "Community- & Reputation-Management",
+      "Redaktionsplan",
+      "Kampagnen inkl. Anzeigen",
+      "Community-Betreuung",
     ],
     image: "/images/marketing/social.svg",
   },
   {
     title: "Analytics & Performance",
     description:
-      "GA4, Looker Studio und Attribution: Wir übersetzen Daten in klare Maßnahmen und automatisieren Reporting-Strecken.",
+      "Wir richten die Messung ein und zeigen klar, was wirkt. Berichte ohne Fachchinesisch.",
     bullets: [
-      "Event-Tracking & Dashboards",
-      "Funnels & Conversion-Optimierung",
-      "Performance-Reviews & Roadmaps",
+      "Tracking & Dashboards",
+      "Conversion-Optimierung",
+      "Regelmäßige Auswertung",
     ],
     image: "/images/marketing/analytics.svg",
   },
   {
     title: "SEO & Content",
     description:
-      "Technische Audits, Keyword-Strategie und skalierbare Content-Produktionen – lokal wie international.",
+      "Besser gefunden werden bei Google. Von Technik bis Text – lokal und darüber hinaus.",
     bullets: [
-      "Onpage & Technical SEO",
-      "Content Hubs & Landingpages",
-      "Linkbuilding & Digital PR",
+      "Technisches SEO",
+      "Texte & Landingpages",
+      "Backlinks & PR",
     ],
     image: "/images/marketing/seo.svg",
   },
@@ -55,16 +55,19 @@ const valuePillars = [
 
 const packages = [
   {
-    title: "Audit & Roadmap",
-    description: "Status-Quo-Analyse, Ziele, KPIs, Budget – wir definieren einen klaren Plan in 2–3 Workshops.",
+    title: "Audit & Fahrplan",
+    description:
+      "Kurzer Check Ihres Marketings. Ziele, Budget und ein einfacher Plan für die nächsten Schritte.",
   },
   {
-    title: "Campaign Enablement",
-    description: "Set-up oder Optimierung Ihrer Performance-Kanäle inkl. Tracking und Dashboards.",
+    title: "Kampagnen-Setup",
+    description:
+      "Wir richten Ihre Kanäle sauber ein – mit Tracking und übersichtlichen Berichten.",
   },
   {
-    title: "Marketing as a Service",
-    description: "Wir übernehmen kontinuierliche Kampagnen, Content und Reporting als verlängerte Inhouse-Einheit.",
+    title: "Marketing als Service",
+    description:
+      "Wir übernehmen laufend Kampagnen, Inhalte und Auswertung – wie eine externe Marketing‑Abteilung.",
   },
 ];
 
@@ -81,33 +84,57 @@ export default function MarketingService() {
         <title>Marketing & SEO - NexGen Consulting</title>
         <meta
           name="description"
-          content="Digitale Marketing-Strategien von NexGen Consulting: Social Media, Analytics, Branding und SEO - für mehr Sichtbarkeit und messbare Ergebnisse."
+          content="Marketing, das versteht und wirkt: Social Media, Analytics, Branding und SEO – verständlich erklärt, sauber umgesetzt, messbar im Ergebnis."
         />
         <meta property="og:title" content="Marketing & SEO - NexGen Consulting" />
         <meta
           property="og:description"
-          content="Social Media, Analytics, Branding und SEO aus einer Hand: NexGen Consulting entwickelt datengetriebene Maßnahmen mit klaren KPIs."
+          content="Social Media, Analytics, Branding und SEO aus einer Hand – klar, einfach, wirksam."
         />
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://nexgen-consulting.de/online-marketing-coburg" />
         <link rel="canonical" href="https://nexgen-consulting.de/online-marketing-coburg" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Online-Marketing in Coburg",
-          serviceType: "Online-Marketing",
-          areaServed: "Coburg, Germany",
-          provider: { "@type": "LocalBusiness", name: "Nexgen Consulting", url: "https://nexgen-consulting.de", telephone: "+49 1525 9089486", address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" } },
-          url: "https://nexgen-consulting.de/online-marketing-coburg"
-        }) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Nexgen Consulting",
-          url: "https://nexgen-consulting.de",
-          telephone: "+49 1525 9089486",
-          address: { "@type": "PostalAddress", addressLocality: "Coburg", addressCountry: "DE" }
-        }) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "Online-Marketing in Coburg",
+              serviceType: "Online-Marketing",
+              areaServed: "Coburg, Germany",
+              provider: {
+                "@type": "LocalBusiness",
+                name: "Nexgen Consulting",
+                url: "https://nexgen-consulting.de",
+                telephone: "+49 1525 9089486",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Coburg",
+                  addressCountry: "DE",
+                },
+              },
+              url: "https://nexgen-consulting.de/online-marketing-coburg",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Nexgen Consulting",
+              url: "https://nexgen-consulting.de",
+              telephone: "+49 1525 9089486",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Coburg",
+                addressCountry: "DE",
+              },
+            }),
+          }}
+        />
       </Head>
 
       <Chatbot />
@@ -122,45 +149,28 @@ export default function MarketingService() {
           <div className="container max-w-screen-xl px-6 lg:px-8 py-20 md:py-28 space-y-3" data-reveal>
             <p className="uppercase tracking-widest text-cyan-300 font-semibold">Leistung</p>
             <h1 className="text-4xl sm:text-5xl font-heading font-bold">Marketing & Sichtbarkeit</h1>
-            <p className="text-base md:text-lg text-white/80 max-w-3xl">
-              Ob SEO, Social Media oder Analytics – wir kombinieren Strategie, Content und Daten zu einem durchgängigen Marketing‑Erlebnis. Unser Anspruch: messbare Wirkung, klare Prozesse und enge Zusammenarbeit mit Ihrem Team.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">SEO</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Social</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Analytics</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Branding</span>
-            </div>
-          </div>
-        </header>
-        <section className="hidden py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
-          <div className="container max-w-screen-xl px-6 lg:px-8 space-y-6" data-reveal>
-            <p className="uppercase tracking-widest text-brand-accent font-semibold">Marketing & Sichtbarkeit</p>
-            <h1 className="text-4xl sm:text-5xl font-heading font-bold">
-              Performance-orientiertes Marketing, das Marken sichtbar macht
-            </h1>
-            <p className="text-lg text-surface-light/90 max-w-3xl">
-              Ob SEO, Social Media oder Analytics – wir kombinieren Strategie, Content und Daten zu einem durchgängigen Marketing-Erlebnis. Unser Anspruch: messbare Wirkung, klare Prozesse und enge Zusammenarbeit mit Ihrem Team.
+            <p className="mt-2 text-base md:text-lg text-white/80 max-w-3xl">
+              Wir sprechen Klartext: Mehr Sichtbarkeit, mehr Anfragen, klare Schritte. Ohne unnötiges Fachvokabular.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/kontakt" className="btn-primary inline-flex text-base sm:text-lg">
-                Kostenlose Marketinganalyse anfragen
+                Kostenlose Analyse anfragen
               </Link>
               <Link href="/branding-coburg" className="btn-secondary inline-flex text-base sm:text-lg">
                 Branding entdecken
               </Link>
             </div>
           </div>
-        </section>
+        </header>
 
         <section className="py-16 sm:py-20 md:py-24 bg-brand-primary">
           <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-10 lg:grid-cols-2 lg:items-center">
             <div data-reveal>
               <h2 className="text-3xl font-heading font-semibold text-white mb-6">
-                Strategie + Umsetzung + Enablement
+                Plan + Umsetzung + Begleitung
               </h2>
               <p className="text-white leading-relaxed mb-6">
-                Wir starten mit einem digitalen Marketing-Audit, definieren Ziele samt KPI-Framework und orchestrieren anschließend Content, Kampagnen und Reporting. Transparente Dashboards und regelmäßige Reviews sorgen für Fokus.
+                Wir starten mit einem kurzen Marketing-Check, legen Ziele fest und setzen Maßnahmen um – mit einfachen Berichten, die jeder versteht.
               </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {packages.map((pkg) => (
@@ -184,9 +194,9 @@ export default function MarketingService() {
             <div data-reveal className="rounded-brand-2xl bg-brand-primary text-white shadow-card ring-1 ring-white/10 p-8 space-y-4">
               <h3 className="text-xl font-heading font-semibold">Ihre Vorteile</h3>
               <ul className="space-y-3 text-white/85 leading-relaxed">
-                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Maßgeschneiderte Maßnahmenpläne mit klaren Kosten und KPIs</li>
-                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Interdisziplinäres Team aus Strategie, Kreation und Data</li>
-                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Enablement-Ansatz: Wir befähigen Ihr Team dauerhaft</li>
+                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Einfacher Plan mit klaren Kosten</li>
+                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Team aus Strategie, Gestaltung und Daten</li>
+                <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-brand-accent" /> Wir machen Ihr Team fit</li>
               </ul>
             </div>
           </div>
@@ -195,9 +205,9 @@ export default function MarketingService() {
         <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-xl px-6 lg:px-8 space-y-10">
             <div className="text-center" data-reveal>
-              <h2 className="text-3xl font-heading font-semibold mb-4">Unsere Marketing‑Schwerpunkte</h2>
+              <h2 className="text-3xl font-heading font-semibold mb-4">Unsere Marketing-Schwerpunkte</h2>
               <p className="text-white/80 leading-relaxed max-w-3xl mx-auto">
-                Vier Pfeiler, ein Ziel: Ihre Marke zur richtigen Zeit vor die richtigen Menschen zu bringen – datenbasiert, kreativ und performant.
+                Vier Bereiche, ein Ziel: Ihre Firma sichtbar machen – verständlich, kreativ und messbar.
               </p>
             </div>
 
@@ -205,7 +215,7 @@ export default function MarketingService() {
               {valuePillars.map((pillar) => (
                 <article
                   key={pillar.title}
-                  className="rounded-brand-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md overflow-hidden flex flex-col transition-transform duration-300 ease-brand hover:-translate-y-1"
+                  className="rounded-brand-2xl bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40 transition-all duration-300 group-hover:from-indigo-500/60 group-hover:to-cyan-400/60 ring-1 ring-white/10 backdrop-blur-md overflow-hidden flex flex-col transition-transform duration-300 ease-brand hover:-translate-y-1"
                   data-reveal
                 >
                   <div className="h-40 overflow-hidden">
@@ -241,7 +251,7 @@ export default function MarketingService() {
           <div className="container max-w-screen-lg px-6 lg:px-8 text-center" data-reveal>
             <h2 className="text-3xl font-heading font-semibold text-white mb-4">Ihre Marke verdient Sichtbarkeit</h2>
             <p className="text-white leading-relaxed mb-8 max-w-2xl mx-auto">
-              Wir verbinden Strategie, Kampagnen und Enablement zu einem Marketing, das wirkt. Lassen Sie uns gemeinsam herausfinden, welche Schritte den größten Hebel für Ihr Unternehmen haben.
+              Wir kombinieren Plan, Umsetzung und Schulung. So wissen Sie jederzeit, was als Nächstes zu tun ist – und was es bringt.
             </p>
             <Link href="/kontakt" className="inline-flex rounded-full bg-gradient-to-r from-indigo-600 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110">
               Jetzt Termin sichern
@@ -252,3 +262,4 @@ export default function MarketingService() {
     </>
   );
 }
+
