@@ -150,20 +150,15 @@ export default function Firmenidentitaet() {
         <section className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
           <div className="container max-w-screen-xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 lg:items-start">
             <div className="space-y-6" data-reveal>
-              <h2 className="text-3xl font-heading font-semibold text-white">Vom Workshop bis zum Roll‑out</h2>
-              <p className="text-white/80 leading-relaxed">
-                Gemeinsam klären wir Werte, Ton und Stil. Daraus entsteht Ihr Brand‑Guide, der Print und Digital abdeckt.
-              </p>
-              <p className="text-white/80 leading-relaxed">
-                Unser Ansatz: verständlich, praxistauglich, mit Vorlagen. So kann Ihr Team sofort loslegen.
-              </p>
+              
+              
             </div>
             <div className="" data-reveal>
               <div className="relative rounded-brand-2xl p-[1px] bg-gradient-to-br from-indigo-600/40 via-white/10 to-cyan-400/40">
                 <div className="rounded-brand-2xl h-full w-full bg-white/5 ring-1 ring-white/10 p-6">
-                  <h3 className="text-3xl font-heading font-semibold text-white mb-2">Beispiele</h3>
+                  <h3 className="text-3xl font-heading font-semibold text-white mb-2">Vom Workshop bis zum Roll‑out</h3>
                   <p className="text-white/80 leading-relaxed">
-                    Logo‑Sets, Schriften, Farben, Vorlagen für Social Media und Präsentationen, kleine Icon‑Bibliotheken.
+                    Gemeinsam klären wir Werte, Ton und Stil. Daraus entsteht Ihr Brand‑Guide, der Print und Digital abdeckt.
                   </p>
                 </div>
               </div>

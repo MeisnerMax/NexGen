@@ -81,7 +81,7 @@ export default function WebsiteService() {
                   <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Beliebt</span>
                 </div>
                 <ul className="mt-2 space-y-2 text-sm text-white/80">
-                  {['1‑3 Seiten','Kontaktformular','DSGVO‑Hinweise'].map((perk) => (
+                  {['Landingpage','Kontaktformular','DSGVO‑Hinweise'].map((perk) => (
                     <li key={perk} className="flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden />
                       <span>{perk}</span>
@@ -100,7 +100,7 @@ export default function WebsiteService() {
                   <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">Empfehlung</span>
                 </div>
                 <ul className="mt-2 space-y-2 text-sm text-white/80">
-                  {['bis 8 Seiten','Blog/News','Basis‑SEO'].map((perk) => (
+                  {['1-3 Seiten','Blog/News','Basis‑SEO'].map((perk) => (
                     <li key={perk} className="flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden />
                       <span>{perk}</span>

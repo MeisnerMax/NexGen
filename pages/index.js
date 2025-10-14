@@ -522,7 +522,7 @@ export default function Home() {
                             <path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm3 18h4v-1h-4v1z" />
                           </svg>
                         );
-                      } else if (path.includes('/branding-coburg') || path.includes('/services/firmenidentitaet')) {
+                      } else if (path.includes('/logo-erstellen-coburg') || path.includes('/services/firmenidentitaet')) {
                         iconSvg = (
                           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
                             <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM8 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm6 1h6v2h-6zM14 13h6v2h-6z" />

@@ -77,7 +77,7 @@ export default function NavBar() {
     { href: '/webdesign-coburg', label: 'Webdesign', icon: 'globe' },
     { href: '/online-marketing-coburg', label: 'Marketing', icon: 'megaphone' },
     { href: '/branding-coburg', label: 'Firmenidentität', icon: 'id' },
-    { href: '/microsoft365-loesungen-coburg', label: 'Lösungen', icon: 'puzzle' },
+    { href: '/microsoft365-loesungen-coburg', label: 'Schulungen', icon: 'puzzle' },
     { href: '/softwareentwicklung-coburg', label: 'Softwareentwicklung', icon: 'code' },
     { href: '/appentwicklung-coburg', label: 'App-Entwicklung', icon: 'phone' },
     { href: '/blog', label: 'Blog', icon: 'newspaper' },
