@@ -415,38 +415,39 @@ export default function Home() {
       <Chatbot />
 
       <main>
-        <section id="about" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
-          <div className="container max-w-screen-xl px-6 lg:px-8">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
-              <div data-reveal>
-                <p className="uppercase tracking-widest text-brand-accent font-semibold mb-4">Digitalisierungspartner aus Coburg</p>
-                <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-6">
-                  Visionen digital umsetzen – klar, strukturiert, wirkungsvoll
-                </h2>
-                <p className="text-lg leading-relaxed text-surface-light/90">
-                  Als Digitalagentur in Coburg begleiten wir Unternehmen in Coburg, Bamberg und der gesamten Region Oberfranken auf ihrem Weg in die digitale Zukunft. Unsere Projekte verbinden Digitalisierung in Coburg mit Webdesign, Prozessautomatisierung und App Entwicklung Coburg, damit regionale KMU sofort spürbare Fortschritte erleben.
-                </p>
-                <p className="text-lg leading-relaxed text-surface-light/90 mt-6">
-                                  </p>
-              </div>
-              <div data-reveal className="order-last md:order-none">
-                <div className="relative mx-auto max-w-[14rem] sm:max-w-xs md:max-w-sm lg:max-w-md">
-                  <div
-                    className="hidden sm:block absolute sm:-inset-4 md:-inset-6 rounded-3xl bg-gradient-to-br from-brand-accent/15 via-white/5 to-transparent sm:blur-xl md:blur-2xl"
-                    aria-hidden="true"
-                  />
-                  <div className="relative rounded-brand-2xl p-1 sm:p-2 bg-transparent sm:bg-white/5 backdrop-blur-0 sm:backdrop-blur-sm ring-0 sm:ring-1 ring-white/10 shadow-none sm:shadow-card">
-                    <div className="rounded-brand-2xl overflow-hidden bg-white/5">
-                      <img
-                        src="/images/team.jpg"
-                        alt="Unser Team"
-                        className="w-full h-auto object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="hidden sm:block pointer-events-none absolute inset-0 rounded-brand-2xl ring-1 ring-white/10" aria-hidden="true" />
-                  </div>
-                  
+         {/* Galerie: kreisförmiges Bild-Rondell */}
+        <section id="gallery" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
+          <div className="container max-w-screen-xl px-6 lg:px-8 relative">
+            <div className="mx-auto max-w-2xl text-center space-y-4" data-reveal>
+              <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/80">Galerie</span>
+              <h3 className="text-3xl sm:text-4xl font-heading font-semibold">Online-Präsenz zeigen</h3>
+              <p className="text-sm sm:text-base text-white/70">Digitalisierung in Coburg sichtbar gemacht – vom Webdesign für lokale Marken bis zur App Entwicklung für mittelständische Unternehmen in Oberfranken.</p>
+            </div>
+
+            <div className="relative mt-24 md:mt-28 lg:mt-32 mb-12 md:mb-16 flex justify-center">
+              <div
+                ref={galleryRingRef}
+                className="gallery-ring"
+                aria-label="Service Galerie, kreisförmig animiert"
+              >
+                <div className="gallery-ring-track">
+                  {GALLERY_SLIDES.map((slide) => (
+                    <a
+                      key={slide.href}
+                      href="/webdesign-coburg"
+                      data-gallery-item
+                      className="gallery-ring-item group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary"
+                    >
+                      <div className="gallery-ring-card">
+                        <div className="gallery-ring-media">
+                          <img loading="lazy" src={slide.imageSrc} alt={slide.imageAlt} />
+                          <div className="gallery-ring-overlay">
+                            <span className="gallery-ring-caption">{slide.caption}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -603,7 +604,7 @@ export default function Home() {
                   const path = (stepHref || '').toLowerCase();
                   const t = (step.title || '').toLowerCase();
                   let iconSvg;
-                  if (path.includes('/digitalberatung-coburg') || path.includes('/services/beratung') || t.includes('beratung') || t.includes('analyse')) {
+                  if (path.includes('/digitalisierung-coburg') || path.includes('/services/beratung') || t.includes('beratung') || t.includes('analyse')) {
                     iconSvg = (
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M12 2a7 7 0 0 0-4 12.9V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.1A7 7 0 0 0 12 2zm-2 18a2 2 0 0 0 4 0h-4z" /></svg>
                     );
@@ -611,19 +612,19 @@ export default function Home() {
                     iconSvg = (
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3.2A15.8 15.8 0 0 0 13 4.3 8.04 8.04 0 0 1 18.9 8zM12 4.1c.9.7 2 2.2 2.6 3.9H9.4c.6-1.7 1.7-3.2 2.6-3.9z" /></svg>
                     );
-                  } else if (path.includes('/online-marketing-coburg') || path.includes('/services/marketing') || t.includes('marketing')) {
+                  } else if (path.includes('/social-media-marketing-coburg') || path.includes('/services/marketing') || t.includes('marketing')) {
                     iconSvg = (
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M3 11a2 2 0 0 0 2 2h2l8 4V5l-8 4H5a2 2 0 0 0-2 2zm8 6v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2h6z" /></svg>
                     );
-                  } else if (path.includes('/schulungen-coburg') || path.includes('/services/schulungen') || t.includes('schulung') || t.includes('training')) {
+                  } else if (path.includes('/schulungen-software-coburg') || path.includes('/services/schulungen') || t.includes('schulung') || t.includes('training')) {
                     iconSvg = (
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M4 6l8-4 8 4-8 4-8-4zm0 6l8 4 8-4M4 18l8 4 8-4" /></svg>
                     );
-                  } else if (path.includes('/microsoft365-loesungen-coburg') || t.includes('branchensoftware') || t.includes('microsoft')) {
+                  } else if (path.includes('/softwareauswahl-coburg') || t.includes('branchensoftware') || t.includes('microsoft')) {
                     iconSvg = (
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M3 3h8v8H3V3zm0 10h8v8H3v-8zm10-10h8v8h-8V3zm0 10h8v8h-8v-8z" /></svg>
                     );
-                  } else if (path.includes('/softwareentwicklung-coburg') || path.includes('/appentwicklung-coburg') || t.includes('software') || t.includes('app')) {
+                  } else if (path.includes('/software-erstellen-coburg') || path.includes('/app-erstellen-coburg') || t.includes('software') || t.includes('app')) {
                     iconSvg = (
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-5 w-5"><path d="M4 4h16v16H4V4zm4 3h8v2H8V7zm0 4h8v2H8v-2zm0 4h8v2H8v-2z" /></svg>
                     );
@@ -678,44 +679,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Galerie: kreisförmiges Bild-Rondell */}
-        <section id="gallery" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
-          <div className="container max-w-screen-xl px-6 lg:px-8 relative">
-            <div className="mx-auto max-w-2xl text-center space-y-4" data-reveal>
-              <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/80">Galerie</span>
-              <h3 className="text-3xl sm:text-4xl font-heading font-semibold">Online-Präsenz zeigen</h3>
-              <p className="text-sm sm:text-base text-white/70">Digitalisierung in Coburg sichtbar gemacht – vom Webdesign für lokale Marken bis zur App Entwicklung für mittelständische Unternehmen in Oberfranken.</p>
-            </div>
-
-            <div className="relative mt-24 md:mt-28 lg:mt-32 mb-12 md:mb-16 flex justify-center">
-              <div
-                ref={galleryRingRef}
-                className="gallery-ring"
-                aria-label="Service Galerie, kreisförmig animiert"
-              >
-                <div className="gallery-ring-track">
-                  {GALLERY_SLIDES.map((slide) => (
-                    <a
-                      key={slide.href}
-                      href="/webdesign-coburg"
-                      data-gallery-item
-                      className="gallery-ring-item group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary"
-                    >
-                      <div className="gallery-ring-card">
-                        <div className="gallery-ring-media">
-                          <img loading="lazy" src={slide.imageSrc} alt={slide.imageAlt} />
-                          <div className="gallery-ring-overlay">
-                            <span className="gallery-ring-caption">{slide.caption}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  ))}
+        <section id="about" className="py-16 sm:py-20 md:py-24 bg-brand-primary text-white">
+          <div className="container max-w-screen-xl px-6 lg:px-8">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <div data-reveal>
+                <p className="uppercase tracking-widest text-brand-accent font-semibold mb-4">Digitalisierungspartner aus Coburg</p>
+                <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-6">
+                  Visionen digital umsetzen – klar, strukturiert, wirkungsvoll
+                </h2>
+                <p className="text-lg leading-relaxed text-surface-light/90">
+                  Als Digitalagentur in Coburg begleiten wir Unternehmen in Coburg, Bamberg und der gesamten Region Oberfranken auf ihrem Weg in die digitale Zukunft. Unsere Projekte verbinden Digitalisierung in Coburg mit Webdesign, Prozessautomatisierung und App Entwicklung Coburg, damit regionale KMU sofort spürbare Fortschritte erleben.
+                </p>
+                <p className="text-lg leading-relaxed text-surface-light/90 mt-6">
+                                  </p>
+              </div>
+              <div data-reveal className="order-last md:order-none">
+                <div className="relative mx-auto max-w-[14rem] sm:max-w-xs md:max-w-sm lg:max-w-md">
+                  <div
+                    className="hidden sm:block absolute sm:-inset-4 md:-inset-6 rounded-3xl bg-gradient-to-br from-brand-accent/15 via-white/5 to-transparent sm:blur-xl md:blur-2xl"
+                    aria-hidden="true"
+                  />
+                  <div className="relative rounded-brand-2xl p-1 sm:p-2 bg-transparent sm:bg-white/5 backdrop-blur-0 sm:backdrop-blur-sm ring-0 sm:ring-1 ring-white/10 shadow-none sm:shadow-card">
+                    <div className="rounded-brand-2xl overflow-hidden bg-white/5">
+                      <img
+                        src="/images/team.jpg"
+                        alt="Unser Team"
+                        className="w-full h-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="hidden sm:block pointer-events-none absolute inset-0 rounded-brand-2xl ring-1 ring-white/10" aria-hidden="true" />
+                  </div>
+                  
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+       
 
         <FAQSection />
 
