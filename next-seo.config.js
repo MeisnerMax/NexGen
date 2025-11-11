@@ -11,7 +11,7 @@ export default {
       description: "Ihr Partner für Digitalisierung, Webdesign, Prozessoptimierung und Softwareentwicklung.",
       images: [
         {
-          url: "https://nexgen-consulting.de/logo.png",
+          url: "https://nexgen-consulting.de/images/logo.png",
           width: 800,
           height: 600,
           alt: "Nexgen Consulting Logo",
