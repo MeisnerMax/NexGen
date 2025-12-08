@@ -83,6 +83,11 @@ const GALLERY_SLIDES = [
     imageAlt: "M365 & Lösungen",
     
   },
+  {
+    href: "https://www.stephaniemeisner.de",
+    imageSrc: "/images/stephaniemeisner.png",
+    imageAlt: "Mediatorin",
+  },
 ];
 
 export default function Home() {
