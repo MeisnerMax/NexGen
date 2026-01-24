@@ -27,11 +27,12 @@ export function Button({
   className,
   trackingEvent,
   onClick,
+  type = 'button',
   ...props
 }: ButtonProps) {
   return (
     <button
-      type="button"
+      type={type}
       className={cn(baseStyles, variants[variant], className)}
       onClick={(event) => {
         if (trackingEvent) {

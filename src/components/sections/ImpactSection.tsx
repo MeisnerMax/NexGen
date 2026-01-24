@@ -1,6 +1,6 @@
 'use client';
 
-import { type CSSProperties, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
 import { BarChartIcon, CheckIcon, ClockIcon, EyeIcon, TargetIcon } from '@/components/Icons';
@@ -13,14 +13,16 @@ export default function ImpactSection() {
     const element = chartsRef.current;
     if (!element) return;
 
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setChartsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          setChartsVisible(true);
-          observer.disconnect();
-        }
+      ([entry]) => {
+        setChartsVisible(Boolean(entry?.isIntersecting));
       },
-      { threshold: 0.1 },
+      { threshold: 0.35, rootMargin: '0px 0px -10% 0px' },
     );
 
     observer.observe(element);
@@ -106,11 +108,7 @@ export default function ImpactSection() {
         data-animate={chartsVisible ? 'true' : 'false'}
         className="mt-10 grid gap-6 lg:grid-cols-2"
       >
-        <Card
-          interactive
-          className="space-y-6 motion-safe:animate-fade-up"
-          style={{ animationDelay: '200ms' }}
-        >
+        <Card interactive className="space-y-6">
           <div className="flex items-start gap-4">
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-accent-soft)] text-[var(--color-accent)] shadow-sm">
               <TargetIcon className="h-5 w-5" />
@@ -127,60 +125,7 @@ export default function ImpactSection() {
               </p>
             </div>
           </div>
-          <div className="rounded-2xl border border-slate-200/70 bg-[var(--color-surface)]/80 p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-              Anfrage-Pipeline (pro Monat)
-            </p>
-            <div className="mt-4 rounded-2xl bg-white/70 p-5 ring-1 ring-slate-200/70">
-              <div className="space-y-4">
-                <div>
-                  <div className="flex items-center justify-between text-xs text-slate-600">
-                    <span className="font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      Besuche
-                    </span>
-                    <span className="font-semibold text-slate-900">1.240</span>
-                  </div>
-                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200/70">
-                    <div
-                      className="progress-fill progress-delay-1 h-full rounded-full bg-[var(--color-accent)]/85"
-                      style={{ '--progress': '100%' } as CSSProperties}
-                    />
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500">+40% Sichtbarkeit</p>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between text-xs text-slate-600">
-                    <span className="font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      Anfragen
-                    </span>
-                    <span className="font-semibold text-slate-900">180</span>
-                  </div>
-                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200/70">
-                    <div
-                      className="progress-fill progress-delay-2 h-full rounded-full bg-[var(--color-accent)]/75"
-                      style={{ '--progress': '35%' } as CSSProperties}
-                    />
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500">+28% Leads</p>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between text-xs text-slate-600">
-                    <span className="font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      Aufträge
-                    </span>
-                    <span className="font-semibold text-slate-900">36</span>
-                  </div>
-                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200/70">
-                    <div
-                      className="progress-fill progress-delay-3 h-full rounded-full bg-[var(--color-accent)]/65"
-                      style={{ '--progress': '18%' } as CSSProperties}
-                    />
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500">+14% Abschlüsse</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </Card>
 
         <Card
@@ -204,66 +149,7 @@ export default function ImpactSection() {
               </p>
             </div>
           </div>
-          <div className="rounded-2xl border border-slate-200/70 bg-[var(--color-surface)]/80 p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-              Durchlaufzeit nach Automatisierung
-            </p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-[auto,1fr] sm:items-center">
-              <div className="relative mx-auto h-28 w-28">
-                <svg viewBox="0 0 120 120" className="h-full w-full">
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="44"
-                    pathLength="100"
-                    className="gauge-track"
-                    strokeWidth="10"
-                    fill="none"
-                  />
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="44"
-                    pathLength="100"
-                    className="gauge-progress"
-                    strokeWidth="10"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="52"
-                    className="gauge-orbit"
-                    strokeWidth="1.4"
-                    fill="none"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="text-lg font-semibold text-slate-900">-60%</p>
-                  <p className="text-xs text-slate-600">Zeit</p>
-                </div>
-              </div>
-              <div className="space-y-2 text-sm text-slate-600">
-                <p className="text-sm font-semibold text-slate-900">
-                  Bearbeitungszeit sinkt deutlich
-                </p>
-                <p className="text-xs text-slate-600">
-                  Automatisierte Übergaben reduzieren Wartezeiten und Nacharbeit.
-                </p>
-                <div className="flex items-center gap-4 text-xs text-slate-500">
-                  <span className="inline-flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-slate-400" />
-                    Manuell
-                  </span>
-                  <span className="inline-flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
-                    Automatisiert
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </Card>
       </div>
     </Section>

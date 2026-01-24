@@ -6,7 +6,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexgen-consulting.de',
   region: 'Oberfranken, Coburg, Bamberg',
   email: 'meisner@nexgen-consulting.de',
-  phone: '+49 15259089485',
+  phone: '+49 15259089486',
   address: {
     street: 'Webergasse 30',
     city: 'Coburg',

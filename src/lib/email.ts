@@ -5,9 +5,10 @@ const hasSmtp =
   process.env.SMTP_HOST &&
   process.env.SMTP_PORT &&
   process.env.SMTP_USER &&
-  process.env.SMTP_PASS &&
-  process.env.MAIL_FROM &&
-  process.env.MAIL_TO;
+  process.env.SMTP_PASS;
+
+const mailFrom = process.env.MAIL_FROM ?? process.env.SMTP_USER ?? '';
+const mailTo = process.env.MAIL_TO ?? process.env.SMTP_USER ?? '';
 
 const transporter = hasSmtp
   ? nodemailer.createTransport({
@@ -22,7 +23,7 @@ const transporter = hasSmtp
   : null;
 
 export async function sendContactEmail(payload: ContactInput) {
-  if (!transporter) {
+  if (!transporter || !mailFrom || !mailTo) {
     if (process.env.NODE_ENV === 'development') {
       console.info('Kontaktformular (dev):', payload);
     }
@@ -30,8 +31,8 @@ export async function sendContactEmail(payload: ContactInput) {
   }
 
   await transporter.sendMail({
-    from: process.env.MAIL_FROM,
-    to: process.env.MAIL_TO,
+    from: mailFrom,
+    to: mailTo,
     subject: `Neue Kontaktanfrage von ${payload.name}`,
     text: [
       `Name: ${payload.name}`,
@@ -46,7 +47,7 @@ export async function sendContactEmail(payload: ContactInput) {
 }
 
 export async function sendLeadMagnetEmail(payload: LeadMagnetInput) {
-  if (!transporter) {
+  if (!transporter || !mailFrom || !mailTo) {
     if (process.env.NODE_ENV === 'development') {
       console.info('Lead Magnet (dev):', payload);
     }
@@ -54,8 +55,8 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetInput) {
   }
 
   await transporter.sendMail({
-    from: process.env.MAIL_FROM,
-    to: process.env.MAIL_TO,
+    from: mailFrom,
+    to: mailTo,
     subject: `Neuer Lead Magnet Download von ${payload.name}`,
     text: [
       `Name: ${payload.name}`,
@@ -66,7 +67,7 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetInput) {
 }
 
 export async function sendLeadMagnetDelivery(payload: LeadMagnetInput, downloadUrl: string) {
-  if (!transporter) {
+  if (!transporter || !mailFrom) {
     if (process.env.NODE_ENV === 'development') {
       console.info('Lead Magnet Versand (dev):', { ...payload, downloadUrl });
     }
@@ -74,7 +75,7 @@ export async function sendLeadMagnetDelivery(payload: LeadMagnetInput, downloadU
   }
 
   await transporter.sendMail({
-    from: process.env.MAIL_FROM,
+    from: mailFrom,
     to: payload.email,
     subject: 'Ihr PDF: 7 Prozesse, die jedes KMU automatisieren sollte',
     text: [
