@@ -2,10 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
-    "./pages/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
-    "./hooks/**/*.{js,jsx,ts,tsx}",
-    "./data/**/*.{js,jsx,ts,tsx}"
+    "./src/**/*.{js,jsx,ts,tsx,mdx}"
   ],
   theme: {
     container: {
@@ -22,13 +19,13 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          primary: '#0B1F3A',
-          accent: '#FF7A00',
-          accentSoft: '#FFE0C2'
+          primary: '#0C2530',
+          accent: '#158F6A',
+          accentSoft: '#E2F5EE'
         },
         surface: {
-          light: '#F3F4F6',
-          muted: '#6B7280'
+          light: '#F4F6F5',
+          muted: '#415165'
         },
         state: {
           success: '#16A34A',
@@ -37,8 +34,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        heading: ['Inter', 'Manrope', 'SF Pro Display', ...defaultTheme.fontFamily.sans],
-        body: ['Inter', 'SF Pro Text', ...defaultTheme.fontFamily.sans]
+        heading: ['var(--font-heading)', ...defaultTheme.fontFamily.sans],
+        body: ['var(--font-body)', ...defaultTheme.fontFamily.sans]
       },
       borderRadius: {
         'brand-xl': '1rem',

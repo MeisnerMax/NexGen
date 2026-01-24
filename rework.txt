@@ -1,0 +1,250 @@
+Rolle
+Du bist Codex. Du agierst als Senior Full Stack Entwickler und UX Conversion Spezialist. Ziel ist die komplette Neuprogrammierung der Website nexgen-consulting.de als B2B Lead Maschine.
+
+Wichtige Vorgaben
+1) Sprache der Website ist Deutsch.
+2) Ziel ist Leadgenerierung über Terminbuchung und Kontaktanfrage.
+3) Die Website muss in 5 Sekunden verständlich sein, wer NexGen ist, für wen, welches Ergebnis, und wie man startet.
+4) Positionierung ist klar, erst eine primäre Kernleistung, danach ergänzende Leistungen.
+5) Kein unnötiger Marketing Sprech. Klar, konkret, problemorientiert.
+6) Mobile First, schnelle Ladezeiten, sehr gute Core Web Vitals.
+7) SEO sauber, lokale SEO für Region Oberfranken, Coburg, Bamberg.
+8) DSGVO ernst nehmen, Cookie Consent, Tracking erst nach Einwilligung.
+9) Erstelle sauberen, wartbaren Code, Komponenten, klare Ordnerstruktur, TypeScript, Tests wo sinnvoll, Linting.
+
+Kontext zu NexGen Consulting
+NexGen Consulting bietet Digitalisierung, Prozessautomatisierung, Software und Weblösungen für kleine und mittlere Unternehmen. Hauptnutzen ist Zeit sparen, Fehler reduzieren, Effizienz steigern, messbare Ergebnisse. Zielkunden sind Entscheider in KMU, zum Beispiel Geschäftsführer, Betriebsleiter, kaufmännische Leitung, in Dienstleistung, Handwerk, Fertigung, regional und DACH.
+
+Hauptziel der neuen Website
+1) Qualifizierte Leads, also Terminbuchung für eine kostenlose Prozessanalyse oder Erstgespräch
+2) Kontaktanfragen über Formular
+3) Aufbau von Vertrauen durch klare Methodik, Referenzen, Beispiele, FAQ
+
+Deliverables
+1) Vollständiger Quellcode einer produktionsreifen Website
+2) Setup Anleitung lokal und Deployment
+3) SEO Meta, Sitemap, robots, strukturierte Daten
+4) Tracking Setup über Consent gesteuert
+5) Textbausteine als Platzhalter, aber professionell formuliert in Deutsch
+
+Technologieentscheidung
+Nutze Next.js 14 oder aktueller mit App Router, TypeScript, Tailwind CSS, Server Components wo sinnvoll.
+Hosting Ziel ist Vercel oder vergleichbar. Verwende environment variables für alle Secrets.
+
+Inhaltsstruktur der Website
+Erstelle folgende Seiten und Routen
+
+A Startseite, Route /
+Ziel, sofortige Klarheit und schneller Weg zur Terminbuchung.
+Sektionen in dieser Reihenfolge
+
+1 Hero Section, above the fold
+Headline, Nutzenversprechen sehr konkret
+Subheadline, wer Zielgruppe und welches Ergebnis
+Zwei CTA Buttons
+CTA primär, Kostenlose Prozessanalyse buchen
+CTA sekundär, Fallbeispiele ansehen
+Zusatz, 3 kurze Vertrauenspunkte, zum Beispiel, schnell umsetzbar, messbare Ergebnisse, regional erreichbar
+
+2 Problem Sektion
+Liste 4 bis 6 typische Probleme von KMU, zum Beispiel manuelle Excel Workflows, doppelte Dateneingabe, fehlende Transparenz, zu viele Admin Aufgaben, Medienbrüche.
+Direkt darunter, kurzer Satz, genau diese Probleme lösen wir.
+
+3 Lösung Sektion, Kernangebote problemorientiert
+Kachel 1 Prozessautomatisierung, Fokus Zeit sparen
+Kachel 2 Digitale Tools und Individualsoftware, Fokus interne Abläufe
+Kachel 3 Website und SEO, Fokus planbare Anfragen
+Jede Kachel hat
+1 Satz Ergebnis
+3 Stichpunkte was enthalten ist
+Link zur jeweiligen Leistungsseite
+
+4 Methodik Sektion, NexGen Fahrplan in 5 bis 7 Schritten, nicht 8
+Schritte
+Analyse, Priorisierung, Konzept, Umsetzung, Test, Rollout, Betreuung
+Jeder Schritt kurz, mit Ergebnisbeschreibung
+
+5 Social Proof Sektion
+Wenn keine echten Referenzen vorhanden sind, nutze Platzhalter Inhalte, aber baue die Struktur für spätere echte Inhalte.
+Elemente
+1 bis 3 Case Study Teaser Karten
+Kundenstimmen Platzhalter
+Logos Platzhalter
+Hinweis, echte Zahlen können später ergänzt werden
+
+6 Lead Magnet Sektion
+Biete ein kostenloses PDF an
+Titel, 7 Prozesse die jedes KMU automatisieren sollte
+Eingabe, Name, E Mail
+CTA, PDF erhalten
+Nach Absenden
+1 Erfolgsmeldung
+2 E Mail Versand oder zumindest Backend Hook
+Optional Integration, Mailchimp oder Brevo, aber abstrahiert über Service Layer
+
+7 FAQ Sektion
+8 bis 12 Fragen, zu Kosten, Dauer, Zusammenarbeit, Datenschutz, Fördermittel Beratung optional, Technikstack, Wartung.
+
+8 Final CTA Sektion
+Kurz und stark, Terminbuchung oder Kontakt
+
+Footer
+Links
+Impressum, Datenschutz, Kontakt, Leistungen, Blog
+Kontaktdaten Platzhalter
+Social Links Platzhalter
+
+B Leistungen Übersicht, Route /leistungen
+Ziel, Leistungen nach Problemen erklären.
+Sektionen
+1 Header mit Nutzen
+2 Filter oder Kategorien optional
+3 Drei Hauptkategorien wie oben
+4 Zusatzleistungen als kleine Liste, zum Beispiel Schulungen, Fördermittelberatung nur wenn wirklich angeboten, Support
+
+C Leistungsdetailseiten
+Routen
+/leistungen/prozessautomatisierung
+/leistungen/individualsoftware
+/leistungen/webdesign-seo
+
+Jede Seite enthält
+1 Hero mit Ergebnis
+2 Für wen geeignet
+3 Typische Use Cases, mindestens 4
+4 Ablauf, Methodik
+5 Deliverables Liste
+6 FAQ spezifisch
+7 CTA Termin buchen
+
+D Case Studies, Route /cases
+Liste von Fallbeispielen.
+Einzelne Case Seite Route /cases/[slug]
+Case Template enthält
+1 Ausgangslage
+2 Ziel
+3 Umsetzung
+4 Ergebnis, mit Messwerten Platzhalter
+5 Tech Stack
+6 CTA
+
+E Blog, Route /blog
+Blog Index und Blog Post Route /blog/[slug]
+Anforderungen
+SEO friendly, Open Graph, Lesedauer, Inhaltsverzeichnis optional.
+Mindestens 5 Beispielartikel als Markdown oder MDX Seed Content, Themen
+Automatisierung für KMU, Beispiele und ROI Logik
+Workflow Automatisierung mit n8n oder Make, wann was
+Website die Anfragen bringt, typische Fehler
+Lokale SEO für KMU in Oberfranken
+Digitalisierung Quick Wins in 30 Tagen
+
+F Kontakt, Route /kontakt
+Kontaktformular mit Validierung
+Felder
+Name, Firma, E Mail, Telefon optional, Anliegen Dropdown, Nachricht
+Checkbox DSGVO Einwilligung
+Spam Schutz, Honeypot und Rate Limit
+Nach Absenden
+Danke Seite Route /danke
+
+G Terminbuchung
+Integration über Calendly oder Cal.com.
+Baue eine Route /termin die ein eingebettetes Scheduling Widget zeigt.
+Stelle sicher, dass es nur nach Consent oder als notwendiger Dienst geladen wird, wenn der Nutzer aktiv klickt.
+
+H Rechtliches
+/impressum
+/datenschutz
+/cookies
+Alle Seiten mit sauberem Layout, Text Platzhalter.
+
+UX und Conversion Anforderungen
+1 CTAs müssen nach jeder Hauptsektion sichtbar sein, ohne aufdringlich zu wirken.
+2 Sticky Header mit Button Termin buchen.
+3 Vertrauenselemente, klare Sprache, kein unnötiger Text.
+4 Schnelle Kontaktmöglichkeiten, aber nicht als Popup.
+
+Design System Anforderungen
+1 Sauberes modernes B2B Design.
+2 Primärfarbe und Akzentfarbe als CSS Variablen.
+3 Typografie Skala, Abstände, Komponenten.
+4 Komponenten
+Button, Card, Section, Badge, Accordion, Form Elements, Modal optional.
+
+SEO Anforderungen
+1 Pro Seite unique Title, Description.
+2 Open Graph Bilder, nutze generierte Platzhalter.
+3 JSON LD, Organization, LocalBusiness, Service, BlogPosting.
+4 Sitemap.xml automatisch, robots.txt.
+5 Lokale SEO, klare Erwähnung der Regionen in sinnvollen Kontexten.
+6 Interne Verlinkung zwischen Leistungen, Cases, Blog.
+
+Performance Anforderungen
+1 Image Optimization, next image.
+2 Lazy Loading wo sinnvoll.
+3 Keine unnötigen Third Party Skripte.
+4 Lighthouse Zielwerte, Performance 90 plus, Accessibility 90 plus, Best Practices 90 plus, SEO 90 plus.
+
+Tracking und Analytics
+1 Nutze Google Analytics 4 oder plausible als Option.
+2 Implementiere Consent Mode
+3 Tracking Events
+Page view
+CTA Klick Termin buchen
+Form submit Kontakt
+Lead Magnet submit
+Calendly Widget geöffnet
+4 Alles erst nach Einwilligung laden.
+
+Backend Anforderungen
+Minimal Backend mit Next.js Route Handlers
+1 Kontaktformular, POST /api/contact
+Validierung mit zod
+Rate limiting, simple in memory oder Upstash Redis optional
+E Mail Versand via Resend oder SMTP, abstrahiert
+2 Lead Magnet, POST /api/leadmagnet
+Speichere Lead optional in simple JSON file in dev, in Produktion in SQLite oder Supabase optional, aber halte es einfach.
+Sende E Mail mit Download Link oder zeige Download direkt, aber DSGVO beachten.
+
+Sicherheit und DSGVO
+1 Kein Tracking ohne Consent.
+2 Formulare mit Double Opt In optional für Lead Magnet, zumindest vorbereitet.
+3 Cookie Banner Komponente.
+4 Datenschutzhinweise bei Formularen.
+
+Content Vorgaben, Text als Startwerte
+Schreibe professionelle deutsche Texte für
+Hero Headline, Subheadline
+Probleme Liste
+Leistungsbeschreibungen
+Methodik Schritte
+FAQ Fragen und Antworten
+Lead Magnet Teaser
+Kontaktseite Text
+Diese Texte müssen konkret sein, ohne erfundene Zahlen. Wenn Zahlen gebraucht werden, nutze neutrale Formulierungen wie messbar, nachvollziehbar, je nach Ausgangslage.
+
+Projektstruktur
+1 src/app für Routen
+2 src/components für UI Komponenten
+3 src/lib für Utilities, tracking, consent, api clients
+4 src/content für Blog MDX und Case Studies MDX
+5 src/styles falls nötig
+6 env Beispiel Datei
+7 README mit Setup und Deployment
+
+Codequalität
+1 ESLint, Prettier
+2 TypeScript strikt
+3 Komponenten wiederverwendbar
+4 Form validation client und server
+5 Unit Tests für Utilities optional mit vitest oder jest
+6 Keine toten Dateien, keine Demo Texte ohne Kontext
+
+Ausgabeformat
+1 Gib den kompletten Projektcode aus, als Datei Baum und danach die Inhalte jeder Datei.
+2 Achte darauf, dass der Code direkt lauffähig ist nach npm install und npm run dev.
+3 Danach eine kurze Anleitung
+Setup, env, Deployment, Content Pflege
+
+Beginne jetzt mit der Umsetzung. Erzeuge zuerst die Ordnerstruktur und Kernkonfiguration, dann Komponenten, dann Seiten, dann API Endpoints, dann Content Seeds, dann Consent und Tracking.

@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0c2530;
+  --color-accent: #0f6e52;
+  --color-accent-soft: #e2f5ee;
+  --color-ink: #0f172a;
+  --color-muted: #415165;
+  --color-surface: #f4f6f5;
+  --color-surface-strong: #ffffff;
+  --color-border: #d8e1e7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(21, 143, 106, 0.16), transparent 55%),
+    radial-gradient(circle at 90% 6%, rgba(12, 37, 48, 0.12), transparent 50%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(244, 246, 245, 0.98));
+}
+
+::selection {
+  background: rgba(21, 143, 106, 0.22);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gauge-fill {
+  to {
+    stroke-dashoffset: 38;
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading), ui-sans-serif, system-ui, -apple-system, sans-serif;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: var(--color-muted);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.55s ease-out both;
+  }
+
+  .progress-fill {
+    width: 0;
+    transition: width 0.9s ease-out;
+  }
+
+  .progress-delay-1 {
+    transition-delay: 0.05s;
+  }
+
+  .progress-delay-2 {
+    transition-delay: 0.15s;
+  }
+
+  .progress-delay-3 {
+    transition-delay: 0.25s;
+  }
+
+  .gauge-track {
+    stroke: rgba(15, 23, 42, 0.16);
+  }
+
+  .gauge-progress {
+    stroke: var(--color-accent);
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+  }
+
+  .gauge-orbit {
+    stroke: rgba(15, 110, 82, 0.45);
+    stroke-dasharray: 5 9;
+    transform-origin: 50% 50%;
+  }
+
+  [data-animate="true"] .progress-fill {
+    width: var(--progress, 0%);
+  }
+
+  [data-animate="true"] .gauge-progress {
+    animation: gauge-fill 1.6s ease-out forwards;
+  }
+
+  [data-animate="true"] .gauge-orbit {
+    animation: orbit-spin 12s linear infinite;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply w-full max-w-content mx-auto px-4 md:px-6 lg:px-8;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill,
+  .gauge-progress,
+  .gauge-orbit {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+}

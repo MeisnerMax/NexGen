@@ -1,0 +1,213 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 5 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 2524 >>
+stream
+BT
+/F1 11 Tf
+60 782 Td
+/F1 20 Tf
+(7 Prozesse, die jedes KMU automatisieren) Tj
+0 -26 Td
+(sollte) Tj
+0 -26 Td
+/F1 11 Tf
+0 -12 Td
+/F1 12 Tf
+(Leitfaden für schnelle Entlastung und klare Abläufe) Tj
+0 -16 Td
+/F1 11 Tf
+0 -14 Td
+(Dieser Leitfaden zeigt Prozesse, die in vielen KMU Zeit kosten und Fehler) Tj
+0 -16 Td
+(verursachen. Ziel ist nicht Technik um der Technik willen, sondern weniger manuelle) Tj
+0 -16 Td
+(Schritte, klare Übergaben und saubere Daten.) Tj
+0 -16 Td
+0 -8 Td
+/F1 14 Tf
+(So nutzen Sie den Leitfaden) Tj
+0 -20 Td
+/F1 11 Tf
+0 -6 Td
+(- Starten Sie mit dem größten Engpass und nicht mit dem spannendsten Tool.) Tj
+0 -16 Td
+(- Skizzieren Sie den Zielprozess: Wer macht was, wann und mit welchen Daten.) Tj
+0 -16 Td
+(- Prüfen Sie Schnittstellen: Wo müssen Daten heute doppelt eingegeben werden?) Tj
+0 -16 Td
+(- Setzen Sie zuerst eine kleine Automatisierung um und bauen dann aus.) Tj
+0 -16 Td
+0 -8 Td
+/F1 14 Tf
+(Die 7 Prozesse) Tj
+0 -20 Td
+/F1 11 Tf
+0 -6 Td
+(1\) Angebot bis Rechnung) Tj
+0 -16 Td
+0 -8 Td
+(- Problem: Angebote liegen in Excel, die Übergabe an Auftrag und Rechnung kostet) Tj
+0 -16 Td
+(  Zeit.) Tj
+0 -16 Td
+(- Automatisierung: Angebotsvorlage -> Auftrag -> Rechnungsentwurf mit klaren) Tj
+0 -16 Td
+(  Statusfeldern.) Tj
+0 -16 Td
+(- Wirkung: Weniger Rückfragen und schnellere Abrechnung.) Tj
+0 -16 Td
+0 -8 Td
+(2\) Kundenanfragen und Terminierung) Tj
+0 -16 Td
+0 -8 Td
+(- Problem: Anfragen landen in Postfächern und bleiben liegen.) Tj
+0 -16 Td
+(- Automatisierung: Formular -> CRM -> automatische Rückmeldung -> Terminlink.) Tj
+0 -16 Td
+(- Wirkung: Schnellere Reaktion und bessere Qualifizierung.) Tj
+0 -16 Td
+0 -8 Td
+(3\) Projektstatus und Übergaben) Tj
+0 -16 Td
+0 -8 Td
+(- Problem: Projektwissen steckt in E-Mails und Einzelpersonen.) Tj
+0 -16 Td
+(- Automatisierung: Checklisten, Statusupdates und klare Verantwortliche in Teams oder) Tj
+0 -16 Td
+(  Planner.) Tj
+0 -16 Td
+(- Wirkung: Weniger Nachfragen und stabile Abläufe.) Tj
+0 -16 Td
+0 -8 Td
+(4\) Einkauf und Freigaben) Tj
+0 -16 Td
+0 -8 Td
+(- Problem: Bestellungen werden per E-Mail freigegeben und sind schwer) Tj
+0 -16 Td
+(  nachzuverfolgen.) Tj
+0 -16 Td
+(- Automatisierung: Freigabe-Workflow mit Status und Budgetgrenzen.) Tj
+0 -16 Td
+(- Wirkung: Transparenz, weniger Reibung und klare Verantwortlichkeiten.) Tj
+0 -16 Td
+0 -8 Td
+(5\) Zeiterfassung und Nachkalkulation) Tj
+0 -16 Td
+0 -8 Td
+(- Problem: Zeiten fehlen oder sind nicht auswertbar.) Tj
+0 -16 Td
+(- Automatisierung: Digitale Erfassung -> Projektkosten -> automatischer Report.) Tj
+ET
+
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 6 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1863 >>
+stream
+BT
+/F1 11 Tf
+60 782 Td
+(- Wirkung: Bessere Steuerung und saubere Nachkalkulation.) Tj
+0 -16 Td
+0 -8 Td
+(6\) HR Onboarding und Offboarding) Tj
+0 -16 Td
+0 -8 Td
+(- Problem: Aufgaben werden vergessen, Zugriffe sind uneinheitlich.) Tj
+0 -16 Td
+(- Automatisierung: Checklisten, Rollenrechte und automatische Zuweisungen.) Tj
+0 -16 Td
+(- Wirkung: Schneller Start und weniger Sicherheitsrisiko.) Tj
+0 -16 Td
+0 -8 Td
+(7\) Reporting und Management-Dashboard) Tj
+0 -16 Td
+0 -8 Td
+(- Problem: Zahlen werden manuell zusammengestellt und sind veraltet.) Tj
+0 -16 Td
+(- Automatisierung: Daten aus CRM, ERP oder Projekttool in ein klares Dashboard.) Tj
+0 -16 Td
+(- Wirkung: Schnellere Entscheidungen und ein gemeinsames Zahlenbild.) Tj
+0 -16 Td
+0 -8 Td
+/F1 14 Tf
+(Priorisierung in 4 Schritten) Tj
+0 -20 Td
+/F1 11 Tf
+0 -6 Td
+(- Wirkung: Wie viel Zeit oder Risiko wird reduziert?) Tj
+0 -16 Td
+(- Volumen: Wie häufig läuft der Prozess pro Woche?) Tj
+0 -16 Td
+(- Datenlage: Sind die benötigten Daten bereits vorhanden?) Tj
+0 -16 Td
+(- Pilot: Starten Sie mit einem Prozess, der schnell testbar ist.) Tj
+0 -16 Td
+0 -8 Td
+/F1 14 Tf
+(Checkliste für den Start) Tj
+0 -20 Td
+/F1 11 Tf
+0 -6 Td
+(- Prozessverantwortliche benennen) Tj
+0 -16 Td
+(- Ziel und Erfolgskriterium definieren) Tj
+0 -16 Td
+(- Datenquellen und Schnittstellen erfassen) Tj
+0 -16 Td
+(- Datenschutz und Zugriffe klären) Tj
+0 -16 Td
+(- Team früh einbinden und testen) Tj
+0 -16 Td
+0 -8 Td
+/F1 14 Tf
+(Nächster Schritt) Tj
+0 -20 Td
+/F1 11 Tf
+0 -6 Td
+(Wenn Sie wissen möchten, welcher Prozess bei Ihnen den größten Hebel hat, buchen) Tj
+0 -16 Td
+(Sie eine kostenlose Prozessanalyse. Wir liefern eine klare Roadmap und zeigen den) Tj
+0 -16 Td
+(schnellsten Einstieg.) Tj
+0 -16 Td
+0 -8 Td
+(Kontakt: meisner@nexgen-consulting.de | +49 15259089485) Tj
+0 -16 Td
+0 -8 Td
+(Termin: https://app.cal.eu/max-meisner-3p3wma) Tj
+0 -16 Td
+ET
+
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000002823 00000 n 
+0000002949 00000 n 
+0000004864 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4934
+%%EOF
