@@ -19,13 +19,13 @@ export default function LeadMagnetSection() {
         >
           <p className="text-sm font-semibold text-slate-900">Was Sie im PDF erhalten</p>
           <ul className="space-y-2 text-sm text-slate-700">
-            <li>• Die häufigsten Automatisierungshebel in KMU</li>
-            <li>• Priorisierung nach Wirkung, Aufwand und Risiko</li>
-            <li>• Beispiele aus Dienstleistung, Handwerk und Fertigung</li>
-            <li>• Fragen, mit denen Sie intern sofort starten können</li>
+            <li>• Checkliste mit typischen Automatisierungshebeln in KMU</li>
+            <li>• Priorisierungsmatrix nach Wirkung, Aufwand und Risiko</li>
+            <li>• KPI-Set für messbare Entlastung im Tagesgeschäft</li>
+            <li>• Erste Schritte, die Sie intern sofort anstoßen können</li>
           </ul>
           <p className="text-xs text-slate-600">
-            Versand per E-Mail. Kein Spam, kein Weiterverkauf.
+            Versand per E-Mail. Nur Ihre E-Mail-Adresse, keine Newsletter-Flut.
           </p>
         </Card>
         <Card className="motion-safe:animate-fade-up" style={{ animationDelay: '140ms' }}>

@@ -57,9 +57,8 @@ export async function sendLeadMagnetEmail(payload: LeadMagnetInput) {
   await transporter.sendMail({
     from: mailFrom,
     to: mailTo,
-    subject: `Neuer Lead Magnet Download von ${payload.name}`,
+    subject: 'Neuer Lead Magnet Download',
     text: [
-      `Name: ${payload.name}`,
       `E-Mail: ${payload.email}`,
       'Lead Magnet: 7 Prozesse, die jedes KMU automatisieren sollte',
     ].join('\n'),
@@ -79,7 +78,7 @@ export async function sendLeadMagnetDelivery(payload: LeadMagnetInput, downloadU
     to: payload.email,
     subject: 'Ihr PDF: 7 Prozesse, die jedes KMU automatisieren sollte',
     text: [
-      `Hallo ${payload.name},`,
+      'Guten Tag,',
       '',
       'vielen Dank für Ihr Interesse. Hier ist der Download-Link:',
       downloadUrl,

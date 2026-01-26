@@ -1,7 +1,7 @@
 export const trustPoints = [
-  'Startklar in klaren Etappen statt Großprojekten',
-  'Messbare Entlastung ab dem ersten Prozess',
-  'Regional vor Ort in Coburg & Bamberg',
+  'Start mit dem größten Engpass statt Großprojekt',
+  'Messbare KPIs: Bearbeitungszeit, Fehlerquote, Durchlaufzeit',
+  'Regional in Coburg & Bamberg, DACH-weit betreut',
 ];
 
 export const problemList = [
@@ -95,5 +95,5 @@ export const homeFaqs = [
 export const leadMagnet = {
   title: '7 Prozesse, die jedes KMU automatisieren sollte',
   description:
-    'Ein praxisnaher Leitfaden mit typischen Engpässen, Priorisierung und konkreten Ansatzpunkten für schnelle Entlastung.',
+    'Checkliste, Priorisierungsmatrix und KPI-Set, um schnelle Entlastung messbar zu machen.',
 };

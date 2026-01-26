@@ -33,12 +33,18 @@ export default function SiteHeader() {
                 className="relative"
                 onMouseEnter={() => setActiveDropdown(link.href)}
                 onMouseLeave={() => setActiveDropdown(null)}
+                onFocusCapture={() => setActiveDropdown(link.href)}
+                onBlurCapture={(event) => {
+                  const nextTarget = event.relatedTarget as Node | null;
+                  if (!event.currentTarget.contains(nextTarget)) {
+                    setActiveDropdown(null);
+                  }
+                }}
               >
                 <div className="flex items-center gap-2">
                   <Link
                     href={link.href}
                     className="text-sm font-medium text-slate-700 hover:text-slate-900"
-                    onClick={() => setActiveDropdown(null)}
                     onFocus={() => setActiveDropdown(link.href)}
                   >
                     {link.label}
@@ -46,7 +52,7 @@ export default function SiteHeader() {
                   <span className="text-xs text-slate-400">▾</span>
                 </div>
                 <div
-                  className={`absolute left-0 top-full mt-3 w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl transition ${
+                  className={`absolute left-0 top-full w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl transition ${
                     activeDropdown === link.href
                       ? 'pointer-events-auto opacity-100'
                       : 'pointer-events-none opacity-0'
@@ -75,20 +81,29 @@ export default function SiteHeader() {
             ),
           )}
         </nav>
-        <div className="hidden md:block">
-          <ButtonLink href="/termin" trackingEvent={trackingEvents.ctaBookingClick}>
-            Termin buchen
+        <div className="flex items-center gap-3">
+          <div className="hidden md:block">
+            <ButtonLink href="/termin" trackingEvent={trackingEvents.ctaBookingClick}>
+              Prozessanalyse buchen
+            </ButtonLink>
+          </div>
+          <ButtonLink
+            href="/termin"
+            trackingEvent={trackingEvents.ctaBookingClick}
+            className="px-4 py-2 text-xs md:hidden"
+          >
+            Termin sichern
           </ButtonLink>
+          <button
+            type="button"
+            className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((value) => !value)}
+          >
+            Menü
+          </button>
         </div>
-        <button
-          type="button"
-          className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((value) => !value)}
-        >
-          Menü
-        </button>
       </div>
       {open && (
         <div id="mobile-menu" className="border-t border-slate-200 bg-white/98 md:hidden">
@@ -123,7 +138,7 @@ export default function SiteHeader() {
               trackingEvent={trackingEvents.ctaBookingClick}
               className="w-full"
             >
-              Termin buchen
+              Prozessanalyse buchen
             </ButtonLink>
           </div>
         </div>

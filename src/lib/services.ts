@@ -15,32 +15,32 @@ export const primaryServices: ServiceDetail[] = [
   {
     slug: 'prozessautomatisierung',
     title: 'Prozessautomatisierung',
-    tagline: 'Zeit sparen, Fehler vermeiden, Transparenz gewinnen',
+    tagline: 'Medienbrüche beseitigen, Durchlaufzeiten senken',
     summary:
-      'Wir automatisieren die Prozesskette, die im Alltag am meisten Zeit kostet, damit Teams weniger manuelle Schritte haben und Fehler sinken.',
+      'Wenn Excel, E-Mail und mehrere Systeme den Alltag bremsen, automatisieren wir die Prozesskette mit klaren Verantwortlichkeiten und messbaren KPIs.',
     result:
-      'Weniger manuelle Schritte, klare Statusmeldungen und saubere Übergaben in Ihren Kernprozessen.',
+      'Bearbeitungszeit pro Vorgang sinkt messbar, Status sind transparent und Übergaben laufen sauber.',
     highlights: [
-      'End-to-End Analyse mit Impact-Plan',
-      'Automationen mit passenden Tools und Schnittstellen',
-      'Monitoring, Alerts und klare Übergaben',
+      'Engpass-Analyse inkl. KPI-Definition',
+      'Automationen zwischen CRM, ERP und Buchhaltung',
+      'Monitoring, Alerts und klare Verantwortlichkeiten',
     ],
     forWhom: [
       'Geschäftsführer, Betriebsleiter, kaufmännische Leitung in KMU',
-      'Teams mit wiederkehrenden Admin-Aufgaben',
-      'Unternehmen mit gewachsenen Excel- und E-Mail-Prozessen',
+      'Teams mit hoher manueller Dateneingabe und Medienbrüchen',
+      'Unternehmen, die verlässliche Status- und Freigabeprozesse brauchen',
     ],
     useCases: [
-      'Angebot → Auftrag → Rechnung ohne Medienbrüche',
+      'Angebot → Auftrag → Rechnung ohne Doppelerfassung',
       'Datenübernahme zwischen CRM, ERP und Buchhaltung',
-      'Transparente Statusmeldungen für Kundenprojekte',
-      'Freigabe- und Prüfprozesse ohne Medienbrüche',
+      'Statusmeldungen und Übergaben in Kundenprojekten',
+      'Freigabe- und Prüfprozesse mit klaren Verantwortlichen',
     ],
     deliverables: [
-      'Priorisierte Prozesslandkarte',
+      'Priorisierte Prozesslandkarte mit Messpunkten',
       'Umgesetzte Workflows inkl. Tests',
       'Dokumentation, Schulung und Übergaben',
-      'Betriebs- und Optimierungsplan',
+      'KPI-Reporting und Optimierungsplan',
     ],
     faq: [
       {
@@ -58,31 +58,31 @@ export const primaryServices: ServiceDetail[] = [
   {
     slug: 'individualsoftware',
     title: 'Tools & Software',
-    tagline: 'Abläufe bündeln, Entscheidungen beschleunigen',
+    tagline: 'Insellösungen ersetzen, Entscheidungen beschleunigen',
     summary:
-      'Wenn Standardsoftware nicht passt, entwickeln wir schlanke Tools, die Ihren Prozess abbilden und Informationen zentral verfügbar machen.',
-    result: 'Ein Werkzeug, das Teams wirklich nutzen, weil es den Alltag vereinfacht.',
+      'Wenn Standardsoftware nicht passt und Daten verteilt sind, entwickeln wir schlanke Tools, die Prozesse bündeln und Informationen zentral verfügbar machen.',
+    result: 'Ein Werkzeug, das Teams nutzen, weil es Entscheidungen beschleunigt und Daten sauber hält.',
     highlights: [
-      'Prototypen zur schnellen Validierung',
-      'Saubere Datenmodelle und Rollenrechte',
+      'Prototypen zur schnellen Validierung im Fachbereich',
+      'Saubere Datenmodelle, Rollenrechte und Audit-Logik',
       'Integration in bestehende Systeme',
     ],
     forWhom: [
-      'KMU mit individuellen Abläufen',
-      'Teams, die Informationen verstreut verwalten',
-      'Unternehmen, die auf skalierbare Prozesse wachsen wollen',
+      'KMU mit individuellen Abläufen und vielen Ausnahmen',
+      'Teams, die Informationen in Excel, E-Mail und Tools verteilen',
+      'Unternehmen, die skalierbare Prozesse und klare Datenhaltung brauchen',
     ],
     useCases: [
       'Interne Portale für Projekte und Ressourcen',
-      'Schnittstellen zwischen Fachabteilungen',
-      'Qualitätssicherung und Prüfprotokolle',
-      'Service- und Wartungsmanagement',
+      'Schnittstellen zwischen Fachabteilungen und Systemen',
+      'Qualitätssicherung, Prüfprotokolle und Freigaben',
+      'Service- und Wartungsmanagement mit Tickets',
     ],
     deliverables: [
       'UX-Konzept mit klickbarem Prototyp',
-      'Entwickelte Lösung inkl. Tests',
+      'Produktive Lösung inkl. Tests',
       'Schnittstellen und Datenmigration',
-      'Onboarding und Betriebskonzept',
+      'Onboarding, Betriebskonzept und Weiterentwicklung',
     ],
     faq: [
       {
@@ -100,30 +100,30 @@ export const primaryServices: ServiceDetail[] = [
   {
     slug: 'webdesign-seo',
     title: 'Website & SEO',
-    tagline: 'Websites, die sichtbar sind und Anfragen ausloesen',
+    tagline: 'Gefunden werden, Vertrauen aufbauen, Anfragen planbar machen',
     summary:
-      'Wir bauen Websites, die Ihre Positionierung klar machen, Vertrauen schaffen und qualifizierte Anfragen liefern.',
-    result: 'Klare Botschaft, starke Conversion und lokale Sichtbarkeit in Ihrer Region.',
+      'Wenn Anfragen ausbleiben oder Ihre Website nicht klar positioniert ist, schärfen wir Nutzen, Struktur und Sichtbarkeit.',
+    result: 'Klare Botschaft, messbare Anfragen und lokale Sichtbarkeit in Ihrer Region.',
     highlights: [
-      'Positionierung und Copy, die verstanden wird',
+      'Positionierung und Copy, die sofort verstanden wird',
       'Performance und Core Web Vitals im Fokus',
-      'Lokale SEO für Oberfranken und DACH',
+      'Lokale SEO inkl. Structured Data & Google Business',
     ],
     forWhom: [
       'KMU, die online besser gefunden werden wollen',
       'Dienstleister mit erklärungsbedürftigen Angeboten',
-      'Unternehmen mit wenig Zeit für Marketingsteuerung',
+      'Unternehmen, die planbare Anfragen statt Zufall wollen',
     ],
     useCases: [
-      'Neue Website mit klaren CTAs',
+      'Neue Website mit klaren CTAs und Messpunkten',
       'SEO-Relaunch mit bestehendem Content',
       'Landingpages für konkrete Leistungen',
-      'Content-Struktur für mehr Sichtbarkeit',
+      'Content-Struktur für lokale Sichtbarkeit',
     ],
     deliverables: [
       'Informationsarchitektur und Designsystem',
-      'Implementierte Website inkl. Tracking',
-      'SEO-Setup und strukturierte Daten',
+      'Implementierte Website inkl. Consent & Tracking',
+      'SEO-Setup, Structured Data und lokale Signale',
       'Content-Templates für spätere Pflege',
     ],
     faq: [
@@ -145,7 +145,7 @@ export const focusAreas = [
   {
     title: 'Microsoft 365 Umfeld',
     summary:
-      'Wir strukturieren Excel-, Teams- und SharePoint-Prozesse so, dass Informationen sauber fließen und Abläufe nachvollziehbar bleiben.',
+      'Wir strukturieren Excel-, Teams- und SharePoint-Prozesse so, dass Informationen sauber fließen und Abläufe messbar nachvollziehbar bleiben.',
     highlights: [
       'Excel- und Teams-Workflows konsolidieren',
       'SharePoint als Prozess- und Datenhub nutzen',

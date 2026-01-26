@@ -3,8 +3,8 @@ import { Section, SectionHeader } from '@/components/Section';
 import SchedulingEmbed from '@/components/SchedulingEmbed';
 
 export const metadata: Metadata = {
-  title: 'Termin buchen',
-  description: 'Buchen Sie eine kostenlose Prozessanalyse mit NexGen Consulting.',
+  title: 'Prozessanalyse buchen',
+  description: 'Buchen Sie eine kostenlose Prozessanalyse mit klaren nächsten Schritten.',
 };
 
 export default function BookingPage() {
@@ -13,7 +13,7 @@ export default function BookingPage() {
       <SectionHeader
         eyebrow="Termin"
         title="Kostenlose Prozessanalyse buchen"
-        description="Wählen Sie einen passenden Slot. Wir klären Ziele, Engpässe und nächste Schritte."
+        description="Wählen Sie einen passenden Slot. Wir klären Engpässe und legen konkrete nächste Schritte fest."
       />
       <div className="mt-10">
         <SchedulingEmbed />

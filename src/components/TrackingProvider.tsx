@@ -16,6 +16,7 @@ export default function TrackingProvider() {
   useEffect(() => {
     if (!consent?.analytics) return;
     if (provider === 'ga4' && typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', { analytics_storage: 'granted' });
       window.gtag('event', 'page_view', { page_path: pathname });
     }
     if (provider === 'plausible' && typeof window.plausible === 'function') {
@@ -34,7 +35,7 @@ export default function TrackingProvider() {
 function gtag(){window.dataLayer.push(arguments);} 
 window.gtag = gtag;
 gtag('js', new Date());
-gtag('config', '${gaId}', { anonymize_ip: true });`}
+gtag('config', '${gaId}', { anonymize_ip: true, send_page_view: false });`}
         </Script>
       </>
     );

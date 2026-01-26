@@ -44,8 +44,8 @@ export default function ServiceDetailView({ service }: { service: ServiceDetail 
       <Section>
         <SectionHeader
           eyebrow="Für wen"
-          title="Wenn Sie Tempo, Klarheit und Sicherheit brauchen"
-          description="Diese Leistung ist ideal, wenn Sie interne Abläufe stabilisieren oder digital neu aufstellen wollen."
+          title="Wenn manuelle Arbeit und Medienbrüche den Alltag bremsen"
+          description="Diese Leistung passt, wenn Sie Abläufe stabilisieren, Fehler senken und klare Verantwortlichkeiten schaffen wollen."
         />
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {service.forWhom.map((item) => (
@@ -61,7 +61,7 @@ export default function ServiceDetailView({ service }: { service: ServiceDetail 
         <SectionHeader
           eyebrow="Use Cases"
           title="Typische Einsatzfelder"
-          description="Beispiele, die wir häufig in KMU sehen und effektiv lösen."
+          description="Beispiele, die wir häufig in KMU sehen und messbar entlasten."
         />
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {service.useCases.map((item) => (
@@ -77,7 +77,7 @@ export default function ServiceDetailView({ service }: { service: ServiceDetail 
         <SectionHeader
           eyebrow="Deliverables"
           title="Was Sie nach dem Projekt in der Hand halten"
-          description="Klare Ergebnisse, dokumentiert und bereit für den Betrieb."
+          description="Klare Ergebnisse, dokumentiert, messbar und bereit für den Betrieb."
         />
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {service.deliverables.map((item) => (

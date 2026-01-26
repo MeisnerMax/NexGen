@@ -8,10 +8,10 @@ export default function ThankYouPage() {
         <h1 className="text-3xl font-semibold text-slate-900">Danke für Ihre Anfrage!</h1>
         <p className="mt-4 text-slate-600">
           Wir melden uns zeitnah mit den nächsten Schritten. Wenn Sie es eilig haben, buchen Sie
-          direkt einen Termin.
+          direkt eine Prozessanalyse.
         </p>
         <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
-          <ButtonLink href="/termin">Termin buchen</ButtonLink>
+          <ButtonLink href="/termin">Prozessanalyse sichern</ButtonLink>
           <ButtonLink href="/" variant="secondary">
             Zur Startseite
           </ButtonLink>

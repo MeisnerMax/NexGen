@@ -26,6 +26,7 @@ export type CaseStudy = {
   goal: string;
   approach: string;
   results: string;
+  metrics: { label: string; value: string }[];
   stack: string[];
 };
 
@@ -99,6 +100,7 @@ export function getCase(slug: string): CaseStudy | null {
     goal: data.goal ?? '',
     approach: data.approach ?? '',
     results: data.results ?? '',
+    metrics: data.metrics ?? [],
     stack: data.stack ?? [],
   };
 }

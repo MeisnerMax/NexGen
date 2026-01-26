@@ -12,7 +12,7 @@ export default function SocialProofSection() {
       <SectionHeader
         eyebrow="Social Proof"
         title="Vertrauen entsteht durch klare Ergebnisse"
-        description="Die Struktur ist vorbereitet – reale Zahlen und Kundenlogos ergänzen wir nach Freigabe."
+        description="Case Studies mit messbaren Ergebnissen und konkreten Kennzahlen aus den Projekten."
       />
       <div className="mt-10 grid gap-6 lg:grid-cols-3">
         {cases.map((caseStudy, index) => (
@@ -27,6 +27,16 @@ export default function SocialProofSection() {
             </p>
             <h3 className="mt-3 text-lg font-semibold text-slate-900">{caseStudy.title}</h3>
             <p className="mt-3 text-sm text-slate-700">{caseStudy.summary}</p>
+            {caseStudy.metrics.length > 0 && (
+              <div className="mt-4 space-y-2 text-xs text-slate-600">
+                {caseStudy.metrics.slice(0, 3).map((metric) => (
+                  <div key={metric.label} className="flex items-center justify-between gap-3">
+                    <span>{metric.label}</span>
+                    <span className="font-semibold text-slate-900">{metric.value}</span>
+                  </div>
+                ))}
+              </div>
+            )}
             <Link
               href={`/cases/${caseStudy.slug}`}
               className="mt-4 text-sm font-semibold text-[var(--color-accent)]"

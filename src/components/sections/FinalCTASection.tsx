@@ -10,17 +10,17 @@ export default function FinalCTASection() {
             Finaler Schritt
           </p>
           <h2 className="mt-4 text-3xl font-semibold md:text-4xl text-white/80">
-            Klären wir Ihren größten Prozess-Engpass in einem kurzen Gespräch.
+            Klären wir Ihren größten Prozess-Engpass mit klaren nächsten Schritten.
           </h2>
           <p className="mt-4 text-lg text-white/80">
-            Sie erhalten konkrete Empfehlungen und eine klare Einschätzung der nächsten Schritte.
+            Sie erhalten eine priorisierte Maßnahmenliste und eine realistische Einschätzung der Wirkung.
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <ButtonLink href="/termin" trackingEvent={trackingEvents.ctaBookingClick}>
-              Termin buchen
+              Prozessanalyse + Maßnahmenplan
             </ButtonLink>
             <ButtonLink href="/kontakt" variant="secondary">
-              Kontakt aufnehmen
+              Anliegen kurz schildern
             </ButtonLink>
           </div>
         </div>

@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/cases',
     '/blog',
     '/kontakt',
+    '/leadmagnet',
     '/termin',
     '/impressum',
     '/datenschutz',

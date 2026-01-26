@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { useConsent } from '@/hooks/useConsent';
+import { trackEvent, trackingEvents } from '@/lib/tracking';
 
 export default function ConsentBanner() {
   const { consent, ready, updateConsent } = useConsent();
@@ -21,10 +22,22 @@ export default function ConsentBanner() {
         und den <Link href="/cookies" className="underline">Cookie-Hinweisen</Link>.
       </p>
       <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-        <Button variant="primary" onClick={() => updateConsent(true)}>
+        <Button
+          variant="primary"
+          onClick={() => {
+            updateConsent(true);
+            trackEvent(trackingEvents.consentAccept);
+          }}
+        >
           Alle akzeptieren
         </Button>
-        <Button variant="secondary" onClick={() => updateConsent(false)}>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            updateConsent(false);
+            trackEvent(trackingEvents.consentDecline);
+          }}
+        >
           Nur notwendig
         </Button>
       </div>

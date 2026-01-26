@@ -20,12 +20,14 @@ const variants = {
 export type ButtonProps = ComponentPropsWithoutRef<'button'> & {
   variant?: keyof typeof variants;
   trackingEvent?: string;
+  trackingProps?: Record<string, string | number>;
 };
 
 export function Button({
   variant = 'primary',
   className,
   trackingEvent,
+  trackingProps,
   onClick,
   type = 'button',
   ...props
@@ -36,7 +38,7 @@ export function Button({
       className={cn(baseStyles, variants[variant], className)}
       onClick={(event) => {
         if (trackingEvent) {
-          trackEvent(trackingEvent);
+          trackEvent(trackingEvent, trackingProps);
         }
         onClick?.(event);
       }}
@@ -48,12 +50,14 @@ export function Button({
 export type ButtonLinkProps = ComponentPropsWithoutRef<typeof Link> & {
   variant?: keyof typeof variants;
   trackingEvent?: string;
+  trackingProps?: Record<string, string | number>;
 };
 
 export function ButtonLink({
   variant = 'primary',
   className,
   trackingEvent,
+  trackingProps,
   onClick,
   ...props
 }: ButtonLinkProps) {
@@ -62,7 +66,7 @@ export function ButtonLink({
       className={cn(baseStyles, variants[variant], className)}
       onClick={(event) => {
         if (trackingEvent) {
-          trackEvent(trackingEvent);
+          trackEvent(trackingEvent, trackingProps);
         }
         onClick?.(event);
       }}

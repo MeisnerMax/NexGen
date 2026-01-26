@@ -174,7 +174,7 @@ export default function ContactForm() {
         </p>
       )}
       <Button type="submit" disabled={status === 'sending'}>
-        Nachricht senden
+        Anfrage senden
       </Button>
     </form>
   );

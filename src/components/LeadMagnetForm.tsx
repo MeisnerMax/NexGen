@@ -6,7 +6,6 @@ import { leadMagnetSchema } from '@/lib/validation';
 import { trackingEvents, trackEvent } from '@/lib/tracking';
 
 const initialState = {
-  name: '',
   email: '',
   consent: false,
   website: '',
@@ -80,7 +79,7 @@ export default function LeadMagnetForm() {
               PDF jetzt herunterladen
             </Button>
           )}
-          <Button onClick={() => (window.location.href = '/termin')}>Termin sichern</Button>
+          <Button onClick={() => (window.location.href = '/termin')}>Prozessanalyse sichern</Button>
         </div>
       </div>
     );
@@ -88,29 +87,17 @@ export default function LeadMagnetForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid gap-4 md:grid-cols-2">
-        <label className="text-sm font-medium text-slate-700">
-          Name
-          <input
-            className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900"
-            value={formState.name}
-            onChange={(event) => handleChange('name', event.target.value)}
-            required
-          />
-          {errors.name && <span className="mt-1 block text-xs text-red-500">{errors.name}</span>}
-        </label>
-        <label className="text-sm font-medium text-slate-700">
-          E-Mail
-          <input
-            type="email"
-            className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900"
-            value={formState.email}
-            onChange={(event) => handleChange('email', event.target.value)}
-            required
-          />
-          {errors.email && <span className="mt-1 block text-xs text-red-500">{errors.email}</span>}
-        </label>
-      </div>
+      <label className="text-sm font-medium text-slate-700">
+        E-Mail
+        <input
+          type="email"
+          className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900"
+          value={formState.email}
+          onChange={(event) => handleChange('email', event.target.value)}
+          required
+        />
+        {errors.email && <span className="mt-1 block text-xs text-red-500">{errors.email}</span>}
+      </label>
       <label className="flex items-start gap-3 text-xs text-slate-600">
         <input
           type="checkbox"
@@ -139,7 +126,7 @@ export default function LeadMagnetForm() {
         <p className="text-sm text-red-500">Bitte versuchen Sie es gleich noch einmal.</p>
       )}
       <Button type="submit" disabled={status === 'sending'}>
-        PDF erhalten
+        PDF sofort erhalten
       </Button>
     </form>
   );

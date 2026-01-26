@@ -5,7 +5,14 @@ summary: "Ein Handwerksbetrieb wollte Projektstatus, Kapazitäten und Kundenkomm
 situation: "Informationen lagen in E-Mails, Notizen und einzelnen Tools. Projektleiter hatten keinen Echtzeit-Überblick."
 goal: "Eine zentrale Übersicht für Projekte, Ressourcen und Kundenkommunikation."
 approach: "Wir entwickelten ein internes Portal mit Aufgabenmanagement, Status-Updates und klaren Übergaben."
-results: "Mehr Transparenz im Team, weniger Rückfragen und klar definierte Verantwortlichkeiten."
+results: "Projektstatus in Echtzeit, Rückfragen messbar reduziert und klare Verantwortlichkeiten im Team."
+metrics:
+  - label: "Rückfragen im Team"
+    value: "messbar reduziert"
+  - label: "Projektstatus"
+    value: "Echtzeit-Transparenz"
+  - label: "Übergaben"
+    value: "klar dokumentiert"
 stack:
   - "Projektportal"
   - "Workflow-Automationen"

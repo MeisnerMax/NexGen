@@ -14,6 +14,7 @@ export const siteConfig = {
     country: 'Deutschland',
   },
   bookingUrl: process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://app.cal.eu/max-meisner-3p3wma',
+  googleBusinessProfile: process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL ?? '',
   social: {
     linkedin: 'https://www.linkedin.com/company/nexgen-consulting-meisner/',
     xing: '',

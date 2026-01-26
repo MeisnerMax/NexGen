@@ -64,6 +64,19 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
           <p className="text-sm font-semibold text-slate-900">Ergebnis</p>
           <p className="mt-3 text-sm text-slate-700">{caseStudy.results}</p>
         </Card>
+        {caseStudy.metrics.length > 0 && (
+          <Card>
+            <p className="text-sm font-semibold text-slate-900">Kennzahlen</p>
+            <ul className="mt-3 space-y-2 text-sm text-slate-700">
+              {caseStudy.metrics.map((metric) => (
+                <li key={metric.label} className="flex items-center justify-between gap-3">
+                  <span>{metric.label}</span>
+                  <span className="font-semibold text-slate-900">{metric.value}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        )}
       </div>
 
       <div className="mt-12 rounded-3xl bg-slate-900 px-6 py-10 text-white">
@@ -77,7 +90,7 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
           variant="secondary"
           className="mt-6 inline-flex border-white/30 bg-white text-slate-900 hover:bg-slate-100 focus-visible:outline-white"
         >
-          Termin buchen
+          Prozessanalyse sichern
         </ButtonLink>
       </div>
     </Section>

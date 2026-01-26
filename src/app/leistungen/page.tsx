@@ -20,16 +20,16 @@ export default function ServicesPage() {
       <Section className="pt-10">
         <SectionHeader
           eyebrow="Leistungen"
-          title="Digitalisierung nach klaren Problemen, nicht nach Buzzwords"
-          description="Wir starten mit einer Kernleistung und ergänzen gezielt, sobald die Basis stabil läuft."
+          title="Probleme lösen, Nutzen liefern – ohne Buzzwords"
+          description="Wir starten mit dem größten Engpass und ergänzen gezielt, sobald die Basis stabil läuft."
         />
-        <InlineCTA label="Kostenlose Analyse buchen" />
+        <InlineCTA label="Prozessanalyse + Maßnahmenplan" />
       </Section>
       <Section>
         <SectionHeader
           eyebrow="Kernleistung"
-          title="Prozessautomatisierung als stärkster Hebel"
-          description="Wir automatisieren die Prozesskette, die den größten Aufwand erzeugt."
+          title="Prozessautomatisierung als größter Hebel"
+          description="Wir automatisieren die Prozesskette, die den größten Aufwand und die meisten Fehler verursacht."
         />
         <div className="mt-10">
           <Card className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
@@ -65,8 +65,8 @@ export default function ServicesPage() {
       <Section>
         <SectionHeader
           eyebrow="Ergänzende Leistungen"
-          title="Wenn die Basis steht, erweitern wir gezielt"
-          description="Zwei Leistungen, die Wachstum unterstützen und neue Anfragen planbar machen."
+          title="Wenn der Kern sitzt, erweitern wir gezielt"
+          description="Zwei Leistungen, die Prozesse stabilisieren und Anfragen planbar machen."
         />
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {secondaryServices.map((service) => (
@@ -96,7 +96,7 @@ export default function ServicesPage() {
       <FocusAreasSection
         eyebrow="Wichtige Themen"
         title="Microsoft 365 und KI als eigene Leistungsbereiche"
-        description="Diese Themen behandeln wir als eigene Schwerpunkte, weil sie für viele KMU der nächste große Hebel sind."
+        description="Diese Themen behandeln wir als eigene Schwerpunkte, weil sie in vielen KMU spürbare Entlastung bringen."
       />
       <Section>
         <SectionHeader

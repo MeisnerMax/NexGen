@@ -1,6 +1,7 @@
 import { Card } from '@/components/Card';
 import { InlineCTA } from '@/components/InlineCTA';
 import { Section, SectionHeader } from '@/components/Section';
+import Link from 'next/link';
 import {
   AlertTriangleIcon,
   BarChartIcon,
@@ -47,7 +48,14 @@ export default function ProblemSection() {
         })}
       </div>
       <p className="mt-6 text-sm font-semibold text-slate-700">
-        Genau hier setzen wir an – strukturiert, messbar und ohne Betriebsunterbrechung.
+        Diese Engpässe kosten Zeit, Qualität und Marge. Genau hier setzen wir an – strukturiert,
+        messbar und ohne Betriebsunterbrechung.
+        <Link
+          href="#gewinn"
+          className="ml-2 inline-flex text-[var(--color-accent)]"
+        >
+          Zum messbaren Gewinn →
+        </Link>
       </p>
       <InlineCTA />
     </Section>

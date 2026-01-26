@@ -14,7 +14,6 @@ export const contactSchema = z.object({
 });
 
 export const leadMagnetSchema = z.object({
-  name: z.string().min(2, 'Bitte den Namen angeben.'),
   email: z.string().email('Bitte eine gültige E-Mail angeben.'),
   consent: z.literal(true, {
     errorMap: () => ({ message: 'Bitte der Datenschutzerklärung zustimmen.' }),

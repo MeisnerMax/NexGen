@@ -5,7 +5,14 @@ summary: "Ein Fertigungsbetrieb brauchte eine digitale Lösung für Prüfprotoko
 situation: "Prüfberichte wurden handschriftlich dokumentiert und später digitalisiert. Der Aufwand war hoch und Daten gingen verloren."
 goal: "Digitale Prüfprotokolle mit sofortiger Verfügbarkeit und klaren Verantwortlichkeiten."
 approach: "Wir entwickelten ein schlankes Tool mit Rollenrechten, bauten Schnittstellen zur Produktion und schulten das Team."
-results: "Schnellere Prüfprozesse, sichere Dokumentation und eine belastbare Datenbasis für Audits."
+results: "Prüfprozesse messbar beschleunigt, sichere Dokumentation und eine belastbare Datenbasis für Audits."
+metrics:
+  - label: "Prüfzeit pro Vorgang"
+    value: "messbar reduziert"
+  - label: "Dokumentationssicherheit"
+    value: "auditfähig"
+  - label: "Datenverlust"
+    value: "verhindert"
 stack:
   - "Custom Web App"
   - "Role-based Access"

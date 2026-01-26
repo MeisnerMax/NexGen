@@ -30,14 +30,14 @@ const offerings = [
   {
     label: 'Schwerpunkt',
     title: focusAreas[0].title,
-    summary: 'Microsoft 365 Prozesse klar strukturieren.',
+    summary: 'Microsoft 365 Prozesse messbar stabilisieren.',
     href: '/leistungen#schwerpunkte',
     icon: GridIcon,
   },
   {
     label: 'Schwerpunkt',
     title: focusAreas[1].title,
-    summary: 'KI-Use-Cases, Chatbots und Schulung im Team.',
+    summary: 'KI-Use-Cases, sichere Chatbots und Team-Enablement.',
     href: '/leistungen#schwerpunkte',
     icon: SparklesIcon,
   },
