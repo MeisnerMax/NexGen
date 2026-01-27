@@ -1,24 +1,38 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
 import { getAllBlogPosts } from '@/lib/content';
 import { formatDate } from '@/lib/format';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Praxiswissen zu Automatisierung, Software und lokaler Sichtbarkeit für KMU.',
-};
+const routeKeywords = getRouteKeywords('/blog');
+
+export const metadata = buildMetadata({
+  path: '/blog',
+  title: 'Blog: Automatisierung & Digitalisierung für KMU',
+  benefit:
+    'Praxiswissen zu Prozessautomatisierung, digitalen Tools und lokaler Sichtbarkeit – kurz, klar und umsetzbar.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function BlogPage() {
   const posts = getAllBlogPosts();
+  const breadcrumbSchema = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Blog', href: '/blog' },
+  ]);
 
   return (
     <Section className="pt-10">
+      <Breadcrumbs items={[{ label: 'Start', href: '/' }, { label: 'Blog' }]} className="mb-6" />
       <SectionHeader
         eyebrow="Blog"
-        title="Wissen, das sofort in die Praxis führt"
+        title="Blog zu Automatisierung & Digitalisierung"
         description="Kurze, klare Beiträge für Entscheider in KMU – mit Fokus auf Wirkung und Umsetzbarkeit."
+        as="h1"
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {posts.map((post) => (
@@ -37,6 +51,7 @@ export default function BlogPage() {
           </Card>
         ))}
       </div>
+      <JsonLd data={breadcrumbSchema} />
     </Section>
   );
 }

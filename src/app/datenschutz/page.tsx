@@ -1,15 +1,28 @@
-import type { Metadata } from 'next';
 import { Card } from '@/components/Card';
 import { Section } from '@/components/Section';
 import { siteConfig } from '@/lib/site';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-export const metadata: Metadata = {
-  title: 'Datenschutz',
-};
+const routeKeywords = getRouteKeywords('/datenschutz');
+
+export const metadata = buildMetadata({
+  path: '/datenschutz',
+  title: 'Datenschutzerklärung',
+  benefit: 'Transparente Informationen zur Verarbeitung personenbezogener Daten und Einwilligungen.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function DatenschutzPage() {
+  const breadcrumbSchema = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Datenschutz', href: '/datenschutz' },
+  ]);
   return (
     <Section className="pt-10">
+      <Breadcrumbs items={[{ label: 'Start', href: '/' }, { label: 'Datenschutz' }]} className="mb-6" />
       <Card className="space-y-8">
         <div className="space-y-2">
           <h1 className="text-3xl font-semibold text-slate-900">Datenschutzerklärung</h1>
@@ -243,6 +256,7 @@ export default function DatenschutzPage() {
           </p>
         </section>
       </Card>
+      <JsonLd data={breadcrumbSchema} />
     </Section>
   );
 }

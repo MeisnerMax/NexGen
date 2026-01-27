@@ -1,23 +1,36 @@
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ButtonLink } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { Section } from '@/components/Section';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedContent from '@/components/RelatedContent';
 import { getCase, getCaseSlugs } from '@/lib/content';
 import { trackingEvents } from '@/lib/tracking';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords, keywordMap, matchServiceForKeywords } from '@/seo/keywordMap';
+import { siteConfig } from '@/lib/site';
 
 export function generateStaticParams() {
   return getCaseSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export function generateMetadata({ params }: { params: { slug: string } }) {
   const caseStudy = getCase(params.slug);
   if (!caseStudy) {
-    return { title: 'Case Study' };
+    return buildMetadata({ title: 'Case Study', path: '/cases' });
   }
+  const routeKeywords = getRouteKeywords('/cases/[slug]');
+  const mapped = keywordMap.content.cases[caseStudy.slug] ?? [];
+  const keywords = [...mapped, ...(routeKeywords?.secondary ?? [])];
   return {
-    title: caseStudy.title,
-    description: caseStudy.summary,
+    ...buildMetadata({
+      title: caseStudy.title,
+      description: caseStudy.summary,
+      path: `/cases/${caseStudy.slug}`,
+      type: 'article',
+      keywords,
+    }),
   };
 }
 
@@ -26,11 +39,38 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
   if (!caseStudy) {
     notFound();
   }
+  const mapped = keywordMap.content.cases[caseStudy.slug] ?? [];
+  const routeKeywords = getRouteKeywords('/cases/[slug]');
+  const keywords = [...mapped, ...(routeKeywords?.secondary ?? [])];
+  const relatedService = matchServiceForKeywords(keywords);
+  const breadcrumbItems = [
+    { label: 'Start', href: '/' },
+    { label: 'Cases', href: '/cases' },
+    { label: caseStudy.title, href: `/cases/${caseStudy.slug}` },
+  ];
+
+  const caseJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CaseStudy',
+    headline: caseStudy.title,
+    description: caseStudy.summary,
+    about: caseStudy.industry,
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+    },
+    mainEntityOfPage: `${siteConfig.url}/cases/${caseStudy.slug}`,
+  };
 
   return (
     <Section className="pt-10">
       <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
         <div>
+          <Breadcrumbs items={breadcrumbItems} className="mb-6" />
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
             {caseStudy.industry}
           </p>
@@ -93,6 +133,30 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
           Prozessanalyse sichern
         </ButtonLink>
       </div>
+
+      {relatedService && (
+        <div className="mt-10 rounded-3xl border border-[color:var(--color-accent-soft)] bg-[var(--color-accent-soft)] p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
+            Passende Leistung
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold text-slate-900">{relatedService.label}</h2>
+          <p className="mt-3 text-sm text-slate-700">
+            Wir übertragen die Erkenntnisse aus dem Case auf Ihre Prozesse und definieren klare nächste
+            Schritte.
+          </p>
+          <ButtonLink href={relatedService.slug} className="mt-5">
+            Zur Leistung
+          </ButtonLink>
+        </div>
+      )}
+
+      <RelatedContent
+        keywords={keywords}
+        exclude={[`/cases/${caseStudy.slug}`]}
+        title="Weitere Artikel und Cases"
+      />
+
+      <JsonLd data={[caseJsonLd, buildBreadcrumbList(breadcrumbItems)]} />
     </Section>
   );
 }

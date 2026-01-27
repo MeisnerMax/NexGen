@@ -3,15 +3,30 @@ import { Card } from '@/components/Card';
 import { InlineCTA } from '@/components/InlineCTA';
 import { Section, SectionHeader } from '@/components/Section';
 import { Accordion } from '@/components/Accordion';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedContent from '@/components/RelatedContent';
 import { siteConfig } from '@/lib/site';
 import type { ServiceDetail } from '@/lib/services';
+import JsonLd, { buildFaqSchema } from '@/seo/JsonLd';
+import { buildBreadcrumbList } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
 export default function ServiceDetailView({ service }: { service: ServiceDetail }) {
+  const path = `/leistungen/${service.slug}`;
+  const routeKeywords = getRouteKeywords(path);
+  const relatedKeywords = [service.title, ...(routeKeywords?.secondary ?? [])];
+  const breadcrumbs = [
+    { label: 'Start', href: '/' },
+    { label: 'Leistungen', href: '/leistungen' },
+    { label: service.title },
+  ];
+
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.title,
     description: service.summary,
+    url: `${siteConfig.url}${path}`,
     provider: {
       '@type': 'Organization',
       name: siteConfig.name,
@@ -20,11 +35,20 @@ export default function ServiceDetailView({ service }: { service: ServiceDetail 
     areaServed: siteConfig.region,
   };
 
+  const breadcrumbJsonLd = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Leistungen', href: '/leistungen' },
+    { label: service.title, href: path },
+  ]);
+
+  const faqJsonLd = service.faq.length ? buildFaqSchema(service.faq) : null;
+
   return (
     <>
       <Section className="pt-10">
         <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
           <div>
+            <Breadcrumbs items={breadcrumbs} className="mb-6" />
             <Badge>Leistung</Badge>
             <h1 className="mt-4 text-4xl font-semibold md:text-5xl">{service.title}</h1>
             <p className="mt-4 text-lg text-slate-700">{service.summary}</p>
@@ -100,10 +124,16 @@ export default function ServiceDetailView({ service }: { service: ServiceDetail 
         </div>
       </Section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
+      <Section tone="soft" divider>
+        <SectionHeader
+          eyebrow="Related"
+          title="Passende Inhalte und Beispiele"
+          description="Vertiefende Artikel und Cases, die dieses Thema greifbar machen."
+        />
+        <RelatedContent keywords={relatedKeywords} />
+      </Section>
+
+      <JsonLd data={[serviceJsonLd, breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])]} />
     </>
   );
 }

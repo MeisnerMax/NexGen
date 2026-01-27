@@ -1,20 +1,36 @@
-import type { Metadata } from 'next';
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { leadMagnet } from '@/lib/data';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-export const metadata: Metadata = {
-  title: 'Lead Magnet',
-  description: 'Kostenloser Leitfaden mit Priorisierung und KPIs für Automatisierung in KMU.',
-};
+const routeKeywords = getRouteKeywords('/leadmagnet');
+
+export const metadata = buildMetadata({
+  path: '/leadmagnet',
+  title: 'Leitfaden: 7 Prozesse, die KMU automatisieren sollten',
+  benefit:
+    'Kostenlose Checkliste mit Priorisierung, KPIs und klaren Fragen, um Automatisierung schnell zu starten.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function LeadMagnetPage() {
+  const breadcrumbSchema = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Leitfaden', href: '/leadmagnet' },
+  ]);
   return (
     <>
       <Section className="pt-10">
         <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr]">
           <div>
+            <Breadcrumbs
+              items={[{ label: 'Start', href: '/' }, { label: 'Leitfaden' }]}
+              className="mb-6"
+            />
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
               Lead Magnet
             </p>
@@ -75,6 +91,7 @@ export default function LeadMagnetPage() {
           ))}
         </div>
       </Section>
+      <JsonLd data={breadcrumbSchema} />
     </>
   );
 }

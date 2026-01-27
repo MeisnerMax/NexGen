@@ -1,27 +1,43 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
 import { InlineCTA } from '@/components/InlineCTA';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { extraServices, primaryServices } from '@/lib/services';
 import FocusAreasSection from '@/components/sections/FocusAreasSection';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-export const metadata: Metadata = {
-  title: 'Leistungen',
-  description:
-    'Kernleistungen und Zusatzangebote von NexGen Consulting – problemorientiert erklärt und auf KMU zugeschnitten.',
-};
+const routeKeywords = getRouteKeywords('/leistungen');
+
+export const metadata = buildMetadata({
+  path: '/leistungen',
+  title: 'Leistungen für KMU: Automatisierung & digitale Lösungen',
+  benefit:
+    'Kernleistungen von Prozessautomatisierung bis Website & SEO, ergänzt durch Microsoft 365 und KI-Workflows.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function ServicesPage() {
   const [primaryService, ...secondaryServices] = primaryServices;
+  const breadcrumbSchema = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Leistungen', href: '/leistungen' },
+  ]);
 
   return (
     <>
       <Section className="pt-10">
+        <Breadcrumbs
+          items={[{ label: 'Start', href: '/' }, { label: 'Leistungen' }]}
+          className="mb-6"
+        />
         <SectionHeader
           eyebrow="Leistungen"
-          title="Probleme lösen, Nutzen liefern – ohne Buzzwords"
+          title="Leistungen für Automatisierung und Digitalisierung"
           description="Wir starten mit dem größten Engpass und ergänzen gezielt, sobald die Basis stabil läuft."
+          as="h1"
         />
         <InlineCTA label="Prozessanalyse + Maßnahmenplan" />
       </Section>
@@ -112,6 +128,7 @@ export default function ServicesPage() {
           ))}
         </div>
       </Section>
+      <JsonLd data={breadcrumbSchema} />
     </>
   );
 }

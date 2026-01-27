@@ -1,0 +1,143 @@
+Rolle
+Du bist Codex. Du bist Senior SEO Engineer und Full Stack Developer für Next.js. Ziel ist, die SEO von https://www.nexgen-consulting.de/ deutlich zu verbessern, ohne Inhalte für menschliche Besucher zu verschlechtern, ohne Keyword-Stuffing und ohne die Conversion zu senken.
+
+Kontext
+Die Seite ist B2B, Zielgruppe KMU in Deutschland, Schwerpunkt Coburg/Oberfranken, Leistungen: Prozessautomatisierung, digitale Tools/Software, Website & SEO, Microsoft 365, KI/Chatbots. Aktueller SEO Check zeigt als “Most important keywords” vor allem Brand-Wörter (NexGen, NexGen Consulting) und sehr allgemeine Begriffe (Consulting, Prozesse, messbar, automatisieren). Ziel ist mehr Relevanz für nicht-brand Suchanfragen wie “Prozessautomatisierung KMU”, “Digitalisierung Coburg”, “Workflow Automatisierung”, “Microsoft 365 Automatisierung”, “KI Chatbot KMU”, “Webdesign SEO Coburg” usw., ohne den sichtbaren Text künstlich zu überladen.
+
+Nicht verhandelbare Regeln
+1) Keine sichtbare Textverschlechterung für Besucher. Kein Keyword-Stuffing. Keine unnötigen Wiederholungen.
+2) Keine erfundenen Zahlen, keine Fake-Referenzen, keine Fake-Testimonials.
+3) Fokus auf technische und strukturelle SEO Verbesserungen, Meta Daten, semantische Struktur, interne Verlinkung, Schema Markup, Content-Information Architecture, Performance.
+4) Alle Änderungen sollen im Code umgesetzt werden, sauber, wartbar, TypeScript.
+5) Next.js App Router (oder bestehendes Framework) respektieren. Keine komplette Neuentwicklung, sondern gezielte Verbesserungen.
+6) DSGVO: Tracking nur nach Consent.
+
+Aufgabe
+Analysiere das bestehende Repo (Ordnerstruktur, Routing, Metadata, Layout, Headings, Blog/Content). Implementiere dann ein SEO-Upgrade in folgenden Bereichen, ohne dass der sichtbare Content “zugemüllt” wird:
+
+A) Keyword- und Seiten-Architektur (ohne sichtbare Überladung)
+1) Erzeuge eine Keyword-Map als Datenstruktur (z.B. src/seo/keywordMap.ts) mit:
+- Primärthemen: Prozessautomatisierung, digitale Tools/Software, Website & SEO, Microsoft 365, KI/Chatbots
+- Lokale Modifier: Coburg, Oberfranken, Bamberg (nur natürlich, nicht übertrieben)
+- Zielgruppe: KMU, Mittelstand, Handwerk, Dienstleister, produzierende Unternehmen
+2) Weise jeder Route ein Hauptthema + 3 bis 8 Nebenkeywords zu.
+3) Prüfe, ob es pro Hauptthema eine eigene Landingpage gibt. Falls nicht, lege schlanke, qualitativ gute Landingpages an, mit klaren H1/H2 Strukturen und Mehrwert, ohne lange Fließtexte:
+- /leistungen/prozessautomatisierung
+- /leistungen/microsoft-365-automatisierung
+- /leistungen/ki-chatbots
+- /leistungen/webdesign-seo
+Optional lokal:
+- /coburg (oder /digitalisierung-coburg) als lokale Hub-Seite
+Diese Seiten sollen nicht “SEO-Textwüsten” sein, sondern kurze, hochwertige Abschnitte plus FAQ.
+
+B) Meta-Daten und Snippets (Next.js Metadata API)
+1) Implementiere pro Route:
+- title (unique, mit Thema + lokal optional)
+- description (unique, 140–160 Zeichen, nutzenorientiert, ohne Keyword-Liste)
+- alternates canonical
+- openGraph + twitter cards
+2) Definiere eine zentrale helper Funktion (src/seo/metadata.ts), die aus Route-Thema, Stadt, Service und Nutzen saubere Titles/Descriptions generiert, ohne Wiederholungen.
+3) Stelle sicher, dass Brand nicht alles dominiert. Brand erst am Ende: “| NexGen Consulting”.
+
+C) Semantische HTML Struktur
+1) Stelle sicher:
+- Genau eine H1 pro Seite
+- Klare H2/H3 Hierarchie
+- Verwendung von <main>, <header>, <nav>, <footer>, <section>, <article>
+2) Prüfe, ob im Hero Bereich die H1 korrekt gesetzt ist (nicht nur Grafik).
+3) Entferne doppelte H1 oder unlogische Überschriftensprünge.
+
+D) Strukturierte Daten (Schema.org JSON-LD)
+Implementiere JSON-LD als React-Komponente (src/seo/JsonLd.tsx) und binde je nach Seite passend ein:
+1) Home: Organization + LocalBusiness (falls örtlicher Sitz vorhanden) + WebSite (mit SearchAction optional)
+2) Service Seiten: Service Schema (name, provider, areaServed)
+3) Blog Posts: BlogPosting
+4) FAQ Sektionen: FAQPage (nur wenn FAQ sichtbar auf der Seite)
+5) BreadcrumbList auf Unterseiten
+Alle Daten müssen realistisch und konsistent sein. Keine falschen Bewertungen/ratings.
+
+E) Technisches SEO
+1) robots.txt korrekt:
+- Allow: /
+- Disallow: /api, /_next
+- Sitemap: absolute URL
+2) sitemap.xml automatisch:
+- Alle statischen Seiten
+- Blog Posts
+- Case Studies
+- lastmod pflegen
+3) Canonical URLs korrekt setzen.
+4) 404/redirects sauber.
+5) Pagination bei Blog, falls vorhanden, mit rel next/prev.
+
+F) Performance und Core Web Vitals
+1) Next/Image überall für Bilder, width/height gesetzt.
+2) Fonts optimieren (next/font), keine blockierenden externen Fonts.
+3) JS minimieren, Third-Party Scripts lazy und nur nach Consent.
+4) Preload hero image, aber nur wenn sinnvoll.
+5) Lighthouse Ziel: Performance 90+, SEO 90+, Accessibility 90+.
+
+G) Interne Verlinkung und Topic Cluster
+1) Baue eine interne Linking-Strategie:
+- Von Startseite zu den 3–5 Hauptservices
+- Von jeder Service-Seite zu:
+  - passenden Blogartikeln
+  - Case Studies
+  - “Termin buchen”
+- Von Blogartikeln zurück zu passendem Service (Contextual CTA)
+2) Erzeuge eine “Related Content” Komponente, die anhand keywordMap passende Artikel/Cases ausspielt.
+3) Baue Breadcrumbs.
+
+H) Content Anpassungen ohne sichtbare Verschlechterung
+Nur minimal sichtbare Änderungen:
+1) Title/H1 müssen thematisch klarer sein, aber kurze Formulierungen.
+2) Ergänze 1 bis 2 Sätze pro Service-Seite, die das Thema klarer benennen, ohne Wiederholung.
+3) Ergänze 3–6 FAQ Fragen pro Service-Seite mit echten Mehrwertfragen (Kosten, Dauer, Beispiele, Datenschutz).
+4) Vermeide Wiederholungen von “NexGen” und “Consulting” im Fließtext. Brand eher in Header/Footer.
+
+I) Lokale SEO (ohne Spam)
+1) Implementiere LocalBusiness Schema nur, wenn echte Adresse vorhanden.
+2) Eine lokale Hub-Seite mit:
+- kurzer Erklärung des Einzugsgebietes
+- Services
+- FAQ
+- CTA
+Kein City-Keyword-Stuffing, nur natürliche Erwähnungen.
+
+J) Messung ohne DSGVO-Verstoß
+1) Consent Banner vorhanden lassen oder implementieren.
+2) Analytics (GA4 oder Plausible) nur nach Opt-in.
+3) Track Events:
+- CTA Termin buchen
+- Kontaktformular Submit
+- Lead Magnet Download
+Erstelle src/lib/analytics.ts mit no-op ohne consent.
+
+Output Anforderungen
+1) Gib zuerst eine kurze SEO Diagnose Liste (max 12 Punkte) mit Prioritäten: P0, P1, P2.
+2) Danach liefere den vollständigen Code-Diff als konkrete Dateien:
+- neu/angepasst: src/seo/keywordMap.ts, src/seo/metadata.ts, src/seo/JsonLd.tsx, src/app/robots.ts, src/app/sitemap.ts
+- Anpassungen an Layouts und Pages
+- Breadcrumb und RelatedContent Komponenten
+3) Gib den kompletten Code aller betroffenen Dateien aus, nicht nur Snippets.
+4) Gib eine Checkliste “Wie ich überprüfe, dass es funktioniert”:
+- `npm run build` ohne Fehler
+- Lighthouse Checks
+- Google Search Console Validierung (sitemap, rich results)
+- robots/sitemap URLs im Browser prüfen
+
+Start
+1) Lies das bestehende Projekt und liste alle Routen.
+2) Implementiere die Änderungen iterativ in der Reihenfolge P0, dann P1, dann P2.
+3) Achte strikt darauf, dass sichtbarer Text nicht länger oder spammy wird.
+
+Hinweis aus SEO Check
+Brand-Keywords dominieren (“NexGen”, “NexGen Consulting”). Ziel ist, Relevanz für nicht-brand Suchanfragen zu erhöhen durch:
+- bessere Titles/Descriptions
+- themenspezifische Landingpages
+- Schema
+- interne Verlinkung
+- Topic Cluster
+ohne sichtbare Keyword-Überladung.
+
+Beginne jetzt.

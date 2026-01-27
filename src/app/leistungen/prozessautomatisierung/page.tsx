@@ -1,14 +1,20 @@
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ServiceDetailView from '@/components/ServiceDetailView';
-import { primaryServices } from '@/lib/services';
+import { getServiceBySlug } from '@/lib/services';
+import { buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-const service = primaryServices.find((item) => item.slug === 'prozessautomatisierung');
+const slug = 'prozessautomatisierung';
+const service = getServiceBySlug(slug);
+const routeKeywords = getRouteKeywords(`/leistungen/${slug}`);
 
-export const metadata: Metadata = {
-  title: service?.title ?? 'Prozessautomatisierung',
-  description: service?.summary,
-};
+export const metadata = buildMetadata({
+  path: `/leistungen/${slug}`,
+  service: 'Prozessautomatisierung für KMU',
+  city: 'Coburg',
+  benefit: 'Workflows automatisieren, Übergaben stabilisieren und klare KPIs für Vertrieb, Projekt und Buchhaltung schaffen.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function ProzessautomatisierungPage() {
   if (!service) {

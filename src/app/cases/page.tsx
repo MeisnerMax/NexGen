@@ -1,24 +1,37 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
 import { getAllCases } from '@/lib/content';
 import { InlineCTA } from '@/components/InlineCTA';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-export const metadata: Metadata = {
-  title: 'Case Studies',
-  description: 'Praxisnahe Beispiele für Digitalisierung und Prozessautomatisierung in KMU.',
-};
+const routeKeywords = getRouteKeywords('/cases');
+
+export const metadata = buildMetadata({
+  path: '/cases',
+  title: 'Case Studies: Prozessautomatisierung in KMU',
+  benefit: 'Praxisnahe Beispiele mit klaren Ergebnissen und messbarer Entlastung in KMU.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function CasesPage() {
   const cases = getAllCases();
+  const breadcrumbSchema = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Cases', href: '/cases' },
+  ]);
 
   return (
     <Section className="pt-10">
+      <Breadcrumbs items={[{ label: 'Start', href: '/' }, { label: 'Cases' }]} className="mb-6" />
       <SectionHeader
         eyebrow="Fallbeispiele"
-        title="So schaffen wir messbare Entlastung"
+        title="Case Studies zur Prozessautomatisierung"
         description="Beispiele mit messbaren Kennzahlen und klaren Ergebnissen aus Projekten."
+        as="h1"
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {cases.map((caseStudy) => (
@@ -48,6 +61,7 @@ export default function CasesPage() {
         ))}
       </div>
       <InlineCTA />
+      <JsonLd data={breadcrumbSchema} />
     </Section>
   );
 }

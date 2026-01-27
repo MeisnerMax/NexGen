@@ -35,6 +35,8 @@ export const navLinks: NavLink[] = [
       { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung' },
       { label: 'Digitale Tools & Individualsoftware', href: '/leistungen/individualsoftware' },
       { label: 'Website & SEO', href: '/leistungen/webdesign-seo' },
+      { label: 'Microsoft 365 Automatisierung', href: '/leistungen/microsoft-365-automatisierung' },
+      { label: 'KI-Chatbots', href: '/leistungen/ki-chatbots' },
     ],
   },
   { label: 'Cases', href: '/cases' },
@@ -48,6 +50,7 @@ export const footerLinks = {
     { label: 'Cases', href: '/cases' },
     { label: 'Blog', href: '/blog' },
     { label: 'Kontakt', href: '/kontakt' },
+    { label: 'Digitalisierung Coburg', href: '/digitalisierung-coburg' },
   ],
   legal: [
     { label: 'Impressum', href: '/impressum' },

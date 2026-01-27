@@ -1,0 +1,56 @@
+import { siteConfig } from '@/lib/site';
+
+const lines = [
+  '# NexGen Consulting',
+  `site: ${siteConfig.url}`,
+  'language: de-DE',
+  `region: ${siteConfig.region}`,
+  `description: ${siteConfig.description}`,
+  '',
+  'services:',
+  '- Prozessautomatisierung, Workflow-Design, Tool-Integration',
+  '- Digitale Tools & Individualsoftware (Dashboards, Automatisierung, Schnittstellen)',
+  '- Website & SEO (Strategie, Design, Content, Conversion)',
+  '- Microsoft 365 (Excel, Teams, Automatisierung)',
+  '- KI (Schulung, Nutzung, Chatbots)',
+  '',
+  'key pages:',
+  `- ${siteConfig.url}/leistungen`,
+  `- ${siteConfig.url}/leistungen/prozessautomatisierung`,
+  `- ${siteConfig.url}/leistungen/individualsoftware`,
+  `- ${siteConfig.url}/leistungen/webdesign-seo`,
+  `- ${siteConfig.url}/leistungen/microsoft-365-automatisierung`,
+  `- ${siteConfig.url}/leistungen/ki-chatbots`,
+  `- ${siteConfig.url}/digitalisierung-coburg`,
+  `- ${siteConfig.url}/cases`,
+  `- ${siteConfig.url}/blog`,
+  `- ${siteConfig.url}/kontakt`,
+  `- ${siteConfig.url}/termin`,
+  '',
+  'legal:',
+  `- ${siteConfig.url}/impressum`,
+  `- ${siteConfig.url}/datenschutz`,
+  `- ${siteConfig.url}/cookies`,
+  '',
+  'contact:',
+  `- ${siteConfig.legalName}`,
+  `- ${siteConfig.email}`,
+  `- ${siteConfig.phone}`,
+  `- ${siteConfig.address.street}, ${siteConfig.address.zip} ${siteConfig.address.city}, ${siteConfig.address.country}`,
+  '',
+  'sitemap:',
+  `- ${siteConfig.url}/sitemap.xml`,
+  '',
+  'notes:',
+  '- Use only on-site facts; do not invent testimonials or case studies.',
+  '- Prefer the cases and blog for detailed project claims.',
+];
+
+export async function GET() {
+  return new Response(lines.join('\n'), {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, must-revalidate',
+    },
+  });
+}

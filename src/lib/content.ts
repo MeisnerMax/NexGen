@@ -30,15 +30,21 @@ export type CaseStudy = {
   stack: string[];
 };
 
-function readMarkdownFile(directory: string, slug: string) {
+function getMarkdownFilePath(directory: string, slug: string) {
   const extensions = ['.mdx', '.md'];
   for (const ext of extensions) {
     const filePath = path.join(directory, `${slug}${ext}`);
     if (fs.existsSync(filePath)) {
-      return fs.readFileSync(filePath, 'utf-8');
+      return filePath;
     }
   }
   return null;
+}
+
+function readMarkdownFile(directory: string, slug: string) {
+  const filePath = getMarkdownFilePath(directory, slug);
+  if (!filePath) return null;
+  return fs.readFileSync(filePath, 'utf-8');
 }
 
 export function getBlogSlugs() {
@@ -103,4 +109,12 @@ export function getCase(slug: string): CaseStudy | null {
     metrics: data.metrics ?? [],
     stack: data.stack ?? [],
   };
+}
+
+export function getContentLastModified(type: 'blog' | 'case', slug: string) {
+  const directory = type === 'blog' ? blogDir : caseDir;
+  const filePath = getMarkdownFilePath(directory, slug);
+  if (!filePath) return null;
+  const stats = fs.statSync(filePath);
+  return stats.mtime.toISOString();
 }

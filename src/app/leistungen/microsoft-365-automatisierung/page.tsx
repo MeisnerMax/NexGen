@@ -4,19 +4,20 @@ import { getServiceBySlug } from '@/lib/services';
 import { buildMetadata } from '@/seo/metadata';
 import { getRouteKeywords } from '@/seo/keywordMap';
 
-const slug = 'webdesign-seo';
+const slug = 'microsoft-365-automatisierung';
 const service = getServiceBySlug(slug);
 const routeKeywords = getRouteKeywords(`/leistungen/${slug}`);
 
 export const metadata = buildMetadata({
   path: `/leistungen/${slug}`,
-  service: 'Webdesign & SEO für KMU',
+  service: 'Microsoft 365 Automatisierung für KMU',
   city: 'Coburg',
-  benefit: 'Klare Positionierung, schnelle Ladezeiten und lokale Sichtbarkeit für planbare Anfragen.',
+  benefit:
+    'Teams, SharePoint und Power Automate in klare Workflows bringen, damit Übergaben, Freigaben und Datenflüsse stabil laufen.',
   keywords: routeKeywords?.secondary,
 });
 
-export default function WebdesignSeoPage() {
+export default function Microsoft365AutomationPage() {
   if (!service) {
     notFound();
   }

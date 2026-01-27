@@ -1,15 +1,28 @@
-import type { Metadata } from 'next';
 import { Card } from '@/components/Card';
 import { Section } from '@/components/Section';
 import { siteConfig } from '@/lib/site';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-export const metadata: Metadata = {
+const routeKeywords = getRouteKeywords('/impressum');
+
+export const metadata = buildMetadata({
+  path: '/impressum',
   title: 'Impressum',
-};
+  benefit: 'Angaben gemäß § 5 TMG und Kontaktinformationen von NexGen Consulting.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function ImpressumPage() {
+  const breadcrumbSchema = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Impressum', href: '/impressum' },
+  ]);
   return (
     <Section className="pt-10">
+      <Breadcrumbs items={[{ label: 'Start', href: '/' }, { label: 'Impressum' }]} className="mb-6" />
       <Card className="space-y-8">
         <h1 className="text-3xl font-semibold text-slate-900">Impressum</h1>
 
@@ -76,6 +89,7 @@ export default function ImpressumPage() {
           </p>
         </section>
       </Card>
+      <JsonLd data={breadcrumbSchema} />
     </Section>
   );
 }

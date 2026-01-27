@@ -1,22 +1,36 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
 import ContactForm from '@/components/ContactForm';
 import { siteConfig } from '@/lib/site';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import JsonLd from '@/seo/JsonLd';
+import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
+import { getRouteKeywords } from '@/seo/keywordMap';
 
-export const metadata: Metadata = {
-  title: 'Kontakt',
-  description: 'Kontaktieren Sie NexGen Consulting für eine Prozessanalyse oder konkrete Anfrage.',
-};
+const routeKeywords = getRouteKeywords('/kontakt');
+
+export const metadata = buildMetadata({
+  path: '/kontakt',
+  title: 'Kontakt für Prozessautomatisierung & Digitalisierung',
+  benefit:
+    'Kontaktieren Sie uns für eine Prozessanalyse, klare nächste Schritte und passende Automatisierung für Ihr KMU.',
+  keywords: routeKeywords?.secondary,
+});
 
 export default function ContactPage() {
+  const breadcrumbSchema = buildBreadcrumbList([
+    { label: 'Start', href: '/' },
+    { label: 'Kontakt', href: '/kontakt' },
+  ]);
   return (
     <Section className="pt-10">
+      <Breadcrumbs items={[{ label: 'Start', href: '/' }, { label: 'Kontakt' }]} className="mb-6" />
       <SectionHeader
         eyebrow="Kontakt"
-        title="Sprechen wir über Ihre Prozesse"
+        title="Kontakt für Prozessautomatisierung"
         description="Beschreiben Sie kurz Ihre Situation. Wir melden uns mit einem klaren Vorschlag und nächsten Schritten."
+        as="h1"
       />
       <div className="mt-10 grid gap-8 lg:grid-cols-[1fr,0.9fr]">
         <Card>
@@ -54,6 +68,7 @@ export default function ContactPage() {
           </div>
         </Card>
       </div>
+      <JsonLd data={breadcrumbSchema} />
     </Section>
   );
 }

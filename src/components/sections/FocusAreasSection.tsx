@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { InlineCTA } from '@/components/InlineCTA';
 import { Section, SectionHeader } from '@/components/Section';
@@ -23,13 +24,8 @@ export default function FocusAreasSection({
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         {focusAreas.map((area, index) => {
           const Icon = index === 0 ? GridIcon : SparklesIcon;
-          return (
-            <Card
-              key={area.title}
-              interactive
-              className="space-y-4 motion-safe:animate-fade-up"
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
+          const content = (
+            <>
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-accent-soft)] text-[var(--color-accent)] shadow-sm">
                   <Icon className="h-5 w-5" />
@@ -47,6 +43,23 @@ export default function FocusAreasSection({
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
+            </>
+          );
+
+          return (
+            <Card
+              key={area.title}
+              interactive
+              className="space-y-4 motion-safe:animate-fade-up"
+              style={{ animationDelay: `${index * 80}ms` }}
+            >
+              {area.href ? (
+                <Link href={area.href} className="block h-full">
+                  {content}
+                </Link>
+              ) : (
+                content
+              )}
             </Card>
           );
         })}
