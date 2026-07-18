@@ -3,9 +3,9 @@ import { cn } from '@/lib/utils';
 
 const tones = {
   default: '',
-  soft: 'bg-[var(--color-surface)]/70',
-  muted: 'bg-[var(--color-surface)]/85',
-  accent: 'bg-[var(--color-accent-soft)]/70',
+  soft: 'bg-[var(--color-surface-strong)]',
+  muted: 'bg-[#ece9e2]',
+  accent: 'bg-[var(--color-accent-soft)]',
 };
 
 export function Section({
@@ -24,10 +24,9 @@ export function Section({
     <section
       id={id}
       className={cn(
-        'py-16 md:py-24',
+        'py-20 md:py-28 lg:py-32',
         tones[tone],
-        divider &&
-          'relative overflow-hidden border-y border-slate-200/70 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/80 before:to-transparent before:content-[""] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-slate-100/80 after:to-transparent after:content-[""]',
+        divider && 'relative overflow-hidden border-y border-[var(--color-border)]',
         className,
       )}
     >
@@ -51,14 +50,14 @@ export function SectionHeader({
 }) {
   const Heading = as;
   return (
-    <div className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center')}>
-      {eyebrow && (
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-          {eyebrow}
-        </p>
+    <div className={cn('max-w-4xl', align === 'center' && 'mx-auto text-center')}>
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      <Heading className="mt-4 text-4xl font-semibold leading-[1.04] md:text-5xl lg:text-6xl">
+        {title}
+      </Heading>
+      {description && (
+        <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">{description}</p>
       )}
-      <Heading className="mt-4 text-3xl font-semibold md:text-4xl">{title}</Heading>
-      {description && <p className="mt-4 text-lg text-slate-700">{description}</p>}
     </div>
   );
 }

@@ -1,63 +1,72 @@
-import { Card } from '@/components/Card';
-import { InlineCTA } from '@/components/InlineCTA';
+import { ButtonLink } from '@/components/Button';
 import { Section, SectionHeader } from '@/components/Section';
-import Link from 'next/link';
-import {
-  AlertTriangleIcon,
-  BarChartIcon,
-  ClockIcon,
-  EyeIcon,
-  RotateCwIcon,
-  ShuffleIcon,
-} from '@/components/Icons';
-import { problemList } from '@/lib/data';
+
+const transformations = [
+  {
+    title: 'Von verstreuten Informationen zu einem belastbaren Ablauf',
+    description:
+      'Informationen liegen heute in Postfächern, Listen und Köpfen. Wir schaffen einen gemeinsamen Prozess mit eindeutigen Status.',
+    before: 'Excel · E-Mail · Rückfragen',
+    after: 'Zentraler Workflow · Live-Status',
+  },
+  {
+    title: 'Von doppelter Dateneingabe zu sauberen Übergaben',
+    description:
+      'Daten werden nicht mehrfach übertragen, sondern kontrolliert zwischen den vorhandenen Systemen weitergegeben.',
+    before: 'Kopieren · Prüfen · Nacharbeiten',
+    after: 'Schnittstellen · Regeln · Alerts',
+  },
+  {
+    title: 'Vom Bauchgefühl zu nachvollziehbaren Entscheidungen',
+    description:
+      'Bearbeitungszeit, Fehler und Wartephasen werden sichtbar. So investieren Sie dort, wo der Hebel nachweislich am größten ist.',
+    before: 'Unklare Ursachen · Verzögerungen',
+    after: 'Messpunkte · Prioritäten · Wirkung',
+  },
+];
 
 export default function ProblemSection() {
-  const problemIcons = [
-    AlertTriangleIcon,
-    RotateCwIcon,
-    EyeIcon,
-    ClockIcon,
-    ShuffleIcon,
-    BarChartIcon,
-  ];
-
   return (
     <Section id="probleme" tone="soft" divider>
-      <SectionHeader
-        eyebrow="Probleme"
-        title="Typische Engpässe, die Wachstum bremsen"
-        description="Wenn Prozesse wachsen, steigen Reibungsverluste. Wir beseitigen die größten Blockaden."
-      />
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
-        {problemList.map((problem, index) => {
-          const Icon = problemIcons[index % problemIcons.length];
-          return (
-            <Card
-              key={problem}
-              interactive
-              className="flex items-start gap-4 text-sm text-slate-700 motion-safe:animate-fade-up"
-              style={{ animationDelay: `${index * 60}ms` }}
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-accent-soft)] text-[var(--color-accent)] shadow-sm">
-                <Icon className="h-5 w-5" />
+      <div className="grid gap-12 lg:grid-cols-[0.78fr,1.22fr] lg:gap-20">
+        <div className="lg:sticky lg:top-32 lg:self-start">
+          <SectionHeader
+            eyebrow="Vom Engpass zum System"
+            title="Digitalisierung beginnt nicht mit einem Tool."
+            description="Sie beginnt mit der Frage, an welcher Stelle Zeit, Qualität oder Transparenz verloren gehen."
+          />
+          <ButtonLink href="/termin" variant="secondary" className="mt-8">
+            Engpass identifizieren <span aria-hidden="true">↗</span>
+          </ButtonLink>
+        </div>
+        <div className="transformation-grid">
+          {transformations.map((item, index) => (
+            <article key={item.title} className="transformation-card">
+              <div>
+                <span className="transformation-card__number">0{index + 1}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
-              <p className="pt-1">{problem}</p>
-            </Card>
-          );
-        })}
+              <div
+                className="transformation-card__shift"
+                aria-label={`Vorher: ${item.before}. Nachher: ${item.after}.`}
+              >
+                <div>
+                  <span>Heute</span>
+                  <strong>{item.before}</strong>
+                </div>
+                <span className="transformation-card__arrow" aria-hidden="true">
+                  →
+                </span>
+                <div>
+                  <span>Zielbild</span>
+                  <strong>{item.after}</strong>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <p className="mt-6 text-sm font-semibold text-slate-700">
-        Diese Engpässe kosten Zeit, Qualität und Marge. Genau hier setzen wir an – strukturiert,
-        messbar und ohne Betriebsunterbrechung.
-        <Link
-          href="#gewinn"
-          className="ml-2 inline-flex text-[var(--color-accent)]"
-        >
-          Zum messbaren Gewinn →
-        </Link>
-      </p>
-      <InlineCTA />
     </Section>
   );
 }

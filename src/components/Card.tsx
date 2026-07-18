@@ -14,9 +14,9 @@ export function Card({
   return (
     <div
       className={cn(
-        'rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white/95 via-white/90 to-[var(--color-accent-soft)]/70 p-6 shadow-sm transition',
+        'card-premium p-6 transition duration-300',
         interactive &&
-          'hover:-translate-y-1 hover:border-slate-200 hover:shadow-[0_20px_45px_-32px_rgba(12,37,48,0.6)]',
+          'hover:-translate-y-1 hover:border-[rgba(201,86,11,0.34)] hover:shadow-[var(--shadow-card)]',
         className,
       )}
       {...props}

@@ -48,9 +48,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={`${headingFont.variable} ${bodyFont.variable}`}>
       <body className="min-h-screen bg-[var(--color-surface)]">
+        <a href="#main-content" className="skip-link">
+          Zum Inhalt springen
+        </a>
         <TrackingProvider />
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <SiteFooter />
         <ConsentBanner />
       </body>

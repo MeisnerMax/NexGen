@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { Card } from '@/components/Card';
-import { InlineCTA } from '@/components/InlineCTA';
+import { ButtonLink } from '@/components/Button';
 import { Section, SectionHeader } from '@/components/Section';
 import { getAllCases } from '@/lib/content';
 
@@ -8,62 +8,73 @@ export default function SocialProofSection() {
   const cases = getAllCases().slice(0, 3);
 
   return (
-    <Section id="referenzen" tone="soft" divider>
+    <Section id="referenzen" divider>
       <SectionHeader
-        eyebrow="Social Proof"
-        title="Vertrauen entsteht durch klare Ergebnisse"
-        description="Case Studies mit messbaren Ergebnissen und konkreten Kennzahlen aus den Projekten."
+        eyebrow="Proof statt Versprechen"
+        title="Gute digitale Lösungen machen Komplexität unsichtbar."
+        description="Ein reales Webprojekt und konkrete Prozessbeispiele zeigen, wie wir Struktur, Bedienbarkeit und Wirkung zusammenführen."
       />
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
-        {cases.map((caseStudy, index) => (
-          <Card
-            key={caseStudy.slug}
-            interactive
-            className="flex h-full flex-col motion-safe:animate-fade-up"
-            style={{ animationDelay: `${index * 70}ms` }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-              {caseStudy.industry}
-            </p>
-            <h3 className="mt-3 text-lg font-semibold text-slate-900">{caseStudy.title}</h3>
-            <p className="mt-3 text-sm text-slate-700">{caseStudy.summary}</p>
-            {caseStudy.metrics.length > 0 && (
-              <div className="mt-4 space-y-2 text-xs text-slate-600">
-                {caseStudy.metrics.slice(0, 3).map((metric) => (
-                  <div key={metric.label} className="flex items-center justify-between gap-3">
-                    <span>{metric.label}</span>
-                    <span className="font-semibold text-slate-900">{metric.value}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            <Link
-              href={`/cases/${caseStudy.slug}`}
-              className="mt-4 text-sm font-semibold text-[var(--color-accent)]"
-            >
-              Case ansehen →
-            </Link>
-          </Card>
-        ))}
-      </div>
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <Card interactive className="motion-safe:animate-fade-up" style={{ animationDelay: '140ms' }}>
-          <p className="text-sm font-semibold text-slate-900">
-            Referenz: Website für Stephanie Meisner (Mediatorin)
+
+      <article className="proof-feature mt-12">
+        <a
+          href="https://www.stephaniemeisner.de/"
+          className="proof-feature__visual"
+          aria-label="Website von Stephanie Meisner öffnen"
+        >
+          <Image
+            src="/images/stephaniemeisner.png"
+            alt="Startseite der Website von Stephanie Meisner"
+            fill
+            sizes="(max-width: 1024px) 100vw, 55vw"
+            className="object-cover object-top"
+          />
+        </a>
+        <div className="proof-feature__copy">
+          <p className="eyebrow eyebrow--light">Reales Kundenprojekt · Website</p>
+          <h3>Komplexe Leistung in wenigen Sekunden verständlich.</h3>
+          <p>
+            Für die Mediatorin Stephanie Meisner entstand eine klare, vertrauenswürdige Website mit
+            strukturierten Leistungswegen und eindeutiger Kontaktführung.
           </p>
-          <p className="mt-3 text-sm text-slate-700">
-            “Die neue Website bringt meine Arbeit klar auf den Punkt und wirkt professionell. Die
-            Zusammenarbeit war strukturiert und zuverlässig.”
-          </p>
+          <blockquote className="proof-quote">
+            „Die neue Website bringt meine Arbeit klar auf den Punkt und wirkt professionell. Die
+            Zusammenarbeit war strukturiert und zuverlässig.“
+          </blockquote>
           <a
             href="https://www.stephaniemeisner.de/"
-            className="mt-4 inline-flex text-sm font-semibold text-[var(--color-accent)]"
+            className="mt-7 inline-flex text-sm font-bold text-[#f6a46f]"
           >
-            Website ansehen →
+            Website ansehen{' '}
+            <span className="ml-2" aria-hidden="true">
+              ↗
+            </span>
           </a>
-        </Card>
+        </div>
+      </article>
+
+      <div className="mt-14 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="eyebrow">Prozessbeispiele</p>
+          <h3 className="mt-3 text-3xl font-semibold md:text-4xl">
+            So werden typische Engpässe greifbar.
+          </h3>
+        </div>
+        <ButtonLink href="/cases" variant="secondary">
+          Alle Beispiele ansehen <span aria-hidden="true">↗</span>
+        </ButtonLink>
       </div>
-      <InlineCTA />
+      <div className="case-preview-grid">
+        {cases.map((caseStudy) => (
+          <Link key={caseStudy.slug} href={`/cases/${caseStudy.slug}`} className="case-preview">
+            <p className="eyebrow">{caseStudy.industry}</p>
+            <h3>{caseStudy.title}</h3>
+            <p>{caseStudy.summary}</p>
+            <span className="mt-5 inline-flex text-xs font-bold text-[var(--color-accent-strong)]">
+              Beispiel öffnen ↗
+            </span>
+          </Link>
+        ))}
+      </div>
     </Section>
   );
 }

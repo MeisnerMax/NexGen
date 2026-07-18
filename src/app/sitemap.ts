@@ -18,16 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/kontakt',
     '/leadmagnet',
     '/termin',
-    '/danke',
     '/impressum',
     '/datenschutz',
     '/cookies',
   ];
 
-  const staticEntries = staticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-  }));
+  const staticEntries = staticRoutes.map((route) => ({ url: `${baseUrl}${route}` }));
 
   const blogEntries = getAllBlogPosts().map((post) => {
     const lastModified = getContentLastModified('blog', post.slug) ?? post.date;

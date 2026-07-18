@@ -7,6 +7,7 @@ import SocialProofSection from '@/components/sections/SocialProofSection';
 import LeadMagnetSection from '@/components/sections/LeadMagnetSection';
 import FAQSection from '@/components/sections/FAQSection';
 import FinalCTASection from '@/components/sections/FinalCTASection';
+import AboutSection from '@/components/sections/AboutSection';
 import JsonLd, { buildFaqSchema } from '@/seo/JsonLd';
 import { buildMetadata } from '@/seo/metadata';
 import { getRouteKeywords } from '@/seo/keywordMap';
@@ -59,9 +60,7 @@ export default function HomePage() {
           image: `${siteConfig.url}/images/logo.png`,
           telephone: siteConfig.phone,
           email: siteConfig.email,
-          ...(siteConfig.googleBusinessProfile
-            ? { hasMap: siteConfig.googleBusinessProfile }
-            : {}),
+          ...(siteConfig.googleBusinessProfile ? { hasMap: siteConfig.googleBusinessProfile } : {}),
           address: {
             '@type': 'PostalAddress',
             streetAddress: siteConfig.address.street,
@@ -86,11 +85,6 @@ export default function HomePage() {
     publisher: {
       '@id': `${siteConfig.url}#organization`,
     },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${siteConfig.url}/blog?query={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   };
 
   const faqSchema = buildFaqSchema(homeFaqs);
@@ -107,6 +101,7 @@ export default function HomePage() {
       <OfferingsOverviewSection />
       <MethodSection />
       <SocialProofSection />
+      <AboutSection />
       <LeadMagnetSection />
       <FAQSection />
       <FinalCTASection />
