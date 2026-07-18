@@ -12,6 +12,7 @@ export const metadata = buildMetadata({
   title: 'Danke für Ihre Anfrage',
   benefit: 'Ihre Anfrage ist eingegangen. Wir melden uns mit konkreten nächsten Schritten.',
   keywords: routeKeywords?.secondary,
+  noIndex: true,
 });
 
 export default function ThankYouPage() {

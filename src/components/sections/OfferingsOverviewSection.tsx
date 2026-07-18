@@ -1,85 +1,78 @@
 import Link from 'next/link';
-import { Card } from '@/components/Card';
-import { InlineCTA } from '@/components/InlineCTA';
-import { Section, SectionHeader } from '@/components/Section';
-import { BarChartIcon, EyeIcon, GridIcon, LayoutIcon, SparklesIcon } from '@/components/Icons';
+import { ButtonLink } from '@/components/Button';
+import { Section } from '@/components/Section';
 import { focusAreas, primaryServices } from '@/lib/services';
 
-const offerings = [
-  {
-    label: 'Angebot',
-    title: primaryServices[0].title,
-    summary: primaryServices[0].tagline,
-    href: `/leistungen/${primaryServices[0].slug}`,
-    icon: BarChartIcon,
-  },
-  {
-    label: 'Angebot',
-    title: primaryServices[1].title,
-    summary: primaryServices[1].tagline,
-    href: `/leistungen/${primaryServices[1].slug}`,
-    icon: LayoutIcon,
-  },
-  {
-    label: 'Angebot',
-    title: primaryServices[2].title,
-    summary: primaryServices[2].tagline,
-    href: `/leistungen/${primaryServices[2].slug}`,
-    icon: EyeIcon,
-  },
-  {
-    label: 'Schwerpunkt',
-    title: focusAreas[0].title,
-    summary: 'Microsoft 365 Prozesse messbar stabilisieren.',
-    href: focusAreas[0].href,
-    icon: GridIcon,
-  },
-  {
-    label: 'Schwerpunkt',
-    title: focusAreas[1].title,
-    summary: 'KI-Use-Cases, sichere Chatbots und Team-Enablement.',
-    href: focusAreas[1].href,
-    icon: SparklesIcon,
-  },
+const visualLabels = [
+  ['CRM', 'Freigabe', 'ERP', 'Reporting'],
+  ['Portal', 'Datenhub', 'Rollen', 'Schnittstellen'],
+  ['Positionierung', 'SEO', 'Content', 'Anfragen'],
 ];
 
 export default function OfferingsOverviewSection() {
   return (
-    <Section id="loesungen" tone="soft" divider>
-      <span id="schwerpunkte" className="sr-only" />
-      <SectionHeader
-        eyebrow="Angebote & Schwerpunkte"
-        title="Auf einen Blick"
-        description="Wählen Sie den Bereich, der den größten Hebel für Ihr Unternehmen hat."
-      />
-      <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {offerings.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <Link key={item.title} href={item.href} className="block h-full">
-              <Card
-                interactive
-                className="flex h-full flex-col gap-4 motion-safe:animate-fade-up"
-                style={{ animationDelay: `${index * 70}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-accent-soft)] text-[var(--color-accent)] shadow-sm">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-                      {item.label}
-                    </p>
-                    <h3 className="mt-2 text-lg font-semibold text-slate-900">{item.title}</h3>
-                  </div>
-                </div>
-                <p className="mt-auto text-sm text-slate-700">{item.summary}</p>
-              </Card>
-            </Link>
-          );
-        })}
+    <Section id="loesungen" className="bg-[var(--color-primary)] text-white" divider>
+      <div className="max-w-4xl">
+        <p className="eyebrow eyebrow--light">Drei Leistungswelten</p>
+        <h2 className="mt-4 text-4xl font-semibold leading-[1.04] text-white md:text-5xl lg:text-6xl">
+          Vom operativen Engpass bis zur digitalen Lösung.
+        </h2>
+        <p className="mt-5 max-w-2xl text-lg leading-8 text-[#b7c4ca]">
+          Wir kombinieren Prozessverständnis, Technologie und messbare Nutzerwege – ohne Ihnen ein
+          bestimmtes Werkzeug aufzuzwingen.
+        </p>
       </div>
-      <InlineCTA />
+
+      <div className="service-stage mt-14">
+        {primaryServices.map((service, index) => (
+          <article key={service.slug} className="service-feature">
+            <div className="service-feature__copy">
+              <span className="service-feature__index">0{index + 1}</span>
+              <h3>{service.title}</h3>
+              <p>{service.summary}</p>
+              <ul className="service-feature__points">
+                {service.highlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <ButtonLink
+                href={`/leistungen/${service.slug}`}
+                variant={index === 1 ? 'secondary' : 'dark'}
+                className="mt-7"
+              >
+                Leistung entdecken <span aria-hidden="true">↗</span>
+              </ButtonLink>
+            </div>
+            <div className="service-feature__visual" aria-hidden="true">
+              <span className="service-feature__orb" />
+              {visualLabels[index].map((label) => (
+                <span key={label} className="service-feature__label">
+                  {label}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-12 border-t border-white/10 pt-8">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#728a96]">
+          Technologische Schwerpunkte
+        </p>
+        <div className="focus-links">
+          {focusAreas.map((area) => (
+            <Link key={area.href} href={area.href} className="focus-link">
+              <div>
+                <strong>{area.title}</strong>
+                <span className="mt-1 block">{area.summary}</span>
+              </div>
+              <span className="text-lg text-[#f6a46f]" aria-hidden="true">
+                ↗
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
     </Section>
   );
 }
