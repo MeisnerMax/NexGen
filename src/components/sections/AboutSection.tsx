@@ -9,10 +9,10 @@ export default function AboutSection() {
         <div className="about-stage__portrait" aria-hidden="true">
           <div className="about-stage__halo" />
           <Image
-            src="/images/team.jpg"
+            src="/images/max-meisner.webp"
             alt=""
-            width={1024}
-            height={1024}
+            width={1254}
+            height={1254}
             sizes="(max-width: 1024px) 80vw, 42vw"
             className="relative z-10 h-full w-full object-contain object-bottom"
           />

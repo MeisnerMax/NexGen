@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { Card } from '@/components/Card';
+import { ButtonLink } from '@/components/Button';
 import { Section, SectionHeader } from '@/components/Section';
-import { InlineCTA } from '@/components/InlineCTA';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { PageHero } from '@/components/PageHero';
 import { extraServices, primaryServices } from '@/lib/services';
 import FocusAreasSection from '@/components/sections/FocusAreasSection';
 import JsonLd from '@/seo/JsonLd';
@@ -28,82 +28,77 @@ export default function ServicesPage() {
 
   return (
     <>
-      <Section className="pt-10">
-        <Breadcrumbs
-          items={[{ label: 'Start', href: '/' }, { label: 'Leistungen' }]}
-          className="mb-6"
-        />
-        <SectionHeader
-          eyebrow="Leistungen"
-          title="Leistungen für Automatisierung und Digitalisierung"
-          description="Wir starten mit dem größten Engpass und ergänzen gezielt, sobald die Basis stabil läuft."
-          as="h1"
-        />
-        <InlineCTA label="Prozessanalyse + Maßnahmenplan" />
-      </Section>
+      <PageHero
+        breadcrumbs={[{ label: 'Start', href: '/' }, { label: 'Leistungen' }]}
+        eyebrow="Leistungsarchitektur"
+        title="Digitale Systeme, die im Alltag wirken."
+        description="Wir starten mit dem größten Engpass, bauen eine belastbare Lösung und erweitern erst dann. So entsteht Digitalisierung mit Richtung statt Tool-Sammlung."
+        signals={[
+          { label: 'Prinzip', value: 'Engpass zuerst' },
+          { label: 'Ergebnis', value: 'Skalierbare Abläufe' },
+        ]}
+      >
+        <ButtonLink href="/termin" variant="light">
+          Maßnahmenplan sichern <span aria-hidden="true">↗</span>
+        </ButtonLink>
+        <ButtonLink href="/cases" variant="dark">
+          Ergebnisse ansehen
+        </ButtonLink>
+      </PageHero>
       <Section>
-        <SectionHeader
-          eyebrow="Kernleistung"
-          title="Prozessautomatisierung als größter Hebel"
-          description="Wir automatisieren die Prozesskette, die den größten Aufwand und die meisten Fehler verursacht."
-        />
-        <div className="mt-10">
-          <Card className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
+        <div className="grid gap-12 lg:grid-cols-[0.72fr,1.28fr] lg:gap-20">
+          <SectionHeader
+            eyebrow="Kernleistung"
+            title="Der größte Hebel zuerst."
+            description="Wir automatisieren die Prozesskette, die den größten Aufwand und die meisten Fehler verursacht."
+          />
+          <div className="dark-cta p-7 md:p-10">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-                {primaryService.tagline}
-              </p>
-              <h3 className="mt-3 text-2xl font-semibold text-slate-900">
-                {primaryService.title}
-              </h3>
-              <p className="mt-3 text-sm text-slate-700">{primaryService.summary}</p>
-              <p className="mt-4 text-sm font-semibold text-slate-900">
-                {primaryService.result}
-              </p>
-              <Link
+              <p className="eyebrow eyebrow--light">{primaryService.tagline}</p>
+              <h3 className="mt-4 text-3xl font-semibold md:text-4xl">{primaryService.title}</h3>
+              <p className="mt-4 max-w-2xl leading-7">{primaryService.summary}</p>
+              <p className="mt-6 text-sm font-semibold text-white">{primaryService.result}</p>
+              <ButtonLink
                 href={`/leistungen/${primaryService.slug}`}
-                className="mt-5 inline-flex text-sm font-semibold text-[var(--color-accent)]"
+                variant="light"
+                className="relative z-10 mt-7"
               >
-                Details ansehen →
-              </Link>
+                Leistung entdecken <span aria-hidden="true">↗</span>
+              </ButtonLink>
             </div>
-            <div>
-              <p className="text-sm font-semibold text-slate-900">Enthalten</p>
-              <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                {primaryService.highlights.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
-              </ul>
-            </div>
-          </Card>
+          </div>
         </div>
       </Section>
-      <Section>
+      <Section tone="soft" divider>
         <SectionHeader
           eyebrow="Ergänzende Leistungen"
           title="Wenn der Kern sitzt, erweitern wir gezielt"
           description="Zwei Leistungen, die Prozesse stabilisieren und Anfragen planbar machen."
         />
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {secondaryServices.map((service) => (
-            <Card key={service.slug} className="flex h-full flex-col gap-4">
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {secondaryServices.map((service, index) => (
+            <Card key={service.slug} interactive className="flex h-full min-h-[29rem] flex-col p-8">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-                  {service.tagline}
-                </p>
-                <h3 className="mt-3 text-xl font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-3 text-sm text-slate-700">{service.summary}</p>
+                <div className="flex items-center justify-between">
+                  <p className="eyebrow">{service.tagline}</p>
+                  <span className="font-heading text-sm text-slate-400">0{index + 2}</span>
+                </div>
+                <h3 className="mt-8 text-3xl font-semibold">{service.title}</h3>
+                <p className="mt-4 text-sm leading-7">{service.summary}</p>
               </div>
-              <ul className="mt-auto space-y-2 text-sm text-slate-700">
+              <ul className="mt-8 space-y-3 border-t border-[var(--color-border)] pt-6 text-sm text-[var(--color-muted)]">
                 {service.highlights.map((item) => (
-                  <li key={item}>• {item}</li>
+                  <li key={item} className="flex gap-3">
+                    <span className="text-[var(--color-accent)]">↗</span>
+                    {item}
+                  </li>
                 ))}
               </ul>
               <Link
                 href={`/leistungen/${service.slug}`}
-                className="mt-4 text-sm font-semibold text-[var(--color-accent)]"
+                className="mt-auto pt-8 text-sm font-semibold text-[var(--color-accent)]"
               >
-                Details ansehen →
+                Leistung entdecken ↗
               </Link>
             </Card>
           ))}
@@ -114,17 +109,21 @@ export default function ServicesPage() {
         title="Microsoft 365 und KI als eigene Leistungsbereiche"
         description="Diese Themen behandeln wir als eigene Schwerpunkte, weil sie in vielen KMU spürbare Entlastung bringen."
       />
-      <Section>
+      <Section tone="muted" divider>
         <SectionHeader
           eyebrow="Zusatzleistungen"
           title="Ergänzende Unterstützung, wenn Sie weiter skalieren"
           description="Nach den Kernprojekten unterstützen wir beim Ausbau und der Verankerung neuer Abläufe."
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {extraServices.map((service) => (
-            <Card key={service} className="text-sm text-slate-600">
-              {service}
-            </Card>
+        <div className="mt-12 editorial-panel overflow-hidden">
+          {extraServices.map((service, index) => (
+            <div
+              key={service}
+              className="grid gap-3 border-b border-[var(--color-border)] p-6 last:border-0 md:grid-cols-[5rem,1fr] md:p-8"
+            >
+              <span className="font-heading text-sm text-[var(--color-accent)]">0{index + 1}</span>
+              <p className="font-semibold text-[var(--color-primary)]">{service}</p>
+            </div>
           ))}
         </div>
       </Section>
