@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { Accordion } from '@/components/Accordion';
-import { InlineCTA } from '@/components/InlineCTA';
 import { Section, SectionHeader } from '@/components/Section';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { PageHero } from '@/components/PageHero';
+import { ButtonLink } from '@/components/Button';
 import { focusAreas, primaryServices } from '@/lib/services';
 import JsonLd, { buildFaqSchema } from '@/seo/JsonLd';
 import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
@@ -50,16 +50,20 @@ export default function DigitalisierungCoburgPage() {
 
   return (
     <>
-      <Section className="pt-10">
-        <Breadcrumbs items={breadcrumbItems} className="mb-6" />
-        <SectionHeader
-          eyebrow="Coburg & Oberfranken"
-          title="Digitalisierung in Coburg für KMU"
-          description="Wir helfen Unternehmen in Coburg und Oberfranken, Prozesse zu automatisieren, digitale Tools sinnvoll einzusetzen und sichtbarer zu werden. Klar, messbar und ohne Buzzwords."
-          as="h1"
-        />
-        <InlineCTA label="Prozessanalyse für Coburg" />
-      </Section>
+      <PageHero
+        breadcrumbs={breadcrumbItems}
+        eyebrow="Coburg · Bamberg · Oberfranken"
+        title="Digitalisierung mit regionaler Nähe."
+        description="Wir helfen Unternehmen in Coburg und Oberfranken, Prozesse zu automatisieren, digitale Tools sinnvoll einzusetzen und sichtbarer zu werden – klar, messbar und ohne Buzzwords."
+        signals={[
+          { label: 'Region', value: 'Oberfranken' },
+          { label: 'Modell', value: 'Vor Ort + remote' },
+        ]}
+      >
+        <ButtonLink href="/termin" variant="light">
+          Prozessanalyse für Coburg
+        </ButtonLink>
+      </PageHero>
 
       <Section>
         <SectionHeader
@@ -67,25 +71,35 @@ export default function DigitalisierungCoburgPage() {
           title="Die stärksten Hebel für Coburg"
           description="Fokussiert auf Automatisierung, saubere Datenflüsse und regionale Sichtbarkeit."
         />
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {primaryServices.map((service) => (
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {primaryServices.map((service, index) => (
             <Link key={service.slug} href={`/leistungen/${service.slug}`} className="block h-full">
-              <Card className="flex h-full flex-col gap-3">
-                <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
-                <p className="text-sm text-slate-700">{service.summary}</p>
-                <span className="mt-auto text-sm font-semibold text-[var(--color-accent)]">
-                  Details ansehen →
+              <Card interactive className="flex h-full min-h-72 flex-col p-7">
+                <div className="flex items-center justify-between">
+                  <p className="eyebrow">Kernleistung</p>
+                  <span className="font-heading text-sm text-slate-400">0{index + 1}</span>
+                </div>
+                <h3 className="mt-12 text-2xl font-semibold">{service.title}</h3>
+                <p className="mt-4 text-sm leading-7">{service.summary}</p>
+                <span className="mt-auto pt-6 text-sm font-semibold text-[var(--color-accent)]">
+                  Details ansehen ↗
                 </span>
               </Card>
             </Link>
           ))}
-          {focusAreas.map((area) => (
+          {focusAreas.map((area, index) => (
             <Link key={area.title} href={area.href} className="block h-full">
-              <Card className="flex h-full flex-col gap-3">
-                <h3 className="text-lg font-semibold text-slate-900">{area.title}</h3>
-                <p className="text-sm text-slate-700">{area.summary}</p>
-                <span className="mt-auto text-sm font-semibold text-[var(--color-accent)]">
-                  Schwerpunkt ansehen →
+              <Card interactive className="flex h-full min-h-72 flex-col p-7">
+                <div className="flex items-center justify-between">
+                  <p className="eyebrow">Schwerpunkt</p>
+                  <span className="font-heading text-sm text-slate-400">
+                    0{primaryServices.length + index + 1}
+                  </span>
+                </div>
+                <h3 className="mt-12 text-2xl font-semibold">{area.title}</h3>
+                <p className="mt-4 text-sm leading-7">{area.summary}</p>
+                <span className="mt-auto pt-6 text-sm font-semibold text-[var(--color-accent)]">
+                  Schwerpunkt ansehen ↗
                 </span>
               </Card>
             </Link>
@@ -99,7 +113,7 @@ export default function DigitalisierungCoburgPage() {
           title="Häufige Fragen zur Zusammenarbeit"
           description="Kurz und konkret für Entscheider in Coburg und Oberfranken."
         />
-        <div className="mt-10 max-w-3xl">
+        <div className="mt-12 max-w-4xl">
           <Accordion items={localFaq} />
         </div>
       </Section>

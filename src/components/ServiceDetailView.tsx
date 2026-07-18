@@ -3,7 +3,9 @@ import { Card } from '@/components/Card';
 import { InlineCTA } from '@/components/InlineCTA';
 import { Section, SectionHeader } from '@/components/Section';
 import { Accordion } from '@/components/Accordion';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { ButtonLink } from '@/components/Button';
+import { CheckIcon } from '@/components/Icons';
+import { PageHero } from '@/components/PageHero';
 import RelatedContent from '@/components/RelatedContent';
 import { siteConfig } from '@/lib/site';
 import type { ServiceDetail } from '@/lib/services';
@@ -45,72 +47,113 @@ export default function ServiceDetailView({ service }: { service: ServiceDetail 
 
   return (
     <>
-      <Section className="pt-10">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
+      <PageHero
+        breadcrumbs={breadcrumbs}
+        eyebrow="Leistung · NexGen Consulting"
+        title={service.title}
+        description={service.summary}
+        signals={[
+          { label: 'Start', value: 'Engpassanalyse' },
+          { label: 'Ziel', value: 'Messbare Wirkung' },
+        ]}
+      >
+        <ButtonLink href="/termin" variant="light">
+          Projektpotenzial prüfen <span aria-hidden="true">↗</span>
+        </ButtonLink>
+        <ButtonLink href="/leistungen" variant="dark">
+          Alle Leistungen
+        </ButtonLink>
+      </PageHero>
+
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr,1.1fr] lg:gap-20">
           <div>
-            <Breadcrumbs items={breadcrumbs} className="mb-6" />
-            <Badge>Leistung</Badge>
-            <h1 className="mt-4 text-4xl font-semibold md:text-5xl">{service.title}</h1>
-            <p className="mt-4 text-lg text-slate-700">{service.summary}</p>
-            <p className="mt-6 text-base font-semibold text-slate-900">{service.result}</p>
+            <Badge>Das Ergebnis</Badge>
+            <h2 className="mt-5 text-3xl font-semibold leading-tight md:text-5xl">
+              Nicht mehr digital arbeiten. Sondern besser.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-[var(--color-muted)]">{service.result}</p>
           </div>
-          <Card className="space-y-3">
-            <p className="text-sm font-semibold text-slate-900">Worauf Sie sich verlassen können</p>
-            <ul className="space-y-2 text-sm text-slate-700">
+          <div>
+            <p className="eyebrow">Darauf können Sie bauen</p>
+            <div className="content-rail mt-5">
               {service.highlights.map((item) => (
-                <li key={item}>• {item}</li>
+                <div key={item} className="content-rail__item">
+                  <div>
+                    <strong>{item}</strong>
+                    <p>
+                      Sauber umgesetzt, nachvollziehbar dokumentiert und auf Ihren Alltag
+                      ausgerichtet.
+                    </p>
+                  </div>
+                </div>
               ))}
-            </ul>
-          </Card>
+            </div>
+          </div>
         </div>
       </Section>
 
-      <Section>
+      <Section tone="soft" divider>
         <SectionHeader
           eyebrow="Für wen"
-          title="Wenn manuelle Arbeit und Medienbrüche den Alltag bremsen"
+          title="Wenn Reibung zum täglichen Kostenfaktor wird."
           description="Diese Leistung passt, wenn Sie Abläufe stabilisieren, Fehler senken und klare Verantwortlichkeiten schaffen wollen."
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {service.forWhom.map((item) => (
-            <Card key={item} className="text-sm text-slate-700">
-              {item}
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {service.forWhom.map((item, index) => (
+            <Card key={item} interactive className="group min-h-56 p-7">
+              <span className="text-xs font-bold tracking-[0.18em] text-[var(--color-accent)]">
+                0{index + 1}
+              </span>
+              <p className="mt-14 text-base font-semibold leading-7 text-[var(--color-primary)]">
+                {item}
+              </p>
             </Card>
           ))}
         </div>
-        <InlineCTA />
       </Section>
 
       <Section>
         <SectionHeader
-          eyebrow="Use Cases"
-          title="Typische Einsatzfelder"
-          description="Beispiele, die wir häufig in KMU sehen und messbar entlasten."
+          eyebrow="Einsatzfelder"
+          title="Dort entsteht der schnellste Hebel."
+          description="Typische Situationen, die wir in KMU strukturiert analysieren und messbar entlasten."
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {service.useCases.map((item) => (
-            <Card key={item} className="text-sm text-slate-700">
-              {item}
-            </Card>
+        <div className="mt-12 editorial-panel overflow-hidden">
+          {service.useCases.map((item, index) => (
+            <div
+              key={item}
+              className="grid gap-4 border-b border-[var(--color-border)] p-6 last:border-b-0 md:grid-cols-[5rem,1fr,auto] md:items-center md:p-8"
+            >
+              <span className="font-heading text-2xl text-[var(--color-accent)]">0{index + 1}</span>
+              <p className="text-base font-semibold text-[var(--color-primary)]">{item}</p>
+              <span className="hidden text-xs font-bold uppercase tracking-[0.16em] text-slate-400 md:block">
+                Potenzial
+              </span>
+            </div>
           ))}
         </div>
         <InlineCTA />
       </Section>
 
-      <Section>
+      <Section tone="muted" divider>
         <SectionHeader
-          eyebrow="Deliverables"
-          title="Was Sie nach dem Projekt in der Hand halten"
+          eyebrow="Ergebnisraum"
+          title="Was nach dem Projekt wirklich bleibt."
           description="Klare Ergebnisse, dokumentiert, messbar und bereit für den Betrieb."
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
           {service.deliverables.map((item) => (
-            <Card key={item} className="text-sm text-slate-700">
-              {item}
+            <Card key={item} className="flex min-h-36 items-start gap-4 p-6">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--color-accent-soft)] text-[var(--color-accent)]">
+                <CheckIcon className="h-5 w-5" />
+              </span>
+              <p className="pt-2 text-sm font-semibold leading-6 text-[var(--color-primary)]">
+                {item}
+              </p>
             </Card>
           ))}
         </div>
-        <InlineCTA />
       </Section>
 
       <Section>
@@ -119,7 +162,7 @@ export default function ServiceDetailView({ service }: { service: ServiceDetail 
           title="Häufige Fragen zu dieser Leistung"
           description="Falls Ihre Frage fehlt: Wir klären sie gern im Erstgespräch."
         />
-        <div className="mt-10 max-w-3xl">
+        <div className="mt-12 max-w-4xl">
           <Accordion items={service.faq} />
         </div>
       </Section>

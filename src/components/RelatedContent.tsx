@@ -93,14 +93,12 @@ export default function RelatedContent({
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {selected.map((item) => (
           <Link key={item.href} href={item.href} className="block h-full">
-            <Card className="flex h-full flex-col gap-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                {item.type}
-              </p>
-              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
-              <p className="text-sm text-slate-700">{item.description}</p>
-              <span className="mt-auto text-sm font-semibold text-[var(--color-accent)]">
-                Mehr lesen →
+            <Card interactive className="flex h-full min-h-64 flex-col p-7">
+              <p className="eyebrow">{item.type}</p>
+              <h3 className="mt-10 text-2xl font-semibold">{item.title}</h3>
+              <p className="mt-4 text-sm leading-7">{item.description}</p>
+              <span className="mt-auto pt-6 text-sm font-semibold text-[var(--color-accent)]">
+                Mehr lesen ↗
               </span>
             </Card>
           </Link>

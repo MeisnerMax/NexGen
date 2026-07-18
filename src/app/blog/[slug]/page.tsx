@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { ButtonLink } from '@/components/Button';
 import { Markdown } from '@/components/Markdown';
 import { Section } from '@/components/Section';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { PageHero } from '@/components/PageHero';
 import RelatedContent from '@/components/RelatedContent';
 import { getBlogPost, getBlogSlugs } from '@/lib/content';
 import { formatDate } from '@/lib/format';
@@ -68,42 +68,79 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <Section className="pt-10">
-      <div className="max-w-3xl">
-        <Breadcrumbs items={breadcrumbItems} className="mb-6" />
-        <div className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-          {formatDate(post.date)} · {post.readingTime}
-        </div>
-        <h1 className="mt-4 text-4xl font-semibold text-slate-900">{post.title}</h1>
-        <p className="mt-4 text-lg text-slate-700">{post.description}</p>
-      </div>
-      <div className="mt-10 rounded-3xl border border-white/70 bg-white/80 p-6 shadow-sm">
-        <Markdown content={post.content} />
-      </div>
+    <>
+      <PageHero
+        breadcrumbs={breadcrumbItems}
+        eyebrow={`Insight · ${formatDate(post.date)}`}
+        title={post.title}
+        description={post.description}
+        signals={[
+          { label: 'Lesezeit', value: post.readingTime },
+          { label: 'Themen', value: `${post.tags.length} Schwerpunkte` },
+        ]}
+      >
+        <ButtonLink href="/kontakt" variant="light">
+          Thema besprechen <span aria-hidden="true">↗</span>
+        </ButtonLink>
+        <ButtonLink href="/blog" variant="dark">
+          Alle Insights
+        </ButtonLink>
+      </PageHero>
 
-      {relatedService && (
-        <div className="mt-10 rounded-3xl border border-[color:var(--color-accent-soft)] bg-[var(--color-accent-soft)] p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-            Passende Leistung
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold text-slate-900">{relatedService.label}</h2>
-          <p className="mt-3 text-sm text-slate-700">
-            Wir übertragen die Inhalte aus dem Artikel auf Ihre Prozesse und liefern konkrete nächste
-            Schritte.
-          </p>
-          <ButtonLink href={relatedService.slug} className="mt-5">
-            Zur Leistung
-          </ButtonLink>
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr),17rem] lg:items-start">
+          <div className="editorial-panel p-6 md:p-10 lg:p-14">
+            <Markdown content={post.content} />
+          </div>
+          <aside className="lg:sticky lg:top-28">
+            <p className="eyebrow">Artikelprofil</p>
+            <div className="content-rail mt-4">
+              <div className="content-rail__item">
+                <div>
+                  <strong>{formatDate(post.date)}</strong>
+                  <p>Veröffentlicht</p>
+                </div>
+              </div>
+              <div className="content-rail__item">
+                <div>
+                  <strong>{post.readingTime}</strong>
+                  <p>Kompakt lesbar</p>
+                </div>
+              </div>
+              <div className="content-rail__item">
+                <div>
+                  <strong>{post.tags.join(' · ')}</strong>
+                  <p>Themenschwerpunkte</p>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
-      )}
 
-      <RelatedContent
-        keywords={keywords}
-        exclude={[`/blog/${post.slug}`]}
-        title="Weitere Artikel und Cases"
-      />
+        {relatedService && (
+          <div className="dark-cta mt-12 grid gap-8 p-8 md:grid-cols-[1fr,auto] md:items-end md:p-12">
+            <div>
+              <p className="eyebrow eyebrow--light">Passende Leistung</p>
+              <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{relatedService.label}</h2>
+              <p className="mt-4 max-w-2xl leading-7">
+                Wir übertragen die Erkenntnisse aus dem Artikel auf Ihre Prozesse und liefern
+                konkrete nächste Schritte.
+              </p>
+            </div>
+            <ButtonLink href={relatedService.slug} variant="light" className="relative z-10">
+              Zur Leistung
+            </ButtonLink>
+          </div>
+        )}
+
+        <RelatedContent
+          keywords={keywords}
+          exclude={[`/blog/${post.slug}`]}
+          title="Weitere Artikel und Cases"
+        />
+      </Section>
 
       <JsonLd data={[blogPosting, buildBreadcrumbList(breadcrumbItems)]} />
-    </Section>
+    </>
   );
 }

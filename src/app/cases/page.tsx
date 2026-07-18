@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Card } from '@/components/Card';
+import { ButtonLink } from '@/components/Button';
 import { Section, SectionHeader } from '@/components/Section';
 import { getAllCases } from '@/lib/content';
-import { InlineCTA } from '@/components/InlineCTA';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { PageHero } from '@/components/PageHero';
 import JsonLd from '@/seo/JsonLd';
 import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
 import { getRouteKeywords } from '@/seo/keywordMap';
@@ -25,43 +25,80 @@ export default function CasesPage() {
   ]);
 
   return (
-    <Section className="pt-10">
-      <Breadcrumbs items={[{ label: 'Start', href: '/' }, { label: 'Cases' }]} className="mb-6" />
-      <SectionHeader
-        eyebrow="Fallbeispiele"
-        title="Case Studies zur Prozessautomatisierung"
-        description="Beispiele mit messbaren Kennzahlen und klaren Ergebnissen aus Projekten."
-        as="h1"
-      />
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {cases.map((caseStudy) => (
-          <Card key={caseStudy.slug} className="flex h-full flex-col">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-              {caseStudy.industry}
-            </p>
-            <h3 className="mt-3 text-xl font-semibold text-slate-900">{caseStudy.title}</h3>
-            <p className="mt-3 text-sm text-slate-700">{caseStudy.summary}</p>
-            {caseStudy.metrics.length > 0 && (
-              <div className="mt-4 space-y-2 text-xs text-slate-600">
-                {caseStudy.metrics.slice(0, 3).map((metric) => (
-                  <div key={metric.label} className="flex items-center justify-between gap-3">
-                    <span>{metric.label}</span>
-                    <span className="font-semibold text-slate-900">{metric.value}</span>
-                  </div>
-                ))}
-              </div>
-            )}
+    <>
+      <PageHero
+        breadcrumbs={[{ label: 'Start', href: '/' }, { label: 'Cases' }]}
+        eyebrow="Cases · Wirkung im Betrieb"
+        title="Ergebnisse, die man im Alltag merkt."
+        description="Keine Hochglanz-Versprechen: konkrete Ausgangslagen, nachvollziehbare Umsetzung und Kennzahlen, die den Unterschied sichtbar machen."
+        signals={[
+          { label: 'Fokus', value: 'Praxisbelege' },
+          { label: 'Maßstab', value: 'Messbare Entlastung' },
+        ]}
+      >
+        <ButtonLink href="/termin" variant="light">
+          Eigenen Hebel prüfen <span aria-hidden="true">↗</span>
+        </ButtonLink>
+      </PageHero>
+      <Section>
+        <SectionHeader
+          eyebrow="Ausgewählte Fallbeispiele"
+          title="Vom Engpass zum belastbaren System."
+          description="Jeder Case folgt derselben Logik: verstehen, priorisieren, sauber umsetzen und Wirkung überprüfen."
+        />
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {cases.map((caseStudy, index) => (
             <Link
+              key={caseStudy.slug}
               href={`/cases/${caseStudy.slug}`}
-              className="mt-4 text-sm font-semibold text-[var(--color-accent)]"
+              className="group block h-full"
             >
-              Details ansehen →
+              <Card interactive className="flex h-full min-h-[28rem] flex-col p-8">
+                <div className="flex items-start justify-between gap-6">
+                  <p className="eyebrow">{caseStudy.industry}</p>
+                  <span className="font-heading text-sm text-slate-400">0{index + 1}</span>
+                </div>
+                <h2 className="mt-12 max-w-lg text-3xl font-semibold leading-tight md:text-4xl">
+                  {caseStudy.title}
+                </h2>
+                <p className="mt-5 max-w-xl text-sm leading-7">{caseStudy.summary}</p>
+                {caseStudy.metrics.length > 0 && (
+                  <div className="mt-8 grid grid-cols-2 gap-4 border-t border-[var(--color-border)] pt-6">
+                    {caseStudy.metrics.slice(0, 2).map((metric) => (
+                      <div key={metric.label}>
+                        <strong className="block font-heading text-xl text-[var(--color-primary)]">
+                          {metric.value}
+                        </strong>
+                        <span className="mt-1 block text-xs text-[var(--color-muted)]">
+                          {metric.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <span className="mt-auto pt-8 text-sm font-semibold text-[var(--color-accent)]">
+                  Case öffnen ↗
+                </span>
+              </Card>
             </Link>
-          </Card>
-        ))}
-      </div>
-      <InlineCTA />
+          ))}
+        </div>
+      </Section>
+      <Section tone="soft" divider>
+        <div className="dark-cta grid gap-8 p-8 md:grid-cols-[1fr,auto] md:items-center md:p-12">
+          <div>
+            <p className="eyebrow eyebrow--light">Ihr nächster Case</p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-5xl">Welcher Engpass bremst Sie?</h2>
+            <p className="mt-4 max-w-2xl leading-7">
+              Wir prüfen Potenzial, Aufwand und nächsten sinnvollen Schritt gemeinsam.
+            </p>
+          </div>
+          <ButtonLink href="/termin" variant="light" className="relative z-10">
+            Prozessanalyse buchen
+          </ButtonLink>
+        </div>
+      </Section>
       <JsonLd data={breadcrumbSchema} />
-    </Section>
+    </>
   );
 }

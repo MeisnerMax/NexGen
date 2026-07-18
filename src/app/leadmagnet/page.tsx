@@ -1,8 +1,8 @@
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
+import { PageHero } from '@/components/PageHero';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { leadMagnet } from '@/lib/data';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd from '@/seo/JsonLd';
 import { buildBreadcrumbList, buildMetadata } from '@/seo/metadata';
 import { getRouteKeywords } from '@/seo/keywordMap';
@@ -24,41 +24,49 @@ export default function LeadMagnetPage() {
   ]);
   return (
     <>
-      <Section className="pt-10">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr]">
+      <PageHero
+        breadcrumbs={[{ label: 'Start', href: '/' }, { label: 'Leitfaden' }]}
+        eyebrow="Kostenloser Praxisleitfaden"
+        title={leadMagnet.title}
+        description={leadMagnet.description}
+        signals={[
+          { label: 'Format', value: 'Kompaktes PDF' },
+          { label: 'Zugang', value: 'Ohne Newsletter' },
+        ]}
+      />
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16">
           <div>
-            <Breadcrumbs
-              items={[{ label: 'Start', href: '/' }, { label: 'Leitfaden' }]}
-              className="mb-6"
+            <SectionHeader
+              eyebrow="Was Sie mitnehmen"
+              title="Vom Bauchgefühl zur Priorität."
+              description="Der Leitfaden hilft Ihnen, Engpässe strukturiert zu bewerten und intern die richtigen Fragen zu stellen."
             />
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-              Lead Magnet
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-              {leadMagnet.title}
-            </h1>
-            <p className="mt-4 text-lg text-slate-700">{leadMagnet.description}</p>
-            <ul className="mt-6 space-y-2 text-sm text-slate-700">
-              <li>• Welche Prozesse sich zuerst lohnen</li>
-              <li>• Messpunkte, die den Erfolg sichtbar machen</li>
-              <li>• Typische Engpässe in Dienstleistung, Handwerk und Fertigung</li>
-              <li>• Sofort umsetzbare Fragen für Ihr Team</li>
-            </ul>
-            <div className="mt-6 rounded-2xl border border-[color:var(--color-accent-soft)] bg-[var(--color-accent-soft)] p-4 text-sm text-slate-700">
-              <p className="font-semibold text-slate-900">Ideal für</p>
-              <p className="mt-2">
-                Entscheider in KMU, die manuelle Prozesse reduzieren und klare KPIs definieren
-                möchten.
-              </p>
+            <div className="content-rail mt-7">
+              {[
+                ['Prozesse priorisieren', 'Erkennen, welche Abläufe sich zuerst lohnen.'],
+                ['Erfolg messbar machen', 'Passende Messpunkte und KPIs definieren.'],
+                ['Engpässe einordnen', 'Muster aus Dienstleistung, Handwerk und Fertigung nutzen.'],
+                ['Team aktivieren', 'Mit sofort einsetzbaren Fragen ins Gespräch kommen.'],
+              ].map(([title, text]) => (
+                <div key={title} className="content-rail__item">
+                  <div>
+                    <strong>{title}</strong>
+                    <p>{text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          <Card className="space-y-4">
+          <Card className="self-start p-7 md:p-9">
             <SectionHeader
               eyebrow="PDF"
-              title="In 60 Sekunden zum Download"
+              title="In 60 Sekunden im Postfach."
               description="Nur Ihre E-Mail-Adresse, kein Newsletter-Abo."
             />
-            <LeadMagnetForm />
+            <div className="mt-7">
+              <LeadMagnetForm />
+            </div>
           </Card>
         </div>
       </Section>
@@ -66,10 +74,10 @@ export default function LeadMagnetPage() {
       <Section tone="soft" divider>
         <SectionHeader
           eyebrow="So nutzen Sie den Leitfaden"
-          title="Von der Liste zur Umsetzung"
+          title="Von der Liste zur Umsetzung."
           description="Drei Schritte, um den größten Hebel zu finden und intern zu starten."
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
           {[
             {
               title: 'Engpass auswählen',
@@ -83,10 +91,11 @@ export default function LeadMagnetPage() {
               title: 'Erste Schritte planen',
               text: 'Definieren Sie KPIs und legen Sie Verantwortlichkeiten fest.',
             },
-          ].map((item) => (
-            <Card key={item.title} className="text-sm text-slate-700">
-              <p className="font-semibold text-slate-900">{item.title}</p>
-              <p className="mt-2">{item.text}</p>
+          ].map((item, index) => (
+            <Card key={item.title} interactive className="min-h-56 p-7">
+              <span className="font-heading text-sm text-[var(--color-accent)]">0{index + 1}</span>
+              <h3 className="mt-12 text-xl font-semibold">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6">{item.text}</p>
             </Card>
           ))}
         </div>
