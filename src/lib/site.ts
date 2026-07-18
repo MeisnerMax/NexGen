@@ -46,6 +46,8 @@ export const navLinks: NavLink[] = [
 
 export const footerLinks = {
   company: [
+    { label: 'NexImmo', href: 'https://neximmo.nexgen-consulting.de' },
+    { label: 'NexHotels', href: 'https://hotels.nexgen-consulting.de' },
     { label: 'Leistungen', href: '/leistungen' },
     { label: 'Cases', href: '/cases' },
     { label: 'Blog', href: '/blog' },

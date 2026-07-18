@@ -62,7 +62,7 @@ export default function SiteFooter() {
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#728a96]">
-              Navigation
+              Netzwerk & Navigation
             </p>
             <ul className="mt-5 space-y-3">
               {footerLinks.company.map((link) => (
