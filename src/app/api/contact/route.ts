@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     const details = describeMailError(error);
     console.error('Kontaktformular: Versand fehlgeschlagen', details);
     return NextResponse.json(
-      { message: 'Die Anfrage konnte nicht versendet werden.', code: details.code, responseCode: details.responseCode },
+      { message: 'Die Anfrage konnte nicht versendet werden.', code: details.status ? `${details.code} ${details.status}` : details.code, responseCode: details.responseCode },
       { status: 502 },
     );
   }
