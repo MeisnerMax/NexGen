@@ -32,8 +32,11 @@ export class MailNotConfiguredError extends Error {
 /** Kurzbeschreibung eines SMTP-Fehlers ohne Zugangsdaten (für Logs und Fehlersuche). */
 export function describeMailError(error: unknown) {
   const e = error as { code?: string; responseCode?: number; command?: string; message?: string };
+  const text = String(e?.message ?? error);
   return {
     code: e?.code ?? 'UNKNOWN',
+    // erweiterter SMTP-Status (z. B. 5.7.8 = Gmail-Login abgelehnt, 5.7.139 = SMTP AUTH bei Microsoft 365 deaktiviert)
+    status: text.match(/\b[245]\.\d{1,3}\.\d{1,3}\b/)?.[0],
     responseCode: e?.responseCode,
     command: e?.command,
     message: String(e?.message ?? error).slice(0, 300),
