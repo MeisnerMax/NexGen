@@ -19,20 +19,41 @@ const transporter = hasSmtp
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 15_000,
     })
   : null;
+
+export class MailNotConfiguredError extends Error {
+  code = 'NOT_CONFIGURED';
+}
+
+/** Kurzbeschreibung eines SMTP-Fehlers ohne Zugangsdaten (für Logs und Fehlersuche). */
+export function describeMailError(error: unknown) {
+  const e = error as { code?: string; responseCode?: number; command?: string; message?: string };
+  return {
+    code: e?.code ?? 'UNKNOWN',
+    responseCode: e?.responseCode,
+    command: e?.command,
+    message: String(e?.message ?? error).slice(0, 300),
+  };
+}
 
 export async function sendContactEmail(payload: ContactInput) {
   if (!transporter || !mailFrom || !mailTo) {
     if (process.env.NODE_ENV === 'development') {
       console.info('Kontaktformular (dev):', payload);
+      return;
     }
-    return;
+    // In Produktion darf eine Anfrage nie still verloren gehen.
+    throw new MailNotConfiguredError('SMTP ist nicht vollständig konfiguriert.');
   }
 
   await transporter.sendMail({
     from: mailFrom,
     to: mailTo,
+    replyTo: payload.email,
     subject: `Neue Kontaktanfrage von ${payload.name}`,
     text: [
       `Name: ${payload.name}`,
