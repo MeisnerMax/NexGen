@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Button } from '@/components/Button';
 import { contactSchema } from '@/lib/validation';
 import { trackingEvents, trackEvent } from '@/lib/tracking';
+import { siteConfig } from '@/lib/site';
 
 const initialState = {
   name: '',
@@ -23,6 +24,7 @@ export default function ContactForm() {
   const [formState, setFormState] = useState<ContactState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactState, string>>>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle');
+  const [errorCode, setErrorCode] = useState('');
   const router = useRouter();
 
   const handleChange = (field: keyof ContactState, value: string | boolean) => {
@@ -50,6 +52,7 @@ export default function ContactForm() {
     }
 
     setErrors({});
+    setErrorCode('');
     setStatus('sending');
 
     try {
@@ -60,12 +63,15 @@ export default function ContactForm() {
       });
 
       if (!response.ok) {
+        const data = (await response.json().catch(() => ({}))) as { code?: string; message?: string };
+        setErrorCode(response.status === 429 ? 'zu viele Anfragen' : data.code || String(response.status));
         throw new Error('Request failed');
       }
 
       trackEvent(trackingEvents.contactSubmit);
       router.push('/danke');
     } catch {
+      setErrorCode((current) => current || 'Netzwerk');
       setStatus('error');
       return;
     }
@@ -169,9 +175,22 @@ export default function ContactForm() {
         />
       </label>
       {status === 'error' && (
-        <p className="text-sm text-red-500">
-          Es gab ein Problem beim Versenden. Bitte versuchen Sie es erneut.
-        </p>
+        <div role="alert" className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          <p>
+            Die Anfrage konnte gerade nicht automatisch versendet werden{errorCode ? ` (${errorCode})` : ''}. Ihre Angaben gehen nicht verloren:
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a
+              className="rounded-full bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-700"
+              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Anfrage von ${formState.name}${formState.company ? ` (${formState.company})` : ''}`)}&body=${encodeURIComponent([`Anliegen: ${formState.topic}`, `Telefon: ${formState.phone || '-'}`, '', formState.message].join('\n'))}`}
+            >
+              Per E-Mail senden
+            </a>
+            <a className="rounded-full border border-red-300 px-4 py-2 font-medium hover:bg-red-100" href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>
+              Anrufen: {siteConfig.phone}
+            </a>
+          </div>
+        </div>
       )}
       <Button type="submit" disabled={status === 'sending'}>
         Anfrage senden
