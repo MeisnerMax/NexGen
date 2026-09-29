@@ -14,7 +14,7 @@ type RelatedItem = {
   title: string;
   description: string;
   href: string;
-  type: 'Blog' | 'Case Study';
+  type: 'Blog' | 'Beispielszenario';
   score: number;
 };
 
@@ -63,7 +63,7 @@ export default function RelatedContent({
         title: caseStudy.title,
         description: caseStudy.summary,
         href: `/cases/${caseStudy.slug}`,
-        type: 'Case Study' as const,
+        type: 'Beispielszenario' as const,
         score,
       };
     })

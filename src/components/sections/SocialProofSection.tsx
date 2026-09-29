@@ -9,9 +9,9 @@ export default function SocialProofSection() {
   return (
     <Section id="referenzen" divider>
       <SectionHeader
-        eyebrow="Proof statt Versprechen"
+        eyebrow="Beispiele statt Versprechen"
         title="Gute digitale Lösungen machen Komplexität unsichtbar."
-        description="Konkrete Prozessbeispiele zeigen, wie wir Struktur, Bedienbarkeit und messbare Wirkung zusammenführen."
+        description="Beispielszenarien zeigen, wie Struktur, Bedienbarkeit und messbare Wirkung zusammenkommen. Sie sind beispielhaft und keinem konkreten Kunden zugeordnet."
       />
 
       <div className="mt-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">

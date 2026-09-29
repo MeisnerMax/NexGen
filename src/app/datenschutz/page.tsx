@@ -29,7 +29,7 @@ export default function DatenschutzPage() {
         title="Ihre Daten. Transparent behandelt."
         description="Alle Informationen zur Verarbeitung personenbezogener Daten, Ihren Rechten und den eingesetzten Diensten."
         signals={[
-          { label: 'Stand', value: '09.10.2025' },
+          { label: 'Stand', value: '29.09.2026' },
           { label: 'Grundsatz', value: 'Datensparsamkeit' },
         ]}
       />
@@ -37,7 +37,7 @@ export default function DatenschutzPage() {
         <Card className="legal-document space-y-8">
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold text-slate-900">Datenschutzerklärung</h2>
-            <p className="text-xs text-slate-500">Stand: 09.10.2025</p>
+            <p className="text-xs text-slate-500">Stand: 29.09.2026</p>
           </div>
 
           <section className="space-y-3">
@@ -96,11 +96,14 @@ export default function DatenschutzPage() {
               3. Hosting und Content Delivery Network (CDN)
             </h2>
             <p className="text-sm text-slate-600">
-              Diese Website wird bei Vercel gehostet und über ein CDN ausgeliefert. Personenbezogene
-              Daten, die über die Website anfallen, werden auf den Servern des Hosters verarbeitet.
+              Diese Website sowie die Seite neximmo.nexgen-consulting.de werden bei Vercel Inc.
+              (San Francisco, USA) gehostet und über ein CDN ausgeliefert. Personenbezogene Daten,
+              die über die Website anfallen, werden auf den Servern des Hosters verarbeitet.
               Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
               sicheren und effizienten Bereitstellung). Mit dem Hoster besteht ein Vertrag zur
-              Auftragsverarbeitung (Art. 28 DSGVO).
+              Auftragsverarbeitung (Art. 28 DSGVO). Eine Übermittlung in die USA ist möglich; Vercel
+              ist unter dem EU-US Data Privacy Framework zertifiziert, ergänzend gelten
+              Standardvertragsklauseln.
             </p>
           </section>
 
@@ -121,7 +124,7 @@ export default function DatenschutzPage() {
             <p className="text-sm text-slate-600">
               Wir verwenden technisch notwendige Cookies (ohne Einwilligung zulässig) und – sofern
               Sie zustimmen – funktionale, Statistik- und Marketing-Cookies. Die Einwilligung
-              erfolgt über unser Consent-Banner (Art. 6 Abs. 1 lit. a DSGVO; § 25 TTDSG). Sie können
+              erfolgt über unser Consent-Banner (Art. 6 Abs. 1 lit. a DSGVO; § 25 TDDDG). Sie können
               Ihre Auswahl jederzeit über das Cookie-Banner ändern.
             </p>
           </section>
@@ -136,6 +139,25 @@ export default function DatenschutzPage() {
               (vorvertraglich/vertraglich) oder lit. f DSGVO (berechtigtes Interesse an effizienter
               Kommunikation). Speicherdauer: bis Zweckerfüllung, ggf. längere gesetzliche
               Aufbewahrungsfristen.
+            </p>
+            <p className="text-sm text-slate-600">
+              Nachrichten aus dem Kontaktformular und der Versand des PDF-Leitfadens laufen über
+              einen E-Mail-Dienst von Google (Google Ireland Limited, Gordon House, Barrow Street,
+              Dublin 4, Irland). Dabei kann eine Übermittlung in die USA stattfinden (EU-US Data
+              Privacy Framework, Standardvertragsklauseln).
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold text-slate-900">6a. Terminbuchung (Cal.com)</h2>
+            <p className="text-sm text-slate-600">
+              Auf der Seite „Termin“ können Sie über ein eingebettetes Buchungsformular von Cal.com
+              (Buchungsseite unter cal.eu) einen Termin vereinbaren. Das Formular wird erst geladen,
+              wenn Sie es per Klick aktivieren; erst dann werden Ihre IP-Adresse und technische Daten
+              an Cal.com übertragen. Rechtsgrundlage ist Ihre Einwilligung durch den Klick (Art. 6
+              Abs. 1 lit. a DSGVO; § 25 Abs. 1 TDDDG), für die Buchung selbst Art. 6 Abs. 1 lit. b
+              DSGVO. Die bei der Buchung angegebenen Daten (Name, E-Mail, Termin, ggf. Anliegen)
+              verarbeiten wir zur Vorbereitung und Durchführung des Termins.
             </p>
           </section>
 
@@ -189,17 +211,8 @@ export default function DatenschutzPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-semibold text-slate-900">12. Google Maps (optional)</h2>
-            <p className="text-sm text-slate-600">
-              Sofern Karten angezeigt werden, nutzen wir Google Maps (Google Ireland Limited) – erst
-              nach Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Dabei können Ihre IP-Adresse und
-              Nutzungsdaten an Google (ggf. USA) übertragen werden (EU-US DPF/SCCs).
-            </p>
-          </section>
-
-          <section className="space-y-3">
             <h2 className="text-xl font-semibold text-slate-900">
-              13. Weitergabe von Daten & Übermittlungen in Drittländer
+              12. Weitergabe von Daten & Übermittlungen in Drittländer
             </h2>
             <p className="text-sm text-slate-600">
               Eine Weitergabe erfolgt nur, wenn dies zur Vertragserfüllung erforderlich ist, eine
@@ -211,7 +224,7 @@ export default function DatenschutzPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-semibold text-slate-900">14. Speicherdauer</h2>
+            <h2 className="text-xl font-semibold text-slate-900">13. Speicherdauer</h2>
             <p className="text-sm text-slate-600">
               Wir verarbeiten personenbezogene Daten nur solange, wie es für den jeweiligen Zweck
               erforderlich ist. Danach werden die Daten gelöscht oder anonymisiert, sofern keine
@@ -220,7 +233,7 @@ export default function DatenschutzPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-semibold text-slate-900">15. Ihre Rechte</h2>
+            <h2 className="text-xl font-semibold text-slate-900">14. Ihre Rechte</h2>
             <ul className="list-disc space-y-2 pl-5 text-sm text-slate-600">
               <li>Auskunft (Art. 15 DSGVO),</li>
               <li>Berichtigung (Art. 16 DSGVO),</li>
@@ -240,7 +253,7 @@ export default function DatenschutzPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-semibold text-slate-900">16. Beschwerderecht</h2>
+            <h2 className="text-xl font-semibold text-slate-900">15. Beschwerderecht</h2>
             <p className="text-sm text-slate-600">
               Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für
               Bayern: Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522
@@ -253,7 +266,7 @@ export default function DatenschutzPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-semibold text-slate-900">17. Datensicherheit</h2>
+            <h2 className="text-xl font-semibold text-slate-900">16. Datensicherheit</h2>
             <p className="text-sm text-slate-600">
               Wir setzen TLS/SSL-Verschlüsselung, Zugriffskontrollen, regelmäßige Updates und
               geeignete technische und organisatorische Maßnahmen ein, um Ihre Daten zu schützen.
@@ -261,7 +274,7 @@ export default function DatenschutzPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-semibold text-slate-900">18. Aktualität und Änderungen</h2>
+            <h2 className="text-xl font-semibold text-slate-900">17. Aktualität und Änderungen</h2>
             <p className="text-sm text-slate-600">
               Wir behalten uns vor, diese Erklärung anzupassen, z. B. bei Einführung neuer Dienste
               oder geänderter Rechtslage.

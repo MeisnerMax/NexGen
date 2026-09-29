@@ -12,8 +12,8 @@ const routeKeywords = getRouteKeywords('/cases');
 
 export const metadata = buildMetadata({
   path: '/cases',
-  title: 'Case Studies: Prozessautomatisierung in KMU',
-  benefit: 'Praxisnahe Beispiele mit klaren Ergebnissen und messbarer Entlastung in KMU.',
+  title: 'Beispielszenarien: Prozessautomatisierung in KMU',
+  benefit: 'Beispielszenarien, die typische Ausgangslagen und Lösungswege in KMU zeigen.',
   keywords: routeKeywords?.secondary,
 });
 
@@ -28,11 +28,11 @@ export default function CasesPage() {
     <>
       <PageHero
         breadcrumbs={[{ label: 'Start', href: '/' }, { label: 'Cases' }]}
-        eyebrow="Cases · Wirkung im Betrieb"
-        title="Ergebnisse, die man im Alltag merkt."
-        description="Keine Hochglanz-Versprechen: konkrete Ausgangslagen, nachvollziehbare Umsetzung und Kennzahlen, die den Unterschied sichtbar machen."
+        eyebrow="Beispielszenarien"
+        title="So laufen typische Projekte ab."
+        description="Keine Hochglanz-Versprechen: typische Ausgangslagen, nachvollziehbare Umsetzung und die Wirkung, auf die es ankommt. Die Szenarien sind beispielhaft und keinem konkreten Kunden zugeordnet."
         signals={[
-          { label: 'Fokus', value: 'Praxisbelege' },
+          { label: 'Art', value: 'Beispielszenarien' },
           { label: 'Maßstab', value: 'Messbare Entlastung' },
         ]}
       >
@@ -42,7 +42,7 @@ export default function CasesPage() {
       </PageHero>
       <Section>
         <SectionHeader
-          eyebrow="Ausgewählte Fallbeispiele"
+          eyebrow="Beispielszenarien"
           title="Vom Engpass zum belastbaren System."
           description="Jeder Case folgt derselben Logik: verstehen, priorisieren, sauber umsetzen und Wirkung überprüfen."
         />

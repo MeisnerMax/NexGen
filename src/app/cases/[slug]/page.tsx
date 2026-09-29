@@ -18,7 +18,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const caseStudy = getCase(params.slug);
   if (!caseStudy) {
-    return buildMetadata({ title: 'Case Study', path: '/cases' });
+    return buildMetadata({ title: 'Beispielszenario', path: '/cases' });
   }
   const routeKeywords = getRouteKeywords('/cases/[slug]');
   const mapped = keywordMap.content.cases[caseStudy.slug] ?? [];
@@ -70,10 +70,11 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
     <>
       <PageHero
         breadcrumbs={breadcrumbItems}
-        eyebrow={`${caseStudy.industry} · Case Study`}
+        eyebrow={`${caseStudy.industry} · Beispielszenario`}
         title={caseStudy.title}
         description={caseStudy.summary}
         signals={[
+          { label: 'Art', value: 'Beispielszenario' },
           { label: 'Branche', value: caseStudy.industry },
           { label: 'Systeme', value: `${caseStudy.stack.length} Bausteine` },
         ]}
@@ -82,7 +83,7 @@ export default function CaseDetailPage({ params }: { params: { slug: string } })
           Ähnliches Potenzial prüfen <span aria-hidden="true">↗</span>
         </ButtonLink>
         <ButtonLink href="/cases" variant="dark">
-          Alle Cases
+          Alle Beispiele
         </ButtonLink>
       </PageHero>
 

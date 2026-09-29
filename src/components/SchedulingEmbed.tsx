@@ -2,15 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/Button';
-import { useConsent } from '@/hooks/useConsent';
 import { trackingEvents, trackEvent } from '@/lib/tracking';
 import { siteConfig } from '@/lib/site';
 
 export default function SchedulingEmbed() {
-  const { consent } = useConsent();
   const [manualLoad, setManualLoad] = useState(false);
 
-  const shouldLoad = Boolean(consent?.analytics) || manualLoad;
+  const shouldLoad = manualLoad;
 
   useEffect(() => {
     if (shouldLoad) {
@@ -23,7 +21,7 @@ export default function SchedulingEmbed() {
       <div className="rounded-3xl border border-slate-200 bg-white/80 p-8 text-center">
         <p className="text-sm font-semibold text-slate-900">Kalender laden</p>
         <p className="mt-3 text-sm text-slate-600">
-          Das Termin-Widget lädt externe Inhalte. Sie können es mit einem Klick aktivieren.
+          Das Termin-Widget wird von Cal.com geladen. Erst mit dem Klick werden Daten (z. B. Ihre IP-Adresse) an Cal.com übertragen. Details in der Datenschutzerklärung.
         </p>
         <Button className="mt-5" onClick={() => setManualLoad(true)}>
           Termin-Widget anzeigen

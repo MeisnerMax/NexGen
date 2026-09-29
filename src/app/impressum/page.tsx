@@ -11,7 +11,7 @@ const routeKeywords = getRouteKeywords('/impressum');
 export const metadata = buildMetadata({
   path: '/impressum',
   title: 'Impressum',
-  benefit: 'Angaben gemäß § 5 TMG und Kontaktinformationen von NexGen Consulting.',
+  benefit: 'Angaben gemäß § 5 DDG und Kontaktinformationen von Max Meisner (NexGen Consulting).',
   keywords: routeKeywords?.secondary,
 });
 
@@ -28,16 +28,18 @@ export default function ImpressumPage() {
         title="Impressum"
         description="Verantwortliche Stelle, Kontaktinformationen und rechtliche Angaben zu NexGen Consulting."
         signals={[
-          { label: 'Unternehmen', value: 'NexGen Consulting' },
+          { label: 'Anbieter', value: 'Max Meisner' },
           { label: 'Standort', value: 'Coburg' },
         ]}
       />
       <Section>
         <Card className="legal-document space-y-8">
           <section className="space-y-2 text-sm text-slate-600">
-            <h2 className="text-xl font-semibold text-slate-900">Angaben gemäß § 5 TMG</h2>
+            <h2 className="text-xl font-semibold text-slate-900">Angaben gemäß § 5 DDG</h2>
             <p>
-              {siteConfig.legalName} – NexGen Consulting
+              {siteConfig.legalName}
+              <br />
+              Einzelunternehmen, Geschäftsbezeichnung: NexGen Consulting
               <br />
               {siteConfig.address.street}, {siteConfig.address.zip} {siteConfig.address.city}
               <br />
@@ -63,21 +65,27 @@ export default function ImpressumPage() {
 
           <section className="space-y-2 text-sm text-slate-600">
             <h2 className="text-xl font-semibold text-slate-900">
-              Umsatzsteuer-Identifikationsnummer
-            </h2>
-            <p>USt-IdNr.: folgt</p>
-          </section>
-
-          <section className="space-y-2 text-sm text-slate-600">
-            <h2 className="text-xl font-semibold text-slate-900">Registereintrag</h2>
-            <p>folgt</p>
-          </section>
-
-          <section className="space-y-2 text-sm text-slate-600">
-            <h2 className="text-xl font-semibold text-slate-900">
               Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV
             </h2>
             <p>{siteConfig.legalName}</p>
+          </section>
+
+          <section className="space-y-2 text-sm text-slate-600">
+            <h2 className="text-xl font-semibold text-slate-900">Geltungsbereich</h2>
+            <p>
+              Dieses Impressum gilt für nexgen-consulting.de sowie für die Angebote NexImmo
+              (neximmo.nexgen-consulting.de), NexHotels (hotels.nexgen-consulting.de) und NexAsset
+              (nexasset.nexgen-consulting.de). Alle Angebote werden von {siteConfig.legalName} als
+              Einzelunternehmer betrieben.
+            </p>
+          </section>
+
+          <section className="space-y-2 text-sm text-slate-600">
+            <h2 className="text-xl font-semibold text-slate-900">Zielgruppe</h2>
+            <p>
+              Die Angebote richten sich ausschließlich an Unternehmer im Sinne von § 14 BGB,
+              Vereine und öffentliche Einrichtungen, nicht an Verbraucher.
+            </p>
           </section>
 
           <section className="space-y-2 text-sm text-slate-600">
