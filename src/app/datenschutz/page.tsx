@@ -37,7 +37,7 @@ export default function DatenschutzPage() {
         <Card className="legal-document space-y-8">
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold text-slate-900">Datenschutzerklärung</h2>
-            <p className="text-xs text-slate-500">Stand: 29.09.2026</p>
+            <p className="text-xs text-slate-500">Stand: 01.10.2026</p>
           </div>
 
           <section className="space-y-3">
@@ -48,7 +48,7 @@ export default function DatenschutzPage() {
             </p>
             <h3 className="text-sm font-semibold text-slate-900">Wer ist verantwortlich?</h3>
             <p className="text-sm text-slate-600">
-              {siteConfig.legalName} – NexGen Consulting, {siteConfig.address.street},{' '}
+              {siteConfig.legalName}, Inhaber {siteConfig.owner}, {siteConfig.address.street},{' '}
               {siteConfig.address.zip} {siteConfig.address.city}, E-Mail: {siteConfig.email},
               Telefon: {siteConfig.phone}.
             </p>
@@ -74,7 +74,7 @@ export default function DatenschutzPage() {
           <section className="space-y-3">
             <h2 className="text-xl font-semibold text-slate-900">2. Verantwortliche Stelle</h2>
             <p className="text-sm text-slate-600">
-              {siteConfig.legalName} (NexGen Consulting)
+              {siteConfig.legalName}, Inhaber {siteConfig.owner}
               <br />
               {siteConfig.address.street}, {siteConfig.address.zip} {siteConfig.address.city}
               <br />
