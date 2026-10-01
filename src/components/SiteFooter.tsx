@@ -97,7 +97,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-4 border-t border-white/10 pt-7 text-xs text-[#728a96] md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} NexGen Consulting. Alle Rechte vorbehalten.</p>
+          <p>© {new Date().getFullYear()} {siteConfig.legalName}. Alle Rechte vorbehalten.</p>
           <div className="flex gap-5">
             {Object.entries(siteConfig.social)
               .filter(([, href]) => Boolean(href))

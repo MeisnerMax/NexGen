@@ -1,6 +1,8 @@
 export const siteConfig = {
   name: 'NexGen Consulting',
-  legalName: 'Max Meisner',
+  /** Rechtlicher Name laut Gewerbeanmeldung (Einzelunternehmen). Marken: NexGen Consulting, NexImmo, NexAsset, NexHotels. */
+  legalName: 'Meisner-Ventures',
+  owner: 'Max Meisner',
   description:
     'NexGen Consulting automatisiert Prozesse und liefert digitale Lösungen, die KMU messbar entlasten.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexgen-consulting.de',
