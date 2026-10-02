@@ -1389,26 +1389,6 @@ button {
   align-items: stretch;
 }
 
-.about-stage__portrait {
-  position: relative;
-  min-height: 28rem;
-  overflow: hidden;
-  border-radius: 1.4rem;
-  background: white;
-}
-
-.about-stage__halo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(90%, 34rem);
-  aspect-ratio: 1;
-  border: 1px solid rgba(240, 132, 61, 0.22);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 86, 11, 0.18), transparent 68%);
-  transform: translate(-50%, -42%);
-}
-
 .about-stage__copy {
   align-self: center;
   padding: 2rem 0;
@@ -1567,9 +1547,6 @@ button {
   .proof-feature {
     grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   }
-  .about-stage {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  }
 }
 
 @media (max-width: 767px) {
@@ -1635,9 +1612,6 @@ button {
   }
   .proof-feature__visual {
     min-height: 14rem;
-  }
-  .about-stage__portrait {
-    min-height: 22rem;
   }
 }
 
