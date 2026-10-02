@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ButtonLink } from '@/components/Button';
 import { Section } from '@/components/Section';
 
@@ -6,17 +5,6 @@ export default function AboutSection() {
   return (
     <Section id="ansprechpartner" className="overflow-hidden bg-[var(--color-primary)] text-white">
       <div className="about-stage">
-        <div className="about-stage__portrait" aria-hidden="true">
-          <div className="about-stage__halo" />
-          <Image
-            src="/images/max-meisner.webp"
-            alt=""
-            width={1254}
-            height={1254}
-            sizes="(max-width: 1024px) 80vw, 42vw"
-            className="relative z-10 h-full w-full object-contain object-bottom"
-          />
-        </div>
         <div className="about-stage__copy">
           <p className="eyebrow eyebrow--light">Direkter Ansprechpartner</p>
           <h2>Technik verständlich. Umsetzung verbindlich.</h2>
