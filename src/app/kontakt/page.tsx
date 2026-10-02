@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Card } from '@/components/Card';
 import { Section, SectionHeader } from '@/components/Section';
 import { PageHero } from '@/components/PageHero';
@@ -54,15 +53,6 @@ export default function ContactPage() {
             </Card>
           </div>
           <aside className="dark-cta self-start p-6 md:p-8">
-            <div className="relative z-10 overflow-hidden rounded-[1.4rem] bg-white">
-              <Image
-                src="/images/max-meisner.webp"
-                alt="Max Meisner"
-                width={1254}
-                height={1254}
-                className="aspect-square w-full object-cover"
-              />
-            </div>
             <p className="eyebrow eyebrow--light mt-7">Ihr Ansprechpartner</p>
             <h2 className="mt-3 text-3xl font-semibold text-white">Max Meisner</h2>
             <p className="mt-4 text-sm leading-7">
