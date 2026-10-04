@@ -27,6 +27,21 @@ export const metadata: Metadata = {
     template: '%s | NexGen Consulting',
   },
   description: siteConfig.description,
+  icons: {
+    icon: [
+      {
+        url: '/images/logo.png',
+        type: 'image/png',
+      },
+    ],
+    shortcut: ['/images/logo.png'],
+    apple: [
+      {
+        url: '/images/logo.png',
+        type: 'image/png',
+      },
+    ],
+  },
   openGraph: {
     title: 'Digitalisierung & Prozessautomatisierung für KMU',
     description: siteConfig.description,
