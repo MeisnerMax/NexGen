@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'NexGen Consulting',
-  /** Rechtlicher Name laut Gewerbeanmeldung (Einzelunternehmen). Marken: NexGen Consulting, NexImmo, NexAsset, NexHotels. */
+  /** Rechtlicher Name laut Gewerbeanmeldung (Einzelunternehmen). Marken: NexGen Consulting, NexAsset, NexHotels. */
   legalName: 'Meisner-Ventures',
   owner: 'Max Meisner',
   description:
@@ -48,7 +48,7 @@ export const navLinks: NavLink[] = [
 
 export const footerLinks = {
   company: [
-    { label: 'NexImmo', href: 'https://neximmo.nexgen-consulting.de' },
+    { label: 'NexAsset', href: process.env.NEXT_PUBLIC_NEXASSET_SITE_URL ?? 'https://neximmo.nexgen-consulting.de' },
     { label: 'NexHotels', href: 'https://hotels.nexgen-consulting.de' },
     { label: 'Leistungen', href: '/leistungen' },
     { label: 'Cases', href: '/cases' },

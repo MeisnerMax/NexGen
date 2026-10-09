@@ -96,7 +96,7 @@ export default function DatenschutzPage() {
               3. Hosting und Content Delivery Network (CDN)
             </h2>
             <p className="text-sm text-slate-600">
-              Diese Website sowie die Seite neximmo.nexgen-consulting.de werden bei Vercel Inc.
+              Diese Website sowie die NexAsset-Produktseite (neximmo.nexgen-consulting.de) werden bei Vercel Inc.
               (San Francisco, USA) gehostet und über ein CDN ausgeliefert. Personenbezogene Daten,
               die über die Website anfallen, werden auf den Servern des Hosters verarbeitet.
               Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
