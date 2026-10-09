@@ -11,7 +11,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import JsonLd, { buildFaqSchema } from '@/seo/JsonLd';
 import { buildMetadata } from '@/seo/metadata';
 import { getRouteKeywords } from '@/seo/keywordMap';
-import { siteConfig } from '@/lib/site';
+import { nexassetSiteUrl, siteConfig } from '@/lib/site';
 import { homeFaqs } from '@/lib/data';
 
 const routeKeywords = getRouteKeywords('/');
@@ -41,6 +41,7 @@ export default function HomePage() {
     logo: `${siteConfig.url}/images/logo.png`,
     email: siteConfig.email,
     sameAs,
+    brand: [{ '@type': 'Brand', name: 'NexAsset', url: nexassetSiteUrl }],
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: siteConfig.phone,

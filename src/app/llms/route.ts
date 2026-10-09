@@ -1,4 +1,4 @@
-import { siteConfig } from '@/lib/site';
+import { nexassetSiteUrl, siteConfig } from '@/lib/site';
 
 const lines = [
   '# NexGen Consulting',
@@ -13,6 +13,15 @@ const lines = [
   '- Website & SEO (Strategie, Design, Content, Conversion)',
   '- Microsoft 365 (Excel, Teams, Automatisierung)',
   '- KI (Schulung, Nutzung, Chatbots)',
+  '',
+  'own software product:',
+  '- NexAsset: Immobiliensoftware (Hausverwaltung, Asset Management, Projektentwicklung, Hotel, KI-Assistent, Zeiterfassung, E-Rechnung)',
+  `- ${nexassetSiteUrl}`,
+  `- ${nexassetSiteUrl}/hausverwaltungssoftware`,
+  `- ${nexassetSiteUrl}/asset-management-software`,
+  `- ${nexassetSiteUrl}/projektentwicklung-software`,
+  `- ${nexassetSiteUrl}/hotelsoftware`,
+  `- ${nexassetSiteUrl}/ki-assistent-immobilien`,
   '',
   'key pages:',
   `- ${siteConfig.url}/leistungen`,

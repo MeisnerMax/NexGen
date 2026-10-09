@@ -23,7 +23,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="grid gap-12 py-14 md:grid-cols-[1.6fr,1fr,1fr]">
+        <div className="grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-[1.5fr,1fr,1fr,1fr]">
           <div>
             <div className="flex items-center gap-3">
               <span
@@ -59,6 +59,20 @@ export default function SiteFooter() {
                 </a>
               </p>
             </address>
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#728a96]">
+              Software
+            </p>
+            <ul className="mt-5 space-y-3">
+              {footerLinks.software.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-sm text-[#c2cdd2] transition hover:text-white">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#728a96]">

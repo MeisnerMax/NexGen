@@ -101,6 +101,11 @@ export const primaryServices: ServiceDetail[] = [
           'Wir beziehen die späteren Nutzer früh ein, validieren Prototypen und liefern eine Bedienung, die sich an Ihren Alltag anpasst.',
       },
       {
+        question: 'Gibt es auch fertige Software von euch?',
+        answer:
+          'Ja. Für Immobilien, Hotels und Teams vor Ort entwickeln und betreiben wir NexAsset – mit Paketen für Hausverwaltung, Asset Management, Projektentwicklung, Hotel und einem KI-Assistenten, 14 Tage kostenlos testbar.',
+      },
+      {
         question: 'Können wir später erweitern?',
         answer:
           'Ja. Wir bauen modular, damit neue Funktionen ohne Komplettumbau ergänzt werden können.',

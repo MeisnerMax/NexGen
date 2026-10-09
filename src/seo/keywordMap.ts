@@ -168,6 +168,7 @@ export const keywordMap: KeywordMap = {
   },
   content: {
     blog: {
+      'hausverwaltungssoftware-auswahl': ['Hausverwaltungssoftware', 'WEG-Verwaltung', 'Mietverwaltung', 'Immobiliensoftware', 'Digitalisierung'],
       'automatisierung-kmu-roi': [
         'Prozessautomatisierung',
         'ROI',

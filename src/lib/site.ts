@@ -46,9 +46,19 @@ export const navLinks: NavLink[] = [
   { label: 'Kontakt', href: '/kontakt' },
 ];
 
+/** Eigene Software NexAsset (Produktseite auf eigener Subdomain) – Themenseiten für die Suche verlinken. */
+export const nexassetSiteUrl = process.env.NEXT_PUBLIC_NEXASSET_SITE_URL ?? 'https://neximmo.nexgen-consulting.de';
+
 export const footerLinks = {
+  software: [
+    { label: 'NexAsset – Immobiliensoftware', href: nexassetSiteUrl },
+    { label: 'Hausverwaltungssoftware', href: `${nexassetSiteUrl}/hausverwaltungssoftware` },
+    { label: 'Asset-Management-Software', href: `${nexassetSiteUrl}/asset-management-software` },
+    { label: 'Software für Projektentwicklung', href: `${nexassetSiteUrl}/projektentwicklung-software` },
+    { label: 'Hotelsoftware', href: `${nexassetSiteUrl}/hotelsoftware` },
+    { label: 'KI-Assistent für Immobilien', href: `${nexassetSiteUrl}/ki-assistent-immobilien` },
+  ],
   company: [
-    { label: 'NexAsset', href: process.env.NEXT_PUBLIC_NEXASSET_SITE_URL ?? 'https://neximmo.nexgen-consulting.de' },
     { label: 'NexHotels', href: 'https://hotels.nexgen-consulting.de' },
     { label: 'Leistungen', href: '/leistungen' },
     { label: 'Cases', href: '/cases' },
