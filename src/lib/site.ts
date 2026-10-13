@@ -46,8 +46,8 @@ export const navLinks: NavLink[] = [
   { label: 'Kontakt', href: '/kontakt' },
 ];
 
-/** Eigene Software NexAsset (Produktseite auf eigener Subdomain) – Themenseiten für die Suche verlinken. */
-export const nexassetSiteUrl = process.env.NEXT_PUBLIC_NEXASSET_SITE_URL ?? 'https://neximmo.nexgen-consulting.de';
+/** Eigene Software NexAsset (Produktseite als Unterordner dieser Domain) – Themenseiten für die Suche verlinken. */
+export const nexassetSiteUrl = process.env.NEXT_PUBLIC_NEXASSET_SITE_URL ?? 'https://nexgen-consulting.de/nexasset';
 
 export const footerLinks = {
   software: [

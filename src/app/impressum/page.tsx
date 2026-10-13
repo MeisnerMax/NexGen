@@ -74,7 +74,7 @@ export default function ImpressumPage() {
             <h2 className="text-xl font-semibold text-slate-900">Geltungsbereich</h2>
             <p>
               Dieses Impressum gilt für nexgen-consulting.de sowie für die Angebote NexAsset
-              (Anwendung unter nexasset.nexgen-consulting.de, Produktseite unter neximmo.nexgen-consulting.de)
+              (Anwendung unter nexasset.nexgen-consulting.de, Produktseite unter nexgen-consulting.de/nexasset)
               und NexHotels (hotels.nexgen-consulting.de). NexGen Consulting, NexAsset und NexHotels sind
               Marken von {siteConfig.legalName}; alle Angebote werden von {siteConfig.legalName}
               (Inhaber {siteConfig.owner}, Einzelunternehmen) betrieben.

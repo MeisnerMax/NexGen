@@ -11,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     host: siteConfig.url,
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: [`${siteConfig.url}/sitemap.xml`, `${siteConfig.url}/nexasset/sitemap.xml`],
   };
 }
