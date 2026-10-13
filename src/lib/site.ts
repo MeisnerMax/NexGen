@@ -26,10 +26,25 @@ export const siteConfig = {
 export type NavLink = {
   label: string;
   href: string;
+  /** Kopfzeile im Ausklappmenü (Standard: Leistungsbereiche). */
+  intro?: { eyebrow: string; text: string };
   children?: { label: string; href: string }[];
 };
 
 export const navLinks: NavLink[] = [
+  {
+    label: 'NexAsset',
+    href: '/nexasset',
+    intro: { eyebrow: 'Eigene Software', text: 'Immobilien, Hotels und Teams in einer Anwendung – ab 99 € im Monat, 14 Tage kostenlos testen.' },
+    children: [
+      { label: 'Überblick & Pakete', href: '/nexasset' },
+      { label: 'Preise', href: '/nexasset/preise' },
+      { label: 'Hausverwaltungssoftware', href: '/nexasset/hausverwaltungssoftware' },
+      { label: 'Asset-Management-Software', href: '/nexasset/asset-management-software' },
+      { label: 'Hotelsoftware', href: '/nexasset/hotelsoftware' },
+      { label: '14 Tage kostenlos testen', href: 'https://nexasset.nexgen-consulting.de/registrieren' },
+    ],
+  },
   {
     label: 'Leistungen',
     href: '/leistungen',
@@ -52,6 +67,7 @@ export const nexassetSiteUrl = process.env.NEXT_PUBLIC_NEXASSET_SITE_URL ?? 'htt
 export const footerLinks = {
   software: [
     { label: 'NexAsset – Immobiliensoftware', href: nexassetSiteUrl },
+    { label: 'NexAsset Preise', href: `${nexassetSiteUrl}/preise` },
     { label: 'Hausverwaltungssoftware', href: `${nexassetSiteUrl}/hausverwaltungssoftware` },
     { label: 'Asset-Management-Software', href: `${nexassetSiteUrl}/asset-management-software` },
     { label: 'Software für Projektentwicklung', href: `${nexassetSiteUrl}/projektentwicklung-software` },

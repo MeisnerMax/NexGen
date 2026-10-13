@@ -1645,3 +1645,36 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Startseite: eigene Software NexAsset */
+.nexasset-band { padding: clamp(2.5rem, 6vw, 4.5rem) 0; background: var(--color-surface); }
+.nexasset-band__box { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; padding: clamp(1.4rem, 4vw, 2.8rem); border-radius: 1.6rem; color: white; background: linear-gradient(150deg, var(--color-primary), var(--color-primary-soft)); box-shadow: 0 30px 60px -40px rgba(7, 28, 44, 0.8); }
+.nexasset-band__copy h2 { margin-top: 0.8rem; color: white; font-size: clamp(1.9rem, 3.6vw, 3rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; }
+.nexasset-band__copy > p:not(.eyebrow) { margin-top: 1rem; color: #b7c4ca; font-size: 1rem; line-height: 1.65; }
+.nexasset-band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 1.6rem; }
+.nexasset-band__button { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.45rem; padding: 0.7rem 1.2rem; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 999px; color: white; font-size: 0.9rem; font-weight: 600; text-decoration: none; background: rgba(255, 255, 255, 0.05); transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+.nexasset-band__button:hover { border-color: rgba(255, 255, 255, 0.45); background: rgba(255, 255, 255, 0.1); transform: translateY(-1px); }
+.nexasset-band__button--primary { border-color: var(--color-accent); background: var(--color-accent); }
+.nexasset-band__button--primary:hover { border-color: var(--color-accent-strong); background: var(--color-accent-strong); }
+.nexasset-band__link { color: #f6a46f; font-size: 0.9rem; font-weight: 600; text-decoration: none; }
+.nexasset-band__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; margin: 0; padding: 0; list-style: none; }
+.nexasset-band__grid li { display: grid; gap: 0.25rem; min-width: 0; padding: 0.95rem 1rem; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; background: rgba(255, 255, 255, 0.04); }
+.nexasset-band__grid strong { color: white; font-size: 0.98rem; }
+.nexasset-band__grid span { color: #a9b8bf; font-size: 0.8rem; line-height: 1.45; }
+.nexasset-band__grid em { margin-top: 0.2rem; color: #f6a46f; font-size: 0.85rem; font-style: normal; font-weight: 700; }
+@media (max-width: 900px) { .nexasset-band__box { grid-template-columns: 1fr; } }
+@media (max-width: 520px) {
+  .nexasset-band__grid { grid-template-columns: 1fr; }
+  .nexasset-band__grid li { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: 0.75rem; }
+  .nexasset-band__grid span { grid-column: 1 / -1; grid-row: 2; }
+  .nexasset-band__grid em { grid-column: 2; grid-row: 1; margin-top: 0; }
+  .nexasset-band__button { width: 100%; justify-content: center; }
+}
+
+/* Hinweis auf NexAsset im Kopfbereich */
+.hero-stage__news { display: inline-flex; max-width: 100%; align-items: center; gap: 0.55rem; margin-bottom: 1.2rem; padding: 0.4rem 0.85rem 0.4rem 0.45rem; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 999px; color: #d8e1e5; font-size: 0.82rem; text-decoration: none; background: rgba(255, 255, 255, 0.05); }
+.hero-stage__news b { flex: none; padding: 0.15rem 0.55rem; border-radius: 999px; color: white; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--color-accent); }
+.hero-stage__news span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero-stage__news:hover { border-color: rgba(255, 255, 255, 0.35); }
+.hero-stage__copy { min-width: 0; }
+@media (max-width: 520px) { .hero-stage__news span:nth-child(2) { white-space: normal; } .hero-stage__news { border-radius: 1rem; align-items: flex-start; } }
