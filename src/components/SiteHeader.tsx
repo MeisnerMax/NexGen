@@ -1,12 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentPropsWithoutRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { navLinks } from '@/lib/site';
 import { ButtonLink } from '@/components/Button';
 import { trackingEvents } from '@/lib/tracking';
 import { cn } from '@/lib/utils';
+
+/** Links auf /nexasset (eigenes Projekt per Rewrite) und externe Adressen als normaler Link, alles andere über next/link. */
+function NavAnchor({ href, ...props }: ComponentPropsWithoutRef<'a'> & { href: string }) {
+  if (href.startsWith('/nexasset') || href.startsWith('http')) return <a href={href} {...props} />;
+  return <Link href={href} {...props} />;
+}
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -30,7 +36,7 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[rgba(255,253,249,0.92)] backdrop-blur-xl">
       <div className="section-shell flex h-[4.75rem] items-center justify-between gap-6">
-        <Link
+        <NavAnchor
           href="/"
           className="group flex shrink-0 items-center gap-3"
           aria-label="NexGen Consulting – Startseite"
@@ -53,14 +59,14 @@ export default function SiteHeader() {
               Consulting
             </small>
           </span>
-        </Link>
+        </NavAnchor>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
           {navLinks.map((link) => {
             const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             if (!link.children) {
               return (
-                <Link
+                <NavAnchor
                   key={link.href}
                   href={link.href}
                   aria-current={active ? 'page' : undefined}
@@ -70,7 +76,7 @@ export default function SiteHeader() {
                   )}
                 >
                   {link.label}
-                </Link>
+                </NavAnchor>
               );
             }
 
@@ -86,7 +92,7 @@ export default function SiteHeader() {
                     setActiveDropdown(null);
                 }}
               >
-                <Link
+                <NavAnchor
                   href={link.href}
                   className={cn(
                     'flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-[var(--color-muted)] transition hover:bg-white hover:text-[var(--color-primary)]',
@@ -110,7 +116,7 @@ export default function SiteHeader() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </Link>
+                </NavAnchor>
                 <div
                   className={cn(
                     'absolute left-0 top-[calc(100%+0.85rem)] w-[22rem] origin-top-left rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-2 opacity-0 shadow-[var(--shadow-card)] transition duration-200',
@@ -120,13 +126,13 @@ export default function SiteHeader() {
                   )}
                 >
                   <div className="px-3 pb-2 pt-3">
-                    <p className="eyebrow">Leistungsbereiche</p>
+                    <p className="eyebrow">{link.intro?.eyebrow ?? 'Leistungsbereiche'}</p>
                     <p className="mt-2 text-xs leading-5 text-[var(--color-muted)]">
-                      Vom größten operativen Engpass bis zur stabilen digitalen Lösung.
+                      {link.intro?.text ?? 'Vom größten operativen Engpass bis zur stabilen digitalen Lösung.'}
                     </p>
                   </div>
                   {link.children.map((child, index) => (
-                    <Link
+                    <NavAnchor
                       key={child.href}
                       href={child.href}
                       className="group flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-accent-soft)]"
@@ -143,7 +149,7 @@ export default function SiteHeader() {
                       >
                         ↗
                       </span>
-                    </Link>
+                    </NavAnchor>
                   ))}
                 </div>
               </div>
@@ -208,7 +214,7 @@ export default function SiteHeader() {
         <nav className="section-shell py-8" aria-label="Mobile Navigation">
           {navLinks.map((link) => (
             <div key={link.href} className="border-b border-[var(--color-border)] py-4">
-              <Link
+              <NavAnchor
                 href={link.href}
                 className="flex items-center justify-between text-xl font-semibold text-[var(--color-primary)]"
               >
@@ -216,17 +222,17 @@ export default function SiteHeader() {
                 <span className="text-[var(--color-accent)]" aria-hidden="true">
                   ↗
                 </span>
-              </Link>
+              </NavAnchor>
               {link.children && (
                 <div className="mt-3 grid gap-2">
                   {link.children.map((child) => (
-                    <Link
+                    <NavAnchor
                       key={child.href}
                       href={child.href}
                       className="py-1 text-sm text-[var(--color-muted)]"
                     >
                       {child.label}
-                    </Link>
+                    </NavAnchor>
                   ))}
                 </div>
               )}

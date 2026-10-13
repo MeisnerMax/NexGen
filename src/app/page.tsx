@@ -1,5 +1,6 @@
 import HeroSection from '@/components/sections/HeroSection';
 import ProblemSection from '@/components/sections/ProblemSection';
+import NexAssetSection from '@/components/sections/NexAssetSection';
 import ImpactSection from '@/components/sections/ImpactSection';
 import OfferingsOverviewSection from '@/components/sections/OfferingsOverviewSection';
 import MethodSection from '@/components/sections/MethodSection';
@@ -97,6 +98,7 @@ export default function HomePage() {
     <>
       <JsonLd data={jsonLdData} />
       <HeroSection />
+      <NexAssetSection />
       <ProblemSection />
       <ImpactSection />
       <OfferingsOverviewSection />
