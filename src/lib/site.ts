@@ -35,7 +35,7 @@ export const navLinks: NavLink[] = [
   {
     label: 'NexAsset',
     href: '/nexasset',
-    intro: { eyebrow: 'Eigene Software', text: 'Immobilien, Hotels und Teams in einer Anwendung – ab 99 € im Monat, 14 Tage kostenlos testen.' },
+    intro: { eyebrow: 'Eigene Software', text: 'Immobilien, Hotels und Teams in einer Anwendung – 14 Tage kostenlos testen.' },
     children: [
       { label: 'Überblick & Pakete', href: '/nexasset' },
       { label: 'Preise', href: '/nexasset/preise' },

@@ -1656,18 +1656,13 @@ button {
 .nexasset-band__button:hover { border-color: rgba(255, 255, 255, 0.45); background: rgba(255, 255, 255, 0.1); transform: translateY(-1px); }
 .nexasset-band__button--primary { border-color: var(--color-accent); background: var(--color-accent); }
 .nexasset-band__button--primary:hover { border-color: var(--color-accent-strong); background: var(--color-accent-strong); }
-.nexasset-band__link { color: #f6a46f; font-size: 0.9rem; font-weight: 600; text-decoration: none; }
 .nexasset-band__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; margin: 0; padding: 0; list-style: none; }
 .nexasset-band__grid li { display: grid; gap: 0.25rem; min-width: 0; padding: 0.95rem 1rem; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; background: rgba(255, 255, 255, 0.04); }
 .nexasset-band__grid strong { color: white; font-size: 0.98rem; }
 .nexasset-band__grid span { color: #a9b8bf; font-size: 0.8rem; line-height: 1.45; }
-.nexasset-band__grid em { margin-top: 0.2rem; color: #f6a46f; font-size: 0.85rem; font-style: normal; font-weight: 700; }
 @media (max-width: 900px) { .nexasset-band__box { grid-template-columns: 1fr; } }
 @media (max-width: 520px) {
   .nexasset-band__grid { grid-template-columns: 1fr; }
-  .nexasset-band__grid li { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: 0.75rem; }
-  .nexasset-band__grid span { grid-column: 1 / -1; grid-row: 2; }
-  .nexasset-band__grid em { grid-column: 2; grid-row: 1; margin-top: 0; }
   .nexasset-band__button { width: 100%; justify-content: center; }
 }
 
