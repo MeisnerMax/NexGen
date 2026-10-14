@@ -9,7 +9,7 @@ export default function HeroSection() {
         <div className="hero-stage__copy">
           <a className="hero-stage__news" href="/nexasset">
             <b>Software</b>
-            <span>NexAsset – für Immobilien, Hotels &amp; Teams · ab 99 € im Monat</span>
+            <span>NexAsset – Software für Immobilien, Hotels &amp; Teams</span>
             <span aria-hidden="true">→</span>
           </a>
           <p className="eyebrow eyebrow--light">Prozessautomatisierung für KMU</p>
